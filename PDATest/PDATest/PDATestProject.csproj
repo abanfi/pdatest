@@ -34,6 +34,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,6 +45,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PartnerControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PartnerControl.Designer.cs">
+      <DependentUpon>PartnerControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MasterDataControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MasterDataControl.Designer.cs">
+      <DependentUpon>MasterDataControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="DefaultParametersControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -64,6 +77,12 @@
     <Compile Include="PackageControl.Designer.cs">
       <DependentUpon>PackageControl.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="PartnerControl.resx">
+      <DependentUpon>PartnerControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterDataControl.resx">
+      <DependentUpon>MasterDataControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DefaultParametersControl.resx">
       <DependentUpon>DefaultParametersControl.cs</DependentUpon>
     </EmbeddedResource>
