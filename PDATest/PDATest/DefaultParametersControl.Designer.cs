@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.terminalLabel = new System.Windows.Forms.Label();
             this.transactionLabel = new System.Windows.Forms.Label();
             this.offlineLabel = new System.Windows.Forms.Label();
@@ -36,6 +37,8 @@
             this.transactionTextBox = new System.Windows.Forms.TextBox();
             this.offlineComboBox = new System.Windows.Forms.ComboBox();
             this.languageComboBox = new System.Windows.Forms.ComboBox();
+            this.defaultDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.defaultDataBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // terminalLabel
@@ -76,6 +79,7 @@
             // 
             // terminalTextBox
             // 
+            this.terminalTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.defaultDataBindingSource, "terminalId", true));
             this.terminalTextBox.Location = new System.Drawing.Point(23, 37);
             this.terminalTextBox.Name = "terminalTextBox";
             this.terminalTextBox.Size = new System.Drawing.Size(132, 20);
@@ -83,6 +87,7 @@
             // 
             // transactionTextBox
             // 
+            this.transactionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.defaultDataBindingSource, "transactionId", true));
             this.transactionTextBox.Location = new System.Drawing.Point(161, 38);
             this.transactionTextBox.Name = "transactionTextBox";
             this.transactionTextBox.Size = new System.Drawing.Size(132, 20);
@@ -90,6 +95,7 @@
             // 
             // offlineComboBox
             // 
+            this.offlineComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.defaultDataBindingSource, "offline", true));
             this.offlineComboBox.FormattingEnabled = true;
             this.offlineComboBox.Location = new System.Drawing.Point(299, 37);
             this.offlineComboBox.Name = "offlineComboBox";
@@ -98,11 +104,16 @@
             // 
             // languageComboBox
             // 
+            this.languageComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.defaultDataBindingSource, "languageCode", true));
             this.languageComboBox.FormattingEnabled = true;
             this.languageComboBox.Location = new System.Drawing.Point(426, 37);
             this.languageComboBox.Name = "languageComboBox";
             this.languageComboBox.Size = new System.Drawing.Size(121, 21);
             this.languageComboBox.TabIndex = 7;
+            // 
+            // defaultDataBindingSource
+            // 
+            this.defaultDataBindingSource.DataSource = typeof(PDATestProject.DefaultData);
             // 
             // DefaultParametersControl
             // 
@@ -118,6 +129,7 @@
             this.Controls.Add(this.terminalLabel);
             this.Name = "DefaultParametersControl";
             this.Size = new System.Drawing.Size(640, 96);
+            ((System.ComponentModel.ISupportInitialize)(this.defaultDataBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -133,5 +145,6 @@
         private System.Windows.Forms.TextBox transactionTextBox;
         private System.Windows.Forms.ComboBox offlineComboBox;
         private System.Windows.Forms.ComboBox languageComboBox;
+        private System.Windows.Forms.BindingSource defaultDataBindingSource;
     }
 }

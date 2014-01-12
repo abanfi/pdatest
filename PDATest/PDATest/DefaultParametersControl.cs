@@ -16,5 +16,10 @@ namespace PDATestProject
         {
             InitializeComponent();
         }
+
+        public void bind(DefaultData data)
+        {
+            defaultDataBindingSource.DataSource = data;
+        }
     }
 }

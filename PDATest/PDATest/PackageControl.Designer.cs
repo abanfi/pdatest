@@ -28,27 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.offlineDataGrid = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.findInsertedDictionarySinceButton = new System.Windows.Forms.Button();
+            this.packageTextBox = new System.Windows.Forms.TextBox();
+            this.findParcelByBarCodeButton = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.zipTextBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.customerAddresstextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.customerNameTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.findInsertedPartnerSinceButton = new System.Windows.Forms.Button();
+            this.packageCodeTextBox = new System.Windows.Forms.TextBox();
+            this.findParcelByFilterButton = new System.Windows.Forms.Button();
             this.defaultParametersControl1 = new PDATestProject.DefaultParametersControl();
+            this.packageDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.offlineDataGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.packageDataBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // offlineDataGrid
             // 
             this.offlineDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.offlineDataGrid.Location = new System.Drawing.Point(22, 205);
+            this.offlineDataGrid.Location = new System.Drawing.Point(22, 183);
             this.offlineDataGrid.Name = "offlineDataGrid";
             this.offlineDataGrid.Size = new System.Drawing.Size(589, 120);
             this.offlineDataGrid.TabIndex = 4;
@@ -56,130 +59,143 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(298, 99);
+            this.label5.Location = new System.Drawing.Point(327, 97);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(95, 13);
             this.label5.TabIndex = 3;
             this.label5.Text = "Csomag vonalkód:";
             // 
-            // textBox6
+            // packageTextBox
             // 
-            this.textBox6.Location = new System.Drawing.Point(301, 115);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(139, 20);
-            this.textBox6.TabIndex = 2;
+            this.packageTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.packageDataBindingSource, "packageCode", true));
+            this.packageTextBox.Location = new System.Drawing.Point(330, 113);
+            this.packageTextBox.Name = "packageTextBox";
+            this.packageTextBox.Size = new System.Drawing.Size(139, 20);
+            this.packageTextBox.TabIndex = 2;
             // 
-            // findInsertedDictionarySinceButton
+            // findParcelByBarCodeButton
             // 
-            this.findInsertedDictionarySinceButton.Location = new System.Drawing.Point(475, 113);
-            this.findInsertedDictionarySinceButton.Name = "findInsertedDictionarySinceButton";
-            this.findInsertedDictionarySinceButton.Size = new System.Drawing.Size(136, 23);
-            this.findInsertedDictionarySinceButton.TabIndex = 8;
-            this.findInsertedDictionarySinceButton.Text = "FindParcelByBarCode";
-            this.findInsertedDictionarySinceButton.UseVisualStyleBackColor = true;
+            this.findParcelByBarCodeButton.Location = new System.Drawing.Point(475, 111);
+            this.findParcelByBarCodeButton.Name = "findParcelByBarCodeButton";
+            this.findParcelByBarCodeButton.Size = new System.Drawing.Size(136, 23);
+            this.findParcelByBarCodeButton.TabIndex = 8;
+            this.findParcelByBarCodeButton.Text = "FindParcelByBarCode";
+            this.findParcelByBarCodeButton.UseVisualStyleBackColor = true;
+            this.findParcelByBarCodeButton.Click += new System.EventHandler(this.findParcelByBarCodeButton_Click);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(369, 149);
+            this.label4.Location = new System.Drawing.Point(398, 140);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(25, 13);
             this.label4.TabIndex = 16;
             this.label4.Text = "Zip:";
             // 
-            // textBox5
+            // zipTextBox
             // 
-            this.textBox5.Location = new System.Drawing.Point(372, 165);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(68, 20);
-            this.textBox5.TabIndex = 15;
+            this.zipTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.packageDataBindingSource, "customerZip", true));
+            this.zipTextBox.Location = new System.Drawing.Point(401, 156);
+            this.zipTextBox.Name = "zipTextBox";
+            this.zipTextBox.Size = new System.Drawing.Size(68, 20);
+            this.zipTextBox.TabIndex = 15;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(251, 150);
+            this.label3.Location = new System.Drawing.Point(280, 140);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(67, 13);
             this.label3.TabIndex = 14;
             this.label3.Text = "Ügyfél címe:";
             // 
-            // textBox4
+            // customerAddresstextBox
             // 
-            this.textBox4.Location = new System.Drawing.Point(254, 165);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(112, 20);
-            this.textBox4.TabIndex = 13;
+            this.customerAddresstextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.packageDataBindingSource, "customerAddress", true));
+            this.customerAddresstextBox.Location = new System.Drawing.Point(283, 156);
+            this.customerAddresstextBox.Name = "customerAddresstextBox";
+            this.customerAddresstextBox.Size = new System.Drawing.Size(112, 20);
+            this.customerAddresstextBox.TabIndex = 13;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(140, 150);
+            this.label2.Location = new System.Drawing.Point(169, 140);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(67, 13);
             this.label2.TabIndex = 12;
             this.label2.Text = "Ügyfél neve:";
             // 
-            // textBox3
+            // customerNameTextBox
             // 
-            this.textBox3.Location = new System.Drawing.Point(143, 165);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(105, 20);
-            this.textBox3.TabIndex = 11;
+            this.customerNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.packageDataBindingSource, "customerName", true));
+            this.customerNameTextBox.Location = new System.Drawing.Point(172, 156);
+            this.customerNameTextBox.Name = "customerNameTextBox";
+            this.customerNameTextBox.Size = new System.Drawing.Size(105, 20);
+            this.customerNameTextBox.TabIndex = 11;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(19, 150);
+            this.label1.Location = new System.Drawing.Point(48, 140);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(95, 13);
             this.label1.TabIndex = 10;
             this.label1.Text = "Csomag vonalkód:";
             // 
-            // textBox2
+            // packageCodeTextBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(22, 165);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(115, 20);
-            this.textBox2.TabIndex = 9;
+            this.packageCodeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.packageDataBindingSource, "filterPackageCode", true));
+            this.packageCodeTextBox.Location = new System.Drawing.Point(51, 156);
+            this.packageCodeTextBox.Name = "packageCodeTextBox";
+            this.packageCodeTextBox.Size = new System.Drawing.Size(115, 20);
+            this.packageCodeTextBox.TabIndex = 9;
             // 
-            // findInsertedPartnerSinceButton
+            // findParcelByFilterButton
             // 
-            this.findInsertedPartnerSinceButton.Location = new System.Drawing.Point(475, 163);
-            this.findInsertedPartnerSinceButton.Name = "findInsertedPartnerSinceButton";
-            this.findInsertedPartnerSinceButton.Size = new System.Drawing.Size(136, 23);
-            this.findInsertedPartnerSinceButton.TabIndex = 17;
-            this.findInsertedPartnerSinceButton.Text = "FindParcelByFilter";
-            this.findInsertedPartnerSinceButton.UseVisualStyleBackColor = true;
+            this.findParcelByFilterButton.Location = new System.Drawing.Point(475, 154);
+            this.findParcelByFilterButton.Name = "findParcelByFilterButton";
+            this.findParcelByFilterButton.Size = new System.Drawing.Size(136, 23);
+            this.findParcelByFilterButton.TabIndex = 17;
+            this.findParcelByFilterButton.Text = "FindParcelByFilter";
+            this.findParcelByFilterButton.UseVisualStyleBackColor = true;
+            this.findParcelByFilterButton.Click += new System.EventHandler(this.findParcelByFilterButton_Click);
             // 
             // defaultParametersControl1
             // 
             this.defaultParametersControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.defaultParametersControl1.Location = new System.Drawing.Point(0, 0);
             this.defaultParametersControl1.Name = "defaultParametersControl1";
-            this.defaultParametersControl1.Size = new System.Drawing.Size(634, 96);
+            this.defaultParametersControl1.Size = new System.Drawing.Size(627, 96);
             this.defaultParametersControl1.TabIndex = 18;
+            this.defaultParametersControl1.Load += new System.EventHandler(this.defaultParametersControl1_Load);
+            // 
+            // packageDataBindingSource
+            // 
+            this.packageDataBindingSource.DataSource = typeof(PDATestProject.PackageData);
             // 
             // PackageControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.defaultParametersControl1);
-            this.Controls.Add(this.findInsertedPartnerSinceButton);
+            this.Controls.Add(this.findParcelByFilterButton);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.zipTextBox);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.customerAddresstextBox);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.customerNameTextBox);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.findInsertedDictionarySinceButton);
+            this.Controls.Add(this.packageCodeTextBox);
+            this.Controls.Add(this.findParcelByBarCodeButton);
             this.Controls.Add(this.offlineDataGrid);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBox6);
+            this.Controls.Add(this.packageTextBox);
             this.Name = "PackageControl";
-            this.Size = new System.Drawing.Size(634, 342);
+            this.Size = new System.Drawing.Size(627, 317);
             ((System.ComponentModel.ISupportInitialize)(this.offlineDataGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.packageDataBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -189,19 +205,20 @@
 
      
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox packageTextBox;
         private System.Windows.Forms.DataGridView offlineDataGrid;
-        private System.Windows.Forms.Button findInsertedPartnerSinceButton;
+        private System.Windows.Forms.Button findParcelByFilterButton;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox zipTextBox;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox customerAddresstextBox;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox customerNameTextBox;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button findInsertedDictionarySinceButton;
+        private System.Windows.Forms.TextBox packageCodeTextBox;
+        private System.Windows.Forms.Button findParcelByBarCodeButton;
         private DefaultParametersControl defaultParametersControl1;
+        private System.Windows.Forms.BindingSource packageDataBindingSource;
       
 
         public DefaultParametersControl defaultParametersControl { get; set; }
