@@ -29,7 +29,22 @@ namespace PDATestProject
 
         private void findParcelForDeliveryButton_Click(object sender, EventArgs e)
         {
+            PudoServiceExecutor.findParcelForDelivery(returnPreRegData);
+        }
 
+        private void postRefuseCustRetPreregButton_Click(object sender, EventArgs e)
+        {
+            PudoServiceExecutor.postRefuseCustRetPrereg(returnPreRegData);
+        }
+
+        private void postCustRetPreregButton_Click(object sender, EventArgs e)
+        {
+            PudoServiceExecutor.postCustRetPrereg(returnPreRegData);
+        }
+
+        private void postCustRetUnexpectedButton_Click(object sender, EventArgs e)
+        {
+            PudoServiceExecutor.postCustRetUnexpected(returnPreRegData);
         }
     }
 }

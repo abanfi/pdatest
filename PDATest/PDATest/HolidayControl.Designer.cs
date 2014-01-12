@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.holiday1label = new System.Windows.Forms.Label();
             this.holiday1FromDatePicker = new System.Windows.Forms.DateTimePicker();
+            this.holidayDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.holiday1ToDatePicker = new System.Windows.Forms.DateTimePicker();
             this.defaultParametersControl1 = new PDATestProject.DefaultParametersControl();
             this.holiday2ToDatePicker = new System.Windows.Forms.DateTimePicker();
@@ -44,7 +45,6 @@
             this.holiday4label = new System.Windows.Forms.Label();
             this.getHolidayButton = new System.Windows.Forms.Button();
             this.setHolidaysButton = new System.Windows.Forms.Button();
-            this.holidayDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.holidayDataBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,6 +64,10 @@
             this.holiday1FromDatePicker.Name = "holiday1FromDatePicker";
             this.holiday1FromDatePicker.Size = new System.Drawing.Size(139, 20);
             this.holiday1FromDatePicker.TabIndex = 1;
+            // 
+            // holidayDataBindingSource
+            // 
+            this.holidayDataBindingSource.DataSource = typeof(PDATestProject.HolidayData);
             // 
             // holiday1ToDatePicker
             // 
@@ -164,6 +168,7 @@
             this.getHolidayButton.TabIndex = 13;
             this.getHolidayButton.Text = "GetHolidays";
             this.getHolidayButton.UseVisualStyleBackColor = true;
+            this.getHolidayButton.Click += new System.EventHandler(this.getHolidayButton_Click);
             // 
             // setHolidaysButton
             // 
@@ -173,10 +178,7 @@
             this.setHolidaysButton.TabIndex = 14;
             this.setHolidaysButton.Text = "SetHolidays";
             this.setHolidaysButton.UseVisualStyleBackColor = true;
-            // 
-            // holidayDataBindingSource
-            // 
-            this.holidayDataBindingSource.DataSource = typeof(PDATestProject.HolidayData);
+            this.setHolidaysButton.Click += new System.EventHandler(this.setHolidaysButton_Click);
             // 
             // HolidayControl
             // 

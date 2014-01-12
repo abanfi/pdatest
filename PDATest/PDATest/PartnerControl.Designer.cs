@@ -33,12 +33,12 @@
             this.findPartnerByFilterButton = new System.Windows.Forms.Button();
             this.findPartnerByIdButton = new System.Windows.Forms.Button();
             this.partnerDatePicker = new System.Windows.Forms.DateTimePicker();
+            this.partnerDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.partnerDataGrid = new System.Windows.Forms.DataGridView();
             this.partnerNameTextBox = new System.Windows.Forms.TextBox();
             this.defaultParametersControl1 = new PDATestProject.DefaultParametersControl();
-            this.partnerDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.partnerDataGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.partnerDataBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.partnerDataGrid)).BeginInit();
             this.SuspendLayout();
             // 
             // countPartnerByFilterButton
@@ -49,6 +49,7 @@
             this.countPartnerByFilterButton.TabIndex = 29;
             this.countPartnerByFilterButton.Text = "CountPartnerByFilter";
             this.countPartnerByFilterButton.UseVisualStyleBackColor = true;
+            this.countPartnerByFilterButton.Click += new System.EventHandler(this.countPartnerByFilterButton_Click);
             // 
             // findPartnerByFilterButton
             // 
@@ -58,6 +59,7 @@
             this.findPartnerByFilterButton.TabIndex = 28;
             this.findPartnerByFilterButton.Text = "FindPartnerByFilter";
             this.findPartnerByFilterButton.UseVisualStyleBackColor = true;
+            this.findPartnerByFilterButton.Click += new System.EventHandler(this.findPartnerByFilterButton_Click);
             // 
             // findPartnerByIdButton
             // 
@@ -67,6 +69,7 @@
             this.findPartnerByIdButton.TabIndex = 26;
             this.findPartnerByIdButton.Text = "FindPartnerById";
             this.findPartnerByIdButton.UseVisualStyleBackColor = true;
+            this.findPartnerByIdButton.Click += new System.EventHandler(this.findPartnerByIdButton_Click);
             // 
             // partnerDatePicker
             // 
@@ -75,6 +78,10 @@
             this.partnerDatePicker.Name = "partnerDatePicker";
             this.partnerDatePicker.Size = new System.Drawing.Size(137, 20);
             this.partnerDatePicker.TabIndex = 25;
+            // 
+            // partnerDataBindingSource
+            // 
+            this.partnerDataBindingSource.DataSource = typeof(PDATestProject.PartnerData);
             // 
             // partnerDataGrid
             // 
@@ -100,10 +107,6 @@
             this.defaultParametersControl1.Size = new System.Drawing.Size(556, 96);
             this.defaultParametersControl1.TabIndex = 31;
             // 
-            // partnerDataBindingSource
-            // 
-            this.partnerDataBindingSource.DataSource = typeof(PDATestProject.PartnerData);
-            // 
             // PartnerControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -117,8 +120,8 @@
             this.Controls.Add(this.partnerDataGrid);
             this.Name = "PartnerControl";
             this.Size = new System.Drawing.Size(556, 293);
-            ((System.ComponentModel.ISupportInitialize)(this.partnerDataGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.partnerDataBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.partnerDataGrid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

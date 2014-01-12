@@ -31,7 +31,8 @@ namespace PDATestProject
 
         private void findParcelByBarCodeButton_Click(object sender, EventArgs e)
         {
-           
+            PudoServiceExecutor.findParcelByBarCode(packageData);
+            
             PdaPudoServiceClient client = new PdaPudoServiceClient();
             FindParcelByBarcodeRequest request = new FindParcelByBarcodeRequest();
             request.Barcode = packageCodeTextBox.Text;
@@ -41,12 +42,8 @@ namespace PDATestProject
 
         private void findParcelByFilterButton_Click(object sender, EventArgs e)
         {
-
+            PudoServiceExecutor.findParcelByFilter(packageData);
         }
-
-        private void defaultParametersControl1_Load(object sender, EventArgs e)
-        {
-           
-        }
+            
     }
 }

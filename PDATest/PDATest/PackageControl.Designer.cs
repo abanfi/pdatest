@@ -168,7 +168,7 @@
             this.defaultParametersControl1.Name = "defaultParametersControl1";
             this.defaultParametersControl1.Size = new System.Drawing.Size(565, 96);
             this.defaultParametersControl1.TabIndex = 18;
-            this.defaultParametersControl1.Load += new System.EventHandler(this.defaultParametersControl1_Load);
+           
             // 
             // packageDataBindingSource
             // 

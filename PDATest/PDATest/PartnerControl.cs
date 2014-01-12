@@ -26,5 +26,20 @@ namespace PDATestProject
             defaultParametersControl1.bind(data);
             partnerDataBindingSource.DataSource = data;
         }
+
+        private void findPartnerByIdButton_Click(object sender, EventArgs e)
+        {
+            PudoServiceExecutor.findPartnerById(partnerData);
+        }
+
+        private void findPartnerByFilterButton_Click(object sender, EventArgs e)
+        {
+            PudoServiceExecutor.findPartnerByFilter(partnerData);
+        }
+
+        private void countPartnerByFilterButton_Click(object sender, EventArgs e)
+        {
+            PudoServiceExecutor.countPartnerByFilter(partnerData);
+        }
     }
 }

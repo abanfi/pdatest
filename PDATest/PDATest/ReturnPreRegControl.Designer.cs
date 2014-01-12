@@ -34,6 +34,7 @@
             this.postRefuseCustRetPreregButton = new System.Windows.Forms.Button();
             this.findParcelForCustRetPreRegButton = new System.Windows.Forms.Button();
             this.customerTextBox = new System.Windows.Forms.TextBox();
+            this.returnPreRegDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label5 = new System.Windows.Forms.Label();
             this.partnerIdTextBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -43,7 +44,6 @@
             this.defaultParametersControl1 = new PDATestProject.DefaultParametersControl();
             this.noLabelCheckBox = new System.Windows.Forms.CheckBox();
             this.unexpectedDamagedCheckBox = new System.Windows.Forms.CheckBox();
-            this.returnPreRegDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.returnPreRegDataBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,6 +55,7 @@
             this.postCustRetUnexpectedButton.TabIndex = 38;
             this.postCustRetUnexpectedButton.Text = "PostCustRetUnexpected";
             this.postCustRetUnexpectedButton.UseVisualStyleBackColor = true;
+            this.postCustRetUnexpectedButton.Click += new System.EventHandler(this.postCustRetUnexpectedButton_Click);
             // 
             // postCustRetPreregButton
             // 
@@ -64,6 +65,7 @@
             this.postCustRetPreregButton.TabIndex = 37;
             this.postCustRetPreregButton.Text = "PostCustRetPrereg";
             this.postCustRetPreregButton.UseVisualStyleBackColor = true;
+            this.postCustRetPreregButton.Click += new System.EventHandler(this.postCustRetPreregButton_Click);
             // 
             // postRefuseCustRetPreregButton
             // 
@@ -73,6 +75,7 @@
             this.postRefuseCustRetPreregButton.TabIndex = 36;
             this.postRefuseCustRetPreregButton.Text = "PostRefuseCustRetPrereg";
             this.postRefuseCustRetPreregButton.UseVisualStyleBackColor = true;
+            this.postRefuseCustRetPreregButton.Click += new System.EventHandler(this.postRefuseCustRetPreregButton_Click);
             // 
             // findParcelForCustRetPreRegButton
             // 
@@ -91,6 +94,10 @@
             this.customerTextBox.Name = "customerTextBox";
             this.customerTextBox.Size = new System.Drawing.Size(100, 20);
             this.customerTextBox.TabIndex = 34;
+            // 
+            // returnPreRegDataBindingSource
+            // 
+            this.returnPreRegDataBindingSource.DataSource = typeof(PDATestProject.ReturnPreRegData);
             // 
             // label5
             // 
@@ -175,10 +182,6 @@
             this.unexpectedDamagedCheckBox.TabIndex = 41;
             this.unexpectedDamagedCheckBox.Text = "Damaged";
             this.unexpectedDamagedCheckBox.UseVisualStyleBackColor = true;
-            // 
-            // returnPreRegDataBindingSource
-            // 
-            this.returnPreRegDataBindingSource.DataSource = typeof(PDATestProject.ReturnPreRegData);
             // 
             // ReturnPreRegControl
             // 

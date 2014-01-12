@@ -26,5 +26,15 @@ namespace PDATestProject
             defaultParametersControl1.bind(data);
             openingHoursDataBindingSource.DataSource = data;
         }
+
+        private void getOpeningHoursButton_Click(object sender, EventArgs e)
+        {
+            PudoServiceExecutor.getOpeningHours(openingHoursData);
+        }
+
+        private void setOpeningHoursButton_Click(object sender, EventArgs e)
+        {
+            PudoServiceExecutor.setOpeningHours(openingHoursData);
+        }
     }
 }

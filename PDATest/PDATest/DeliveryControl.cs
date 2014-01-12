@@ -28,15 +28,24 @@ namespace PDATestProject
             deliveryDataBindingSource.DataSource = data;
         }
 
-
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        private void findParcelForDeliveryButton_Click(object sender, EventArgs e)
         {
-
+            PudoServiceExecutor.findParcelForDelivery(deliveryData);
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void postCancelDeliveryButton_Click(object sender, EventArgs e)
         {
+            PudoServiceExecutor.postCancelDelivery(deliveryData);
+        }
 
+        private void postRefuseDeliveryButton_Click(object sender, EventArgs e)
+        {
+            PudoServiceExecutor.postRefuseDelivery(deliveryData);
+        }
+
+        private void postDeliveryButton_Click(object sender, EventArgs e)
+        {
+            PudoServiceExecutor.postDelivery(deliveryData);
         }
     }
 }

@@ -32,6 +32,7 @@
             this.defaultParametersControl1 = new PDATestProject.DefaultParametersControl();
             this.label1 = new System.Windows.Forms.Label();
             this.barcodeTextBox = new System.Windows.Forms.TextBox();
+            this.deliveryDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.damagedCheckBox = new System.Windows.Forms.CheckBox();
             this.reasonTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -50,9 +51,8 @@
             this.postRefuseDeliveryButton = new System.Windows.Forms.Button();
             this.postDeliveryButton = new System.Windows.Forms.Button();
             this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.deliveryDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deliveryDataBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // defaultParametersControl1
@@ -80,6 +80,10 @@
             this.barcodeTextBox.Size = new System.Drawing.Size(138, 20);
             this.barcodeTextBox.TabIndex = 2;
             // 
+            // deliveryDataBindingSource
+            // 
+            this.deliveryDataBindingSource.DataSource = typeof(PDATestProject.DeliveryData);
+            // 
             // damagedCheckBox
             // 
             this.damagedCheckBox.AutoSize = true;
@@ -90,7 +94,7 @@
             this.damagedCheckBox.TabIndex = 3;
             this.damagedCheckBox.Text = "Damaged";
             this.damagedCheckBox.UseVisualStyleBackColor = true;
-            this.damagedCheckBox.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+           
             // 
             // reasonTextBox
             // 
@@ -108,7 +112,7 @@
             this.label2.Size = new System.Drawing.Size(44, 13);
             this.label2.TabIndex = 4;
             this.label2.Text = "Reason";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
+           
             // 
             // refuseIdTextBox
             // 
@@ -203,6 +207,7 @@
             this.findParcelForDeliveryButton.TabIndex = 16;
             this.findParcelForDeliveryButton.Text = "FindParcelForDelivery";
             this.findParcelForDeliveryButton.UseVisualStyleBackColor = true;
+            this.findParcelForDeliveryButton.Click += new System.EventHandler(this.findParcelForDeliveryButton_Click);
             // 
             // postCancelDeliveryButton
             // 
@@ -212,6 +217,7 @@
             this.postCancelDeliveryButton.TabIndex = 17;
             this.postCancelDeliveryButton.Text = "PostCancelDelivery";
             this.postCancelDeliveryButton.UseVisualStyleBackColor = true;
+            this.postCancelDeliveryButton.Click += new System.EventHandler(this.postCancelDeliveryButton_Click);
             // 
             // postRefuseDeliveryButton
             // 
@@ -221,6 +227,7 @@
             this.postRefuseDeliveryButton.TabIndex = 18;
             this.postRefuseDeliveryButton.Text = "PostRefuseDelivery";
             this.postRefuseDeliveryButton.UseVisualStyleBackColor = true;
+            this.postRefuseDeliveryButton.Click += new System.EventHandler(this.postRefuseDeliveryButton_Click);
             // 
             // postDeliveryButton
             // 
@@ -230,6 +237,7 @@
             this.postDeliveryButton.TabIndex = 19;
             this.postDeliveryButton.Text = "PostDelivery";
             this.postDeliveryButton.UseVisualStyleBackColor = true;
+            this.postDeliveryButton.Click += new System.EventHandler(this.postDeliveryButton_Click);
             // 
             // dataGridView
             // 
@@ -238,10 +246,6 @@
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.Size = new System.Drawing.Size(519, 232);
             this.dataGridView.TabIndex = 20;
-            // 
-            // deliveryDataBindingSource
-            // 
-            this.deliveryDataBindingSource.DataSource = typeof(PDATestProject.DeliveryData);
             // 
             // DeliveryControl
             // 
@@ -270,8 +274,8 @@
             this.Controls.Add(this.defaultParametersControl1);
             this.Name = "DeliveryControl";
             this.Size = new System.Drawing.Size(588, 449);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deliveryDataBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

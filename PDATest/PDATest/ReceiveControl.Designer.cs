@@ -33,9 +33,9 @@
             this.postReceiveButton = new System.Windows.Forms.Button();
             this.findParcelForReceiveButton = new System.Windows.Forms.Button();
             this.barcodeTextBox = new System.Windows.Forms.TextBox();
+            this.receiveDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.defaultParametersControl1 = new PDATestProject.DefaultParametersControl();
-            this.receiveDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.receiveDataBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -56,6 +56,7 @@
             this.postReceiveButton.TabIndex = 46;
             this.postReceiveButton.Text = "PostReceive";
             this.postReceiveButton.UseVisualStyleBackColor = true;
+            this.postReceiveButton.Click += new System.EventHandler(this.postReceiveButton_Click);
             // 
             // findParcelForReceiveButton
             // 
@@ -65,6 +66,7 @@
             this.findParcelForReceiveButton.TabIndex = 45;
             this.findParcelForReceiveButton.Text = "FindParcelForReceive";
             this.findParcelForReceiveButton.UseVisualStyleBackColor = true;
+            this.findParcelForReceiveButton.Click += new System.EventHandler(this.findParcelForReceiveButton_Click);
             // 
             // barcodeTextBox
             // 
@@ -73,6 +75,10 @@
             this.barcodeTextBox.Name = "barcodeTextBox";
             this.barcodeTextBox.Size = new System.Drawing.Size(138, 20);
             this.barcodeTextBox.TabIndex = 42;
+            // 
+            // receiveDataBindingSource
+            // 
+            this.receiveDataBindingSource.DataSource = typeof(PDATestProject.ReceiveData);
             // 
             // label1
             // 
@@ -90,10 +96,6 @@
             this.defaultParametersControl1.Name = "defaultParametersControl1";
             this.defaultParametersControl1.Size = new System.Drawing.Size(575, 96);
             this.defaultParametersControl1.TabIndex = 48;
-            // 
-            // receiveDataBindingSource
-            // 
-            this.receiveDataBindingSource.DataSource = typeof(PDATestProject.ReceiveData);
             // 
             // ReceiveControl
             // 

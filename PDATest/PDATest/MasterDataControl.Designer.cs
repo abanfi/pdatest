@@ -35,12 +35,12 @@
             this.findInsertedParcelSinceButton = new System.Windows.Forms.Button();
             this.findInsertedPartnerSinceButton = new System.Windows.Forms.Button();
             this.offlineDatePicker = new System.Windows.Forms.DateTimePicker();
+            this.masterDataDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.findInsertedDictionarySinceButton = new System.Windows.Forms.Button();
             this.offlineDataGrid = new System.Windows.Forms.DataGridView();
             this.defaultParametersControl1 = new PDATestProject.DefaultParametersControl();
-            this.masterDataDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.offlineDataGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.masterDataDataBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.offlineDataGrid)).BeginInit();
             this.SuspendLayout();
             // 
             // findDeletedParcelSinceButton
@@ -51,6 +51,7 @@
             this.findDeletedParcelSinceButton.TabIndex = 31;
             this.findDeletedParcelSinceButton.Text = "FindDeletedParcelSince";
             this.findDeletedParcelSinceButton.UseVisualStyleBackColor = true;
+            this.findDeletedParcelSinceButton.Click += new System.EventHandler(this.findDeletedParcelSinceButton_Click);
             // 
             // findDeletedPartnerSinceButton
             // 
@@ -60,6 +61,7 @@
             this.findDeletedPartnerSinceButton.TabIndex = 30;
             this.findDeletedPartnerSinceButton.Text = "FindDeletedPartnerSince";
             this.findDeletedPartnerSinceButton.UseVisualStyleBackColor = true;
+            this.findDeletedPartnerSinceButton.Click += new System.EventHandler(this.findDeletedPartnerSinceButton_Click);
             // 
             // findDeletedDictionarySinceButton
             // 
@@ -69,6 +71,7 @@
             this.findDeletedDictionarySinceButton.TabIndex = 29;
             this.findDeletedDictionarySinceButton.Text = "FindDeletedDictionarySince";
             this.findDeletedDictionarySinceButton.UseVisualStyleBackColor = true;
+            this.findDeletedDictionarySinceButton.Click += new System.EventHandler(this.findDeletedDictionarySinceButton_Click);
             // 
             // findInsertedParcelSinceButton
             // 
@@ -78,6 +81,7 @@
             this.findInsertedParcelSinceButton.TabIndex = 28;
             this.findInsertedParcelSinceButton.Text = "FindInsertedParcelSince";
             this.findInsertedParcelSinceButton.UseVisualStyleBackColor = true;
+            this.findInsertedParcelSinceButton.Click += new System.EventHandler(this.findInsertedParcelSinceButton_Click);
             // 
             // findInsertedPartnerSinceButton
             // 
@@ -87,6 +91,7 @@
             this.findInsertedPartnerSinceButton.TabIndex = 27;
             this.findInsertedPartnerSinceButton.Text = "FindInsertedPartnerSince";
             this.findInsertedPartnerSinceButton.UseVisualStyleBackColor = true;
+            this.findInsertedPartnerSinceButton.Click += new System.EventHandler(this.findInsertedPartnerSinceButton_Click);
             // 
             // offlineDatePicker
             // 
@@ -96,6 +101,10 @@
             this.offlineDatePicker.Size = new System.Drawing.Size(137, 20);
             this.offlineDatePicker.TabIndex = 26;
             // 
+            // masterDataDataBindingSource
+            // 
+            this.masterDataDataBindingSource.DataSource = typeof(PDATestProject.MasterDataData);
+            // 
             // findInsertedDictionarySinceButton
             // 
             this.findInsertedDictionarySinceButton.Location = new System.Drawing.Point(168, 102);
@@ -104,6 +113,7 @@
             this.findInsertedDictionarySinceButton.TabIndex = 25;
             this.findInsertedDictionarySinceButton.Text = "FindInsertedDictionarySince";
             this.findInsertedDictionarySinceButton.UseVisualStyleBackColor = true;
+            this.findInsertedDictionarySinceButton.Click += new System.EventHandler(this.findInsertedDictionarySinceButton_Click);
             // 
             // offlineDataGrid
             // 
@@ -121,10 +131,6 @@
             this.defaultParametersControl1.Size = new System.Drawing.Size(674, 96);
             this.defaultParametersControl1.TabIndex = 32;
             // 
-            // masterDataDataBindingSource
-            // 
-            this.masterDataDataBindingSource.DataSource = typeof(PDATestProject.MasterDataData);
-            // 
             // MasterDataControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -140,8 +146,8 @@
             this.Controls.Add(this.offlineDataGrid);
             this.Name = "MasterDataControl";
             this.Size = new System.Drawing.Size(674, 293);
-            ((System.ComponentModel.ISupportInitialize)(this.offlineDataGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.masterDataDataBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.offlineDataGrid)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -32,6 +32,7 @@
             this.defaultParametersControl1 = new PDATestProject.DefaultParametersControl();
             this.mondayLabel = new System.Windows.Forms.Label();
             this.mondayFirstTextBox = new System.Windows.Forms.TextBox();
+            this.openingHoursDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.mondaySecondTextBox = new System.Windows.Forms.TextBox();
             this.tuesdaySecondTextBox = new System.Windows.Forms.TextBox();
             this.tuesdayFirstTextBox = new System.Windows.Forms.TextBox();
@@ -53,7 +54,6 @@
             this.sundayLabel = new System.Windows.Forms.Label();
             this.setOpeningHoursButton = new System.Windows.Forms.Button();
             this.getOpeningHoursButton = new System.Windows.Forms.Button();
-            this.openingHoursDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.openingHoursDataBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -81,6 +81,10 @@
             this.mondayFirstTextBox.Name = "mondayFirstTextBox";
             this.mondayFirstTextBox.Size = new System.Drawing.Size(86, 20);
             this.mondayFirstTextBox.TabIndex = 2;
+            // 
+            // openingHoursDataBindingSource
+            // 
+            this.openingHoursDataBindingSource.DataSource = typeof(PDATestProject.OpeningHoursData);
             // 
             // mondaySecondTextBox
             // 
@@ -248,6 +252,7 @@
             this.setOpeningHoursButton.TabIndex = 22;
             this.setOpeningHoursButton.Text = "SetOpeningHours";
             this.setOpeningHoursButton.UseVisualStyleBackColor = true;
+            this.setOpeningHoursButton.Click += new System.EventHandler(this.setOpeningHoursButton_Click);
             // 
             // getOpeningHoursButton
             // 
@@ -257,10 +262,7 @@
             this.getOpeningHoursButton.TabIndex = 23;
             this.getOpeningHoursButton.Text = "GetOpeningHours";
             this.getOpeningHoursButton.UseVisualStyleBackColor = true;
-            // 
-            // openingHoursDataBindingSource
-            // 
-            this.openingHoursDataBindingSource.DataSource = typeof(PDATestProject.OpeningHoursData);
+            this.getOpeningHoursButton.Click += new System.EventHandler(this.getOpeningHoursButton_Click);
             // 
             // OpeningHoursControl
             // 

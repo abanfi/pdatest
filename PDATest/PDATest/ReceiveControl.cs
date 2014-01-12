@@ -26,5 +26,15 @@ namespace PDATestProject
             defaultParametersControl1.bind(data);
             receiveDataBindingSource.DataSource = data;
         }
+
+        private void findParcelForReceiveButton_Click(object sender, EventArgs e)
+        {
+            PudoServiceExecutor.findParcelForReceive(receiveData);
+        }
+
+        private void postReceiveButton_Click(object sender, EventArgs e)
+        {
+            PudoServiceExecutor.postReceive(receiveData);
+        }
     }
 }

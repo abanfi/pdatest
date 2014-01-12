@@ -26,5 +26,15 @@ namespace PDATestProject
             defaultParametersControl1.bind(data);
             returnDataBindingSource.DataSource = data;
         }
+
+        private void findParcelForReturnButton_Click(object sender, EventArgs e)
+        {
+            PudoServiceExecutor.findParcelForReturn(returnData);
+        }
+
+        private void postReturnButton_Click(object sender, EventArgs e)
+        {
+            PudoServiceExecutor.postReturn(returnData);
+        }
     }
 }

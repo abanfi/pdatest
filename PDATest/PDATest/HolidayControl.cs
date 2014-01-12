@@ -28,5 +28,16 @@ namespace PDATestProject
             holidayDataBindingSource.DataSource = data;
         }
 
+        private void getHolidayButton_Click(object sender, EventArgs e)
+        {
+            PudoServiceExecutor.getHoliday(holidayData);
+
+        }
+
+        private void setHolidaysButton_Click(object sender, EventArgs e)
+        {
+            PudoServiceExecutor.setHoliday(holidayData);
+        }
+
     }
 }
