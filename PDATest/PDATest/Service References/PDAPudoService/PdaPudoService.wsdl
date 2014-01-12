@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:i0="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="PdaPudoService" targetNamespace="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:import namespace="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService" location="http://tsx.lapker.hu/pudohupda/PdaPudoService?wsdl=wsdl0" />
+  <wsdl:types />
+  <wsdl:binding name="PdaPudoServiceHttpBinding" type="i0:IPdaPudoService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="FindInsertedDictionarySince">
+      <soap:operation soapAction="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService/IPdaPudoService/FindInsertedDictionarySince" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindDeletedDictionarySince">
+      <soap:operation soapAction="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService/IPdaPudoService/FindDeletedDictionarySince" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindUpsertedPartnerSince">
+      <soap:operation soapAction="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService/IPdaPudoService/FindUpsertedPartnerSince" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindDeletedPartnerSince">
+      <soap:operation soapAction="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService/IPdaPudoService/FindDeletedPartnerSince" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindPartnerByFilter">
+      <soap:operation soapAction="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService/IPdaPudoService/FindPartnerByFilter" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindPartnerByID">
+      <soap:operation soapAction="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService/IPdaPudoService/FindPartnerByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CountPartnerByFilter">
+      <soap:operation soapAction="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService/IPdaPudoService/CountPartnerByFilter" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindInsertedParcelSince">
+      <soap:operation soapAction="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService/IPdaPudoService/FindInsertedParcelSince" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindModifiedParcelSince">
+      <soap:operation soapAction="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService/IPdaPudoService/FindModifiedParcelSince" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindDeletedParcelSince">
+      <soap:operation soapAction="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService/IPdaPudoService/FindDeletedParcelSince" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOpeningHours">
+      <soap:operation soapAction="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService/IPdaPudoService/GetOpeningHours" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHolidays">
+      <soap:operation soapAction="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService/IPdaPudoService/GetHolidays" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindParcelByBarcode">
+      <soap:operation soapAction="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService/IPdaPudoService/FindParcelByBarcode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindParcelByFilter">
+      <soap:operation soapAction="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService/IPdaPudoService/FindParcelByFilter" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetOpeningHours">
+      <soap:operation soapAction="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService/IPdaPudoService/SetOpeningHours" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetHolidays">
+      <soap:operation soapAction="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService/IPdaPudoService/SetHolidays" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindParcelForReceive">
+      <soap:operation soapAction="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService/IPdaPudoService/FindParcelForReceive" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PostReceive">
+      <soap:operation soapAction="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService/IPdaPudoService/PostReceive" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindParcelForDelivery">
+      <soap:operation soapAction="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService/IPdaPudoService/FindParcelForDelivery" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PostCancelDelivery">
+      <soap:operation soapAction="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService/IPdaPudoService/PostCancelDelivery" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PostRefuseDelivery">
+      <soap:operation soapAction="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService/IPdaPudoService/PostRefuseDelivery" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PostDelivery">
+      <soap:operation soapAction="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService/IPdaPudoService/PostDelivery" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindParcelForCustomerReturnPreRegistered">
+      <soap:operation soapAction="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService/IPdaPudoService/FindParcelForCustomerReturnPreRegistered" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PostRefuseCustomerReturnPreRegistered">
+      <soap:operation soapAction="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService/IPdaPudoService/PostRefuseCustomerReturnPreRegistered" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PostCustomerReturnPreRegistered">
+      <soap:operation soapAction="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService/IPdaPudoService/PostCustomerReturnPreRegistered" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PostCustomerReturnUnexpected">
+      <soap:operation soapAction="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService/IPdaPudoService/PostCustomerReturnUnexpected" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindParcelForReturn">
+      <soap:operation soapAction="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService/IPdaPudoService/FindParcelForReturn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PostReturn">
+      <soap:operation soapAction="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService/IPdaPudoService/PostReturn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindUpsertedMaterialUnitMDataSince">
+      <soap:operation soapAction="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService/IPdaPudoService/FindUpsertedMaterialUnitMDataSince" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindDeletedMaterialUnitMDataSince">
+      <soap:operation soapAction="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService/IPdaPudoService/FindDeletedMaterialUnitMDataSince" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindMaterialUnitMData">
+      <soap:operation soapAction="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService/IPdaPudoService/FindMaterialUnitMData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateMaterialOrder">
+      <soap:operation soapAction="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService/IPdaPudoService/CreateMaterialOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PdaPudoService">
+    <wsdl:port name="PdaPudoServiceHttpBinding" binding="tns:PdaPudoServiceHttpBinding">
+      <soap:address location="http://tsx.lapker.hu/pudohupda/PdaPudoService" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

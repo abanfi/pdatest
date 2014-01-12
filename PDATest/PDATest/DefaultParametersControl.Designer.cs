@@ -28,94 +28,94 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.terminalLabel = new System.Windows.Forms.Label();
+            this.transactionLabel = new System.Windows.Forms.Label();
+            this.offlineLabel = new System.Windows.Forms.Label();
+            this.languageLabel = new System.Windows.Forms.Label();
+            this.terminalTextBox = new System.Windows.Forms.TextBox();
+            this.transactionTextBox = new System.Windows.Forms.TextBox();
+            this.offlineComboBox = new System.Windows.Forms.ComboBox();
+            this.languageComboBox = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
-            // label1
+            // terminalLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(20, 23);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(100, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Terminál azonosító:";
+            this.terminalLabel.AutoSize = true;
+            this.terminalLabel.Location = new System.Drawing.Point(20, 23);
+            this.terminalLabel.Name = "terminalLabel";
+            this.terminalLabel.Size = new System.Drawing.Size(100, 13);
+            this.terminalLabel.TabIndex = 0;
+            this.terminalLabel.Text = "Terminál azonosító:";
             // 
-            // label2
+            // transactionLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(158, 23);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(113, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Tranzakció azonosító:";
+            this.transactionLabel.AutoSize = true;
+            this.transactionLabel.Location = new System.Drawing.Point(158, 23);
+            this.transactionLabel.Name = "transactionLabel";
+            this.transactionLabel.Size = new System.Drawing.Size(113, 13);
+            this.transactionLabel.TabIndex = 1;
+            this.transactionLabel.Text = "Tranzakció azonosító:";
             // 
-            // label3
+            // offlineLabel
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(296, 23);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(60, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Offline mód";
+            this.offlineLabel.AutoSize = true;
+            this.offlineLabel.Location = new System.Drawing.Point(296, 23);
+            this.offlineLabel.Name = "offlineLabel";
+            this.offlineLabel.Size = new System.Drawing.Size(60, 13);
+            this.offlineLabel.TabIndex = 2;
+            this.offlineLabel.Text = "Offline mód";
             // 
-            // label4
+            // languageLabel
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(423, 23);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(57, 13);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Nyelvi kód";
+            this.languageLabel.AutoSize = true;
+            this.languageLabel.Location = new System.Drawing.Point(423, 23);
+            this.languageLabel.Name = "languageLabel";
+            this.languageLabel.Size = new System.Drawing.Size(57, 13);
+            this.languageLabel.TabIndex = 3;
+            this.languageLabel.Text = "Nyelvi kód";
             // 
-            // textBox1
+            // terminalTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(23, 37);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(132, 20);
-            this.textBox1.TabIndex = 4;
+            this.terminalTextBox.Location = new System.Drawing.Point(23, 37);
+            this.terminalTextBox.Name = "terminalTextBox";
+            this.terminalTextBox.Size = new System.Drawing.Size(132, 20);
+            this.terminalTextBox.TabIndex = 4;
             // 
-            // textBox2
+            // transactionTextBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(161, 38);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(132, 20);
-            this.textBox2.TabIndex = 5;
+            this.transactionTextBox.Location = new System.Drawing.Point(161, 38);
+            this.transactionTextBox.Name = "transactionTextBox";
+            this.transactionTextBox.Size = new System.Drawing.Size(132, 20);
+            this.transactionTextBox.TabIndex = 5;
             // 
-            // comboBox1
+            // offlineComboBox
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(299, 37);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 6;
+            this.offlineComboBox.FormattingEnabled = true;
+            this.offlineComboBox.Location = new System.Drawing.Point(299, 37);
+            this.offlineComboBox.Name = "offlineComboBox";
+            this.offlineComboBox.Size = new System.Drawing.Size(121, 21);
+            this.offlineComboBox.TabIndex = 6;
             // 
-            // comboBox2
+            // languageComboBox
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(426, 37);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 21);
-            this.comboBox2.TabIndex = 7;
+            this.languageComboBox.FormattingEnabled = true;
+            this.languageComboBox.Location = new System.Drawing.Point(426, 37);
+            this.languageComboBox.Name = "languageComboBox";
+            this.languageComboBox.Size = new System.Drawing.Size(121, 21);
+            this.languageComboBox.TabIndex = 7;
             // 
             // DefaultParametersControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.languageComboBox);
+            this.Controls.Add(this.offlineComboBox);
+            this.Controls.Add(this.transactionTextBox);
+            this.Controls.Add(this.terminalTextBox);
+            this.Controls.Add(this.languageLabel);
+            this.Controls.Add(this.offlineLabel);
+            this.Controls.Add(this.transactionLabel);
+            this.Controls.Add(this.terminalLabel);
             this.Name = "DefaultParametersControl";
             this.Size = new System.Drawing.Size(640, 96);
             this.ResumeLayout(false);
@@ -125,13 +125,13 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.Label terminalLabel;
+        private System.Windows.Forms.Label transactionLabel;
+        private System.Windows.Forms.Label offlineLabel;
+        private System.Windows.Forms.Label languageLabel;
+        private System.Windows.Forms.TextBox terminalTextBox;
+        private System.Windows.Forms.TextBox transactionTextBox;
+        private System.Windows.Forms.ComboBox offlineComboBox;
+        private System.Windows.Forms.ComboBox languageComboBox;
     }
 }

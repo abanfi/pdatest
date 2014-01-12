@@ -1,0 +1,667 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService.Messages" elementFormDefault="qualified" targetNamespace="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService.Messages" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://tsx.lapker.hu/pudohupda/PdaPudoService?xsd=xsd3" namespace="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.DTO" />
+  <xs:import schemaLocation="http://tsx.lapker.hu/pudohupda/PdaPudoService?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="FindInsertedDictionarySinceRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Since" nillable="true" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FindInsertedDictionarySinceRequest" nillable="true" type="tns:FindInsertedDictionarySinceRequest" />
+  <xs:complexType name="BaseRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EventCreated" type="xs:dateTime" />
+      <xs:element xmlns:q1="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.DTO" minOccurs="0" name="LanguageCode" type="q1:LanguageCodeType" />
+      <xs:element minOccurs="0" name="OfflineMode" type="xs:boolean" />
+      <xs:element minOccurs="0" name="TerminalID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TransactionID" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BaseRequest" nillable="true" type="tns:BaseRequest" />
+  <xs:complexType name="FindInsertedDictionarySinceResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseResponse">
+        <xs:sequence>
+          <xs:element xmlns:q2="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.DTO" minOccurs="0" name="Dictionaries" nillable="true" type="q2:ArrayOfDictionary" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FindInsertedDictionarySinceResponse" nillable="true" type="tns:FindInsertedDictionarySinceResponse" />
+  <xs:complexType name="BaseResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ErrorCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ErrorMessage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Result" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BaseResponse" nillable="true" type="tns:BaseResponse" />
+  <xs:complexType name="FindDeletedDictionarySinceRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Since" nillable="true" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FindDeletedDictionarySinceRequest" nillable="true" type="tns:FindDeletedDictionarySinceRequest" />
+  <xs:complexType name="FindDeletedDictionarySinceResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseResponse">
+        <xs:sequence>
+          <xs:element xmlns:q3="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.DTO" minOccurs="0" name="Dictionaries" nillable="true" type="q3:ArrayOfDictionary" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FindDeletedDictionarySinceResponse" nillable="true" type="tns:FindDeletedDictionarySinceResponse" />
+  <xs:complexType name="FindUpsertedPartnerSinceRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Since" nillable="true" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FindUpsertedPartnerSinceRequest" nillable="true" type="tns:FindUpsertedPartnerSinceRequest" />
+  <xs:complexType name="FindUpsertedPartnerSinceResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseResponse">
+        <xs:sequence>
+          <xs:element xmlns:q4="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.DTO" minOccurs="0" name="Partners" nillable="true" type="q4:ArrayOfPartner" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FindUpsertedPartnerSinceResponse" nillable="true" type="tns:FindUpsertedPartnerSinceResponse" />
+  <xs:complexType name="FindDeletedPartnerSinceRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Since" nillable="true" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FindDeletedPartnerSinceRequest" nillable="true" type="tns:FindDeletedPartnerSinceRequest" />
+  <xs:complexType name="FindDeletedPartnerSinceResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseResponse">
+        <xs:sequence>
+          <xs:element xmlns:q5="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.DTO" minOccurs="0" name="Partners" nillable="true" type="q5:ArrayOfPartner" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FindDeletedPartnerSinceResponse" nillable="true" type="tns:FindDeletedPartnerSinceResponse" />
+  <xs:complexType name="FindPartnerByFilterRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="PartnerNameFilter" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FindPartnerByFilterRequest" nillable="true" type="tns:FindPartnerByFilterRequest" />
+  <xs:complexType name="FindPartnerByFilterResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseResponse">
+        <xs:sequence>
+          <xs:element xmlns:q6="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.DTO" minOccurs="0" name="Partners" nillable="true" type="q6:ArrayOfPartner" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FindPartnerByFilterResponse" nillable="true" type="tns:FindPartnerByFilterResponse" />
+  <xs:complexType name="FindPartnerByIDRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="PartnerID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FindPartnerByIDRequest" nillable="true" type="tns:FindPartnerByIDRequest" />
+  <xs:complexType name="FindPartnerByIDResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseResponse">
+        <xs:sequence>
+          <xs:element xmlns:q7="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.DTO" minOccurs="0" name="Partner" nillable="true" type="q7:Partner" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FindPartnerByIDResponse" nillable="true" type="tns:FindPartnerByIDResponse" />
+  <xs:complexType name="CountPartnerByFilterRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="PartnerNameFilter" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CountPartnerByFilterRequest" nillable="true" type="tns:CountPartnerByFilterRequest" />
+  <xs:complexType name="CountPartnerByFilterResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="PartnerCount" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CountPartnerByFilterResponse" nillable="true" type="tns:CountPartnerByFilterResponse" />
+  <xs:complexType name="FindInsertedParcelSinceRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Since" nillable="true" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FindInsertedParcelSinceRequest" nillable="true" type="tns:FindInsertedParcelSinceRequest" />
+  <xs:complexType name="FindInsertedParcelSinceResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseResponse">
+        <xs:sequence>
+          <xs:element xmlns:q8="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.DTO" minOccurs="0" name="Parcels" nillable="true" type="q8:ArrayOfParcel" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FindInsertedParcelSinceResponse" nillable="true" type="tns:FindInsertedParcelSinceResponse" />
+  <xs:complexType name="FindModifiedParcelSinceRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Since" nillable="true" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FindModifiedParcelSinceRequest" nillable="true" type="tns:FindModifiedParcelSinceRequest" />
+  <xs:complexType name="FindModifiedParcelSinceResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseResponse">
+        <xs:sequence>
+          <xs:element xmlns:q9="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.DTO" minOccurs="0" name="ParcelMinimals" nillable="true" type="q9:ArrayOfParcelMinimal" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FindModifiedParcelSinceResponse" nillable="true" type="tns:FindModifiedParcelSinceResponse" />
+  <xs:complexType name="FindDeletedParcelSinceRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Since" nillable="true" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FindDeletedParcelSinceRequest" nillable="true" type="tns:FindDeletedParcelSinceRequest" />
+  <xs:complexType name="FindDeletedParcelSinceResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseResponse">
+        <xs:sequence>
+          <xs:element xmlns:q10="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="BarcodeList" nillable="true" type="q10:ArrayOfstring" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FindDeletedParcelSinceResponse" nillable="true" type="tns:FindDeletedParcelSinceResponse" />
+  <xs:complexType name="GetOpeningHoursRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseRequest">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetOpeningHoursRequest" nillable="true" type="tns:GetOpeningHoursRequest" />
+  <xs:complexType name="GetOpeningHoursResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseResponse">
+        <xs:sequence>
+          <xs:element xmlns:q11="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.DTO" minOccurs="0" name="OpeningHours" nillable="true" type="q11:OpeningHours" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetOpeningHoursResponse" nillable="true" type="tns:GetOpeningHoursResponse" />
+  <xs:complexType name="GetHolidaysRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseRequest">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetHolidaysRequest" nillable="true" type="tns:GetHolidaysRequest" />
+  <xs:complexType name="GetHolidaysResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseResponse">
+        <xs:sequence>
+          <xs:element xmlns:q12="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.DTO" minOccurs="0" name="Holidays" nillable="true" type="q12:Holidays" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetHolidaysResponse" nillable="true" type="tns:GetHolidaysResponse" />
+  <xs:complexType name="FindParcelByBarcodeRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Barcode" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FindParcelByBarcodeRequest" nillable="true" type="tns:FindParcelByBarcodeRequest" />
+  <xs:complexType name="FindParcelByBarcodeResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseResponse">
+        <xs:sequence>
+          <xs:element xmlns:q13="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.DTO" minOccurs="0" name="ParcelComposites" nillable="true" type="q13:ArrayOfParcelComposite" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FindParcelByBarcodeResponse" nillable="true" type="tns:FindParcelByBarcodeResponse" />
+  <xs:complexType name="FindParcelByFilterRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BarcodeFilter" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CustomerAddressFilter" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CustomerNameFilter" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CustomerZipFilter" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FindParcelByFilterRequest" nillable="true" type="tns:FindParcelByFilterRequest" />
+  <xs:complexType name="FindParcelByFilterResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseResponse">
+        <xs:sequence>
+          <xs:element xmlns:q14="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.DTO" minOccurs="0" name="ParcelComposites" nillable="true" type="q14:ArrayOfParcelComposite" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FindParcelByFilterResponse" nillable="true" type="tns:FindParcelByFilterResponse" />
+  <xs:complexType name="SetOpeningHoursRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseRequest">
+        <xs:sequence>
+          <xs:element xmlns:q15="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.DTO" minOccurs="0" name="OpeningHours" nillable="true" type="q15:OpeningHours" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SetOpeningHoursRequest" nillable="true" type="tns:SetOpeningHoursRequest" />
+  <xs:complexType name="SetOpeningHoursResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseResponse">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SetOpeningHoursResponse" nillable="true" type="tns:SetOpeningHoursResponse" />
+  <xs:complexType name="SetHolidaysRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseRequest">
+        <xs:sequence>
+          <xs:element xmlns:q16="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.DTO" minOccurs="0" name="Holidays" nillable="true" type="q16:Holidays" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SetHolidaysRequest" nillable="true" type="tns:SetHolidaysRequest" />
+  <xs:complexType name="SetHolidaysResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseResponse">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SetHolidaysResponse" nillable="true" type="tns:SetHolidaysResponse" />
+  <xs:complexType name="FindParcelForReceiveRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Barcode" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FindParcelForReceiveRequest" nillable="true" type="tns:FindParcelForReceiveRequest" />
+  <xs:complexType name="FindParcelForReceiveResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseResponse">
+        <xs:sequence>
+          <xs:element xmlns:q17="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.DTO" minOccurs="0" name="ParcelComposites" nillable="true" type="q17:ArrayOfParcelComposite" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FindParcelForReceiveResponse" nillable="true" type="tns:FindParcelForReceiveResponse" />
+  <xs:complexType name="PostReceiveRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseRequest">
+        <xs:sequence>
+          <xs:element xmlns:q18="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.DTO" minOccurs="0" name="DiscrepancyParcels" nillable="true" type="q18:ArrayOfDiscrepancyContainer" />
+          <xs:element xmlns:q19="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.DTO" minOccurs="0" name="ReceptionParcels" nillable="true" type="q19:ArrayOfReceptionContainer" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PostReceiveRequest" nillable="true" type="tns:PostReceiveRequest" />
+  <xs:complexType name="PostReceiveResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseParcelResultListResponse">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PostReceiveResponse" nillable="true" type="tns:PostReceiveResponse" />
+  <xs:complexType name="BaseParcelResultListResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseResponse">
+        <xs:sequence>
+          <xs:element xmlns:q20="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.DTO" minOccurs="0" name="ParcelResults" nillable="true" type="q20:ArrayOfParcelResult" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="BaseParcelResultListResponse" nillable="true" type="tns:BaseParcelResultListResponse" />
+  <xs:complexType name="FindParcelForDeliveryRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Barcode" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FindParcelForDeliveryRequest" nillable="true" type="tns:FindParcelForDeliveryRequest" />
+  <xs:complexType name="FindParcelForDeliveryResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseResponse">
+        <xs:sequence>
+          <xs:element xmlns:q21="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.DTO" minOccurs="0" name="ParcelMinimals" nillable="true" type="q21:ArrayOfParcelMinimal" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FindParcelForDeliveryResponse" nillable="true" type="tns:FindParcelForDeliveryResponse" />
+  <xs:complexType name="PostCancelDeliveryRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseRequest">
+        <xs:sequence>
+          <xs:element xmlns:q22="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.DTO" minOccurs="0" name="DeliveryParcels" nillable="true" type="q22:ArrayOfDeliveryContainer" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PostCancelDeliveryRequest" nillable="true" type="tns:PostCancelDeliveryRequest" />
+  <xs:complexType name="PostCancelDeliveryResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseParcelResultListResponse">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PostCancelDeliveryResponse" nillable="true" type="tns:PostCancelDeliveryResponse" />
+  <xs:complexType name="PostRefuseDeliveryRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="IdentificationType" type="xs:int" />
+          <xs:element minOccurs="0" name="IdentifyDocumentNo" nillable="true" type="xs:string" />
+          <xs:element xmlns:q23="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.DTO" minOccurs="0" name="RefuseParcels" nillable="true" type="q23:ArrayOfDeliveryContainer" />
+          <xs:element minOccurs="0" name="RefuseReason" type="xs:int" />
+          <xs:element xmlns:q24="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.DTO" minOccurs="0" name="SignatureData" nillable="true" type="q24:SignatureData" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PostRefuseDeliveryRequest" nillable="true" type="tns:PostRefuseDeliveryRequest" />
+  <xs:complexType name="PostRefuseDeliveryResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseParcelResultListResponse">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PostRefuseDeliveryResponse" nillable="true" type="tns:PostRefuseDeliveryResponse" />
+  <xs:complexType name="PostDeliveryRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseRequest">
+        <xs:sequence>
+          <xs:element xmlns:q25="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.DTO" minOccurs="0" name="DeliveryParcels" nillable="true" type="q25:ArrayOfDeliveryContainer" />
+          <xs:element minOccurs="0" name="IdentificationType" type="xs:int" />
+          <xs:element minOccurs="0" name="IdentifyDocumentNo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PaymentMethod" type="xs:int" />
+          <xs:element xmlns:q26="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.DTO" minOccurs="0" name="SignatureData" nillable="true" type="q26:SignatureData" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PostDeliveryRequest" nillable="true" type="tns:PostDeliveryRequest" />
+  <xs:complexType name="PostDeliveryResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseParcelResultListResponse">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PostDeliveryResponse" nillable="true" type="tns:PostDeliveryResponse" />
+  <xs:complexType name="FindParcelForCustomerReturnPreRegisteredRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Barcode" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FindParcelForCustomerReturnPreRegisteredRequest" nillable="true" type="tns:FindParcelForCustomerReturnPreRegisteredRequest" />
+  <xs:complexType name="FindParcelForCustomerReturnPreRegisteredResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseResponse">
+        <xs:sequence>
+          <xs:element xmlns:q27="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.DTO" minOccurs="0" name="ParcelComposite" nillable="true" type="q27:ParcelComposite" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FindParcelForCustomerReturnPreRegisteredResponse" nillable="true" type="tns:FindParcelForCustomerReturnPreRegisteredResponse" />
+  <xs:complexType name="PostRefuseCustomerReturnPreRegisteredRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseRequest">
+        <xs:sequence>
+          <xs:element xmlns:q28="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.DTO" minOccurs="0" name="RefuseCustomerReturnParcel" nillable="true" type="q28:RefuseCustomerReturnPreRegisteredContainer" />
+          <xs:element minOccurs="0" name="RefuseReason" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PostRefuseCustomerReturnPreRegisteredRequest" nillable="true" type="tns:PostRefuseCustomerReturnPreRegisteredRequest" />
+  <xs:complexType name="PostRefuseCustomerReturnPreRegisteredResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseParcelResultResponse">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PostRefuseCustomerReturnPreRegisteredResponse" nillable="true" type="tns:PostRefuseCustomerReturnPreRegisteredResponse" />
+  <xs:complexType name="BaseParcelResultResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseResponse">
+        <xs:sequence>
+          <xs:element xmlns:q29="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.DTO" minOccurs="0" name="ParcelResult" nillable="true" type="q29:ParcelResult" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="BaseParcelResultResponse" nillable="true" type="tns:BaseParcelResultResponse" />
+  <xs:complexType name="PostCustomerReturnPreRegisteredRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseRequest">
+        <xs:sequence>
+          <xs:element xmlns:q30="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.DTO" minOccurs="0" name="CustomerReturnParcel" nillable="true" type="q30:CustomerReturnPreRegisteredContainer" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PostCustomerReturnPreRegisteredRequest" nillable="true" type="tns:PostCustomerReturnPreRegisteredRequest" />
+  <xs:complexType name="PostCustomerReturnPreRegisteredResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseParcelResultResponse">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PostCustomerReturnPreRegisteredResponse" nillable="true" type="tns:PostCustomerReturnPreRegisteredResponse" />
+  <xs:complexType name="PostCustomerReturnUnexpectedRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseRequest">
+        <xs:sequence>
+          <xs:element xmlns:q31="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.DTO" minOccurs="0" name="CustomerReturnParcel" nillable="true" type="q31:CustomerReturnUnexpectedContainer" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PostCustomerReturnUnexpectedRequest" nillable="true" type="tns:PostCustomerReturnUnexpectedRequest" />
+  <xs:complexType name="PostCustomerReturnUnexpectedResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseParcelResultResponse">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PostCustomerReturnUnexpectedResponse" nillable="true" type="tns:PostCustomerReturnUnexpectedResponse" />
+  <xs:complexType name="FindParcelForReturnRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseRequest">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FindParcelForReturnRequest" nillable="true" type="tns:FindParcelForReturnRequest" />
+  <xs:complexType name="FindParcelForReturnResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseResponse">
+        <xs:sequence>
+          <xs:element xmlns:q32="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.DTO" minOccurs="0" name="ParcelMinimals" nillable="true" type="q32:ArrayOfParcelMinimal" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FindParcelForReturnResponse" nillable="true" type="tns:FindParcelForReturnResponse" />
+  <xs:complexType name="PostReturnRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseRequest">
+        <xs:sequence>
+          <xs:element xmlns:q33="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.DTO" minOccurs="0" name="ReturnParcels" nillable="true" type="q33:ArrayOfReturnContainer" />
+          <xs:element xmlns:q34="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.DTO" minOccurs="0" name="ShortageParcels" nillable="true" type="q34:ArrayOfPostingContainer" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PostReturnRequest" nillable="true" type="tns:PostReturnRequest" />
+  <xs:complexType name="PostReturnResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseParcelResultListResponse">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PostReturnResponse" nillable="true" type="tns:PostReturnResponse" />
+  <xs:complexType name="FindUpsertedMaterialUnitMDataSinceRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Since" nillable="true" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FindUpsertedMaterialUnitMDataSinceRequest" nillable="true" type="tns:FindUpsertedMaterialUnitMDataSinceRequest" />
+  <xs:complexType name="FindUpsertedMaterialUnitMDataSinceResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseResponse">
+        <xs:sequence>
+          <xs:element xmlns:q35="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.DTO" minOccurs="0" name="MaterialUnitMDatas" nillable="true" type="q35:ArrayOfMaterialUnitMData" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FindUpsertedMaterialUnitMDataSinceResponse" nillable="true" type="tns:FindUpsertedMaterialUnitMDataSinceResponse" />
+  <xs:complexType name="FindDeletedMaterialUnitMDataSinceRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Since" nillable="true" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FindDeletedMaterialUnitMDataSinceRequest" nillable="true" type="tns:FindDeletedMaterialUnitMDataSinceRequest" />
+  <xs:complexType name="FindDeletedMaterialUnitMDataSinceResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseResponse">
+        <xs:sequence>
+          <xs:element xmlns:q36="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.DTO" minOccurs="0" name="MaterialUnitMDatas" nillable="true" type="q36:ArrayOfMaterialUnitMData" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FindDeletedMaterialUnitMDataSinceResponse" nillable="true" type="tns:FindDeletedMaterialUnitMDataSinceResponse" />
+  <xs:complexType name="FindMaterialUnitMDataRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseRequest">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FindMaterialUnitMDataRequest" nillable="true" type="tns:FindMaterialUnitMDataRequest" />
+  <xs:complexType name="FindMaterialUnitMDataResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseResponse">
+        <xs:sequence>
+          <xs:element xmlns:q37="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.DTO" minOccurs="0" name="MaterialUnitMDatas" nillable="true" type="q37:ArrayOfMaterialUnitMData" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FindMaterialUnitMDataResponse" nillable="true" type="tns:FindMaterialUnitMDataResponse" />
+  <xs:complexType name="CreateMaterialOrderRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseRequest">
+        <xs:sequence>
+          <xs:element xmlns:q38="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.DTO" minOccurs="0" name="MaterialOrders" nillable="true" type="q38:ArrayOfMaterialOrderContainer" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CreateMaterialOrderRequest" nillable="true" type="tns:CreateMaterialOrderRequest" />
+  <xs:complexType name="CreateMaterialOrderResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseResponse">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CreateMaterialOrderResponse" nillable="true" type="tns:CreateMaterialOrderResponse" />
+</xs:schema>

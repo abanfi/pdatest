@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.DTO" elementFormDefault="qualified" targetNamespace="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.DTO" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://tsx.lapker.hu/pudohupda/PdaPudoService?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:simpleType name="LanguageCodeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="EN" />
+      <xs:enumeration value="HU" />
+      <xs:enumeration value="FR" />
+      <xs:enumeration value="NL" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="LanguageCodeType" nillable="true" type="tns:LanguageCodeType" />
+  <xs:complexType name="ArrayOfDictionary">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Dictionary" nillable="true" type="tns:Dictionary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDictionary" nillable="true" type="tns:ArrayOfDictionary" />
+  <xs:complexType name="Dictionary">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DictionaryClass" type="tns:DictionaryClass" />
+      <xs:element minOccurs="0" name="KeyValue" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Dictionary" nillable="true" type="tns:Dictionary" />
+  <xs:simpleType name="DictionaryClass">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="IdentificationType" />
+      <xs:enumeration value="RefuseReason" />
+      <xs:enumeration value="CustomerReturnRefuseReason" />
+      <xs:enumeration value="PaymentMethod" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="DictionaryClass" nillable="true" type="tns:DictionaryClass" />
+  <xs:complexType name="ArrayOfPartner">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Partner" nillable="true" type="tns:Partner" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPartner" nillable="true" type="tns:ArrayOfPartner" />
+  <xs:complexType name="Partner">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PartnerID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PartnerName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Partner" nillable="true" type="tns:Partner" />
+  <xs:complexType name="ArrayOfParcel">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Parcel" nillable="true" type="tns:Parcel" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfParcel" nillable="true" type="tns:ArrayOfParcel" />
+  <xs:complexType name="Parcel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BagBarcode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Barcode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Currency" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CustomerAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CustomerName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CustomerPostalCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Damaged" type="xs:boolean" />
+      <xs:element minOccurs="0" name="DestinationLocationID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LinkedCount" type="xs:int" />
+      <xs:element minOccurs="0" name="LocationID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NextLinkedBarcode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OldBarcode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ParcelState" type="xs:int" />
+      <xs:element minOccurs="0" name="ParcelWorkflow" type="xs:int" />
+      <xs:element minOccurs="0" name="PartnerID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PriceAtDelivery" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ReturnDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ShipmentID" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Parcel" nillable="true" type="tns:Parcel" />
+  <xs:complexType name="ArrayOfParcelMinimal">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ParcelMinimal" nillable="true" type="tns:ParcelMinimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfParcelMinimal" nillable="true" type="tns:ArrayOfParcelMinimal" />
+  <xs:complexType name="ParcelMinimal">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Barcode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Damaged" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LinkedCount" type="xs:int" />
+      <xs:element minOccurs="0" name="NextLinkedBarcode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ParcelState" type="xs:int" />
+      <xs:element minOccurs="0" name="PriceAtDelivery" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ReturnDate" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ParcelMinimal" nillable="true" type="tns:ParcelMinimal" />
+  <xs:complexType name="OpeningHours">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Friday" nillable="true" type="tns:OpeningHoursEntry" />
+      <xs:element minOccurs="0" name="Monday" nillable="true" type="tns:OpeningHoursEntry" />
+      <xs:element minOccurs="0" name="Saturday" nillable="true" type="tns:OpeningHoursEntry" />
+      <xs:element minOccurs="0" name="Sunday" nillable="true" type="tns:OpeningHoursEntry" />
+      <xs:element minOccurs="0" name="Thursday" nillable="true" type="tns:OpeningHoursEntry" />
+      <xs:element minOccurs="0" name="Tuesday" nillable="true" type="tns:OpeningHoursEntry" />
+      <xs:element minOccurs="0" name="Wednesday" nillable="true" type="tns:OpeningHoursEntry" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OpeningHours" nillable="true" type="tns:OpeningHours" />
+  <xs:complexType name="OpeningHoursEntry">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ClosingTimeAM" nillable="true" type="ser:duration" />
+      <xs:element minOccurs="0" name="ClosingTimePM" nillable="true" type="ser:duration" />
+      <xs:element minOccurs="0" name="OpeningTimeAM" nillable="true" type="ser:duration" />
+      <xs:element minOccurs="0" name="OpeningTimePM" nillable="true" type="ser:duration" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OpeningHoursEntry" nillable="true" type="tns:OpeningHoursEntry" />
+  <xs:complexType name="Holidays">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Entries" nillable="true" type="tns:ArrayOfHolidaysEntry" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Holidays" nillable="true" type="tns:Holidays" />
+  <xs:complexType name="ArrayOfHolidaysEntry">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="HolidaysEntry" nillable="true" type="tns:HolidaysEntry" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfHolidaysEntry" nillable="true" type="tns:ArrayOfHolidaysEntry" />
+  <xs:complexType name="HolidaysEntry">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="From" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="To" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="HolidaysEntry" nillable="true" type="tns:HolidaysEntry" />
+  <xs:complexType name="ArrayOfParcelComposite">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ParcelComposite" nillable="true" type="tns:ParcelComposite" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfParcelComposite" nillable="true" type="tns:ArrayOfParcelComposite" />
+  <xs:complexType name="ParcelComposite">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Location" nillable="true" type="tns:Location" />
+      <xs:element minOccurs="0" name="Parcel" nillable="true" type="tns:Parcel" />
+      <xs:element minOccurs="0" name="Partner" nillable="true" type="tns:Partner" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ParcelComposite" nillable="true" type="tns:ParcelComposite" />
+  <xs:complexType name="Location">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="LocationID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LocationName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Location" nillable="true" type="tns:Location" />
+  <xs:complexType name="ArrayOfDiscrepancyContainer">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DiscrepancyContainer" nillable="true" type="tns:DiscrepancyContainer" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDiscrepancyContainer" nillable="true" type="tns:ArrayOfDiscrepancyContainer" />
+  <xs:complexType name="DiscrepancyContainer">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:PostingContainer">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Discrepancy" type="tns:DiscrepancyType" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DiscrepancyContainer" nillable="true" type="tns:DiscrepancyContainer" />
+  <xs:complexType name="PostingContainer">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Barcode" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PostingContainer" nillable="true" type="tns:PostingContainer" />
+  <xs:simpleType name="DiscrepancyType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Shortage" />
+      <xs:enumeration value="Surplus" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="DiscrepancyType" nillable="true" type="tns:DiscrepancyType" />
+  <xs:complexType name="ArrayOfReceptionContainer">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ReceptionContainer" nillable="true" type="tns:ReceptionContainer" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfReceptionContainer" nillable="true" type="tns:ArrayOfReceptionContainer" />
+  <xs:complexType name="ReceptionContainer">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:PostingContainer">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Damaged" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ReceptionContainer" nillable="true" type="tns:ReceptionContainer" />
+  <xs:complexType name="ArrayOfParcelResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ParcelResult" nillable="true" type="tns:ParcelResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfParcelResult" nillable="true" type="tns:ArrayOfParcelResult" />
+  <xs:complexType name="ParcelResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ActualStatus" type="xs:int" />
+      <xs:element minOccurs="0" name="Barcode" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ParcelResult" nillable="true" type="tns:ParcelResult" />
+  <xs:complexType name="ArrayOfDeliveryContainer">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DeliveryContainer" nillable="true" type="tns:DeliveryContainer" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDeliveryContainer" nillable="true" type="tns:ArrayOfDeliveryContainer" />
+  <xs:complexType name="DeliveryContainer">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:PostingContainer">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Damaged" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DeliveryContainer" nillable="true" type="tns:DeliveryContainer" />
+  <xs:complexType name="SignatureData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Data" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="Filename" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SignatureData" nillable="true" type="tns:SignatureData" />
+  <xs:complexType name="RefuseCustomerReturnPreRegisteredContainer">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:CustomerReturnPreRegisteredContainer">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RefuseCustomerReturnPreRegisteredContainer" nillable="true" type="tns:RefuseCustomerReturnPreRegisteredContainer" />
+  <xs:complexType name="CustomerReturnPreRegisteredContainer">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:PostingContainer">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Damaged" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CustomerReturnPreRegisteredContainer" nillable="true" type="tns:CustomerReturnPreRegisteredContainer" />
+  <xs:complexType name="CustomerReturnUnexpectedContainer">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:CustomerReturnPreRegisteredContainer">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CustomerName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NoLabel" type="xs:boolean" />
+          <xs:element minOccurs="0" name="OldBarcode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PartnerID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CustomerReturnUnexpectedContainer" nillable="true" type="tns:CustomerReturnUnexpectedContainer" />
+  <xs:complexType name="ArrayOfReturnContainer">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ReturnContainer" nillable="true" type="tns:ReturnContainer" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfReturnContainer" nillable="true" type="tns:ArrayOfReturnContainer" />
+  <xs:complexType name="ReturnContainer">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:PostingContainer">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BagBarcode" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ReturnContainer" nillable="true" type="tns:ReturnContainer" />
+  <xs:complexType name="ArrayOfPostingContainer">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PostingContainer" nillable="true" type="tns:PostingContainer" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPostingContainer" nillable="true" type="tns:ArrayOfPostingContainer" />
+  <xs:complexType name="ArrayOfMaterialUnitMData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MaterialUnitMData" nillable="true" type="tns:MaterialUnitMData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMaterialUnitMData" nillable="true" type="tns:ArrayOfMaterialUnitMData" />
+  <xs:complexType name="MaterialUnitMData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="MaterialUnitID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Quantity" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ShortText" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UOM" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MaterialUnitMData" nillable="true" type="tns:MaterialUnitMData" />
+  <xs:complexType name="ArrayOfMaterialOrderContainer">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MaterialOrderContainer" nillable="true" type="tns:MaterialOrderContainer" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMaterialOrderContainer" nillable="true" type="tns:ArrayOfMaterialOrderContainer" />
+  <xs:complexType name="MaterialOrderContainer">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="MaterialUnitID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RequestedQuantity" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MaterialOrderContainer" nillable="true" type="tns:MaterialOrderContainer" />
+</xs:schema>

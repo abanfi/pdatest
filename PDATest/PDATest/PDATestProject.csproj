@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{F2DE4DAC-8B42-497B-8314-349AA46CD573}</ProjectGuid>
+    <ProjectGuid>{F7109112-244F-4FA5-A228-9750AEA0B1B6}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>PDATestProject</RootNamespace>
@@ -34,6 +34,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -77,6 +79,11 @@
     <Compile Include="PackageControl.Designer.cs">
       <DependentUpon>PackageControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Service References\PDAPudoService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="PartnerControl.resx">
       <DependentUpon>PartnerControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -110,12 +117,143 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Service References\PDAPudoService\PdaPudoService.wsdl" />
+    <None Include="Service References\PDAPudoService\PdaPudoService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PDAPudoService\PdaPudoService1.wsdl" />
+    <None Include="Service References\PDAPudoService\PdaPudoService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PDAPudoService\PdaPudoService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PDAPudoService\PdaPudoService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PDAPudoService\PdaPudoService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PDAPudoService\PDATestProject.PDAPudoService.CountPartnerByFilterResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PDAPudoService\PDATestProject.PDAPudoService.CreateMaterialOrderResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PDAPudoService\PDATestProject.PDAPudoService.FindDeletedDictionarySinceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PDAPudoService\PDATestProject.PDAPudoService.FindDeletedMaterialUnitMDataSinceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PDAPudoService\PDATestProject.PDAPudoService.FindDeletedParcelSinceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PDAPudoService\PDATestProject.PDAPudoService.FindDeletedPartnerSinceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PDAPudoService\PDATestProject.PDAPudoService.FindInsertedDictionarySinceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PDAPudoService\PDATestProject.PDAPudoService.FindInsertedParcelSinceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PDAPudoService\PDATestProject.PDAPudoService.FindMaterialUnitMDataResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PDAPudoService\PDATestProject.PDAPudoService.FindModifiedParcelSinceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PDAPudoService\PDATestProject.PDAPudoService.FindParcelByBarcodeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PDAPudoService\PDATestProject.PDAPudoService.FindParcelByFilterResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PDAPudoService\PDATestProject.PDAPudoService.FindParcelForCustomerReturnPreRegisteredResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PDAPudoService\PDATestProject.PDAPudoService.FindParcelForDeliveryResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PDAPudoService\PDATestProject.PDAPudoService.FindParcelForReceiveResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PDAPudoService\PDATestProject.PDAPudoService.FindParcelForReturnResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PDAPudoService\PDATestProject.PDAPudoService.FindPartnerByFilterResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PDAPudoService\PDATestProject.PDAPudoService.FindPartnerByIDResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PDAPudoService\PDATestProject.PDAPudoService.FindUpsertedMaterialUnitMDataSinceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PDAPudoService\PDATestProject.PDAPudoService.FindUpsertedPartnerSinceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PDAPudoService\PDATestProject.PDAPudoService.GetHolidaysResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PDAPudoService\PDATestProject.PDAPudoService.GetOpeningHoursResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PDAPudoService\PDATestProject.PDAPudoService.PostCancelDeliveryResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PDAPudoService\PDATestProject.PDAPudoService.PostCustomerReturnPreRegisteredResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PDAPudoService\PDATestProject.PDAPudoService.PostCustomerReturnUnexpectedResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PDAPudoService\PDATestProject.PDAPudoService.PostDeliveryResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PDAPudoService\PDATestProject.PDAPudoService.PostReceiveResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PDAPudoService\PDATestProject.PDAPudoService.PostRefuseCustomerReturnPreRegisteredResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PDAPudoService\PDATestProject.PDAPudoService.PostRefuseDeliveryResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PDAPudoService\PDATestProject.PDAPudoService.PostReturnResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PDAPudoService\PDATestProject.PDAPudoService.SetHolidaysResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PDAPudoService\PDATestProject.PDAPudoService.SetOpeningHoursResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\toolStripButton1.Image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\PDAPudoService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PDAPudoService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PDAPudoService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PDAPudoService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

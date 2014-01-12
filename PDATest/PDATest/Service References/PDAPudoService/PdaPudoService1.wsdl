@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService/Imports">
+      <xsd:import schemaLocation="http://tsx.lapker.hu/pudohupda/PdaPudoService?xsd=xsd0" namespace="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService" />
+      <xsd:import schemaLocation="http://tsx.lapker.hu/pudohupda/PdaPudoService?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://tsx.lapker.hu/pudohupda/PdaPudoService?xsd=xsd2" namespace="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService.Messages" />
+      <xsd:import schemaLocation="http://tsx.lapker.hu/pudohupda/PdaPudoService?xsd=xsd3" namespace="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.DTO" />
+      <xsd:import schemaLocation="http://tsx.lapker.hu/pudohupda/PdaPudoService?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IPdaPudoService_FindInsertedDictionarySince_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindInsertedDictionarySince" />
+  </wsdl:message>
+  <wsdl:message name="IPdaPudoService_FindInsertedDictionarySince_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindInsertedDictionarySinceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPdaPudoService_FindDeletedDictionarySince_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindDeletedDictionarySince" />
+  </wsdl:message>
+  <wsdl:message name="IPdaPudoService_FindDeletedDictionarySince_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindDeletedDictionarySinceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPdaPudoService_FindUpsertedPartnerSince_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindUpsertedPartnerSince" />
+  </wsdl:message>
+  <wsdl:message name="IPdaPudoService_FindUpsertedPartnerSince_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindUpsertedPartnerSinceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPdaPudoService_FindDeletedPartnerSince_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindDeletedPartnerSince" />
+  </wsdl:message>
+  <wsdl:message name="IPdaPudoService_FindDeletedPartnerSince_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindDeletedPartnerSinceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPdaPudoService_FindPartnerByFilter_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindPartnerByFilter" />
+  </wsdl:message>
+  <wsdl:message name="IPdaPudoService_FindPartnerByFilter_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindPartnerByFilterResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPdaPudoService_FindPartnerByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindPartnerByID" />
+  </wsdl:message>
+  <wsdl:message name="IPdaPudoService_FindPartnerByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindPartnerByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPdaPudoService_CountPartnerByFilter_InputMessage">
+    <wsdl:part name="parameters" element="tns:CountPartnerByFilter" />
+  </wsdl:message>
+  <wsdl:message name="IPdaPudoService_CountPartnerByFilter_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CountPartnerByFilterResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPdaPudoService_FindInsertedParcelSince_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindInsertedParcelSince" />
+  </wsdl:message>
+  <wsdl:message name="IPdaPudoService_FindInsertedParcelSince_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindInsertedParcelSinceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPdaPudoService_FindModifiedParcelSince_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindModifiedParcelSince" />
+  </wsdl:message>
+  <wsdl:message name="IPdaPudoService_FindModifiedParcelSince_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindModifiedParcelSinceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPdaPudoService_FindDeletedParcelSince_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindDeletedParcelSince" />
+  </wsdl:message>
+  <wsdl:message name="IPdaPudoService_FindDeletedParcelSince_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindDeletedParcelSinceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPdaPudoService_GetOpeningHours_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOpeningHours" />
+  </wsdl:message>
+  <wsdl:message name="IPdaPudoService_GetOpeningHours_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOpeningHoursResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPdaPudoService_GetHolidays_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetHolidays" />
+  </wsdl:message>
+  <wsdl:message name="IPdaPudoService_GetHolidays_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetHolidaysResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPdaPudoService_FindParcelByBarcode_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindParcelByBarcode" />
+  </wsdl:message>
+  <wsdl:message name="IPdaPudoService_FindParcelByBarcode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindParcelByBarcodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPdaPudoService_FindParcelByFilter_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindParcelByFilter" />
+  </wsdl:message>
+  <wsdl:message name="IPdaPudoService_FindParcelByFilter_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindParcelByFilterResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPdaPudoService_SetOpeningHours_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetOpeningHours" />
+  </wsdl:message>
+  <wsdl:message name="IPdaPudoService_SetOpeningHours_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetOpeningHoursResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPdaPudoService_SetHolidays_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetHolidays" />
+  </wsdl:message>
+  <wsdl:message name="IPdaPudoService_SetHolidays_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetHolidaysResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPdaPudoService_FindParcelForReceive_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindParcelForReceive" />
+  </wsdl:message>
+  <wsdl:message name="IPdaPudoService_FindParcelForReceive_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindParcelForReceiveResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPdaPudoService_PostReceive_InputMessage">
+    <wsdl:part name="parameters" element="tns:PostReceive" />
+  </wsdl:message>
+  <wsdl:message name="IPdaPudoService_PostReceive_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PostReceiveResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPdaPudoService_FindParcelForDelivery_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindParcelForDelivery" />
+  </wsdl:message>
+  <wsdl:message name="IPdaPudoService_FindParcelForDelivery_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindParcelForDeliveryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPdaPudoService_PostCancelDelivery_InputMessage">
+    <wsdl:part name="parameters" element="tns:PostCancelDelivery" />
+  </wsdl:message>
+  <wsdl:message name="IPdaPudoService_PostCancelDelivery_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PostCancelDeliveryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPdaPudoService_PostRefuseDelivery_InputMessage">
+    <wsdl:part name="parameters" element="tns:PostRefuseDelivery" />
+  </wsdl:message>
+  <wsdl:message name="IPdaPudoService_PostRefuseDelivery_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PostRefuseDeliveryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPdaPudoService_PostDelivery_InputMessage">
+    <wsdl:part name="parameters" element="tns:PostDelivery" />
+  </wsdl:message>
+  <wsdl:message name="IPdaPudoService_PostDelivery_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PostDeliveryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPdaPudoService_FindParcelForCustomerReturnPreRegistered_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindParcelForCustomerReturnPreRegistered" />
+  </wsdl:message>
+  <wsdl:message name="IPdaPudoService_FindParcelForCustomerReturnPreRegistered_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindParcelForCustomerReturnPreRegisteredResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPdaPudoService_PostRefuseCustomerReturnPreRegistered_InputMessage">
+    <wsdl:part name="parameters" element="tns:PostRefuseCustomerReturnPreRegistered" />
+  </wsdl:message>
+  <wsdl:message name="IPdaPudoService_PostRefuseCustomerReturnPreRegistered_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PostRefuseCustomerReturnPreRegisteredResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPdaPudoService_PostCustomerReturnPreRegistered_InputMessage">
+    <wsdl:part name="parameters" element="tns:PostCustomerReturnPreRegistered" />
+  </wsdl:message>
+  <wsdl:message name="IPdaPudoService_PostCustomerReturnPreRegistered_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PostCustomerReturnPreRegisteredResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPdaPudoService_PostCustomerReturnUnexpected_InputMessage">
+    <wsdl:part name="parameters" element="tns:PostCustomerReturnUnexpected" />
+  </wsdl:message>
+  <wsdl:message name="IPdaPudoService_PostCustomerReturnUnexpected_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PostCustomerReturnUnexpectedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPdaPudoService_FindParcelForReturn_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindParcelForReturn" />
+  </wsdl:message>
+  <wsdl:message name="IPdaPudoService_FindParcelForReturn_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindParcelForReturnResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPdaPudoService_PostReturn_InputMessage">
+    <wsdl:part name="parameters" element="tns:PostReturn" />
+  </wsdl:message>
+  <wsdl:message name="IPdaPudoService_PostReturn_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PostReturnResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPdaPudoService_FindUpsertedMaterialUnitMDataSince_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindUpsertedMaterialUnitMDataSince" />
+  </wsdl:message>
+  <wsdl:message name="IPdaPudoService_FindUpsertedMaterialUnitMDataSince_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindUpsertedMaterialUnitMDataSinceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPdaPudoService_FindDeletedMaterialUnitMDataSince_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindDeletedMaterialUnitMDataSince" />
+  </wsdl:message>
+  <wsdl:message name="IPdaPudoService_FindDeletedMaterialUnitMDataSince_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindDeletedMaterialUnitMDataSinceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPdaPudoService_FindMaterialUnitMData_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindMaterialUnitMData" />
+  </wsdl:message>
+  <wsdl:message name="IPdaPudoService_FindMaterialUnitMData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindMaterialUnitMDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPdaPudoService_CreateMaterialOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateMaterialOrder" />
+  </wsdl:message>
+  <wsdl:message name="IPdaPudoService_CreateMaterialOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateMaterialOrderResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IPdaPudoService">
+    <wsdl:operation name="FindInsertedDictionarySince">
+      <wsdl:input wsaw:Action="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService/IPdaPudoService/FindInsertedDictionarySince" message="tns:IPdaPudoService_FindInsertedDictionarySince_InputMessage" />
+      <wsdl:output wsaw:Action="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService/IPdaPudoService/FindInsertedDictionarySinceResponse" message="tns:IPdaPudoService_FindInsertedDictionarySince_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindDeletedDictionarySince">
+      <wsdl:input wsaw:Action="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService/IPdaPudoService/FindDeletedDictionarySince" message="tns:IPdaPudoService_FindDeletedDictionarySince_InputMessage" />
+      <wsdl:output wsaw:Action="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService/IPdaPudoService/FindDeletedDictionarySinceResponse" message="tns:IPdaPudoService_FindDeletedDictionarySince_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindUpsertedPartnerSince">
+      <wsdl:input wsaw:Action="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService/IPdaPudoService/FindUpsertedPartnerSince" message="tns:IPdaPudoService_FindUpsertedPartnerSince_InputMessage" />
+      <wsdl:output wsaw:Action="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService/IPdaPudoService/FindUpsertedPartnerSinceResponse" message="tns:IPdaPudoService_FindUpsertedPartnerSince_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindDeletedPartnerSince">
+      <wsdl:input wsaw:Action="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService/IPdaPudoService/FindDeletedPartnerSince" message="tns:IPdaPudoService_FindDeletedPartnerSince_InputMessage" />
+      <wsdl:output wsaw:Action="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService/IPdaPudoService/FindDeletedPartnerSinceResponse" message="tns:IPdaPudoService_FindDeletedPartnerSince_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindPartnerByFilter">
+      <wsdl:input wsaw:Action="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService/IPdaPudoService/FindPartnerByFilter" message="tns:IPdaPudoService_FindPartnerByFilter_InputMessage" />
+      <wsdl:output wsaw:Action="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService/IPdaPudoService/FindPartnerByFilterResponse" message="tns:IPdaPudoService_FindPartnerByFilter_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindPartnerByID">
+      <wsdl:input wsaw:Action="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService/IPdaPudoService/FindPartnerByID" message="tns:IPdaPudoService_FindPartnerByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService/IPdaPudoService/FindPartnerByIDResponse" message="tns:IPdaPudoService_FindPartnerByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CountPartnerByFilter">
+      <wsdl:input wsaw:Action="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService/IPdaPudoService/CountPartnerByFilter" message="tns:IPdaPudoService_CountPartnerByFilter_InputMessage" />
+      <wsdl:output wsaw:Action="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService/IPdaPudoService/CountPartnerByFilterResponse" message="tns:IPdaPudoService_CountPartnerByFilter_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindInsertedParcelSince">
+      <wsdl:input wsaw:Action="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService/IPdaPudoService/FindInsertedParcelSince" message="tns:IPdaPudoService_FindInsertedParcelSince_InputMessage" />
+      <wsdl:output wsaw:Action="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService/IPdaPudoService/FindInsertedParcelSinceResponse" message="tns:IPdaPudoService_FindInsertedParcelSince_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindModifiedParcelSince">
+      <wsdl:input wsaw:Action="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService/IPdaPudoService/FindModifiedParcelSince" message="tns:IPdaPudoService_FindModifiedParcelSince_InputMessage" />
+      <wsdl:output wsaw:Action="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService/IPdaPudoService/FindModifiedParcelSinceResponse" message="tns:IPdaPudoService_FindModifiedParcelSince_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindDeletedParcelSince">
+      <wsdl:input wsaw:Action="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService/IPdaPudoService/FindDeletedParcelSince" message="tns:IPdaPudoService_FindDeletedParcelSince_InputMessage" />
+      <wsdl:output wsaw:Action="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService/IPdaPudoService/FindDeletedParcelSinceResponse" message="tns:IPdaPudoService_FindDeletedParcelSince_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOpeningHours">
+      <wsdl:input wsaw:Action="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService/IPdaPudoService/GetOpeningHours" message="tns:IPdaPudoService_GetOpeningHours_InputMessage" />
+      <wsdl:output wsaw:Action="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService/IPdaPudoService/GetOpeningHoursResponse" message="tns:IPdaPudoService_GetOpeningHours_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHolidays">
+      <wsdl:input wsaw:Action="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService/IPdaPudoService/GetHolidays" message="tns:IPdaPudoService_GetHolidays_InputMessage" />
+      <wsdl:output wsaw:Action="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService/IPdaPudoService/GetHolidaysResponse" message="tns:IPdaPudoService_GetHolidays_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindParcelByBarcode">
+      <wsdl:input wsaw:Action="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService/IPdaPudoService/FindParcelByBarcode" message="tns:IPdaPudoService_FindParcelByBarcode_InputMessage" />
+      <wsdl:output wsaw:Action="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService/IPdaPudoService/FindParcelByBarcodeResponse" message="tns:IPdaPudoService_FindParcelByBarcode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindParcelByFilter">
+      <wsdl:input wsaw:Action="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService/IPdaPudoService/FindParcelByFilter" message="tns:IPdaPudoService_FindParcelByFilter_InputMessage" />
+      <wsdl:output wsaw:Action="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService/IPdaPudoService/FindParcelByFilterResponse" message="tns:IPdaPudoService_FindParcelByFilter_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetOpeningHours">
+      <wsdl:input wsaw:Action="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService/IPdaPudoService/SetOpeningHours" message="tns:IPdaPudoService_SetOpeningHours_InputMessage" />
+      <wsdl:output wsaw:Action="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService/IPdaPudoService/SetOpeningHoursResponse" message="tns:IPdaPudoService_SetOpeningHours_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetHolidays">
+      <wsdl:input wsaw:Action="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService/IPdaPudoService/SetHolidays" message="tns:IPdaPudoService_SetHolidays_InputMessage" />
+      <wsdl:output wsaw:Action="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService/IPdaPudoService/SetHolidaysResponse" message="tns:IPdaPudoService_SetHolidays_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindParcelForReceive">
+      <wsdl:input wsaw:Action="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService/IPdaPudoService/FindParcelForReceive" message="tns:IPdaPudoService_FindParcelForReceive_InputMessage" />
+      <wsdl:output wsaw:Action="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService/IPdaPudoService/FindParcelForReceiveResponse" message="tns:IPdaPudoService_FindParcelForReceive_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PostReceive">
+      <wsdl:input wsaw:Action="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService/IPdaPudoService/PostReceive" message="tns:IPdaPudoService_PostReceive_InputMessage" />
+      <wsdl:output wsaw:Action="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService/IPdaPudoService/PostReceiveResponse" message="tns:IPdaPudoService_PostReceive_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindParcelForDelivery">
+      <wsdl:input wsaw:Action="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService/IPdaPudoService/FindParcelForDelivery" message="tns:IPdaPudoService_FindParcelForDelivery_InputMessage" />
+      <wsdl:output wsaw:Action="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService/IPdaPudoService/FindParcelForDeliveryResponse" message="tns:IPdaPudoService_FindParcelForDelivery_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PostCancelDelivery">
+      <wsdl:input wsaw:Action="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService/IPdaPudoService/PostCancelDelivery" message="tns:IPdaPudoService_PostCancelDelivery_InputMessage" />
+      <wsdl:output wsaw:Action="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService/IPdaPudoService/PostCancelDeliveryResponse" message="tns:IPdaPudoService_PostCancelDelivery_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PostRefuseDelivery">
+      <wsdl:input wsaw:Action="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService/IPdaPudoService/PostRefuseDelivery" message="tns:IPdaPudoService_PostRefuseDelivery_InputMessage" />
+      <wsdl:output wsaw:Action="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService/IPdaPudoService/PostRefuseDeliveryResponse" message="tns:IPdaPudoService_PostRefuseDelivery_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PostDelivery">
+      <wsdl:input wsaw:Action="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService/IPdaPudoService/PostDelivery" message="tns:IPdaPudoService_PostDelivery_InputMessage" />
+      <wsdl:output wsaw:Action="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService/IPdaPudoService/PostDeliveryResponse" message="tns:IPdaPudoService_PostDelivery_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindParcelForCustomerReturnPreRegistered">
+      <wsdl:input wsaw:Action="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService/IPdaPudoService/FindParcelForCustomerReturnPreRegistered" message="tns:IPdaPudoService_FindParcelForCustomerReturnPreRegistered_InputMessage" />
+      <wsdl:output wsaw:Action="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService/IPdaPudoService/FindParcelForCustomerReturnPreRegisteredResponse" message="tns:IPdaPudoService_FindParcelForCustomerReturnPreRegistered_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PostRefuseCustomerReturnPreRegistered">
+      <wsdl:input wsaw:Action="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService/IPdaPudoService/PostRefuseCustomerReturnPreRegistered" message="tns:IPdaPudoService_PostRefuseCustomerReturnPreRegistered_InputMessage" />
+      <wsdl:output wsaw:Action="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService/IPdaPudoService/PostRefuseCustomerReturnPreRegisteredResponse" message="tns:IPdaPudoService_PostRefuseCustomerReturnPreRegistered_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PostCustomerReturnPreRegistered">
+      <wsdl:input wsaw:Action="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService/IPdaPudoService/PostCustomerReturnPreRegistered" message="tns:IPdaPudoService_PostCustomerReturnPreRegistered_InputMessage" />
+      <wsdl:output wsaw:Action="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService/IPdaPudoService/PostCustomerReturnPreRegisteredResponse" message="tns:IPdaPudoService_PostCustomerReturnPreRegistered_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PostCustomerReturnUnexpected">
+      <wsdl:input wsaw:Action="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService/IPdaPudoService/PostCustomerReturnUnexpected" message="tns:IPdaPudoService_PostCustomerReturnUnexpected_InputMessage" />
+      <wsdl:output wsaw:Action="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService/IPdaPudoService/PostCustomerReturnUnexpectedResponse" message="tns:IPdaPudoService_PostCustomerReturnUnexpected_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindParcelForReturn">
+      <wsdl:input wsaw:Action="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService/IPdaPudoService/FindParcelForReturn" message="tns:IPdaPudoService_FindParcelForReturn_InputMessage" />
+      <wsdl:output wsaw:Action="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService/IPdaPudoService/FindParcelForReturnResponse" message="tns:IPdaPudoService_FindParcelForReturn_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PostReturn">
+      <wsdl:input wsaw:Action="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService/IPdaPudoService/PostReturn" message="tns:IPdaPudoService_PostReturn_InputMessage" />
+      <wsdl:output wsaw:Action="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService/IPdaPudoService/PostReturnResponse" message="tns:IPdaPudoService_PostReturn_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindUpsertedMaterialUnitMDataSince">
+      <wsdl:input wsaw:Action="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService/IPdaPudoService/FindUpsertedMaterialUnitMDataSince" message="tns:IPdaPudoService_FindUpsertedMaterialUnitMDataSince_InputMessage" />
+      <wsdl:output wsaw:Action="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService/IPdaPudoService/FindUpsertedMaterialUnitMDataSinceResponse" message="tns:IPdaPudoService_FindUpsertedMaterialUnitMDataSince_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindDeletedMaterialUnitMDataSince">
+      <wsdl:input wsaw:Action="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService/IPdaPudoService/FindDeletedMaterialUnitMDataSince" message="tns:IPdaPudoService_FindDeletedMaterialUnitMDataSince_InputMessage" />
+      <wsdl:output wsaw:Action="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService/IPdaPudoService/FindDeletedMaterialUnitMDataSinceResponse" message="tns:IPdaPudoService_FindDeletedMaterialUnitMDataSince_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindMaterialUnitMData">
+      <wsdl:input wsaw:Action="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService/IPdaPudoService/FindMaterialUnitMData" message="tns:IPdaPudoService_FindMaterialUnitMData_InputMessage" />
+      <wsdl:output wsaw:Action="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService/IPdaPudoService/FindMaterialUnitMDataResponse" message="tns:IPdaPudoService_FindMaterialUnitMData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateMaterialOrder">
+      <wsdl:input wsaw:Action="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService/IPdaPudoService/CreateMaterialOrder" message="tns:IPdaPudoService_CreateMaterialOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService/IPdaPudoService/CreateMaterialOrderResponse" message="tns:IPdaPudoService_CreateMaterialOrder_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>
