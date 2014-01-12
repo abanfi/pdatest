@@ -12,10 +12,22 @@ namespace PDATestProject
 {
     public partial class DeliveryControl : UserControl
     {
+
+        private DeliveryData deliveryData;
+        
         public DeliveryControl()
         {
             InitializeComponent();
+            initBinding(new DeliveryData());
         }
+
+        private void initBinding(DeliveryData data)
+        {
+            this.deliveryData = data;
+            defaultParametersControl1.bind(data);
+            deliveryDataBindingSource.DataSource = data;
+        }
+
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {

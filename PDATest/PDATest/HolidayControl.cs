@@ -12,9 +12,21 @@ namespace PDATestProject
 {
     public partial class HolidayControl : UserControl
     {
+
+        private HolidayData holidayData;
+              
         public HolidayControl()
         {
             InitializeComponent();
+            initBinding(new HolidayData());
         }
+
+        private void initBinding(HolidayData data)
+        {
+            this.holidayData = data;
+            defaultParametersControl1.bind(data);
+            holidayDataBindingSource.DataSource = data;
+        }
+
     }
 }

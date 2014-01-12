@@ -12,9 +12,19 @@ namespace PDATestProject
 {
     public partial class ReturnControl : UserControl
     {
+        private ReturnData returnData;
+        
         public ReturnControl()
         {
             InitializeComponent();
+            initBinding(new ReturnData());
+        }
+
+        private void initBinding(ReturnData data)
+        {
+            this.returnData = data;
+            defaultParametersControl1.bind(data);
+            returnDataBindingSource.DataSource = data;
         }
     }
 }

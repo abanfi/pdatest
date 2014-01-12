@@ -189,7 +189,15 @@
       <DependentUpon>ReturnPreRegControl.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\DataSources\DefaultData.datasource" />
+    <None Include="Properties\DataSources\DeliveryData.datasource" />
+    <None Include="Properties\DataSources\HolidayData.datasource" />
+    <None Include="Properties\DataSources\MasterDataData.datasource" />
+    <None Include="Properties\DataSources\OpeningHoursData.datasource" />
     <None Include="Properties\DataSources\PackageData.datasource" />
+    <None Include="Properties\DataSources\PartnerData.datasource" />
+    <None Include="Properties\DataSources\ReceiveData.datasource" />
+    <None Include="Properties\DataSources\ReturnData.datasource" />
+    <None Include="Properties\DataSources\ReturnPreRegData.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

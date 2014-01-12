@@ -12,9 +12,19 @@ namespace PDATestProject
 {
     public partial class PartnerControl : UserControl
     {
+        private PartnerData partnerData;
+        
         public PartnerControl()
         {
             InitializeComponent();
+            initBinding(new PartnerData());
+        }
+
+        private void initBinding(PartnerData data)
+        {
+            this.partnerData = data;
+            defaultParametersControl1.bind(data);
+            partnerDataBindingSource.DataSource = data;
         }
     }
 }
