@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace PDATestProject
 {
-    public partial class MasterDataControl : UserControl
+    public partial class ReturnPreRegControl : UserControl
     {
-        public MasterDataControl()
+        public ReturnPreRegControl()
         {
             InitializeComponent();
+        }
+
+        private void findParcelForDeliveryButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

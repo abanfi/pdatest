@@ -11,6 +11,21 @@
     <AssemblyName>PDATestProject</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -47,17 +62,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PartnerControl.cs">
+    <Compile Include="DeliveryControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="PartnerControl.Designer.cs">
-      <DependentUpon>PartnerControl.cs</DependentUpon>
+    <Compile Include="DeliveryControl.Designer.cs">
+      <DependentUpon>DeliveryControl.cs</DependentUpon>
     </Compile>
     <Compile Include="MasterDataControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="MasterDataControl.Designer.cs">
       <DependentUpon>MasterDataControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OpeningHoursControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="OpeningHoursControl.Designer.cs">
+      <DependentUpon>OpeningHoursControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PartnerControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PartnerControl.Designer.cs">
+      <DependentUpon>PartnerControl.cs</DependentUpon>
     </Compile>
     <Compile Include="DefaultParametersControl.cs">
       <SubType>UserControl</SubType>
@@ -79,25 +106,43 @@
     <Compile Include="PackageControl.Designer.cs">
       <DependentUpon>PackageControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReturnPreRegControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ReturnPreRegControl.Designer.cs">
+      <DependentUpon>ReturnPreRegControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Service References\PDAPudoService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="PartnerControl.resx">
-      <DependentUpon>PartnerControl.cs</DependentUpon>
+    <Compile Include="HolidayControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HolidayControl.Designer.cs">
+      <DependentUpon>HolidayControl.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="DeliveryControl.resx">
+      <DependentUpon>DeliveryControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HolidayControl.resx">
+      <DependentUpon>HolidayControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MasterDataControl.resx">
       <DependentUpon>MasterDataControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OpeningHoursControl.resx">
+      <DependentUpon>OpeningHoursControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PartnerControl.resx">
+      <DependentUpon>PartnerControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DefaultParametersControl.resx">
       <DependentUpon>DefaultParametersControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PackageControl.resx">
-      <DependentUpon>PackageControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -108,6 +153,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ReturnPreRegControl.resx">
+      <DependentUpon>ReturnPreRegControl.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -254,6 +302,23 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.defaultParametersControl1 = new PDATestProject.DefaultParametersControl();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            
+            this.offlineDataGrid = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
             this.textBox6 = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.findInsertedDictionarySinceButton = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -41,25 +41,18 @@
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.findInsertedPartnerSinceButton = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.offlineDataGrid)).BeginInit();
             this.SuspendLayout();
-            // 
-            // defaultParametersControl1
-            // 
-            this.defaultParametersControl1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.defaultParametersControl1.Location = new System.Drawing.Point(0, 0);
-            this.defaultParametersControl1.Name = "defaultParametersControl1";
-            this.defaultParametersControl1.Size = new System.Drawing.Size(1030, 96);
-            this.defaultParametersControl1.TabIndex = 1;
+           
             // 
             // dataGridView1
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(22, 205);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(589, 120);
-            this.dataGridView1.TabIndex = 4;
+            this.offlineDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.offlineDataGrid.Location = new System.Drawing.Point(22, 205);
+            this.offlineDataGrid.Name = "dataGridView1";
+            this.offlineDataGrid.Size = new System.Drawing.Size(589, 120);
+            this.offlineDataGrid.TabIndex = 4;
             // 
             // label5
             // 
@@ -79,12 +72,12 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(475, 113);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(136, 23);
-            this.button2.TabIndex = 8;
-            this.button2.Text = "FindParcelByBarCode";
-            this.button2.UseVisualStyleBackColor = true;
+            this.findInsertedDictionarySinceButton.Location = new System.Drawing.Point(475, 113);
+            this.findInsertedDictionarySinceButton.Name = "button2";
+            this.findInsertedDictionarySinceButton.Size = new System.Drawing.Size(136, 23);
+            this.findInsertedDictionarySinceButton.TabIndex = 8;
+            this.findInsertedDictionarySinceButton.Text = "FindParcelByBarCode";
+            this.findInsertedDictionarySinceButton.UseVisualStyleBackColor = true;
             // 
             // label4
             // 
@@ -152,18 +145,18 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(475, 163);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(136, 23);
-            this.button1.TabIndex = 17;
-            this.button1.Text = "FindParcelByFilter";
-            this.button1.UseVisualStyleBackColor = true;
+            this.findInsertedPartnerSinceButton.Location = new System.Drawing.Point(475, 163);
+            this.findInsertedPartnerSinceButton.Name = "button1";
+            this.findInsertedPartnerSinceButton.Size = new System.Drawing.Size(136, 23);
+            this.findInsertedPartnerSinceButton.TabIndex = 17;
+            this.findInsertedPartnerSinceButton.Text = "FindParcelByFilter";
+            this.findInsertedPartnerSinceButton.UseVisualStyleBackColor = true;
             // 
             // PackageControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.findInsertedPartnerSinceButton);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.textBox5);
             this.Controls.Add(this.label3);
@@ -172,14 +165,14 @@
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.findInsertedDictionarySinceButton);
+            this.Controls.Add(this.offlineDataGrid);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.defaultParametersControl1);
+          
             this.Name = "PackageControl";
             this.Size = new System.Drawing.Size(1030, 454);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.offlineDataGrid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -187,11 +180,11 @@
 
         #endregion
 
-        private DefaultParametersControl defaultParametersControl1;
+     
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.DataGridView offlineDataGrid;
+        private System.Windows.Forms.Button findInsertedPartnerSinceButton;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Label label3;
@@ -200,7 +193,9 @@
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button findInsertedDictionarySinceButton;
+      
 
+        public DefaultParametersControl defaultParametersControl { get; set; }
     }
 }

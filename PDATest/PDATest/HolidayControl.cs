@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace PDATestProject
 {
-    public partial class MasterDataControl : UserControl
+    public partial class HolidayControl : UserControl
     {
-        public MasterDataControl()
+        public HolidayControl()
         {
             InitializeComponent();
         }
