@@ -11,7 +11,7 @@ namespace PDATestProject
 
         public string terminalId { get; set; }
         public string transactionId { get; set; }
-        public bool offline { get; set; }
+        public string offline { get; set; }
         public string languageCode { get; set; }
 
     }

@@ -24,8 +24,9 @@ namespace PDATestProject
 
         private void initBinding(PackageData data)
         {
-            //defaultParametersControl1.bind(packageData);
-            packageDataBindingSource.DataSource = packageData;
+            this.packageData = data;
+            defaultParametersControl1.bind(data);
+            packageDataBindingSource.DataSource = data;
         }
 
         private void findParcelByBarCodeButton_Click(object sender, EventArgs e)

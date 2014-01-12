@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.countPartnerByFilterButton = new System.Windows.Forms.Button();
             this.findPartnerByFilterButton = new System.Windows.Forms.Button();
             this.findPartnerByIdButton = new System.Windows.Forms.Button();
@@ -35,7 +36,9 @@
             this.partnerDataGrid = new System.Windows.Forms.DataGridView();
             this.partnerNameTextBox = new System.Windows.Forms.TextBox();
             this.defaultParametersControl1 = new PDATestProject.DefaultParametersControl();
+            this.partnerDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.partnerDataGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.partnerDataBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // countPartnerByFilterButton
@@ -67,6 +70,7 @@
             // 
             // partnerDatePicker
             // 
+            this.partnerDatePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.partnerDataBindingSource, "partnerDate", true));
             this.partnerDatePicker.Location = new System.Drawing.Point(284, 101);
             this.partnerDatePicker.Name = "partnerDatePicker";
             this.partnerDatePicker.Size = new System.Drawing.Size(137, 20);
@@ -82,6 +86,7 @@
             // 
             // partnerNameTextBox
             // 
+            this.partnerNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.partnerDataBindingSource, "partnerNamePart", true));
             this.partnerNameTextBox.Location = new System.Drawing.Point(148, 127);
             this.partnerNameTextBox.Name = "partnerNameTextBox";
             this.partnerNameTextBox.Size = new System.Drawing.Size(130, 20);
@@ -94,6 +99,10 @@
             this.defaultParametersControl1.Name = "defaultParametersControl1";
             this.defaultParametersControl1.Size = new System.Drawing.Size(556, 96);
             this.defaultParametersControl1.TabIndex = 31;
+            // 
+            // partnerDataBindingSource
+            // 
+            this.partnerDataBindingSource.DataSource = typeof(PDATestProject.PartnerData);
             // 
             // PartnerControl
             // 
@@ -109,6 +118,7 @@
             this.Name = "PartnerControl";
             this.Size = new System.Drawing.Size(556, 293);
             ((System.ComponentModel.ISupportInitialize)(this.partnerDataGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.partnerDataBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -123,5 +133,6 @@
         private System.Windows.Forms.DataGridView partnerDataGrid;
         private System.Windows.Forms.TextBox partnerNameTextBox;
         private DefaultParametersControl defaultParametersControl1;
+        private System.Windows.Forms.BindingSource partnerDataBindingSource;
     }
 }

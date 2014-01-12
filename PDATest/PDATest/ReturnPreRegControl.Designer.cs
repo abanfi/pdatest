@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.postCustRetUnexpectedButton = new System.Windows.Forms.Button();
             this.postCustRetPreregButton = new System.Windows.Forms.Button();
             this.postRefuseCustRetPreregButton = new System.Windows.Forms.Button();
@@ -42,6 +43,8 @@
             this.defaultParametersControl1 = new PDATestProject.DefaultParametersControl();
             this.noLabelCheckBox = new System.Windows.Forms.CheckBox();
             this.unexpectedDamagedCheckBox = new System.Windows.Forms.CheckBox();
+            this.returnPreRegDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.returnPreRegDataBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // postCustRetUnexpectedButton
@@ -83,6 +86,7 @@
             // 
             // customerTextBox
             // 
+            this.customerTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.returnPreRegDataBindingSource, "customerName", true));
             this.customerTextBox.Location = new System.Drawing.Point(285, 189);
             this.customerTextBox.Name = "customerTextBox";
             this.customerTextBox.Size = new System.Drawing.Size(100, 20);
@@ -99,6 +103,7 @@
             // 
             // partnerIdTextBox
             // 
+            this.partnerIdTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.returnPreRegDataBindingSource, "partnerId", true));
             this.partnerIdTextBox.Location = new System.Drawing.Point(189, 190);
             this.partnerIdTextBox.Name = "partnerIdTextBox";
             this.partnerIdTextBox.Size = new System.Drawing.Size(90, 20);
@@ -116,6 +121,7 @@
             // damagedCheckBox
             // 
             this.damagedCheckBox.AutoSize = true;
+            this.damagedCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.returnPreRegDataBindingSource, "damaged", true));
             this.damagedCheckBox.Location = new System.Drawing.Point(313, 133);
             this.damagedCheckBox.Name = "damagedCheckBox";
             this.damagedCheckBox.Size = new System.Drawing.Size(72, 17);
@@ -125,6 +131,7 @@
             // 
             // barcodeTextBox
             // 
+            this.barcodeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.returnPreRegDataBindingSource, "packageCode", true));
             this.barcodeTextBox.Location = new System.Drawing.Point(247, 102);
             this.barcodeTextBox.Name = "barcodeTextBox";
             this.barcodeTextBox.Size = new System.Drawing.Size(138, 20);
@@ -150,6 +157,7 @@
             // noLabelCheckBox
             // 
             this.noLabelCheckBox.AutoSize = true;
+            this.noLabelCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.returnPreRegDataBindingSource, "noLabel", true));
             this.noLabelCheckBox.Location = new System.Drawing.Point(111, 193);
             this.noLabelCheckBox.Name = "noLabelCheckBox";
             this.noLabelCheckBox.Size = new System.Drawing.Size(65, 17);
@@ -160,12 +168,17 @@
             // unexpectedDamagedCheckBox
             // 
             this.unexpectedDamagedCheckBox.AutoSize = true;
+            this.unexpectedDamagedCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.returnPreRegDataBindingSource, "returnDamaged", true));
             this.unexpectedDamagedCheckBox.Location = new System.Drawing.Point(33, 193);
             this.unexpectedDamagedCheckBox.Name = "unexpectedDamagedCheckBox";
             this.unexpectedDamagedCheckBox.Size = new System.Drawing.Size(72, 17);
             this.unexpectedDamagedCheckBox.TabIndex = 41;
             this.unexpectedDamagedCheckBox.Text = "Damaged";
             this.unexpectedDamagedCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // returnPreRegDataBindingSource
+            // 
+            this.returnPreRegDataBindingSource.DataSource = typeof(PDATestProject.ReturnPreRegData);
             // 
             // ReturnPreRegControl
             // 
@@ -187,6 +200,7 @@
             this.Controls.Add(this.label1);
             this.Name = "ReturnPreRegControl";
             this.Size = new System.Drawing.Size(570, 222);
+            ((System.ComponentModel.ISupportInitialize)(this.returnPreRegDataBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -208,5 +222,6 @@
         private DefaultParametersControl defaultParametersControl1;
         private System.Windows.Forms.CheckBox noLabelCheckBox;
         private System.Windows.Forms.CheckBox unexpectedDamagedCheckBox;
+        private System.Windows.Forms.BindingSource returnPreRegDataBindingSource;
     }
 }

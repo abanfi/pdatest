@@ -28,13 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.dataGridView = new System.Windows.Forms.DataGridView();
             this.postReceiveButton = new System.Windows.Forms.Button();
             this.findParcelForReceiveButton = new System.Windows.Forms.Button();
             this.barcodeTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.defaultParametersControl1 = new PDATestProject.DefaultParametersControl();
+            this.receiveDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.receiveDataBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView
@@ -65,6 +68,7 @@
             // 
             // barcodeTextBox
             // 
+            this.barcodeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.receiveDataBindingSource, "barcode", true));
             this.barcodeTextBox.Location = new System.Drawing.Point(276, 104);
             this.barcodeTextBox.Name = "barcodeTextBox";
             this.barcodeTextBox.Size = new System.Drawing.Size(138, 20);
@@ -87,6 +91,10 @@
             this.defaultParametersControl1.Size = new System.Drawing.Size(575, 96);
             this.defaultParametersControl1.TabIndex = 48;
             // 
+            // receiveDataBindingSource
+            // 
+            this.receiveDataBindingSource.DataSource = typeof(PDATestProject.ReceiveData);
+            // 
             // ReceiveControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -100,6 +108,7 @@
             this.Name = "ReceiveControl";
             this.Size = new System.Drawing.Size(575, 342);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.receiveDataBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -113,5 +122,6 @@
         private System.Windows.Forms.TextBox barcodeTextBox;
         private System.Windows.Forms.Label label1;
         private DefaultParametersControl defaultParametersControl1;
+        private System.Windows.Forms.BindingSource receiveDataBindingSource;
     }
 }

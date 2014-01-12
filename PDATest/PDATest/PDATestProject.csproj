@@ -62,6 +62,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="OpeningHoursData.cs" />
+    <Compile Include="MasterDataData.cs" />
+    <Compile Include="HolidayData.cs" />
+    <Compile Include="DeliveryData.cs" />
+    <Compile Include="ReturnPreRegData.cs" />
+    <Compile Include="ReturnData.cs" />
+    <Compile Include="ReceiveData.cs" />
+    <Compile Include="PartnerData.cs" />
     <Compile Include="PudoServiceExecutor.cs" />
     <Compile Include="PackageData.cs" />
     <Compile Include="DefaultData.cs" />

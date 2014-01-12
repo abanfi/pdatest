@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.findDeletedParcelSinceButton = new System.Windows.Forms.Button();
             this.findDeletedPartnerSinceButton = new System.Windows.Forms.Button();
             this.findDeletedDictionarySinceButton = new System.Windows.Forms.Button();
@@ -37,7 +38,9 @@
             this.findInsertedDictionarySinceButton = new System.Windows.Forms.Button();
             this.offlineDataGrid = new System.Windows.Forms.DataGridView();
             this.defaultParametersControl1 = new PDATestProject.DefaultParametersControl();
+            this.masterDataDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.offlineDataGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.masterDataDataBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // findDeletedParcelSinceButton
@@ -87,6 +90,7 @@
             // 
             // offlineDatePicker
             // 
+            this.offlineDatePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.masterDataDataBindingSource, "date", true));
             this.offlineDatePicker.Location = new System.Drawing.Point(25, 103);
             this.offlineDatePicker.Name = "offlineDatePicker";
             this.offlineDatePicker.Size = new System.Drawing.Size(137, 20);
@@ -117,6 +121,10 @@
             this.defaultParametersControl1.Size = new System.Drawing.Size(674, 96);
             this.defaultParametersControl1.TabIndex = 32;
             // 
+            // masterDataDataBindingSource
+            // 
+            this.masterDataDataBindingSource.DataSource = typeof(PDATestProject.MasterDataData);
+            // 
             // MasterDataControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -133,6 +141,7 @@
             this.Name = "MasterDataControl";
             this.Size = new System.Drawing.Size(674, 293);
             ((System.ComponentModel.ISupportInitialize)(this.offlineDataGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.masterDataDataBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -148,5 +157,6 @@
         private System.Windows.Forms.Button findInsertedDictionarySinceButton;
         private System.Windows.Forms.DataGridView offlineDataGrid;
         private DefaultParametersControl defaultParametersControl1;
+        private System.Windows.Forms.BindingSource masterDataDataBindingSource;
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.defaultParametersControl1 = new PDATestProject.DefaultParametersControl();
             this.dataGridView = new System.Windows.Forms.DataGridView();
             this.postReturnButton = new System.Windows.Forms.Button();
@@ -36,7 +37,9 @@
             this.label4 = new System.Windows.Forms.Label();
             this.barcodeTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.returnDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.returnDataBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // defaultParametersControl1
@@ -75,6 +78,7 @@
             // 
             // bagBarcodeTextBox
             // 
+            this.bagBarcodeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.returnDataBindingSource, "bagBarcode", true));
             this.bagBarcodeTextBox.Location = new System.Drawing.Point(273, 131);
             this.bagBarcodeTextBox.Name = "bagBarcodeTextBox";
             this.bagBarcodeTextBox.Size = new System.Drawing.Size(138, 20);
@@ -91,6 +95,7 @@
             // 
             // barcodeTextBox
             // 
+            this.barcodeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.returnDataBindingSource, "barcode", true));
             this.barcodeTextBox.Location = new System.Drawing.Point(273, 104);
             this.barcodeTextBox.Name = "barcodeTextBox";
             this.barcodeTextBox.Size = new System.Drawing.Size(138, 20);
@@ -104,6 +109,10 @@
             this.label1.Size = new System.Drawing.Size(79, 13);
             this.label1.TabIndex = 21;
             this.label1.Text = "Parcel barcode";
+            // 
+            // returnDataBindingSource
+            // 
+            this.returnDataBindingSource.DataSource = typeof(PDATestProject.ReturnData);
             // 
             // ReturnControl
             // 
@@ -120,6 +129,7 @@
             this.Name = "ReturnControl";
             this.Size = new System.Drawing.Size(558, 339);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.returnDataBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -135,5 +145,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox barcodeTextBox;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.BindingSource returnDataBindingSource;
     }
 }

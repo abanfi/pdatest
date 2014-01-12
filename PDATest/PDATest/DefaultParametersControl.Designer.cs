@@ -95,8 +95,11 @@
             // 
             // offlineComboBox
             // 
-            this.offlineComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.defaultDataBindingSource, "offline", true));
+            this.offlineComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.defaultDataBindingSource, "offline", true));
             this.offlineComboBox.FormattingEnabled = true;
+            this.offlineComboBox.Items.AddRange(new object[] {
+            "Igen",
+            "Nem"});
             this.offlineComboBox.Location = new System.Drawing.Point(299, 37);
             this.offlineComboBox.Name = "offlineComboBox";
             this.offlineComboBox.Size = new System.Drawing.Size(121, 21);
@@ -106,6 +109,11 @@
             // 
             this.languageComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.defaultDataBindingSource, "languageCode", true));
             this.languageComboBox.FormattingEnabled = true;
+            this.languageComboBox.Items.AddRange(new object[] {
+            "EN",
+            "HU",
+            "FR",
+            "NL"});
             this.languageComboBox.Location = new System.Drawing.Point(426, 37);
             this.languageComboBox.Name = "languageComboBox";
             this.languageComboBox.Size = new System.Drawing.Size(121, 21);

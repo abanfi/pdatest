@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.defaultParametersControl1 = new PDATestProject.DefaultParametersControl();
             this.mondayLabel = new System.Windows.Forms.Label();
             this.mondayFirstTextBox = new System.Windows.Forms.TextBox();
@@ -52,6 +53,8 @@
             this.sundayLabel = new System.Windows.Forms.Label();
             this.setOpeningHoursButton = new System.Windows.Forms.Button();
             this.getOpeningHoursButton = new System.Windows.Forms.Button();
+            this.openingHoursDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.openingHoursDataBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // defaultParametersControl1
@@ -73,6 +76,7 @@
             // 
             // mondayFirstTextBox
             // 
+            this.mondayFirstTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.openingHoursDataBindingSource, "mondayFirts", true));
             this.mondayFirstTextBox.Location = new System.Drawing.Point(26, 116);
             this.mondayFirstTextBox.Name = "mondayFirstTextBox";
             this.mondayFirstTextBox.Size = new System.Drawing.Size(86, 20);
@@ -80,6 +84,7 @@
             // 
             // mondaySecondTextBox
             // 
+            this.mondaySecondTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.openingHoursDataBindingSource, "mondaySecond", true));
             this.mondaySecondTextBox.Location = new System.Drawing.Point(26, 142);
             this.mondaySecondTextBox.Name = "mondaySecondTextBox";
             this.mondaySecondTextBox.Size = new System.Drawing.Size(86, 20);
@@ -87,6 +92,7 @@
             // 
             // tuesdaySecondTextBox
             // 
+            this.tuesdaySecondTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.openingHoursDataBindingSource, "tuesdaySecond", true));
             this.tuesdaySecondTextBox.Location = new System.Drawing.Point(118, 142);
             this.tuesdaySecondTextBox.Name = "tuesdaySecondTextBox";
             this.tuesdaySecondTextBox.Size = new System.Drawing.Size(86, 20);
@@ -94,6 +100,7 @@
             // 
             // tuesdayFirstTextBox
             // 
+            this.tuesdayFirstTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.openingHoursDataBindingSource, "tuesdayFirts", true));
             this.tuesdayFirstTextBox.Location = new System.Drawing.Point(118, 116);
             this.tuesdayFirstTextBox.Name = "tuesdayFirstTextBox";
             this.tuesdayFirstTextBox.Size = new System.Drawing.Size(86, 20);
@@ -110,6 +117,7 @@
             // 
             // wednesdaySecondTextBox
             // 
+            this.wednesdaySecondTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.openingHoursDataBindingSource, "wednesdaySecond", true));
             this.wednesdaySecondTextBox.Location = new System.Drawing.Point(210, 142);
             this.wednesdaySecondTextBox.Name = "wednesdaySecondTextBox";
             this.wednesdaySecondTextBox.Size = new System.Drawing.Size(86, 20);
@@ -117,6 +125,7 @@
             // 
             // wednesdayFirstTextBox
             // 
+            this.wednesdayFirstTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.openingHoursDataBindingSource, "wednesdayFirts", true));
             this.wednesdayFirstTextBox.Location = new System.Drawing.Point(210, 116);
             this.wednesdayFirstTextBox.Name = "wednesdayFirstTextBox";
             this.wednesdayFirstTextBox.Size = new System.Drawing.Size(86, 20);
@@ -133,6 +142,7 @@
             // 
             // thursdaySecondTextBox
             // 
+            this.thursdaySecondTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.openingHoursDataBindingSource, "thursdaySecond", true));
             this.thursdaySecondTextBox.Location = new System.Drawing.Point(302, 142);
             this.thursdaySecondTextBox.Name = "thursdaySecondTextBox";
             this.thursdaySecondTextBox.Size = new System.Drawing.Size(86, 20);
@@ -140,6 +150,7 @@
             // 
             // thursdayFirstTextBox
             // 
+            this.thursdayFirstTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.openingHoursDataBindingSource, "thursdayFirts", true));
             this.thursdayFirstTextBox.Location = new System.Drawing.Point(302, 116);
             this.thursdayFirstTextBox.Name = "thursdayFirstTextBox";
             this.thursdayFirstTextBox.Size = new System.Drawing.Size(86, 20);
@@ -156,6 +167,7 @@
             // 
             // fridaySecondTextBox
             // 
+            this.fridaySecondTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.openingHoursDataBindingSource, "fridaySecond", true));
             this.fridaySecondTextBox.Location = new System.Drawing.Point(394, 142);
             this.fridaySecondTextBox.Name = "fridaySecondTextBox";
             this.fridaySecondTextBox.Size = new System.Drawing.Size(86, 20);
@@ -163,6 +175,7 @@
             // 
             // fridayFirstTextBox
             // 
+            this.fridayFirstTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.openingHoursDataBindingSource, "fridayFirts", true));
             this.fridayFirstTextBox.Location = new System.Drawing.Point(394, 116);
             this.fridayFirstTextBox.Name = "fridayFirstTextBox";
             this.fridayFirstTextBox.Size = new System.Drawing.Size(86, 20);
@@ -179,6 +192,7 @@
             // 
             // saturdaySecondTextBox
             // 
+            this.saturdaySecondTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.openingHoursDataBindingSource, "sundaySecond", true));
             this.saturdaySecondTextBox.Location = new System.Drawing.Point(486, 142);
             this.saturdaySecondTextBox.Name = "saturdaySecondTextBox";
             this.saturdaySecondTextBox.Size = new System.Drawing.Size(86, 20);
@@ -186,6 +200,7 @@
             // 
             // saturdayFirstTextBox
             // 
+            this.saturdayFirstTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.openingHoursDataBindingSource, "saturdayFirts", true));
             this.saturdayFirstTextBox.Location = new System.Drawing.Point(486, 116);
             this.saturdayFirstTextBox.Name = "saturdayFirstTextBox";
             this.saturdayFirstTextBox.Size = new System.Drawing.Size(86, 20);
@@ -202,6 +217,7 @@
             // 
             // sundaySecondTextBox
             // 
+            this.sundaySecondTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.openingHoursDataBindingSource, "sundaySecond", true));
             this.sundaySecondTextBox.Location = new System.Drawing.Point(578, 142);
             this.sundaySecondTextBox.Name = "sundaySecondTextBox";
             this.sundaySecondTextBox.Size = new System.Drawing.Size(86, 20);
@@ -209,6 +225,7 @@
             // 
             // sundayFirstTextBox
             // 
+            this.sundayFirstTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.openingHoursDataBindingSource, "sundayFirts", true));
             this.sundayFirstTextBox.Location = new System.Drawing.Point(578, 116);
             this.sundayFirstTextBox.Name = "sundayFirstTextBox";
             this.sundayFirstTextBox.Size = new System.Drawing.Size(86, 20);
@@ -241,6 +258,10 @@
             this.getOpeningHoursButton.Text = "GetOpeningHours";
             this.getOpeningHoursButton.UseVisualStyleBackColor = true;
             // 
+            // openingHoursDataBindingSource
+            // 
+            this.openingHoursDataBindingSource.DataSource = typeof(PDATestProject.OpeningHoursData);
+            // 
             // OpeningHoursControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -271,6 +292,7 @@
             this.Controls.Add(this.defaultParametersControl1);
             this.Name = "OpeningHoursControl";
             this.Size = new System.Drawing.Size(685, 209);
+            ((System.ComponentModel.ISupportInitialize)(this.openingHoursDataBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -302,5 +324,6 @@
         private System.Windows.Forms.Label sundayLabel;
         private System.Windows.Forms.Button setOpeningHoursButton;
         private System.Windows.Forms.Button getOpeningHoursButton;
+        private System.Windows.Forms.BindingSource openingHoursDataBindingSource;
     }
 }

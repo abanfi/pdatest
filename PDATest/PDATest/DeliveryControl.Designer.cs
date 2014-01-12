@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.defaultParametersControl1 = new PDATestProject.DefaultParametersControl();
             this.label1 = new System.Windows.Forms.Label();
             this.barcodeTextBox = new System.Windows.Forms.TextBox();
@@ -49,7 +50,9 @@
             this.postRefuseDeliveryButton = new System.Windows.Forms.Button();
             this.postDeliveryButton = new System.Windows.Forms.Button();
             this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.deliveryDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deliveryDataBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // defaultParametersControl1
@@ -71,6 +74,7 @@
             // 
             // barcodeTextBox
             // 
+            this.barcodeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.deliveryDataBindingSource, "packageCode", true));
             this.barcodeTextBox.Location = new System.Drawing.Point(277, 102);
             this.barcodeTextBox.Name = "barcodeTextBox";
             this.barcodeTextBox.Size = new System.Drawing.Size(138, 20);
@@ -79,6 +83,7 @@
             // damagedCheckBox
             // 
             this.damagedCheckBox.AutoSize = true;
+            this.damagedCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.deliveryDataBindingSource, "damaged", true));
             this.damagedCheckBox.Location = new System.Drawing.Point(343, 133);
             this.damagedCheckBox.Name = "damagedCheckBox";
             this.damagedCheckBox.Size = new System.Drawing.Size(72, 17);
@@ -89,6 +94,7 @@
             // 
             // reasonTextBox
             // 
+            this.reasonTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.deliveryDataBindingSource, "reason", true));
             this.reasonTextBox.Location = new System.Drawing.Point(113, 160);
             this.reasonTextBox.Name = "reasonTextBox";
             this.reasonTextBox.Size = new System.Drawing.Size(47, 20);
@@ -106,6 +112,7 @@
             // 
             // refuseIdTextBox
             // 
+            this.refuseIdTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.deliveryDataBindingSource, "refuseIdType", true));
             this.refuseIdTextBox.Location = new System.Drawing.Point(208, 160);
             this.refuseIdTextBox.Name = "refuseIdTextBox";
             this.refuseIdTextBox.Size = new System.Drawing.Size(44, 20);
@@ -122,6 +129,7 @@
             // 
             // refuseDocIdTextBox
             // 
+            this.refuseDocIdTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.deliveryDataBindingSource, "refuseDocNo", true));
             this.refuseDocIdTextBox.Location = new System.Drawing.Point(315, 160);
             this.refuseDocIdTextBox.Name = "refuseDocIdTextBox";
             this.refuseDocIdTextBox.Size = new System.Drawing.Size(100, 20);
@@ -138,6 +146,7 @@
             // 
             // deliveryDocIdTextBox
             // 
+            this.deliveryDocIdTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.deliveryDataBindingSource, "postDocNo", true));
             this.deliveryDocIdTextBox.Location = new System.Drawing.Point(315, 189);
             this.deliveryDocIdTextBox.Name = "deliveryDocIdTextBox";
             this.deliveryDocIdTextBox.Size = new System.Drawing.Size(100, 20);
@@ -154,6 +163,7 @@
             // 
             // deliveryIdTextBox
             // 
+            this.deliveryIdTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.deliveryDataBindingSource, "postIdType", true));
             this.deliveryIdTextBox.Location = new System.Drawing.Point(208, 189);
             this.deliveryIdTextBox.Name = "deliveryIdTextBox";
             this.deliveryIdTextBox.Size = new System.Drawing.Size(44, 20);
@@ -170,6 +180,7 @@
             // 
             // paymentTextBox
             // 
+            this.paymentTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.deliveryDataBindingSource, "payment", true));
             this.paymentTextBox.Location = new System.Drawing.Point(113, 189);
             this.paymentTextBox.Name = "paymentTextBox";
             this.paymentTextBox.Size = new System.Drawing.Size(47, 20);
@@ -228,6 +239,10 @@
             this.dataGridView.Size = new System.Drawing.Size(519, 232);
             this.dataGridView.TabIndex = 20;
             // 
+            // deliveryDataBindingSource
+            // 
+            this.deliveryDataBindingSource.DataSource = typeof(PDATestProject.DeliveryData);
+            // 
             // DeliveryControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -256,6 +271,7 @@
             this.Name = "DeliveryControl";
             this.Size = new System.Drawing.Size(588, 449);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deliveryDataBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -284,5 +300,6 @@
         private System.Windows.Forms.Button postRefuseDeliveryButton;
         private System.Windows.Forms.Button postDeliveryButton;
         private System.Windows.Forms.DataGridView dataGridView;
+        private System.Windows.Forms.BindingSource deliveryDataBindingSource;
     }
 }
