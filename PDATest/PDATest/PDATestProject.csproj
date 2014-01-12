@@ -106,6 +106,12 @@
     <Compile Include="PackageControl.Designer.cs">
       <DependentUpon>PackageControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReceiveControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ReceiveControl.Designer.cs">
+      <DependentUpon>ReceiveControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="ReturnPreRegControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -123,6 +129,12 @@
     <Compile Include="HolidayControl.Designer.cs">
       <DependentUpon>HolidayControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReturnControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ReturnControl.Designer.cs">
+      <DependentUpon>ReturnControl.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="DeliveryControl.resx">
       <DependentUpon>DeliveryControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -134,6 +146,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="OpeningHoursControl.resx">
       <DependentUpon>OpeningHoursControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageControl.resx">
+      <DependentUpon>PackageControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PartnerControl.resx">
       <DependentUpon>PartnerControl.cs</DependentUpon>
@@ -153,6 +168,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ReceiveControl.resx">
+      <DependentUpon>ReceiveControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReturnControl.resx">
+      <DependentUpon>ReturnControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ReturnPreRegControl.resx">
       <DependentUpon>ReturnPreRegControl.cs</DependentUpon>
     </EmbeddedResource>

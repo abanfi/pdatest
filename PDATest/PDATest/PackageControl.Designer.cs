@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            
             this.offlineDataGrid = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
             this.textBox6 = new System.Windows.Forms.TextBox();
@@ -42,15 +41,15 @@
             this.label1 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.findInsertedPartnerSinceButton = new System.Windows.Forms.Button();
+            this.defaultParametersControl1 = new PDATestProject.DefaultParametersControl();
             ((System.ComponentModel.ISupportInitialize)(this.offlineDataGrid)).BeginInit();
             this.SuspendLayout();
-           
             // 
-            // dataGridView1
+            // offlineDataGrid
             // 
             this.offlineDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.offlineDataGrid.Location = new System.Drawing.Point(22, 205);
-            this.offlineDataGrid.Name = "dataGridView1";
+            this.offlineDataGrid.Name = "offlineDataGrid";
             this.offlineDataGrid.Size = new System.Drawing.Size(589, 120);
             this.offlineDataGrid.TabIndex = 4;
             // 
@@ -70,10 +69,10 @@
             this.textBox6.Size = new System.Drawing.Size(139, 20);
             this.textBox6.TabIndex = 2;
             // 
-            // button2
+            // findInsertedDictionarySinceButton
             // 
             this.findInsertedDictionarySinceButton.Location = new System.Drawing.Point(475, 113);
-            this.findInsertedDictionarySinceButton.Name = "button2";
+            this.findInsertedDictionarySinceButton.Name = "findInsertedDictionarySinceButton";
             this.findInsertedDictionarySinceButton.Size = new System.Drawing.Size(136, 23);
             this.findInsertedDictionarySinceButton.TabIndex = 8;
             this.findInsertedDictionarySinceButton.Text = "FindParcelByBarCode";
@@ -143,19 +142,28 @@
             this.textBox2.Size = new System.Drawing.Size(115, 20);
             this.textBox2.TabIndex = 9;
             // 
-            // button1
+            // findInsertedPartnerSinceButton
             // 
             this.findInsertedPartnerSinceButton.Location = new System.Drawing.Point(475, 163);
-            this.findInsertedPartnerSinceButton.Name = "button1";
+            this.findInsertedPartnerSinceButton.Name = "findInsertedPartnerSinceButton";
             this.findInsertedPartnerSinceButton.Size = new System.Drawing.Size(136, 23);
             this.findInsertedPartnerSinceButton.TabIndex = 17;
             this.findInsertedPartnerSinceButton.Text = "FindParcelByFilter";
             this.findInsertedPartnerSinceButton.UseVisualStyleBackColor = true;
             // 
+            // defaultParametersControl1
+            // 
+            this.defaultParametersControl1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.defaultParametersControl1.Location = new System.Drawing.Point(0, 0);
+            this.defaultParametersControl1.Name = "defaultParametersControl1";
+            this.defaultParametersControl1.Size = new System.Drawing.Size(634, 96);
+            this.defaultParametersControl1.TabIndex = 18;
+            // 
             // PackageControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.defaultParametersControl1);
             this.Controls.Add(this.findInsertedPartnerSinceButton);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.textBox5);
@@ -169,9 +177,8 @@
             this.Controls.Add(this.offlineDataGrid);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.textBox6);
-          
             this.Name = "PackageControl";
-            this.Size = new System.Drawing.Size(1030, 454);
+            this.Size = new System.Drawing.Size(634, 342);
             ((System.ComponentModel.ISupportInitialize)(this.offlineDataGrid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -194,6 +201,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button findInsertedDictionarySinceButton;
+        private DefaultParametersControl defaultParametersControl1;
       
 
         public DefaultParametersControl defaultParametersControl { get; set; }

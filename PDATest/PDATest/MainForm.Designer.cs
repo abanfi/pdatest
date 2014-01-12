@@ -29,129 +29,172 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton8 = new System.Windows.Forms.ToolStripButton();
-            this.toolStrip1.SuspendLayout();
+            this.statusStrip = new System.Windows.Forms.StatusStrip();
+            this.mainToolStrip = new System.Windows.Forms.ToolStrip();
+            this.packageButton = new System.Windows.Forms.ToolStripButton();
+            this.masterDataButton = new System.Windows.Forms.ToolStripButton();
+            this.partnerButton = new System.Windows.Forms.ToolStripButton();
+            this.holidayButton = new System.Windows.Forms.ToolStripButton();
+            this.openingHoursButton = new System.Windows.Forms.ToolStripButton();
+            this.deliveryButton = new System.Windows.Forms.ToolStripButton();
+            this.preRegButton = new System.Windows.Forms.ToolStripButton();
+            this.returnButton = new System.Windows.Forms.ToolStripButton();
+            this.receiveButton = new System.Windows.Forms.ToolStripButton();
+            this.console = new System.Windows.Forms.TextBox();
+            this.contentPanel = new System.Windows.Forms.Panel();
+            this.mainToolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
-            // statusStrip1
+            // statusStrip
             // 
-            this.statusStrip1.Location = new System.Drawing.Point(0, 523);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1147, 22);
-            this.statusStrip1.TabIndex = 0;
-            this.statusStrip1.Text = "statusStrip1";
+            this.statusStrip.Location = new System.Drawing.Point(0, 523);
+            this.statusStrip.Name = "statusStrip";
+            this.statusStrip.Size = new System.Drawing.Size(1147, 22);
+            this.statusStrip.TabIndex = 0;
+            this.statusStrip.Text = "statusStrip1";
             // 
-            // toolStrip1
+            // mainToolStrip
             // 
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton1,
-            this.toolStripButton2,
-            this.toolStripButton3,
-            this.toolStripButton4,
-            this.toolStripButton5,
-            this.toolStripButton6,
-            this.toolStripButton7,
-            this.toolStripButton8});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.toolStrip1.Size = new System.Drawing.Size(1147, 38);
-            this.toolStrip1.TabIndex = 1;
-            this.toolStrip1.Text = "toolStrip1";
+            this.mainToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.packageButton,
+            this.masterDataButton,
+            this.partnerButton,
+            this.holidayButton,
+            this.openingHoursButton,
+            this.deliveryButton,
+            this.preRegButton,
+            this.returnButton,
+            this.receiveButton});
+            this.mainToolStrip.Location = new System.Drawing.Point(0, 0);
+            this.mainToolStrip.Name = "mainToolStrip";
+            this.mainToolStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
+            this.mainToolStrip.Size = new System.Drawing.Size(1147, 38);
+            this.mainToolStrip.TabIndex = 1;
+            this.mainToolStrip.Text = "toolStrip1";
             // 
-            // toolStripButton1
+            // packageButton
             // 
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(55, 35);
-            this.toolStripButton1.Text = "Csomag";
-            this.toolStripButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.packageButton.Image = ((System.Drawing.Image)(resources.GetObject("packageButton.Image")));
+            this.packageButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.packageButton.Name = "packageButton";
+            this.packageButton.Size = new System.Drawing.Size(55, 35);
+            this.packageButton.Text = "Csomag";
+            this.packageButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.packageButton.Click += new System.EventHandler(this.packageButton_Click);
             // 
-            // toolStripButton2
+            // masterDataButton
             // 
-            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(39, 35);
-            this.toolStripButton2.Text = "Törzs";
-            this.toolStripButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.masterDataButton.Image = ((System.Drawing.Image)(resources.GetObject("masterDataButton.Image")));
+            this.masterDataButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.masterDataButton.Name = "masterDataButton";
+            this.masterDataButton.Size = new System.Drawing.Size(39, 35);
+            this.masterDataButton.Text = "Törzs";
+            this.masterDataButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.masterDataButton.Click += new System.EventHandler(this.masterDataButton_Click);
             // 
-            // toolStripButton3
+            // partnerButton
             // 
-            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
-            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(49, 35);
-            this.toolStripButton3.Text = "Partner";
-            this.toolStripButton3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-          
+            this.partnerButton.Image = ((System.Drawing.Image)(resources.GetObject("partnerButton.Image")));
+            this.partnerButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.partnerButton.Name = "partnerButton";
+            this.partnerButton.Size = new System.Drawing.Size(49, 35);
+            this.partnerButton.Text = "Partner";
+            this.partnerButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.partnerButton.Click += new System.EventHandler(this.partnerButton_Click);
             // 
-            // toolStripButton4
+            // holidayButton
             // 
-            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
-            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton4.Name = "toolStripButton4";
-            this.toolStripButton4.Size = new System.Drawing.Size(66, 35);
-            this.toolStripButton4.Text = "Szabadság";
-            this.toolStripButton4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.holidayButton.Image = ((System.Drawing.Image)(resources.GetObject("holidayButton.Image")));
+            this.holidayButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.holidayButton.Name = "holidayButton";
+            this.holidayButton.Size = new System.Drawing.Size(66, 35);
+            this.holidayButton.Text = "Szabadság";
+            this.holidayButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.holidayButton.Click += new System.EventHandler(this.holidayButton_Click);
             // 
-            // toolStripButton5
+            // openingHoursButton
             // 
-            this.toolStripButton5.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton5.Image")));
-            this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton5.Name = "toolStripButton5";
-            this.toolStripButton5.Size = new System.Drawing.Size(74, 35);
-            this.toolStripButton5.Text = "Nyitvatartás";
-            this.toolStripButton5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.openingHoursButton.Image = ((System.Drawing.Image)(resources.GetObject("openingHoursButton.Image")));
+            this.openingHoursButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.openingHoursButton.Name = "openingHoursButton";
+            this.openingHoursButton.Size = new System.Drawing.Size(74, 35);
+            this.openingHoursButton.Text = "Nyitvatartás";
+            this.openingHoursButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.openingHoursButton.Click += new System.EventHandler(this.openingHoursButton_Click);
             // 
-            // toolStripButton6
+            // deliveryButton
             // 
-            this.toolStripButton6.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton6.Image")));
-            this.toolStripButton6.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton6.Name = "toolStripButton6";
-            this.toolStripButton6.Size = new System.Drawing.Size(83, 35);
-            this.toolStripButton6.Text = "Vevői dropoff";
-            this.toolStripButton6.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.deliveryButton.Image = ((System.Drawing.Image)(resources.GetObject("deliveryButton.Image")));
+            this.deliveryButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.deliveryButton.Name = "deliveryButton";
+            this.deliveryButton.Size = new System.Drawing.Size(79, 35);
+            this.deliveryButton.Text = "Vevői pickup";
+            this.deliveryButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.deliveryButton.Click += new System.EventHandler(this.deliveryButton_Click);
             // 
-            // toolStripButton7
+            // preRegButton
             // 
-            this.toolStripButton7.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton7.Image")));
-            this.toolStripButton7.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton7.Name = "toolStripButton7";
-            this.toolStripButton7.Size = new System.Drawing.Size(53, 35);
-            this.toolStripButton7.Text = "Visszáru";
-            this.toolStripButton7.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.preRegButton.Image = ((System.Drawing.Image)(resources.GetObject("preRegButton.Image")));
+            this.preRegButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.preRegButton.Name = "preRegButton";
+            this.preRegButton.Size = new System.Drawing.Size(83, 35);
+            this.preRegButton.Text = "Vevői dropoff";
+            this.preRegButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.preRegButton.Click += new System.EventHandler(this.preRegButton_Click);
             // 
-            // toolStripButton8
+            // returnButton
             // 
-            this.toolStripButton8.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton8.Image")));
-            this.toolStripButton8.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton8.Name = "toolStripButton8";
-            this.toolStripButton8.Size = new System.Drawing.Size(63, 35);
-            this.toolStripButton8.Text = "Érkeztetés";
-            this.toolStripButton8.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.returnButton.Image = ((System.Drawing.Image)(resources.GetObject("returnButton.Image")));
+            this.returnButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.returnButton.Name = "returnButton";
+            this.returnButton.Size = new System.Drawing.Size(53, 35);
+            this.returnButton.Text = "Visszáru";
+            this.returnButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.returnButton.Click += new System.EventHandler(this.returnButton_Click);
             // 
-            // MainWindow
+            // receiveButton
+            // 
+            this.receiveButton.Image = ((System.Drawing.Image)(resources.GetObject("receiveButton.Image")));
+            this.receiveButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.receiveButton.Name = "receiveButton";
+            this.receiveButton.Size = new System.Drawing.Size(63, 35);
+            this.receiveButton.Text = "Érkeztetés";
+            this.receiveButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.receiveButton.Click += new System.EventHandler(this.receiveButton_Click);
+            // 
+            // console
+            // 
+            this.console.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.console.Enabled = false;
+            this.console.Location = new System.Drawing.Point(0, 386);
+            this.console.Multiline = true;
+            this.console.Name = "console";
+            this.console.Size = new System.Drawing.Size(1147, 137);
+            this.console.TabIndex = 2;
+            // 
+            // contentPanel
+            // 
+            this.contentPanel.AutoScroll = true;
+            this.contentPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.contentPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.contentPanel.Location = new System.Drawing.Point(0, 38);
+            this.contentPanel.Name = "contentPanel";
+            this.contentPanel.Size = new System.Drawing.Size(1147, 348);
+            this.contentPanel.TabIndex = 3;
+            // 
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1147, 545);
-            this.Controls.Add(this.toolStrip1);
-            this.Controls.Add(this.statusStrip1);
-            this.Name = "MainWindow";
+            this.Controls.Add(this.contentPanel);
+            this.Controls.Add(this.console);
+            this.Controls.Add(this.mainToolStrip);
+            this.Controls.Add(this.statusStrip);
+            this.Name = "MainForm";
             this.Text = "PDA Teszt";
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
+            this.mainToolStrip.ResumeLayout(false);
+            this.mainToolStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -159,16 +202,19 @@
 
         #endregion
 
-        private System.Windows.Forms.StatusStrip statusStrip1;
-        private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
-        private System.Windows.Forms.ToolStripButton toolStripButton2;
-        private System.Windows.Forms.ToolStripButton toolStripButton3;
-        private System.Windows.Forms.ToolStripButton toolStripButton4;
-        private System.Windows.Forms.ToolStripButton toolStripButton5;
-        private System.Windows.Forms.ToolStripButton toolStripButton6;
-        private System.Windows.Forms.ToolStripButton toolStripButton7;
-        private System.Windows.Forms.ToolStripButton toolStripButton8;
+        private System.Windows.Forms.StatusStrip statusStrip;
+        private System.Windows.Forms.ToolStrip mainToolStrip;
+        private System.Windows.Forms.ToolStripButton packageButton;
+        private System.Windows.Forms.ToolStripButton masterDataButton;
+        private System.Windows.Forms.ToolStripButton partnerButton;
+        private System.Windows.Forms.ToolStripButton holidayButton;
+        private System.Windows.Forms.ToolStripButton openingHoursButton;
+        private System.Windows.Forms.ToolStripButton deliveryButton;
+        private System.Windows.Forms.ToolStripButton returnButton;
+        private System.Windows.Forms.ToolStripButton receiveButton;
+        private System.Windows.Forms.ToolStripButton preRegButton;
+        private System.Windows.Forms.Panel contentPanel;
+        private System.Windows.Forms.TextBox console;
     }
 }
 
