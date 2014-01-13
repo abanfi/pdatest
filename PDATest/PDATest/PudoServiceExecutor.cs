@@ -1,4 +1,5 @@
-﻿using PDATestProject.PDAPudoService;
+﻿using PDATestProject.Datas;
+using PDATestProject.PDAPudoService;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,14 +20,32 @@ namespace PDATestProject
             return request;
         }
 
+        private static DefaultReturnData createSummaryMessage(DefaultReturnData data, BaseResponse response)
+        {
+            data.summaryMessage = "RESULT: " + (response.Result ? "SUCCESS " : "FAILED ") + " - ERROR CODE: " + 
+                response.ErrorCode + " - ERROR MESSAGE: " + response.ErrorMessage ; 
+
+            return data;
+        }
+
         internal static void findParcelForDelivery(DeliveryData deliveryData)
         {
-            throw new NotImplementedException();
+            FindParcelForDeliveryRequest request = (FindParcelForDeliveryRequest)initDefaultParameters(
+                new FindParcelForDeliveryRequest(), deliveryData);
+            request.Barcode = deliveryData.packageCode;
+
+            FindParcelForDeliveryResponse response = pudoClient.FindParcelForDelivery(request);
+            
         }
 
         internal static void postCancelDelivery(DeliveryData deliveryData)
         {
-            throw new NotImplementedException();
+            PostCancelDeliveryRequest request = (PostCancelDeliveryRequest)initDefaultParameters(
+                new PostCancelDeliveryRequest(), deliveryData);
+            //TODO kitölteni a megfelelő értékekkel 
+            //request.DeliveryParcels = deliveryData.packageCode;
+
+            PostCancelDeliveryResponse response = pudoClient.PostCancelDelivery(request);
         }
 
         internal static void postRefuseDelivery(DeliveryData deliveryData)
@@ -95,6 +114,7 @@ namespace PDATestProject
                 new FindParcelByBarcodeRequest(), packageData);
             request.Barcode = packageData.packageCode;
             FindParcelByBarcodeResponse response = pudoClient.FindParcelByBarcode(request);
+            //response.ParcelComposites
         }
 
         internal static void findParcelByFilter(PackageData packageData)

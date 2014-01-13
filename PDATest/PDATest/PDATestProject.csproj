@@ -11,6 +11,7 @@
     <AssemblyName>PDATestProject</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -23,7 +24,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -62,45 +62,46 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="OpeningHoursData.cs" />
-    <Compile Include="MasterDataData.cs" />
-    <Compile Include="HolidayData.cs" />
-    <Compile Include="DeliveryData.cs" />
-    <Compile Include="ReturnPreRegData.cs" />
-    <Compile Include="ReturnData.cs" />
-    <Compile Include="ReceiveData.cs" />
-    <Compile Include="PartnerData.cs" />
+    <Compile Include="Datas\DefaultReturnData.cs" />
+    <Compile Include="Datas\OpeningHoursData.cs" />
+    <Compile Include="Datas\MasterDataData.cs" />
+    <Compile Include="Datas\HolidayData.cs" />
+    <Compile Include="Datas\DeliveryData.cs" />
+    <Compile Include="Datas\ReturnPreRegData.cs" />
+    <Compile Include="Datas\ReturnData.cs" />
+    <Compile Include="Datas\ReceiveData.cs" />
+    <Compile Include="Datas\PartnerData.cs" />
     <Compile Include="PudoServiceExecutor.cs" />
-    <Compile Include="PackageData.cs" />
-    <Compile Include="DefaultData.cs" />
-    <Compile Include="DeliveryControl.cs">
+    <Compile Include="Datas\PackageData.cs" />
+    <Compile Include="Datas\DefaultData.cs" />
+    <Compile Include="Controls\DeliveryControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="DeliveryControl.Designer.cs">
+    <Compile Include="Controls\DeliveryControl.Designer.cs">
       <DependentUpon>DeliveryControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="MasterDataControl.cs">
+    <Compile Include="Controls\MasterDataControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="MasterDataControl.Designer.cs">
+    <Compile Include="Controls\MasterDataControl.Designer.cs">
       <DependentUpon>MasterDataControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="OpeningHoursControl.cs">
+    <Compile Include="Controls\OpeningHoursControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="OpeningHoursControl.Designer.cs">
+    <Compile Include="Controls\OpeningHoursControl.Designer.cs">
       <DependentUpon>OpeningHoursControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="PartnerControl.cs">
+    <Compile Include="Controls\PartnerControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="PartnerControl.Designer.cs">
+    <Compile Include="Controls\PartnerControl.Designer.cs">
       <DependentUpon>PartnerControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="DefaultParametersControl.cs">
+    <Compile Include="Controls\DefaultParametersControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="DefaultParametersControl.Designer.cs">
+    <Compile Include="Controls\DefaultParametersControl.Designer.cs">
       <DependentUpon>DefaultParametersControl.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
@@ -111,22 +112,22 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="PackageControl.cs">
+    <Compile Include="Controls\PackageControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="PackageControl.Designer.cs">
+    <Compile Include="Controls\PackageControl.Designer.cs">
       <DependentUpon>PackageControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="ReceiveControl.cs">
+    <Compile Include="Controls\ReceiveControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ReceiveControl.Designer.cs">
+    <Compile Include="Controls\ReceiveControl.Designer.cs">
       <DependentUpon>ReceiveControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="ReturnPreRegControl.cs">
+    <Compile Include="Controls\ReturnPreRegControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ReturnPreRegControl.Designer.cs">
+    <Compile Include="Controls\ReturnPreRegControl.Designer.cs">
       <DependentUpon>ReturnPreRegControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Service References\PDAPudoService\Reference.cs">
@@ -134,37 +135,37 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="HolidayControl.cs">
+    <Compile Include="Controls\HolidayControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="HolidayControl.Designer.cs">
+    <Compile Include="Controls\HolidayControl.Designer.cs">
       <DependentUpon>HolidayControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="ReturnControl.cs">
+    <Compile Include="Controls\ReturnControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ReturnControl.Designer.cs">
+    <Compile Include="Controls\ReturnControl.Designer.cs">
       <DependentUpon>ReturnControl.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="DeliveryControl.resx">
+    <EmbeddedResource Include="Controls\DeliveryControl.resx">
       <DependentUpon>DeliveryControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="HolidayControl.resx">
+    <EmbeddedResource Include="Controls\HolidayControl.resx">
       <DependentUpon>HolidayControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MasterDataControl.resx">
+    <EmbeddedResource Include="Controls\MasterDataControl.resx">
       <DependentUpon>MasterDataControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OpeningHoursControl.resx">
+    <EmbeddedResource Include="Controls\OpeningHoursControl.resx">
       <DependentUpon>OpeningHoursControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PackageControl.resx">
+    <EmbeddedResource Include="Controls\PackageControl.resx">
       <DependentUpon>PackageControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PartnerControl.resx">
+    <EmbeddedResource Include="Controls\PartnerControl.resx">
       <DependentUpon>PartnerControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DefaultParametersControl.resx">
+    <EmbeddedResource Include="Controls\DefaultParametersControl.resx">
       <DependentUpon>DefaultParametersControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
@@ -179,13 +180,13 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="ReceiveControl.resx">
+    <EmbeddedResource Include="Controls\ReceiveControl.resx">
       <DependentUpon>ReceiveControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ReturnControl.resx">
+    <EmbeddedResource Include="Controls\ReturnControl.resx">
       <DependentUpon>ReturnControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ReturnPreRegControl.resx">
+    <EmbeddedResource Include="Controls\ReturnPreRegControl.resx">
       <DependentUpon>ReturnPreRegControl.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\DataSources\DefaultData.datasource" />
@@ -362,6 +363,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
