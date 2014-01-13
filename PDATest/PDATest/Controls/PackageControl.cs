@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PDATestProject.PDAPudoService;
+using PDATestProject.Datas;
 
 namespace PDATestProject
 {
@@ -31,18 +32,22 @@ namespace PDATestProject
 
         private void findParcelByBarCodeButton_Click(object sender, EventArgs e)
         {
-            PudoServiceExecutor.findParcelByBarCode(packageData);
+            actualize(PudoServiceExecutor.findParcelByBarCode(packageData));
             
-            PdaPudoServiceClient client = new PdaPudoServiceClient();
-            FindParcelByBarcodeRequest request = new FindParcelByBarcodeRequest();
-            request.Barcode = packageCodeTextBox.Text;
-            request.EventCreated = new DateTime();
-
         }
 
         private void findParcelByFilterButton_Click(object sender, EventArgs e)
         {
-            PudoServiceExecutor.findParcelByFilter(packageData);
+            actualize(PudoServiceExecutor.findParcelByFilter(packageData));
+        }
+
+        private void actualize(PackageReturnData data)
+        {
+            resultMessageTextBox.Text = data.summaryMessage;
+            parcelCompositeReturnDataBindingSource.Clear();
+            foreach (ParcelCompositeReturnData parcelComposite in data.datas){
+                parcelCompositeReturnDataBindingSource.Add(parcelComposite);
+            }
         }
             
     }

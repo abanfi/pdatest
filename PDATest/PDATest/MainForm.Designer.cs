@@ -40,7 +40,6 @@
             this.preRegButton = new System.Windows.Forms.ToolStripButton();
             this.returnButton = new System.Windows.Forms.ToolStripButton();
             this.receiveButton = new System.Windows.Forms.ToolStripButton();
-            this.console = new System.Windows.Forms.TextBox();
             this.contentPanel = new System.Windows.Forms.Panel();
             this.mainToolStrip.SuspendLayout();
             this.SuspendLayout();
@@ -162,16 +161,6 @@
             this.receiveButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.receiveButton.Click += new System.EventHandler(this.receiveButton_Click);
             // 
-            // console
-            // 
-            this.console.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.console.Enabled = false;
-            this.console.Location = new System.Drawing.Point(0, 386);
-            this.console.Multiline = true;
-            this.console.Name = "console";
-            this.console.Size = new System.Drawing.Size(1147, 137);
-            this.console.TabIndex = 2;
-            // 
             // contentPanel
             // 
             this.contentPanel.AutoScroll = true;
@@ -179,7 +168,7 @@
             this.contentPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.contentPanel.Location = new System.Drawing.Point(0, 38);
             this.contentPanel.Name = "contentPanel";
-            this.contentPanel.Size = new System.Drawing.Size(1147, 348);
+            this.contentPanel.Size = new System.Drawing.Size(1147, 485);
             this.contentPanel.TabIndex = 3;
             // 
             // MainForm
@@ -188,7 +177,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1147, 545);
             this.Controls.Add(this.contentPanel);
-            this.Controls.Add(this.console);
             this.Controls.Add(this.mainToolStrip);
             this.Controls.Add(this.statusStrip);
             this.Name = "MainForm";
@@ -214,7 +202,6 @@
         private System.Windows.Forms.ToolStripButton receiveButton;
         private System.Windows.Forms.ToolStripButton preRegButton;
         private System.Windows.Forms.Panel contentPanel;
-        private System.Windows.Forms.TextBox console;
     }
 }
 

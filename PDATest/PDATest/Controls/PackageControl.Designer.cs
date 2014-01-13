@@ -42,16 +42,26 @@
             this.label1 = new System.Windows.Forms.Label();
             this.packageCodeTextBox = new System.Windows.Forms.TextBox();
             this.findParcelByFilterButton = new System.Windows.Forms.Button();
+            this.resultMessageTextBox = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.defaultParametersControl1 = new PDATestProject.DefaultParametersControl();
             this.packageDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.parcelCompositeReturnDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.packageReturnDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.parcelCompositeReturnDataBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.offlineDataGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.packageDataBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.parcelCompositeReturnDataBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.packageReturnDataBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.parcelCompositeReturnDataBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // offlineDataGrid
             // 
+            this.offlineDataGrid.AutoGenerateColumns = false;
             this.offlineDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.offlineDataGrid.Location = new System.Drawing.Point(22, 183);
+            this.offlineDataGrid.DataSource = this.parcelCompositeReturnDataBindingSource;
+            this.offlineDataGrid.Location = new System.Drawing.Point(22, 225);
             this.offlineDataGrid.Name = "offlineDataGrid";
             this.offlineDataGrid.Size = new System.Drawing.Size(527, 120);
             this.offlineDataGrid.TabIndex = 4;
@@ -161,6 +171,22 @@
             this.findParcelByFilterButton.UseVisualStyleBackColor = true;
             this.findParcelByFilterButton.Click += new System.EventHandler(this.findParcelByFilterButton_Click);
             // 
+            // resultMessageTextBox
+            // 
+            this.resultMessageTextBox.Location = new System.Drawing.Point(82, 199);
+            this.resultMessageTextBox.Name = "resultMessageTextBox";
+            this.resultMessageTextBox.Size = new System.Drawing.Size(467, 20);
+            this.resultMessageTextBox.TabIndex = 19;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(19, 202);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(57, 13);
+            this.label6.TabIndex = 20;
+            this.label6.Text = "Eredmény:";
+            // 
             // defaultParametersControl1
             // 
             this.defaultParametersControl1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -168,16 +194,29 @@
             this.defaultParametersControl1.Name = "defaultParametersControl1";
             this.defaultParametersControl1.Size = new System.Drawing.Size(565, 96);
             this.defaultParametersControl1.TabIndex = 18;
-           
             // 
             // packageDataBindingSource
             // 
             this.packageDataBindingSource.DataSource = typeof(PDATestProject.PackageData);
             // 
+            // parcelCompositeReturnDataBindingSource
+            // 
+            this.parcelCompositeReturnDataBindingSource.DataSource = typeof(PDATestProject.Datas.ParcelCompositeReturnData);
+            // 
+            // packageReturnDataBindingSource
+            // 
+            this.packageReturnDataBindingSource.DataSource = typeof(PDATestProject.Datas.PackageReturnData);
+            // 
+            // parcelCompositeReturnDataBindingSource1
+            // 
+            this.parcelCompositeReturnDataBindingSource1.DataSource = typeof(PDATestProject.Datas.ParcelCompositeReturnData);
+            // 
             // PackageControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.resultMessageTextBox);
             this.Controls.Add(this.defaultParametersControl1);
             this.Controls.Add(this.findParcelByFilterButton);
             this.Controls.Add(this.label4);
@@ -193,9 +232,12 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.packageTextBox);
             this.Name = "PackageControl";
-            this.Size = new System.Drawing.Size(565, 317);
+            this.Size = new System.Drawing.Size(565, 357);
             ((System.ComponentModel.ISupportInitialize)(this.offlineDataGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.packageDataBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.parcelCompositeReturnDataBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.packageReturnDataBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.parcelCompositeReturnDataBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -219,6 +261,11 @@
         private System.Windows.Forms.Button findParcelByBarCodeButton;
         private DefaultParametersControl defaultParametersControl1;
         private System.Windows.Forms.BindingSource packageDataBindingSource;
+        private System.Windows.Forms.TextBox resultMessageTextBox;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.BindingSource parcelCompositeReturnDataBindingSource;
+        private System.Windows.Forms.BindingSource packageReturnDataBindingSource;
+        private System.Windows.Forms.BindingSource parcelCompositeReturnDataBindingSource1;
       
 
         public DefaultParametersControl defaultParametersControl { get; set; }

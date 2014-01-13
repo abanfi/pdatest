@@ -108,18 +108,76 @@ namespace PDATestProject
             throw new NotImplementedException();
         }
 
-        internal static void findParcelByBarCode(PackageData packageData)
+        internal static PackageReturnData findParcelByBarCode(PackageData packageData)
         {
+            // init request with default parameters
             FindParcelByBarcodeRequest request = (FindParcelByBarcodeRequest) initDefaultParameters(
                 new FindParcelByBarcodeRequest(), packageData);
+            // add unique parameters
             request.Barcode = packageData.packageCode;
+
+            //execute service call
             FindParcelByBarcodeResponse response = pudoClient.FindParcelByBarcode(request);
-            //response.ParcelComposites
+
+            //create return object with base properties
+            PackageReturnData returnData = (PackageReturnData) createSummaryMessage( new PackageReturnData(), response);
+
+            //initialize custom values
+            return initPackageReturnParcelComposites(returnData, response.ParcelComposites);
         }
 
-        internal static void findParcelByFilter(PackageData packageData)
+        internal static PackageReturnData findParcelByFilter(PackageData packageData)
         {
-            throw new NotImplementedException();
+            // init request with default parameters
+            FindParcelByFilterRequest request = (FindParcelByFilterRequest)initDefaultParameters(
+                new FindParcelByFilterRequest(), packageData);
+            
+            // add unique parameters
+            request.BarcodeFilter = packageData.filterPackageCode;
+            request.CustomerAddressFilter = packageData.customerAddress;
+            request.CustomerNameFilter = packageData.customerName;
+            request.CustomerZipFilter = packageData.customerZip;
+
+            //execute service call
+            FindParcelByFilterResponse response = pudoClient.FindParcelByFilter(request);
+
+            //create return object with base properties
+            PackageReturnData returnData = (PackageReturnData) createSummaryMessage(new PackageReturnData(), response);
+
+            //initialize custom values
+            return initPackageReturnParcelComposites(returnData, response.ParcelComposites);
+        }
+
+        private static PackageReturnData initPackageReturnParcelComposites(PackageReturnData returnData, ParcelComposite[] composites)
+        {
+            foreach (ParcelComposite composite in composites)
+            {
+                ParcelCompositeReturnData data = new ParcelCompositeReturnData();
+                data.BagBarcode = composite.Parcel.BagBarcode;
+                data.Barcode = composite.Parcel.Barcode;
+                data.Currency = composite.Parcel.Currency;
+                data.CustomerAddress = composite.Parcel.CustomerAddress;
+                data.CustomerName = composite.Parcel.CustomerName;
+                data.CustomerPostalCode = composite.Parcel.CustomerPostalCode;
+                data.Damaged = composite.Parcel.Damaged;
+                data.DestinationLocationID = composite.Parcel.DestinationLocationID;
+                data.LinkedCount = composite.Parcel.LinkedCount;
+                data.LocationID = composite.Parcel.LocationID;
+                data.LocationName = composite.Location.LocationName;
+                data.NextLinkedBarcode = composite.Parcel.NextLinkedBarcode;
+                data.OldBarcode = composite.Parcel.OldBarcode;
+                data.ParcelState = composite.Parcel.ParcelState;
+                data.ParcelWorkflow = composite.Parcel.ParcelWorkflow;
+                data.PartnerID = composite.Parcel.PartnerID;
+                data.PartnerName = composite.Partner.PartnerName;
+                data.PriceAtDelivery = composite.Parcel.PriceAtDelivery;
+                data.ReturnDate = composite.Parcel.ReturnDate;
+                data.ShipmentID = composite.Parcel.ShipmentID;
+
+                returnData.datas.Add(data);
+
+            }
+            return returnData;
         }
 
         internal static void findPartnerById(PartnerData partnerData)
