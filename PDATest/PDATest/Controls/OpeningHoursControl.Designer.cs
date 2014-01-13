@@ -54,6 +54,8 @@
             this.sundayLabel = new System.Windows.Forms.Label();
             this.setOpeningHoursButton = new System.Windows.Forms.Button();
             this.getOpeningHoursButton = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.resultMessageTextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.openingHoursDataBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -264,10 +266,30 @@
             this.getOpeningHoursButton.UseVisualStyleBackColor = true;
             this.getOpeningHoursButton.Click += new System.EventHandler(this.getOpeningHoursButton_Click);
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(29, 201);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(57, 13);
+            this.label6.TabIndex = 25;
+            this.label6.Text = "Eredmény:";
+            // 
+            // resultMessageTextBox
+            // 
+            this.resultMessageTextBox.Location = new System.Drawing.Point(92, 198);
+            this.resultMessageTextBox.Multiline = true;
+            this.resultMessageTextBox.Name = "resultMessageTextBox";
+            this.resultMessageTextBox.ReadOnly = true;
+            this.resultMessageTextBox.Size = new System.Drawing.Size(571, 122);
+            this.resultMessageTextBox.TabIndex = 24;
+            // 
             // OpeningHoursControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.resultMessageTextBox);
             this.Controls.Add(this.getOpeningHoursButton);
             this.Controls.Add(this.setOpeningHoursButton);
             this.Controls.Add(this.sundaySecondTextBox);
@@ -293,7 +315,7 @@
             this.Controls.Add(this.mondayLabel);
             this.Controls.Add(this.defaultParametersControl1);
             this.Name = "OpeningHoursControl";
-            this.Size = new System.Drawing.Size(685, 209);
+            this.Size = new System.Drawing.Size(685, 336);
             ((System.ComponentModel.ISupportInitialize)(this.openingHoursDataBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -327,5 +349,7 @@
         private System.Windows.Forms.Button setOpeningHoursButton;
         private System.Windows.Forms.Button getOpeningHoursButton;
         private System.Windows.Forms.BindingSource openingHoursDataBindingSource;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox resultMessageTextBox;
     }
 }

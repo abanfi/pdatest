@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PDATestProject.Datas;
 
 namespace PDATestProject
 {
@@ -29,12 +30,17 @@ namespace PDATestProject
 
         private void getOpeningHoursButton_Click(object sender, EventArgs e)
         {
-            PudoServiceExecutor.getOpeningHours(openingHoursData);
+            actualize(PudoServiceExecutor.getOpeningHours(openingHoursData));
         }
 
         private void setOpeningHoursButton_Click(object sender, EventArgs e)
         {
-            PudoServiceExecutor.setOpeningHours(openingHoursData);
+            actualize(PudoServiceExecutor.setOpeningHours(openingHoursData));
+        }
+
+        private void actualize(DefaultReturnData data)
+        {
+            resultMessageTextBox.Text = data.summaryMessage;
         }
     }
 }

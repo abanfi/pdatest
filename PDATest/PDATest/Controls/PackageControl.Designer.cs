@@ -30,8 +30,30 @@
         {
             this.components = new System.ComponentModel.Container();
             this.offlineDataGrid = new System.Windows.Forms.DataGridView();
+            this.locationIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.locationNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bagBarcodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.barcodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.currencyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.customerAddressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.customerNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.customerPostalCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.damagedDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.destinationLocationIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.linkedCountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nextLinkedBarcodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.oldBarcodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.parcelStateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.parcelWorkflowDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.partnerIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.priceAtDeliveryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.returnDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.shipmentIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.partnerNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.parcelCompositeReturnDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label5 = new System.Windows.Forms.Label();
             this.packageTextBox = new System.Windows.Forms.TextBox();
+            this.packageDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.findParcelByBarCodeButton = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.zipTextBox = new System.Windows.Forms.TextBox();
@@ -45,26 +67,171 @@
             this.resultMessageTextBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.defaultParametersControl1 = new PDATestProject.DefaultParametersControl();
-            this.packageDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.parcelCompositeReturnDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.packageReturnDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.parcelCompositeReturnDataBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.offlineDataGrid)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.packageDataBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.parcelCompositeReturnDataBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.packageDataBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.packageReturnDataBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.parcelCompositeReturnDataBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // offlineDataGrid
             // 
+            this.offlineDataGrid.AllowUserToAddRows = false;
+            this.offlineDataGrid.AllowUserToDeleteRows = false;
             this.offlineDataGrid.AutoGenerateColumns = false;
             this.offlineDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.offlineDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.locationIDDataGridViewTextBoxColumn,
+            this.locationNameDataGridViewTextBoxColumn,
+            this.bagBarcodeDataGridViewTextBoxColumn,
+            this.barcodeDataGridViewTextBoxColumn,
+            this.currencyDataGridViewTextBoxColumn,
+            this.customerAddressDataGridViewTextBoxColumn,
+            this.customerNameDataGridViewTextBoxColumn,
+            this.customerPostalCodeDataGridViewTextBoxColumn,
+            this.damagedDataGridViewCheckBoxColumn,
+            this.destinationLocationIDDataGridViewTextBoxColumn,
+            this.linkedCountDataGridViewTextBoxColumn,
+            this.nextLinkedBarcodeDataGridViewTextBoxColumn,
+            this.oldBarcodeDataGridViewTextBoxColumn,
+            this.parcelStateDataGridViewTextBoxColumn,
+            this.parcelWorkflowDataGridViewTextBoxColumn,
+            this.partnerIDDataGridViewTextBoxColumn,
+            this.priceAtDeliveryDataGridViewTextBoxColumn,
+            this.returnDateDataGridViewTextBoxColumn,
+            this.shipmentIDDataGridViewTextBoxColumn,
+            this.partnerNameDataGridViewTextBoxColumn});
             this.offlineDataGrid.DataSource = this.parcelCompositeReturnDataBindingSource;
             this.offlineDataGrid.Location = new System.Drawing.Point(22, 225);
             this.offlineDataGrid.Name = "offlineDataGrid";
             this.offlineDataGrid.Size = new System.Drawing.Size(527, 120);
             this.offlineDataGrid.TabIndex = 4;
+            // 
+            // locationIDDataGridViewTextBoxColumn
+            // 
+            this.locationIDDataGridViewTextBoxColumn.DataPropertyName = "LocationID";
+            this.locationIDDataGridViewTextBoxColumn.HeaderText = "LocationID";
+            this.locationIDDataGridViewTextBoxColumn.Name = "locationIDDataGridViewTextBoxColumn";
+            // 
+            // locationNameDataGridViewTextBoxColumn
+            // 
+            this.locationNameDataGridViewTextBoxColumn.DataPropertyName = "LocationName";
+            this.locationNameDataGridViewTextBoxColumn.HeaderText = "LocationName";
+            this.locationNameDataGridViewTextBoxColumn.Name = "locationNameDataGridViewTextBoxColumn";
+            // 
+            // bagBarcodeDataGridViewTextBoxColumn
+            // 
+            this.bagBarcodeDataGridViewTextBoxColumn.DataPropertyName = "BagBarcode";
+            this.bagBarcodeDataGridViewTextBoxColumn.HeaderText = "BagBarcode";
+            this.bagBarcodeDataGridViewTextBoxColumn.Name = "bagBarcodeDataGridViewTextBoxColumn";
+            // 
+            // barcodeDataGridViewTextBoxColumn
+            // 
+            this.barcodeDataGridViewTextBoxColumn.DataPropertyName = "Barcode";
+            this.barcodeDataGridViewTextBoxColumn.HeaderText = "Barcode";
+            this.barcodeDataGridViewTextBoxColumn.Name = "barcodeDataGridViewTextBoxColumn";
+            // 
+            // currencyDataGridViewTextBoxColumn
+            // 
+            this.currencyDataGridViewTextBoxColumn.DataPropertyName = "Currency";
+            this.currencyDataGridViewTextBoxColumn.HeaderText = "Currency";
+            this.currencyDataGridViewTextBoxColumn.Name = "currencyDataGridViewTextBoxColumn";
+            // 
+            // customerAddressDataGridViewTextBoxColumn
+            // 
+            this.customerAddressDataGridViewTextBoxColumn.DataPropertyName = "CustomerAddress";
+            this.customerAddressDataGridViewTextBoxColumn.HeaderText = "CustomerAddress";
+            this.customerAddressDataGridViewTextBoxColumn.Name = "customerAddressDataGridViewTextBoxColumn";
+            // 
+            // customerNameDataGridViewTextBoxColumn
+            // 
+            this.customerNameDataGridViewTextBoxColumn.DataPropertyName = "CustomerName";
+            this.customerNameDataGridViewTextBoxColumn.HeaderText = "CustomerName";
+            this.customerNameDataGridViewTextBoxColumn.Name = "customerNameDataGridViewTextBoxColumn";
+            // 
+            // customerPostalCodeDataGridViewTextBoxColumn
+            // 
+            this.customerPostalCodeDataGridViewTextBoxColumn.DataPropertyName = "CustomerPostalCode";
+            this.customerPostalCodeDataGridViewTextBoxColumn.HeaderText = "CustomerPostalCode";
+            this.customerPostalCodeDataGridViewTextBoxColumn.Name = "customerPostalCodeDataGridViewTextBoxColumn";
+            // 
+            // damagedDataGridViewCheckBoxColumn
+            // 
+            this.damagedDataGridViewCheckBoxColumn.DataPropertyName = "Damaged";
+            this.damagedDataGridViewCheckBoxColumn.HeaderText = "Damaged";
+            this.damagedDataGridViewCheckBoxColumn.Name = "damagedDataGridViewCheckBoxColumn";
+            // 
+            // destinationLocationIDDataGridViewTextBoxColumn
+            // 
+            this.destinationLocationIDDataGridViewTextBoxColumn.DataPropertyName = "DestinationLocationID";
+            this.destinationLocationIDDataGridViewTextBoxColumn.HeaderText = "DestinationLocationID";
+            this.destinationLocationIDDataGridViewTextBoxColumn.Name = "destinationLocationIDDataGridViewTextBoxColumn";
+            // 
+            // linkedCountDataGridViewTextBoxColumn
+            // 
+            this.linkedCountDataGridViewTextBoxColumn.DataPropertyName = "LinkedCount";
+            this.linkedCountDataGridViewTextBoxColumn.HeaderText = "LinkedCount";
+            this.linkedCountDataGridViewTextBoxColumn.Name = "linkedCountDataGridViewTextBoxColumn";
+            // 
+            // nextLinkedBarcodeDataGridViewTextBoxColumn
+            // 
+            this.nextLinkedBarcodeDataGridViewTextBoxColumn.DataPropertyName = "NextLinkedBarcode";
+            this.nextLinkedBarcodeDataGridViewTextBoxColumn.HeaderText = "NextLinkedBarcode";
+            this.nextLinkedBarcodeDataGridViewTextBoxColumn.Name = "nextLinkedBarcodeDataGridViewTextBoxColumn";
+            // 
+            // oldBarcodeDataGridViewTextBoxColumn
+            // 
+            this.oldBarcodeDataGridViewTextBoxColumn.DataPropertyName = "OldBarcode";
+            this.oldBarcodeDataGridViewTextBoxColumn.HeaderText = "OldBarcode";
+            this.oldBarcodeDataGridViewTextBoxColumn.Name = "oldBarcodeDataGridViewTextBoxColumn";
+            // 
+            // parcelStateDataGridViewTextBoxColumn
+            // 
+            this.parcelStateDataGridViewTextBoxColumn.DataPropertyName = "ParcelState";
+            this.parcelStateDataGridViewTextBoxColumn.HeaderText = "ParcelState";
+            this.parcelStateDataGridViewTextBoxColumn.Name = "parcelStateDataGridViewTextBoxColumn";
+            // 
+            // parcelWorkflowDataGridViewTextBoxColumn
+            // 
+            this.parcelWorkflowDataGridViewTextBoxColumn.DataPropertyName = "ParcelWorkflow";
+            this.parcelWorkflowDataGridViewTextBoxColumn.HeaderText = "ParcelWorkflow";
+            this.parcelWorkflowDataGridViewTextBoxColumn.Name = "parcelWorkflowDataGridViewTextBoxColumn";
+            // 
+            // partnerIDDataGridViewTextBoxColumn
+            // 
+            this.partnerIDDataGridViewTextBoxColumn.DataPropertyName = "PartnerID";
+            this.partnerIDDataGridViewTextBoxColumn.HeaderText = "PartnerID";
+            this.partnerIDDataGridViewTextBoxColumn.Name = "partnerIDDataGridViewTextBoxColumn";
+            // 
+            // priceAtDeliveryDataGridViewTextBoxColumn
+            // 
+            this.priceAtDeliveryDataGridViewTextBoxColumn.DataPropertyName = "PriceAtDelivery";
+            this.priceAtDeliveryDataGridViewTextBoxColumn.HeaderText = "PriceAtDelivery";
+            this.priceAtDeliveryDataGridViewTextBoxColumn.Name = "priceAtDeliveryDataGridViewTextBoxColumn";
+            // 
+            // returnDateDataGridViewTextBoxColumn
+            // 
+            this.returnDateDataGridViewTextBoxColumn.DataPropertyName = "ReturnDate";
+            this.returnDateDataGridViewTextBoxColumn.HeaderText = "ReturnDate";
+            this.returnDateDataGridViewTextBoxColumn.Name = "returnDateDataGridViewTextBoxColumn";
+            // 
+            // shipmentIDDataGridViewTextBoxColumn
+            // 
+            this.shipmentIDDataGridViewTextBoxColumn.DataPropertyName = "ShipmentID";
+            this.shipmentIDDataGridViewTextBoxColumn.HeaderText = "ShipmentID";
+            this.shipmentIDDataGridViewTextBoxColumn.Name = "shipmentIDDataGridViewTextBoxColumn";
+            // 
+            // partnerNameDataGridViewTextBoxColumn
+            // 
+            this.partnerNameDataGridViewTextBoxColumn.DataPropertyName = "PartnerName";
+            this.partnerNameDataGridViewTextBoxColumn.HeaderText = "PartnerName";
+            this.partnerNameDataGridViewTextBoxColumn.Name = "partnerNameDataGridViewTextBoxColumn";
+            // 
+            // parcelCompositeReturnDataBindingSource
+            // 
+            this.parcelCompositeReturnDataBindingSource.DataSource = typeof(PDATestProject.Datas.ParcelCompositeReturnData);
             // 
             // label5
             // 
@@ -82,6 +249,10 @@
             this.packageTextBox.Name = "packageTextBox";
             this.packageTextBox.Size = new System.Drawing.Size(139, 20);
             this.packageTextBox.TabIndex = 2;
+            // 
+            // packageDataBindingSource
+            // 
+            this.packageDataBindingSource.DataSource = typeof(PDATestProject.PackageData);
             // 
             // findParcelByBarCodeButton
             // 
@@ -175,6 +346,7 @@
             // 
             this.resultMessageTextBox.Location = new System.Drawing.Point(82, 199);
             this.resultMessageTextBox.Name = "resultMessageTextBox";
+            this.resultMessageTextBox.ReadOnly = true;
             this.resultMessageTextBox.Size = new System.Drawing.Size(467, 20);
             this.resultMessageTextBox.TabIndex = 19;
             // 
@@ -194,14 +366,6 @@
             this.defaultParametersControl1.Name = "defaultParametersControl1";
             this.defaultParametersControl1.Size = new System.Drawing.Size(565, 96);
             this.defaultParametersControl1.TabIndex = 18;
-            // 
-            // packageDataBindingSource
-            // 
-            this.packageDataBindingSource.DataSource = typeof(PDATestProject.PackageData);
-            // 
-            // parcelCompositeReturnDataBindingSource
-            // 
-            this.parcelCompositeReturnDataBindingSource.DataSource = typeof(PDATestProject.Datas.ParcelCompositeReturnData);
             // 
             // packageReturnDataBindingSource
             // 
@@ -234,8 +398,8 @@
             this.Name = "PackageControl";
             this.Size = new System.Drawing.Size(565, 357);
             ((System.ComponentModel.ISupportInitialize)(this.offlineDataGrid)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.packageDataBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.parcelCompositeReturnDataBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.packageDataBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.packageReturnDataBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.parcelCompositeReturnDataBindingSource1)).EndInit();
             this.ResumeLayout(false);
@@ -266,6 +430,26 @@
         private System.Windows.Forms.BindingSource parcelCompositeReturnDataBindingSource;
         private System.Windows.Forms.BindingSource packageReturnDataBindingSource;
         private System.Windows.Forms.BindingSource parcelCompositeReturnDataBindingSource1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn locationIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn locationNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn bagBarcodeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn barcodeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn currencyDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn customerAddressDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn customerNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn customerPostalCodeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn damagedDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn destinationLocationIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn linkedCountDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nextLinkedBarcodeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn oldBarcodeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn parcelStateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn parcelWorkflowDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn partnerIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn priceAtDeliveryDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn returnDateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn shipmentIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn partnerNameDataGridViewTextBoxColumn;
       
 
         public DefaultParametersControl defaultParametersControl { get; set; }
