@@ -58,14 +58,84 @@ namespace PDATestProject
             throw new NotImplementedException();
         }
 
-        internal static void getHoliday(HolidayData holidayData)
+        internal static DefaultReturnData getHoliday(HolidayData holidayData)
         {
-            throw new NotImplementedException();
+            // init request with default parameters
+            GetHolidaysRequest request = (GetHolidaysRequest)initDefaultParameters(
+                new GetHolidaysRequest(), holidayData);
+
+            //execute service call
+            GetHolidaysResponse response = pudoClient.GetHolidays(request);
+
+            //create return object with base properties
+            DefaultReturnData returnData = createSummaryMessage(new DefaultReturnData(), response);
+
+            //initialize custom values 
+            returnData.summaryMessage += holidaysToString(response.Holidays);
+            return returnData;
         }
 
-        internal static void setHoliday(HolidayData holidayData)
+        private static string holidaysToString(Holidays holidays)
         {
-            throw new NotImplementedException();
+            string holidayString = "\n";
+            for (int i = 0; i <= holidays.Entries.Length; i++)
+            {
+                holidayString += "Holiday" + (i + 1) + ": ";
+                if (holidays.Entries[0].From != null) { 
+                    holidayString += holidays.Entries[0].From.ToString("yyyy.MM.dd");
+                }
+                if (holidays.Entries[0].To != null) {
+                    holidayString += " - " + holidays.Entries[0].To.ToString("yyyy.MM.dd");
+                }
+            }
+            return holidayString;
+        }
+
+        internal static DefaultReturnData setHoliday(HolidayData holidayData)
+        {
+            // init request with default parameters
+            SetHolidaysRequest request = (SetHolidaysRequest)initDefaultParameters(
+                new SetHolidaysRequest(), holidayData);
+
+            // add unique parameters
+            List<HolidaysEntry> holidayList = new List<HolidaysEntry>();
+            if (holidayData.holiday1From.CompareTo(holidayData.holiday1To) < 0){
+                HolidaysEntry newEntry = new HolidaysEntry();
+                newEntry.From = holidayData.holiday1From;
+                newEntry.To =  holidayData.holiday1To;
+                holidayList.Add(newEntry);
+            }
+            if (holidayData.holiday2From.CompareTo(holidayData.holiday2To) < 0)
+            {
+                HolidaysEntry newEntry = new HolidaysEntry();
+                newEntry.From = holidayData.holiday2From;
+                newEntry.To = holidayData.holiday2To;
+                holidayList.Add(newEntry);
+            }
+            if (holidayData.holiday3From.CompareTo(holidayData.holiday3To) < 0)
+            {
+                HolidaysEntry newEntry = new HolidaysEntry();
+                newEntry.From = holidayData.holiday3From;
+                newEntry.To = holidayData.holiday3To;
+                holidayList.Add(newEntry);
+            }
+            if (holidayData.holiday4From.CompareTo(holidayData.holiday4To) < 0)
+            {
+                HolidaysEntry newEntry = new HolidaysEntry();
+                newEntry.From = holidayData.holiday4From;
+                newEntry.To = holidayData.holiday4To;
+                holidayList.Add(newEntry);
+            }
+
+            request.Holidays.Entries = holidayList.ToArray();
+
+            //execute service call
+            SetHolidaysResponse response = pudoClient.SetHolidays(request);
+
+            //create return object with base properties
+            DefaultReturnData returnData = createSummaryMessage(new DefaultReturnData(), response);
+
+            return returnData;
         }
 
         internal static void findInsertedDictionarySince(MasterDataData masterDataData)

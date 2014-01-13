@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PDATestProject.Datas;
 
 namespace PDATestProject
 {
@@ -30,13 +31,18 @@ namespace PDATestProject
 
         private void getHolidayButton_Click(object sender, EventArgs e)
         {
-            PudoServiceExecutor.getHoliday(holidayData);
+            actualize(PudoServiceExecutor.getHoliday(holidayData));
 
         }
 
         private void setHolidaysButton_Click(object sender, EventArgs e)
         {
-            PudoServiceExecutor.setHoliday(holidayData);
+            actualize(PudoServiceExecutor.setHoliday(holidayData));
+        }
+
+        private void actualize(DefaultReturnData data)
+        {
+            resultMessageTextBox.Text = data.summaryMessage;
         }
 
     }

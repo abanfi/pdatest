@@ -45,6 +45,8 @@
             this.holiday4label = new System.Windows.Forms.Label();
             this.getHolidayButton = new System.Windows.Forms.Button();
             this.setHolidaysButton = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.resultMessageTextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.holidayDataBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -180,10 +182,30 @@
             this.setHolidaysButton.UseVisualStyleBackColor = true;
             this.setHolidaysButton.Click += new System.EventHandler(this.setHolidaysButton_Click);
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(26, 211);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(57, 13);
+            this.label6.TabIndex = 27;
+            this.label6.Text = "Eredmény:";
+            // 
+            // resultMessageTextBox
+            // 
+            this.resultMessageTextBox.Location = new System.Drawing.Point(89, 208);
+            this.resultMessageTextBox.Multiline = true;
+            this.resultMessageTextBox.Name = "resultMessageTextBox";
+            this.resultMessageTextBox.ReadOnly = true;
+            this.resultMessageTextBox.Size = new System.Drawing.Size(512, 134);
+            this.resultMessageTextBox.TabIndex = 26;
+            // 
             // HolidayControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.resultMessageTextBox);
             this.Controls.Add(this.setHolidaysButton);
             this.Controls.Add(this.getHolidayButton);
             this.Controls.Add(this.holiday4ToDatePicker);
@@ -200,7 +222,7 @@
             this.Controls.Add(this.holiday1FromDatePicker);
             this.Controls.Add(this.holiday1label);
             this.Name = "HolidayControl";
-            this.Size = new System.Drawing.Size(616, 212);
+            this.Size = new System.Drawing.Size(616, 379);
             ((System.ComponentModel.ISupportInitialize)(this.holidayDataBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -225,5 +247,7 @@
         private System.Windows.Forms.Button getHolidayButton;
         private System.Windows.Forms.Button setHolidaysButton;
         private System.Windows.Forms.BindingSource holidayDataBindingSource;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox resultMessageTextBox;
     }
 }
