@@ -38,9 +38,20 @@
             this.masterDataDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.findInsertedDictionarySinceButton = new System.Windows.Forms.Button();
             this.offlineDataGrid = new System.Windows.Forms.DataGridView();
+            this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dictionaryClassDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.keyValueDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dictionaryReturnDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.defaultParametersControl1 = new PDATestProject.DefaultParametersControl();
+            this.partnerReturnDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.parcelReturnDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label6 = new System.Windows.Forms.Label();
+            this.resultMessageTextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.masterDataDataBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.offlineDataGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dictionaryReturnDataBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.partnerReturnDataBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.parcelReturnDataBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // findDeletedParcelSinceButton
@@ -117,11 +128,39 @@
             // 
             // offlineDataGrid
             // 
+            this.offlineDataGrid.AutoGenerateColumns = false;
             this.offlineDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.offlineDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.descriptionDataGridViewTextBoxColumn,
+            this.dictionaryClassDataGridViewTextBoxColumn,
+            this.keyValueDataGridViewTextBoxColumn});
+            this.offlineDataGrid.DataSource = this.dictionaryReturnDataBindingSource;
             this.offlineDataGrid.Location = new System.Drawing.Point(25, 158);
             this.offlineDataGrid.Name = "offlineDataGrid";
             this.offlineDataGrid.Size = new System.Drawing.Size(623, 120);
             this.offlineDataGrid.TabIndex = 24;
+            // 
+            // descriptionDataGridViewTextBoxColumn
+            // 
+            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
+            this.descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
+            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
+            // 
+            // dictionaryClassDataGridViewTextBoxColumn
+            // 
+            this.dictionaryClassDataGridViewTextBoxColumn.DataPropertyName = "DictionaryClass";
+            this.dictionaryClassDataGridViewTextBoxColumn.HeaderText = "DictionaryClass";
+            this.dictionaryClassDataGridViewTextBoxColumn.Name = "dictionaryClassDataGridViewTextBoxColumn";
+            // 
+            // keyValueDataGridViewTextBoxColumn
+            // 
+            this.keyValueDataGridViewTextBoxColumn.DataPropertyName = "KeyValue";
+            this.keyValueDataGridViewTextBoxColumn.HeaderText = "KeyValue";
+            this.keyValueDataGridViewTextBoxColumn.Name = "keyValueDataGridViewTextBoxColumn";
+            // 
+            // dictionaryReturnDataBindingSource
+            // 
+            this.dictionaryReturnDataBindingSource.DataSource = typeof(PDATestProject.Datas.DictionaryReturnData);
             // 
             // defaultParametersControl1
             // 
@@ -131,10 +170,38 @@
             this.defaultParametersControl1.Size = new System.Drawing.Size(674, 96);
             this.defaultParametersControl1.TabIndex = 32;
             // 
+            // partnerReturnDataBindingSource
+            // 
+            this.partnerReturnDataBindingSource.DataSource = typeof(PDATestProject.Datas.PartnerReturnData);
+            // 
+            // parcelReturnDataBindingSource
+            // 
+            this.parcelReturnDataBindingSource.DataSource = typeof(PDATestProject.Datas.ParcelReturnData);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(24, 287);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(57, 13);
+            this.label6.TabIndex = 52;
+            this.label6.Text = "Eredmény:";
+            // 
+            // resultMessageTextBox
+            // 
+            this.resultMessageTextBox.Location = new System.Drawing.Point(87, 284);
+            this.resultMessageTextBox.Multiline = true;
+            this.resultMessageTextBox.Name = "resultMessageTextBox";
+            this.resultMessageTextBox.ReadOnly = true;
+            this.resultMessageTextBox.Size = new System.Drawing.Size(561, 114);
+            this.resultMessageTextBox.TabIndex = 51;
+            // 
             // MasterDataControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.resultMessageTextBox);
             this.Controls.Add(this.defaultParametersControl1);
             this.Controls.Add(this.findDeletedParcelSinceButton);
             this.Controls.Add(this.findDeletedPartnerSinceButton);
@@ -145,10 +212,14 @@
             this.Controls.Add(this.findInsertedDictionarySinceButton);
             this.Controls.Add(this.offlineDataGrid);
             this.Name = "MasterDataControl";
-            this.Size = new System.Drawing.Size(674, 293);
+            this.Size = new System.Drawing.Size(674, 475);
             ((System.ComponentModel.ISupportInitialize)(this.masterDataDataBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.offlineDataGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dictionaryReturnDataBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.partnerReturnDataBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.parcelReturnDataBindingSource)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -164,5 +235,13 @@
         private System.Windows.Forms.DataGridView offlineDataGrid;
         private DefaultParametersControl defaultParametersControl1;
         private System.Windows.Forms.BindingSource masterDataDataBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dictionaryClassDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn keyValueDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource dictionaryReturnDataBindingSource;
+        private System.Windows.Forms.BindingSource partnerReturnDataBindingSource;
+        private System.Windows.Forms.BindingSource parcelReturnDataBindingSource;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox resultMessageTextBox;
     }
 }

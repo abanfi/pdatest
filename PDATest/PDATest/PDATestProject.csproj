@@ -62,6 +62,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Datas\DeliveryReturnData.cs" />
+    <Compile Include="Datas\MasterDataReturnData.cs" />
     <Compile Include="Datas\ReceiveReturnData.cs" />
     <Compile Include="Datas\PackageReturnData.cs" />
     <Compile Include="Datas\DefaultReturnData.cs" />
@@ -198,9 +200,13 @@
     <None Include="Properties\DataSources\OpeningHoursData.datasource" />
     <None Include="Properties\DataSources\PackageData.datasource" />
     <None Include="Properties\DataSources\PartnerData.datasource" />
+    <None Include="Properties\DataSources\PDATestProject.Datas.DeliveryParleccMinimumReturnData.datasource" />
+    <None Include="Properties\DataSources\PDATestProject.Datas.DictionaryReturnData.datasource" />
     <None Include="Properties\DataSources\PDATestProject.Datas.PackageReturnData.datasource" />
     <None Include="Properties\DataSources\PDATestProject.Datas.ParcelCompositeReturnData.datasource" />
     <None Include="Properties\DataSources\PDATestProject.Datas.ParcelCompositeSelectableReturnData.datasource" />
+    <None Include="Properties\DataSources\PDATestProject.Datas.ParcelReturnData.datasource" />
+    <None Include="Properties\DataSources\PDATestProject.Datas.PartnerReturnData.datasource" />
     <None Include="Properties\DataSources\ReceiveData.datasource" />
     <None Include="Properties\DataSources\ReturnData.datasource" />
     <None Include="Properties\DataSources\ReturnPreRegData.datasource" />

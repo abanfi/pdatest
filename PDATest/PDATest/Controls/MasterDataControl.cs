@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PDATestProject.Datas;
 
 namespace PDATestProject
 {
@@ -31,32 +32,83 @@ namespace PDATestProject
 
         private void findInsertedDictionarySinceButton_Click(object sender, EventArgs e)
         {
-            PudoServiceExecutor.findInsertedDictionarySince(masterDataData);
+            MasterDataReturnData result = PudoServiceExecutor.findInsertedDictionarySince(masterDataData);
+            resultMessageTextBox.Text =  result.summaryMessage;
+            this.offlineDataGrid.DataSource = dictionaryReturnDataBindingSource;
+            dictionaryReturnDataBindingSource.Clear();
+            foreach (DictionaryReturnData value in result.dictionaries)
+            {
+                dictionaryReturnDataBindingSource.Add(value);
+            } 
         }
+
 
         private void findInsertedPartnerSinceButton_Click(object sender, EventArgs e)
         {
-            PudoServiceExecutor.findInsertedPartnerSince(masterDataData);
+            MasterDataReturnData result = PudoServiceExecutor.findInsertedPartnerSince(masterDataData);
+            resultMessageTextBox.Text =  result.summaryMessage;
+            this.offlineDataGrid.DataSource = partnerReturnDataBindingSource;
+            partnerReturnDataBindingSource.Clear();
+            foreach (PartnerReturnData value in result.partners)
+            {
+                partnerReturnDataBindingSource.Add(value);
+            }
         }
 
         private void findInsertedParcelSinceButton_Click(object sender, EventArgs e)
         {
-            PudoServiceExecutor.findInsertedParcelSince(masterDataData);
+            MasterDataReturnData result = PudoServiceExecutor.findInsertedParcelSince(masterDataData);
+
+            resultMessageTextBox.Text = result.summaryMessage;
+            this.offlineDataGrid.DataSource = parcelReturnDataBindingSource;
+            parcelReturnDataBindingSource.Clear();
+            foreach (ParcelReturnData value in result.parcels)
+            {
+                parcelReturnDataBindingSource.Add(value);
+            } 
         }
 
         private void findDeletedDictionarySinceButton_Click(object sender, EventArgs e)
         {
-            PudoServiceExecutor.findDeletedDictionarySince(masterDataData);
+            MasterDataReturnData result = PudoServiceExecutor.findDeletedDictionarySince(masterDataData);
+           
+            resultMessageTextBox.Text =  result.summaryMessage;
+            this.offlineDataGrid.DataSource = dictionaryReturnDataBindingSource;
+            dictionaryReturnDataBindingSource.Clear();
+            foreach (DictionaryReturnData value in result.dictionaries)
+            {
+                dictionaryReturnDataBindingSource.Add(value);
+            } 
+
         }
 
         private void findDeletedPartnerSinceButton_Click(object sender, EventArgs e)
         {
-            PudoServiceExecutor.findDeletedPartnerSince(masterDataData);
+            MasterDataReturnData result = PudoServiceExecutor.findDeletedPartnerSince(masterDataData);
+           
+            resultMessageTextBox.Text =  result.summaryMessage;
+            this.offlineDataGrid.DataSource = partnerReturnDataBindingSource;
+            partnerReturnDataBindingSource.Clear();
+            foreach (PartnerReturnData value in result.partners)
+            {
+                partnerReturnDataBindingSource.Add(value);
+            }
         }
 
         private void findDeletedParcelSinceButton_Click(object sender, EventArgs e)
         {
-            PudoServiceExecutor.findDeletedParcelSince(masterDataData);
+            MasterDataReturnData result = PudoServiceExecutor.findDeletedParcelSince(masterDataData);
+            
+            resultMessageTextBox.Text = result.summaryMessage;
+            this.offlineDataGrid.DataSource = parcelReturnDataBindingSource;
+            parcelReturnDataBindingSource.Clear();
+            foreach (ParcelReturnData value in result.parcels)
+            {
+                parcelReturnDataBindingSource.Add(value);
+            } 
+
         }
+
+      
     }
 }

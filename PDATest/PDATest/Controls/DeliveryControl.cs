@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PDATestProject.Datas;
 
 namespace PDATestProject
 {
@@ -30,22 +31,38 @@ namespace PDATestProject
 
         private void findParcelForDeliveryButton_Click(object sender, EventArgs e)
         {
-            PudoServiceExecutor.findParcelForDelivery(deliveryData);
+           actualize(PudoServiceExecutor.findParcelForDelivery(deliveryData));
         }
 
         private void postCancelDeliveryButton_Click(object sender, EventArgs e)
         {
+            deliveryData.datas = (List<DeliveryParleccMinimumReturnData>)
+                deliveryParleccMinimumReturnDataBindingSource.List;
             PudoServiceExecutor.postCancelDelivery(deliveryData);
         }
 
         private void postRefuseDeliveryButton_Click(object sender, EventArgs e)
         {
+            deliveryData.datas = (List<DeliveryParleccMinimumReturnData>)
+                deliveryParleccMinimumReturnDataBindingSource.List;
             PudoServiceExecutor.postRefuseDelivery(deliveryData);
         }
 
         private void postDeliveryButton_Click(object sender, EventArgs e)
         {
+            deliveryData.datas = (List<DeliveryParleccMinimumReturnData>)
+                deliveryParleccMinimumReturnDataBindingSource.List;
             PudoServiceExecutor.postDelivery(deliveryData);
+        }
+
+        private void actualize(DeliveryReturnData data)
+        {
+            resultMessageTextBox.Text = data.summaryMessage;
+            deliveryParleccMinimumReturnDataBindingSource.Clear();
+            foreach (DeliveryParleccMinimumReturnData parcelComposite in data.datas)
+            {
+                deliveryParleccMinimumReturnDataBindingSource.Add(parcelComposite);
+            }
         }
     }
 }

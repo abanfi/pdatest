@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PDATestProject.Datas
 {
-    class DefaultReturnData
+    public class DefaultReturnData
     {
         public string summaryMessage { get; set; }
 
