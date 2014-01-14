@@ -378,14 +378,93 @@ namespace PDATestProject
             throw new NotImplementedException();
         }
 
-        internal static void findParcelForReceive(ReceiveData receiveData)
+        internal static ReceiveReturnData findParcelForReceive(ReceiveData receiveData)
         {
-            throw new NotImplementedException();
+            FindParcelForReceiveRequest request = (FindParcelForReceiveRequest)initDefaultParameters(
+               new FindParcelForReceiveRequest(), receiveData);
+            // add unique parameters
+            request.Barcode = receiveData.barcode;
+
+            //execute service call
+            FindParcelForReceiveResponse response = pudoClient.FindParcelForReceive(request);
+
+            //create return object with base properties
+            ReceiveReturnData returnData = (ReceiveReturnData)createSummaryMessage(new ReceiveReturnData(), response);
+
+            //initialize custom values
+            return initReceiveReturnParcelComposites(returnData, response.ParcelComposites);
         }
 
-        internal static void postReceive(ReceiveData receiveData)
+        private static ReceiveReturnData initReceiveReturnParcelComposites(ReceiveReturnData returnData, ParcelComposite[] composites)
         {
-            throw new NotImplementedException();
+            foreach (ParcelComposite composite in composites)
+            {
+                ParcelCompositeSelectableReturnData data = new ParcelCompositeSelectableReturnData();
+                data.BagBarcode = composite.Parcel.BagBarcode;
+                data.Barcode = composite.Parcel.Barcode;
+                data.Currency = composite.Parcel.Currency;
+                data.CustomerAddress = composite.Parcel.CustomerAddress;
+                data.CustomerName = composite.Parcel.CustomerName;
+                data.CustomerPostalCode = composite.Parcel.CustomerPostalCode;
+                data.Damaged = composite.Parcel.Damaged;
+                data.DestinationLocationID = composite.Parcel.DestinationLocationID;
+                data.LinkedCount = composite.Parcel.LinkedCount;
+                data.LocationID = composite.Parcel.LocationID;
+                data.LocationName = composite.Location.LocationName;
+                data.NextLinkedBarcode = composite.Parcel.NextLinkedBarcode;
+                data.OldBarcode = composite.Parcel.OldBarcode;
+                data.ParcelState = composite.Parcel.ParcelState;
+                data.ParcelWorkflow = composite.Parcel.ParcelWorkflow;
+                data.PartnerID = composite.Parcel.PartnerID;
+                data.PartnerName = composite.Partner.PartnerName;
+                data.PriceAtDelivery = composite.Parcel.PriceAtDelivery;
+                data.ReturnDate = composite.Parcel.ReturnDate;
+                data.ShipmentID = composite.Parcel.ShipmentID;
+                data.Selected = false;
+
+                returnData.datas.Add(data);
+
+            }
+            return returnData;
+        }
+
+        internal static ReceiveReturnData postReceive(ReceiveData receiveData)
+        {
+            PostReceiveRequest request = (PostReceiveRequest)initDefaultParameters(
+               new PostReceiveRequest(), receiveData);
+            
+            // add unique parameters
+            List<ReceptionContainer> receptionContainers = new List<ReceptionContainer>();
+            List<DiscrepancyContainer> discrepancyContainer = new List<DiscrepancyContainer>();
+            foreach (ParcelCompositeSelectableReturnData data in receiveData.gridData)
+            {
+                if (data.Selected)
+                {
+                    ReceptionContainer newItem = new ReceptionContainer();
+                    newItem.Barcode = data.Barcode;
+                    newItem.Damaged = data.Damaged;
+                    receptionContainers.Add(newItem);
+                }
+                else
+                {
+                    DiscrepancyContainer newItem = new DiscrepancyContainer();
+                    newItem.Barcode = data.Barcode;
+                    // TODO lehet, hogy ezt a táblából kellene beletenni
+                    newItem.Discrepancy = DiscrepancyType.Shortage;
+                    discrepancyContainer.Add(newItem);
+                }
+            }
+
+            request.DiscrepancyParcels = discrepancyContainer.ToArray();
+            request.ReceptionParcels = receptionContainers.ToArray();
+
+            //execute service call
+            PostReceiveResponse response = pudoClient.PostReceive(request);
+
+            //create return object with base properties
+            ReceiveReturnData returnData = (ReceiveReturnData)createSummaryMessage(new ReceiveReturnData(), response);
+
+            return returnData;
         }
 
         internal static void findParcelForReturn(ReturnData returnData)
