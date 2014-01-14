@@ -11,7 +11,7 @@ using PDATestProject.Datas;
 
 namespace PDATestProject
 {
-    public partial class ReturnControl : UserControl
+    public partial class ReturnControl : PDATestProject.Controls.DefaultControl
     {
         private ReturnData returnData;
         
@@ -20,6 +20,11 @@ namespace PDATestProject
             InitializeComponent();
             initBinding(new ReturnData());
         }
+        public override DefaultData getDefaultParams()
+        {
+            return returnData;
+        }
+
 
         private void initBinding(ReturnData data)
         {

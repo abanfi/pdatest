@@ -12,7 +12,7 @@ using PDATestProject.Datas;
 
 namespace PDATestProject
 {
-    public partial class PackageControl : UserControl
+    public partial class PackageControl : PDATestProject.Controls.DefaultControl
     {
 
         private PackageData packageData;
@@ -21,6 +21,11 @@ namespace PDATestProject
         {
             InitializeComponent();
             initBinding(new PackageData());
+        }
+
+        public override DefaultData getDefaultParams()
+        {
+            return packageData;
         }
 
         private void initBinding(PackageData data)

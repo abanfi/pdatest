@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace PDATestProject
 {
     public static class PudoServiceExecutor
-    {
+    { 
         private static PdaPudoServiceClient pudoClient = new PdaPudoServiceClient();
 
         private static BaseRequest initDefaultParameters(BaseRequest request, DefaultData data){
@@ -799,24 +799,135 @@ namespace PDATestProject
             return returnData;
         }
 
-        internal static void findParcelForDelivery(ReturnPreRegData returnPreRegData)
+        internal static ReturnPreRegReturnData findParcelForDelivery(ReturnPreRegData returnPreRegData)
         {
-            throw new NotImplementedException();
+            FindParcelForDeliveryRequest request = (FindParcelForDeliveryRequest)initDefaultParameters(
+              new FindParcelForDeliveryRequest(), returnPreRegData);
+            // add unique parameters
+            request.Barcode = returnPreRegData.packageCode;
+
+            //execute service call
+            FindParcelForDeliveryResponse response = pudoClient.FindParcelForDelivery(request);
+
+            //create return object with base properties
+            ReturnPreRegReturnData returnData = (ReturnPreRegReturnData)createSummaryMessage(new ReturnPreRegReturnData(), response);
+
+            //initialize custom values
+            foreach (ParcelMinimal minimal in response.ParcelMinimals)
+            {
+                ParcelMinimalReturnData newItem = new ParcelMinimalReturnData();
+                newItem.Barcode = minimal.Barcode;
+                newItem.Damaged = minimal.Damaged;
+                newItem.LinkedCount = minimal.LinkedCount;
+                newItem.NextLinkedBarcode = minimal.NextLinkedBarcode;
+                newItem.ParcelState = minimal.ParcelState;
+                newItem.PriceAtDelivery = minimal.PriceAtDelivery;
+                newItem.ReturnDate = minimal.ReturnDate;
+
+                returnData.data.Add(newItem);
+            }
+                        
+            return returnData;
         }
 
-        internal static void postRefuseCustRetPrereg(ReturnPreRegData returnPreRegData)
+        internal static ReturnPreRegReturnData postRefuseCustRetPrereg(ReturnPreRegData returnPreRegData)
         {
-            throw new NotImplementedException();
+            PostRefuseCustomerReturnPreRegisteredRequest request = (PostRefuseCustomerReturnPreRegisteredRequest)initDefaultParameters(
+             new PostRefuseCustomerReturnPreRegisteredRequest(), returnPreRegData);
+            // add unique parameters
+
+            // set first selected to refused
+            foreach (ParcelMinimalReturnData parcelMinimal in returnPreRegData.data)
+            {
+                if (parcelMinimal.Selected)
+                {
+                    RefuseCustomerReturnPreRegisteredContainer container = new RefuseCustomerReturnPreRegisteredContainer();
+                    container.Barcode = parcelMinimal.Barcode;
+                    container.Damaged = returnPreRegData.damaged;
+                    request.RefuseCustomerReturnParcel = container;
+                    break;
+                }
+            }
+            request.RefuseReason = returnPreRegData.refuseReason;
+            
+            //execute service call
+            PostRefuseCustomerReturnPreRegisteredResponse response = pudoClient.PostRefuseCustomerReturnPreRegistered(request);
+
+            //create return object with base properties
+            ReturnPreRegReturnData returnData = (ReturnPreRegReturnData)createSummaryMessage(new ReturnPreRegReturnData(), response);
+
+            //initialize custom values
+            returnData.summaryMessage += "\nParcel result: " + response.ParcelResult.Barcode + " : " + response.ParcelResult.ActualStatus;
+                       
+            return returnData;
         }
 
-        internal static void postCustRetPrereg(ReturnPreRegData returnPreRegData)
+        internal static ReturnPreRegReturnData postCustRetPrereg(ReturnPreRegData returnPreRegData)
         {
-            throw new NotImplementedException();
+            PostCustomerReturnPreRegisteredRequest request = (PostCustomerReturnPreRegisteredRequest)initDefaultParameters(
+                new PostCustomerReturnPreRegisteredRequest(), returnPreRegData);
+            // add unique parameters
+
+            // set first selected to refused
+            foreach (ParcelMinimalReturnData parcelMinimal in returnPreRegData.data)
+            {
+                if (parcelMinimal.Selected)
+                {
+                    RefuseCustomerReturnPreRegisteredContainer container = new RefuseCustomerReturnPreRegisteredContainer();
+                    container.Barcode = parcelMinimal.Barcode;
+                    container.Damaged = returnPreRegData.damaged;
+                    request.CustomerReturnParcel = container;
+                    break;
+                }
+            }
+           
+            //execute service call
+            PostCustomerReturnPreRegisteredResponse response = pudoClient.PostCustomerReturnPreRegistered(request);
+
+            //create return object with base properties
+            ReturnPreRegReturnData returnData = (ReturnPreRegReturnData)createSummaryMessage(new ReturnPreRegReturnData(), response);
+
+            //initialize custom values
+            returnData.summaryMessage += "\nParcel result: " + response.ParcelResult.Barcode + " : " + response.ParcelResult.ActualStatus;
+
+            return returnData;
         }
 
-        internal static void postCustRetUnexpected(ReturnPreRegData returnPreRegData)
+        internal static ReturnPreRegReturnData postCustRetUnexpected(ReturnPreRegData returnPreRegData)
         {
-            throw new NotImplementedException();
+            PostCustomerReturnUnexpectedRequest request = (PostCustomerReturnUnexpectedRequest)initDefaultParameters(
+                new PostCustomerReturnUnexpectedRequest(), returnPreRegData);
+            // add unique parameters
+
+            // set first selected to refused
+            foreach (ParcelMinimalReturnData parcelMinimal in returnPreRegData.data)
+            {
+                if (parcelMinimal.Selected)
+                {
+                    CustomerReturnUnexpectedContainer container = new CustomerReturnUnexpectedContainer();
+                    container.Barcode = parcelMinimal.Barcode;
+                    container.Damaged = returnPreRegData.damaged;
+                    container.CustomerName = returnPreRegData.customerName;
+                    container.NoLabel = returnPreRegData.noLabel;
+                    container.OldBarcode = parcelMinimal.Barcode;
+                    container.PartnerID = returnPreRegData.partnerId;
+                    
+                    request.CustomerReturnParcel = container;
+                    break;
+                }
+            }
+          
+
+            //execute service call
+            PostCustomerReturnUnexpectedResponse response = pudoClient.PostCustomerReturnUnexpected(request);
+
+            //create return object with base properties
+            ReturnPreRegReturnData returnData = (ReturnPreRegReturnData)createSummaryMessage(new ReturnPreRegReturnData(), response);
+
+            //initialize custom values
+            returnData.summaryMessage += "\nParcel result: " + response.ParcelResult.Barcode + " : " + response.ParcelResult.ActualStatus;
+
+            return returnData;
         }
     }
 }

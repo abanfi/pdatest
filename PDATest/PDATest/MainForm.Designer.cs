@@ -46,9 +46,9 @@
             // 
             // statusStrip
             // 
-            this.statusStrip.Location = new System.Drawing.Point(0, 523);
+            this.statusStrip.Location = new System.Drawing.Point(0, 525);
             this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Size = new System.Drawing.Size(1147, 22);
+            this.statusStrip.Size = new System.Drawing.Size(766, 22);
             this.statusStrip.TabIndex = 0;
             this.statusStrip.Text = "statusStrip1";
             // 
@@ -67,9 +67,8 @@
             this.mainToolStrip.Location = new System.Drawing.Point(0, 0);
             this.mainToolStrip.Name = "mainToolStrip";
             this.mainToolStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.mainToolStrip.Size = new System.Drawing.Size(1147, 38);
+            this.mainToolStrip.Size = new System.Drawing.Size(766, 38);
             this.mainToolStrip.TabIndex = 1;
-            this.mainToolStrip.Text = "toolStrip1";
             // 
             // packageButton
             // 
@@ -86,8 +85,8 @@
             this.masterDataButton.Image = ((System.Drawing.Image)(resources.GetObject("masterDataButton.Image")));
             this.masterDataButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.masterDataButton.Name = "masterDataButton";
-            this.masterDataButton.Size = new System.Drawing.Size(39, 35);
-            this.masterDataButton.Text = "Törzs";
+            this.masterDataButton.Size = new System.Drawing.Size(62, 35);
+            this.masterDataButton.Text = "Törzsadat";
             this.masterDataButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.masterDataButton.Click += new System.EventHandler(this.masterDataButton_Click);
             // 
@@ -168,14 +167,14 @@
             this.contentPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.contentPanel.Location = new System.Drawing.Point(0, 38);
             this.contentPanel.Name = "contentPanel";
-            this.contentPanel.Size = new System.Drawing.Size(1147, 485);
+            this.contentPanel.Size = new System.Drawing.Size(766, 487);
             this.contentPanel.TabIndex = 3;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1147, 545);
+            this.ClientSize = new System.Drawing.Size(766, 547);
             this.Controls.Add(this.contentPanel);
             this.Controls.Add(this.mainToolStrip);
             this.Controls.Add(this.statusStrip);

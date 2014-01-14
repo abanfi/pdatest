@@ -11,7 +11,7 @@ using PDATestProject.Datas;
 
 namespace PDATestProject
 {
-    public partial class OpeningHoursControl : UserControl
+    public partial class OpeningHoursControl : PDATestProject.Controls.DefaultControl
     {
         private OpeningHoursData openingHoursData;
         
@@ -19,6 +19,11 @@ namespace PDATestProject
         {
             InitializeComponent();
             initBinding(new OpeningHoursData());
+        }
+
+        public override DefaultData getDefaultParams()
+        {
+            return openingHoursData;
         }
 
         private void initBinding(OpeningHoursData data)

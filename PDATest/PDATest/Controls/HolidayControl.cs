@@ -11,7 +11,7 @@ using PDATestProject.Datas;
 
 namespace PDATestProject
 {
-    public partial class HolidayControl : UserControl
+    public partial class HolidayControl : PDATestProject.Controls.DefaultControl
     {
 
         private HolidayData holidayData;
@@ -20,6 +20,11 @@ namespace PDATestProject
         {
             InitializeComponent();
             initBinding(new HolidayData());
+        }
+
+        public override DefaultData getDefaultParams()
+        {
+            return holidayData;
         }
 
         private void initBinding(HolidayData data)

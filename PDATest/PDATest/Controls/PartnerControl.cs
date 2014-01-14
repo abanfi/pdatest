@@ -11,7 +11,7 @@ using PDATestProject.Datas;
 
 namespace PDATestProject
 {
-    public partial class PartnerControl : UserControl
+    public partial class PartnerControl : PDATestProject.Controls.DefaultControl
     {
         private PartnerData partnerData;
         
@@ -19,6 +19,11 @@ namespace PDATestProject
         {
             InitializeComponent();
             initBinding(new PartnerData());
+        }
+
+        public override DefaultData getDefaultParams()
+        {
+            return partnerData;
         }
 
         private void initBinding(PartnerData data)

@@ -11,8 +11,8 @@ using PDATestProject.Datas;
 
 namespace PDATestProject
 {
-    
-    public partial class MasterDataControl : UserControl
+
+    public partial class MasterDataControl : PDATestProject.Controls.DefaultControl
     {
 
         private MasterDataData masterDataData;
@@ -21,6 +21,11 @@ namespace PDATestProject
         {
             InitializeComponent();
             initBinding(new MasterDataData());
+        }
+
+        public override DefaultData getDefaultParams()
+        {
+            return masterDataData;
         }
 
         private void initBinding(MasterDataData data)

@@ -11,7 +11,7 @@ using PDATestProject.Datas;
 
 namespace PDATestProject
 {
-    public partial class DeliveryControl : UserControl
+    public partial class DeliveryControl : PDATestProject.Controls.DefaultControl
     {
 
         private DeliveryData deliveryData;
@@ -20,6 +20,11 @@ namespace PDATestProject
         {
             InitializeComponent();
             initBinding(new DeliveryData());
+        }
+
+        public override DefaultData getDefaultParams()
+        {
+            return deliveryData;
         }
 
         private void initBinding(DeliveryData data)

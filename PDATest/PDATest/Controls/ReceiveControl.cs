@@ -11,7 +11,7 @@ using PDATestProject.Datas;
 
 namespace PDATestProject
 {
-    public partial class ReceiveControl : UserControl
+    public partial class ReceiveControl : PDATestProject.Controls.DefaultControl
     {
         private ReceiveData receiveData;
         
@@ -19,6 +19,11 @@ namespace PDATestProject
         {
             InitializeComponent();
             initBinding(new ReceiveData());
+        }
+
+        public override DefaultData getDefaultParams()
+        {
+            return receiveData;
         }
 
         private void initBinding(ReceiveData data)
