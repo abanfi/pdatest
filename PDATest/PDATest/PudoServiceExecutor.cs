@@ -13,16 +13,27 @@ namespace PDATestProject
         private static PdaPudoServiceClient pudoClient = new PdaPudoServiceClient();
 
         private static BaseRequest initDefaultParameters(BaseRequest request, DefaultData data){
-            request.LanguageCode = (LanguageCodeType) Enum.Parse(typeof(LanguageCodeType), data.languageCode);
-            request.OfflineMode = data.offline.Equals("Igen");
+            if (data.languageCode != null)
+            {
+                request.LanguageCode = (LanguageCodeType)Enum.Parse(typeof(LanguageCodeType), data.languageCode);
+            }
+            if (data.offline != null)
+            { 
+                request.OfflineMode = data.offline.Equals("Igen"); 
+            }
             request.TerminalID = data.terminalId;
-            request.TransactionID = Convert.ToInt64(data.transactionId);
+            request.EventCreated = new DateTime(); 
+            if (data.transactionId != null)
+            {
+                request.TransactionID = Convert.ToInt64(data.transactionId);
+            }
             return request;
         }
 
         private static DefaultReturnData createSummaryMessage(DefaultReturnData data, BaseResponse response)
         {
-            data.summaryMessage = "RESULT: " + (response.Result ? "SUCCESS " : "FAILED ") + " - ERROR CODE: " + 
+            data.summaryMessage = "\n" + (DateTime.Now.ToString("yyyy.MM.dd HH:mm:ss")) + " - RESULT: " + 
+                (response.Result ? "SUCCESS " : "FAILED ") + " - ERROR CODE: " + 
                 response.ErrorCode + " - ERROR MESSAGE: " + response.ErrorMessage ; 
 
             return data;
@@ -37,19 +48,21 @@ namespace PDATestProject
             FindParcelForDeliveryResponse response = pudoClient.FindParcelForDelivery(request);
 
             DeliveryReturnData returnData = (DeliveryReturnData)createSummaryMessage(new DeliveryReturnData(), response);
-
-            foreach (ParcelMinimal parcelMinimal in response.ParcelMinimals)
+            if (response.Result)
             {
-                DeliveryParleccMinimumReturnData newItem = new DeliveryParleccMinimumReturnData();
-                newItem.Barcode = parcelMinimal.Barcode;
-                newItem.Damaged = parcelMinimal.Damaged;
-                newItem.LinkedCount = parcelMinimal.LinkedCount;
-                newItem.NextLinkedBarcode = parcelMinimal.NextLinkedBarcode;
-                newItem.ParcelState = parcelMinimal.ParcelState;
-                newItem.PriceAtDelivery = parcelMinimal.PriceAtDelivery;
-                newItem.ReturnDate = parcelMinimal.ReturnDate;
+                foreach (ParcelMinimal parcelMinimal in response.ParcelMinimals)
+                {
+                    DeliveryParleccMinimumReturnData newItem = new DeliveryParleccMinimumReturnData();
+                    newItem.Barcode = parcelMinimal.Barcode;
+                    newItem.Damaged = parcelMinimal.Damaged;
+                    newItem.LinkedCount = parcelMinimal.LinkedCount;
+                    newItem.NextLinkedBarcode = parcelMinimal.NextLinkedBarcode;
+                    newItem.ParcelState = parcelMinimal.ParcelState;
+                    newItem.PriceAtDelivery = parcelMinimal.PriceAtDelivery;
+                    newItem.ReturnDate = parcelMinimal.ReturnDate;
 
-                returnData.datas.Add(newItem);
+                    returnData.datas.Add(newItem);
+                }
             }
             return returnData;
         }
@@ -72,9 +85,10 @@ namespace PDATestProject
 
             //create return object with base properties
             DeliveryReturnData returnData = (DeliveryReturnData)createSummaryMessage(new DeliveryReturnData(), response);
-
-            returnData.summaryMessage += parcelResultsToString(response.ParcelResults);
-
+            if (response.Result)
+            {
+                returnData.summaryMessage += parcelResultsToString(response.ParcelResults);
+            }
             return returnData;
         }
 
@@ -101,9 +115,10 @@ namespace PDATestProject
 
             //create return object with base properties
             DeliveryReturnData returnData = (DeliveryReturnData)createSummaryMessage(new DeliveryReturnData(), response);
-
-            returnData.summaryMessage += parcelResultsToString(response.ParcelResults);
-
+            if (response.Result)
+            {
+                returnData.summaryMessage += parcelResultsToString(response.ParcelResults);
+            }
             return returnData;
         }
 
@@ -130,9 +145,10 @@ namespace PDATestProject
 
             //create return object with base properties
             DeliveryReturnData returnData = (DeliveryReturnData)createSummaryMessage(new DeliveryReturnData(), response);
-
-            returnData.summaryMessage += parcelResultsToString(response.ParcelResults);
-
+            if (response.Result)
+            {
+                returnData.summaryMessage += parcelResultsToString(response.ParcelResults);
+            }
             return returnData;
         }
 
@@ -149,7 +165,10 @@ namespace PDATestProject
             DefaultReturnData returnData = createSummaryMessage(new DefaultReturnData(), response);
 
             //initialize custom values 
-            returnData.summaryMessage += holidaysToString(response.Holidays);
+            if (response.Result)
+            {
+                returnData.summaryMessage += holidaysToString(response.Holidays);
+            }
             return returnData;
         }
 
@@ -228,18 +247,19 @@ namespace PDATestProject
 
             //create return object with base properties
             MasterDataReturnData returnData = (MasterDataReturnData) createSummaryMessage(new MasterDataReturnData(), response);
-
-            returnData.dictionaries.Clear();
-            foreach (Dictionary dictionary in response.Dictionaries)
+            if (response.Result)
             {
-                DictionaryReturnData newItem = new DictionaryReturnData();
-                newItem.Description = dictionary.Description;
-                newItem.DictionaryClass = dictionary.DictionaryClass.ToString();
-                newItem.KeyValue = dictionary.KeyValue;
-                returnData.dictionaries.Add(newItem);
+                returnData.dictionaries.Clear();
+                foreach (Dictionary dictionary in response.Dictionaries)
+                {
+                    DictionaryReturnData newItem = new DictionaryReturnData();
+                    newItem.Description = dictionary.Description;
+                    newItem.DictionaryClass = dictionary.DictionaryClass.ToString();
+                    newItem.KeyValue = dictionary.KeyValue;
+                    returnData.dictionaries.Add(newItem);
 
+                }
             }
-
             return returnData;
         }
 
@@ -261,36 +281,37 @@ namespace PDATestProject
 
             //create return object with base properties
             MasterDataReturnData returnData = (MasterDataReturnData)createSummaryMessage(new MasterDataReturnData(), response);
-
-            returnData.parcels.Clear();
-            foreach (Parcel parcel in response.Parcels)
+            if (response.Result)
             {
-                
-                ParcelReturnData data = new ParcelReturnData();
-                data.BagBarcode = parcel.BagBarcode;
-                data.Barcode = parcel.Barcode;
-                data.Currency = parcel.Currency;
-                data.CustomerAddress = parcel.CustomerAddress;
-                data.CustomerName = parcel.CustomerName;
-                data.CustomerPostalCode = parcel.CustomerPostalCode;
-                data.Damaged = parcel.Damaged;
-                data.DestinationLocationID = parcel.DestinationLocationID;
-                data.LinkedCount = parcel.LinkedCount;
-                data.LocationID = parcel.LocationID;
+                returnData.parcels.Clear();
+                foreach (Parcel parcel in response.Parcels)
+                {
 
-                data.NextLinkedBarcode = parcel.NextLinkedBarcode;
-                data.OldBarcode = parcel.OldBarcode;
-                data.ParcelState = parcel.ParcelState;
-                data.ParcelWorkflow = parcel.ParcelWorkflow;
-                data.PartnerID = parcel.PartnerID;
+                    ParcelReturnData data = new ParcelReturnData();
+                    data.BagBarcode = parcel.BagBarcode;
+                    data.Barcode = parcel.Barcode;
+                    data.Currency = parcel.Currency;
+                    data.CustomerAddress = parcel.CustomerAddress;
+                    data.CustomerName = parcel.CustomerName;
+                    data.CustomerPostalCode = parcel.CustomerPostalCode;
+                    data.Damaged = parcel.Damaged;
+                    data.DestinationLocationID = parcel.DestinationLocationID;
+                    data.LinkedCount = parcel.LinkedCount;
+                    data.LocationID = parcel.LocationID;
 
-                data.PriceAtDelivery = parcel.PriceAtDelivery;
-                data.ReturnDate = parcel.ReturnDate;
-                data.ShipmentID = parcel.ShipmentID;
+                    data.NextLinkedBarcode = parcel.NextLinkedBarcode;
+                    data.OldBarcode = parcel.OldBarcode;
+                    data.ParcelState = parcel.ParcelState;
+                    data.ParcelWorkflow = parcel.ParcelWorkflow;
+                    data.PartnerID = parcel.PartnerID;
 
-                returnData.parcels.Add(data);
+                    data.PriceAtDelivery = parcel.PriceAtDelivery;
+                    data.ReturnDate = parcel.ReturnDate;
+                    data.ShipmentID = parcel.ShipmentID;
+
+                    returnData.parcels.Add(data);
+                }
             }
-
             return returnData;
         }
 
@@ -306,16 +327,18 @@ namespace PDATestProject
 
             //create return object with base properties
             MasterDataReturnData returnData = (MasterDataReturnData)createSummaryMessage(new MasterDataReturnData(), response);
-
-            returnData.dictionaries.Clear();
-            foreach (Dictionary dictionary in response.Dictionaries)
+            if (response.Result)
             {
-                DictionaryReturnData newItem = new DictionaryReturnData();
-                newItem.Description = dictionary.Description;
-                newItem.DictionaryClass = dictionary.DictionaryClass.ToString();
-                newItem.KeyValue = dictionary.KeyValue;
-                returnData.dictionaries.Add(newItem);
+                returnData.dictionaries.Clear();
+                foreach (Dictionary dictionary in response.Dictionaries)
+                {
+                    DictionaryReturnData newItem = new DictionaryReturnData();
+                    newItem.Description = dictionary.Description;
+                    newItem.DictionaryClass = dictionary.DictionaryClass.ToString();
+                    newItem.KeyValue = dictionary.KeyValue;
+                    returnData.dictionaries.Add(newItem);
 
+                }
             }
 
             return returnData;
@@ -333,16 +356,17 @@ namespace PDATestProject
 
             //create return object with base properties
             MasterDataReturnData returnData = (MasterDataReturnData)createSummaryMessage(new MasterDataReturnData(), response);
-
-            returnData.partners.Clear();
-            foreach (Partner partner in response.Partners)
+            if (response.Result)
             {
-                PartnerReturnData newItem = new PartnerReturnData();
-                newItem.PartnerID = partner.PartnerID;
-                newItem.PartnerName = partner.PartnerName;
-                returnData.partners.Add(newItem);
+                returnData.partners.Clear();
+                foreach (Partner partner in response.Partners)
+                {
+                    PartnerReturnData newItem = new PartnerReturnData();
+                    newItem.PartnerID = partner.PartnerID;
+                    newItem.PartnerName = partner.PartnerName;
+                    returnData.partners.Add(newItem);
+                }
             }
-
             return returnData;
         }
 
@@ -358,11 +382,13 @@ namespace PDATestProject
 
             //create return object with base properties
             MasterDataReturnData returnData = (MasterDataReturnData)createSummaryMessage(new MasterDataReturnData(), response);
-
-            returnData.summaryMessage += "\nResult list:\n";
-            foreach (string barcode in response.BarcodeList)
+            if (response.Result)
             {
-                returnData.summaryMessage += barcode + '\n';
+                returnData.summaryMessage += "\nResult list:\n";
+                foreach (string barcode in response.BarcodeList)
+                {
+                    returnData.summaryMessage += barcode + '\n';
+                }
             }
 
             return returnData;
@@ -381,7 +407,10 @@ namespace PDATestProject
             DefaultReturnData returnData = (DefaultReturnData) createSummaryMessage(new DefaultReturnData(), response);
 
             //initialize custom values
-            returnData.summaryMessage += openingHoursToString(response.OpeningHours);
+            if (response.Result)
+            {
+                returnData.summaryMessage += openingHoursToString(response.OpeningHours);
+            }
             return returnData;
         }
 
@@ -579,14 +608,17 @@ namespace PDATestProject
 
             //create return object with base properties
             PartnersReturnData returnData = (PartnersReturnData)createSummaryMessage(new PartnersReturnData(), response);
+            if (response.Result)
+            {
+                if (response.Partner != null)
+                {
+                    PartnerReturnData newItem = new PartnerReturnData();
+                    newItem.PartnerID = response.Partner.PartnerID;
+                    newItem.PartnerName = response.Partner.PartnerName;
 
-           
-            PartnerReturnData newItem = new PartnerReturnData();
-            newItem.PartnerID = response.Partner.PartnerID;
-            newItem.PartnerName = response.Partner.PartnerName;
-            
-            returnData.partners.Add(newItem);
-            
+                    returnData.partners.Add(newItem);
+                }
+            }
             //initialize custom values
             return returnData;
         }
@@ -607,15 +639,17 @@ namespace PDATestProject
             PartnersReturnData returnData = (PartnersReturnData)createSummaryMessage(new PartnersReturnData(), response);
 
             //initialize custom values
-            foreach (Partner partner in response.Partners)
+            if (response.Result)
             {
-                PartnerReturnData newItem = new PartnerReturnData();
-                newItem.PartnerID = partner.PartnerID;
-                newItem.PartnerName = partner.PartnerName;
+                foreach (Partner partner in response.Partners)
+                {
+                    PartnerReturnData newItem = new PartnerReturnData();
+                    newItem.PartnerID = partner.PartnerID;
+                    newItem.PartnerName = partner.PartnerName;
 
-                returnData.partners.Add(newItem);
-            }
-                      
+                    returnData.partners.Add(newItem);
+                }
+            }      
             return returnData;
         }
 
@@ -635,8 +669,10 @@ namespace PDATestProject
             PartnersReturnData returnData = (PartnersReturnData)createSummaryMessage(new PartnersReturnData(), response);
 
             //initialize custom values
-            returnData.summaryMessage += "\nResult count: " + response.PartnerCount;          
-
+            if (response.Result)
+            {
+                returnData.summaryMessage += "\nResult count: " + response.PartnerCount;
+            }
             return returnData;
         }
 
@@ -726,8 +762,10 @@ namespace PDATestProject
             //create return object with base properties
             ReceiveReturnData returnData = (ReceiveReturnData)createSummaryMessage(new ReceiveReturnData(), response);
 
-            returnData.summaryMessage += parcelResultsToString(response.ParcelResults);
-           
+            if (response.Result)
+            {
+                returnData.summaryMessage += parcelResultsToString(response.ParcelResults);
+            }
             return returnData;
         }
 
@@ -753,20 +791,22 @@ namespace PDATestProject
 
             //create return object with base properties
             ReturnReturnData returnData = (ReturnReturnData)createSummaryMessage(new ReturnReturnData(), response);
-
-            foreach (ParcelMinimal parcel in response.ParcelMinimals)
+            if (response.Result)
             {
-                ReturnParcelReturnData newItem = new ReturnParcelReturnData();
-                newItem.Barcode = parcel.Barcode;
-                newItem.Damaged = parcel.Damaged;
-                newItem.LinkedCount = parcel.LinkedCount;
-                newItem.NextLinkedBarcode = parcel.NextLinkedBarcode;
-                newItem.ParcelState = parcel.ParcelState;
-                newItem.PriceAtDelivery = parcel.PriceAtDelivery;
-                newItem.ReturnDate = parcel.ReturnDate;
-                newItem.Selected = false;
+                foreach (ParcelMinimal parcel in response.ParcelMinimals)
+                {
+                    ReturnParcelReturnData newItem = new ReturnParcelReturnData();
+                    newItem.Barcode = parcel.Barcode;
+                    newItem.Damaged = parcel.Damaged;
+                    newItem.LinkedCount = parcel.LinkedCount;
+                    newItem.NextLinkedBarcode = parcel.NextLinkedBarcode;
+                    newItem.ParcelState = parcel.ParcelState;
+                    newItem.PriceAtDelivery = parcel.PriceAtDelivery;
+                    newItem.ReturnDate = parcel.ReturnDate;
+                    newItem.Selected = false;
 
-                returnData.data.Add(newItem);
+                    returnData.data.Add(newItem);
+                }
             }
             
             return returnData;
@@ -811,20 +851,22 @@ namespace PDATestProject
 
             //create return object with base properties
             ReturnPreRegReturnData returnData = (ReturnPreRegReturnData)createSummaryMessage(new ReturnPreRegReturnData(), response);
-
-            //initialize custom values
-            foreach (ParcelMinimal minimal in response.ParcelMinimals)
+            if (response.Result)
             {
-                ParcelMinimalReturnData newItem = new ParcelMinimalReturnData();
-                newItem.Barcode = minimal.Barcode;
-                newItem.Damaged = minimal.Damaged;
-                newItem.LinkedCount = minimal.LinkedCount;
-                newItem.NextLinkedBarcode = minimal.NextLinkedBarcode;
-                newItem.ParcelState = minimal.ParcelState;
-                newItem.PriceAtDelivery = minimal.PriceAtDelivery;
-                newItem.ReturnDate = minimal.ReturnDate;
+                //initialize custom values
+                foreach (ParcelMinimal minimal in response.ParcelMinimals)
+                {
+                    ParcelMinimalReturnData newItem = new ParcelMinimalReturnData();
+                    newItem.Barcode = minimal.Barcode;
+                    newItem.Damaged = minimal.Damaged;
+                    newItem.LinkedCount = minimal.LinkedCount;
+                    newItem.NextLinkedBarcode = minimal.NextLinkedBarcode;
+                    newItem.ParcelState = minimal.ParcelState;
+                    newItem.PriceAtDelivery = minimal.PriceAtDelivery;
+                    newItem.ReturnDate = minimal.ReturnDate;
 
-                returnData.data.Add(newItem);
+                    returnData.data.Add(newItem);
+                }
             }
                         
             return returnData;
@@ -857,8 +899,10 @@ namespace PDATestProject
             ReturnPreRegReturnData returnData = (ReturnPreRegReturnData)createSummaryMessage(new ReturnPreRegReturnData(), response);
 
             //initialize custom values
-            returnData.summaryMessage += "\nParcel result: " + response.ParcelResult.Barcode + " : " + response.ParcelResult.ActualStatus;
-                       
+            if (response.Result)
+            {
+                returnData.summaryMessage += "\nParcel result: " + response.ParcelResult.Barcode + " : " + response.ParcelResult.ActualStatus;
+            }          
             return returnData;
         }
 
@@ -888,8 +932,10 @@ namespace PDATestProject
             ReturnPreRegReturnData returnData = (ReturnPreRegReturnData)createSummaryMessage(new ReturnPreRegReturnData(), response);
 
             //initialize custom values
-            returnData.summaryMessage += "\nParcel result: " + response.ParcelResult.Barcode + " : " + response.ParcelResult.ActualStatus;
-
+            if (response.Result)
+            {
+                returnData.summaryMessage += "\nParcel result: " + response.ParcelResult.Barcode + " : " + response.ParcelResult.ActualStatus;
+            }
             return returnData;
         }
 
@@ -925,8 +971,10 @@ namespace PDATestProject
             ReturnPreRegReturnData returnData = (ReturnPreRegReturnData)createSummaryMessage(new ReturnPreRegReturnData(), response);
 
             //initialize custom values
-            returnData.summaryMessage += "\nParcel result: " + response.ParcelResult.Barcode + " : " + response.ParcelResult.ActualStatus;
-
+            if (response.Result)
+            {
+                returnData.summaryMessage += "\nParcel result: " + response.ParcelResult.Barcode + " : " + response.ParcelResult.ActualStatus;
+            }
             return returnData;
         }
     }

@@ -29,15 +29,17 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DefaultParametersControl));
             this.terminalLabel = new System.Windows.Forms.Label();
             this.transactionLabel = new System.Windows.Forms.Label();
             this.offlineLabel = new System.Windows.Forms.Label();
             this.languageLabel = new System.Windows.Forms.Label();
             this.terminalTextBox = new System.Windows.Forms.TextBox();
+            this.defaultDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.transactionTextBox = new System.Windows.Forms.TextBox();
             this.offlineComboBox = new System.Windows.Forms.ComboBox();
             this.languageComboBox = new System.Windows.Forms.ComboBox();
-            this.defaultDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.refreshButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.defaultDataBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -85,17 +87,21 @@
             this.terminalTextBox.Size = new System.Drawing.Size(132, 20);
             this.terminalTextBox.TabIndex = 4;
             // 
+            // defaultDataBindingSource
+            // 
+            this.defaultDataBindingSource.DataSource = typeof(PDATestProject.DefaultData);
+            // 
             // transactionTextBox
             // 
             this.transactionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.defaultDataBindingSource, "transactionId", true));
             this.transactionTextBox.Location = new System.Drawing.Point(161, 38);
             this.transactionTextBox.Name = "transactionTextBox";
-            this.transactionTextBox.Size = new System.Drawing.Size(132, 20);
+            this.transactionTextBox.Size = new System.Drawing.Size(110, 20);
             this.transactionTextBox.TabIndex = 5;
             // 
             // offlineComboBox
             // 
-            this.offlineComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.defaultDataBindingSource, "offline", true));
+            this.offlineComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", this.defaultDataBindingSource, "offline", true));
             this.offlineComboBox.FormattingEnabled = true;
             this.offlineComboBox.Items.AddRange(new object[] {
             "Igen",
@@ -107,7 +113,7 @@
             // 
             // languageComboBox
             // 
-            this.languageComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.defaultDataBindingSource, "languageCode", true));
+            this.languageComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", this.defaultDataBindingSource, "languageCode", true));
             this.languageComboBox.FormattingEnabled = true;
             this.languageComboBox.Items.AddRange(new object[] {
             "EN",
@@ -119,14 +125,21 @@
             this.languageComboBox.Size = new System.Drawing.Size(121, 21);
             this.languageComboBox.TabIndex = 7;
             // 
-            // defaultDataBindingSource
+            // refreshButton
             // 
-            this.defaultDataBindingSource.DataSource = typeof(PDATestProject.DefaultData);
+            this.refreshButton.Image = ((System.Drawing.Image)(resources.GetObject("refreshButton.Image")));
+            this.refreshButton.Location = new System.Drawing.Point(269, 36);
+            this.refreshButton.Name = "refreshButton";
+            this.refreshButton.Size = new System.Drawing.Size(24, 23);
+            this.refreshButton.TabIndex = 8;
+            this.refreshButton.UseVisualStyleBackColor = true;
+            this.refreshButton.Click += new System.EventHandler(this.refreshButton_Click);
             // 
             // DefaultParametersControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.refreshButton);
             this.Controls.Add(this.languageComboBox);
             this.Controls.Add(this.offlineComboBox);
             this.Controls.Add(this.transactionTextBox);
@@ -154,5 +167,6 @@
         private System.Windows.Forms.ComboBox offlineComboBox;
         private System.Windows.Forms.ComboBox languageComboBox;
         private System.Windows.Forms.BindingSource defaultDataBindingSource;
+        private System.Windows.Forms.Button refreshButton;
     }
 }

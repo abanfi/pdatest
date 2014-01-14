@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace PDATestProject.Controls
 {
-    public abstract class DefaultControl : UserControl
+    public class DefaultControl : UserControl
     {
         protected bool inited = false;
 
@@ -20,7 +20,10 @@ namespace PDATestProject.Controls
             cloneValues(parameters, getDefaultParams());
         }
 
-        public abstract DefaultData getDefaultParams();
+        public virtual DefaultData getDefaultParams()
+        {
+            return null;
+        }
 
         protected void cloneValues(DefaultData from, DefaultData to)
         {

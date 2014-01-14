@@ -80,6 +80,8 @@
             // 
             this.offlineDataGrid.AllowUserToAddRows = false;
             this.offlineDataGrid.AllowUserToDeleteRows = false;
+            this.offlineDataGrid.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.offlineDataGrid.AutoGenerateColumns = false;
             this.offlineDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.offlineDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -104,7 +106,7 @@
             this.shipmentIDDataGridViewTextBoxColumn,
             this.partnerNameDataGridViewTextBoxColumn});
             this.offlineDataGrid.DataSource = this.parcelCompositeReturnDataBindingSource;
-            this.offlineDataGrid.Location = new System.Drawing.Point(22, 225);
+            this.offlineDataGrid.Location = new System.Drawing.Point(22, 193);
             this.offlineDataGrid.Name = "offlineDataGrid";
             this.offlineDataGrid.Size = new System.Drawing.Size(527, 120);
             this.offlineDataGrid.TabIndex = 4;
@@ -344,16 +346,21 @@
             // 
             // resultMessageTextBox
             // 
-            this.resultMessageTextBox.Location = new System.Drawing.Point(82, 199);
+            this.resultMessageTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.resultMessageTextBox.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.resultMessageTextBox.Location = new System.Drawing.Point(82, 319);
+            this.resultMessageTextBox.Multiline = true;
             this.resultMessageTextBox.Name = "resultMessageTextBox";
             this.resultMessageTextBox.ReadOnly = true;
-            this.resultMessageTextBox.Size = new System.Drawing.Size(467, 20);
+            this.resultMessageTextBox.Size = new System.Drawing.Size(467, 125);
             this.resultMessageTextBox.TabIndex = 19;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(19, 202);
+            this.label6.Location = new System.Drawing.Point(19, 322);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(57, 13);
             this.label6.TabIndex = 20;
@@ -364,7 +371,7 @@
             this.defaultParametersControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.defaultParametersControl1.Location = new System.Drawing.Point(0, 0);
             this.defaultParametersControl1.Name = "defaultParametersControl1";
-            this.defaultParametersControl1.Size = new System.Drawing.Size(565, 96);
+            this.defaultParametersControl1.Size = new System.Drawing.Size(578, 96);
             this.defaultParametersControl1.TabIndex = 18;
             // 
             // packageReturnDataBindingSource
@@ -396,7 +403,7 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.packageTextBox);
             this.Name = "PackageControl";
-            this.Size = new System.Drawing.Size(565, 357);
+            this.Size = new System.Drawing.Size(578, 457);
             ((System.ComponentModel.ISupportInitialize)(this.offlineDataGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.parcelCompositeReturnDataBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.packageDataBindingSource)).EndInit();

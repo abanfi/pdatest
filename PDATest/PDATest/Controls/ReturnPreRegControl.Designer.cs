@@ -34,6 +34,7 @@
             this.postRefuseCustRetPreregButton = new System.Windows.Forms.Button();
             this.findParcelForCustRetPreRegButton = new System.Windows.Forms.Button();
             this.customerTextBox = new System.Windows.Forms.TextBox();
+            this.returnPreRegDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label5 = new System.Windows.Forms.Label();
             this.partnerIdTextBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -45,12 +46,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.resultMessageTextBox = new System.Windows.Forms.TextBox();
             this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.refuseReasonTextBox = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.returnPreRegDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.defaultParametersControl1 = new PDATestProject.DefaultParametersControl();
-            this.returnPreRegReturnDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.parcelMinimalReturnDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.selectedDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.barcodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.damagedDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
@@ -59,10 +54,15 @@
             this.parcelStateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.priceAtDeliveryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.returnDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
+            this.parcelMinimalReturnDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.refuseReasonTextBox = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.defaultParametersControl1 = new PDATestProject.DefaultParametersControl();
+            this.returnPreRegReturnDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.returnPreRegDataBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.returnPreRegReturnDataBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.parcelMinimalReturnDataBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.returnPreRegReturnDataBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // postCustRetUnexpectedButton
@@ -112,6 +112,10 @@
             this.customerTextBox.Name = "customerTextBox";
             this.customerTextBox.Size = new System.Drawing.Size(100, 20);
             this.customerTextBox.TabIndex = 34;
+            // 
+            // returnPreRegDataBindingSource
+            // 
+            this.returnPreRegDataBindingSource.DataSource = typeof(PDATestProject.ReturnPreRegData);
             // 
             // label5
             // 
@@ -200,6 +204,10 @@
             // 
             // resultMessageTextBox
             // 
+            this.resultMessageTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.resultMessageTextBox.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.resultMessageTextBox.Location = new System.Drawing.Point(99, 388);
             this.resultMessageTextBox.Multiline = true;
             this.resultMessageTextBox.Name = "resultMessageTextBox";
@@ -211,6 +219,8 @@
             // 
             this.dataGridView.AllowUserToAddRows = false;
             this.dataGridView.AllowUserToDeleteRows = false;
+            this.dataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView.AutoGenerateColumns = false;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -227,43 +237,6 @@
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.Size = new System.Drawing.Size(519, 157);
             this.dataGridView.TabIndex = 53;
-            // 
-            // refuseReasonTextBox
-            // 
-            this.refuseReasonTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.returnPreRegDataBindingSource, "refuseReason", true));
-            this.refuseReasonTextBox.Location = new System.Drawing.Point(247, 131);
-            this.refuseReasonTextBox.Name = "refuseReasonTextBox";
-            this.refuseReasonTextBox.Size = new System.Drawing.Size(60, 20);
-            this.refuseReasonTextBox.TabIndex = 56;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(162, 134);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(76, 13);
-            this.label2.TabIndex = 57;
-            this.label2.Text = "Refuse reason";
-            // 
-            // returnPreRegDataBindingSource
-            // 
-            this.returnPreRegDataBindingSource.DataSource = typeof(PDATestProject.ReturnPreRegData);
-            // 
-            // defaultParametersControl1
-            // 
-            this.defaultParametersControl1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.defaultParametersControl1.Location = new System.Drawing.Point(0, 0);
-            this.defaultParametersControl1.Name = "defaultParametersControl1";
-            this.defaultParametersControl1.Size = new System.Drawing.Size(580, 96);
-            this.defaultParametersControl1.TabIndex = 39;
-            // 
-            // returnPreRegReturnDataBindingSource
-            // 
-            this.returnPreRegReturnDataBindingSource.DataSource = typeof(PDATestProject.Datas.ReturnPreRegReturnData);
-            // 
-            // parcelMinimalReturnDataBindingSource
-            // 
-            this.parcelMinimalReturnDataBindingSource.DataSource = typeof(PDATestProject.Datas.ParcelMinimalReturnData);
             // 
             // selectedDataGridViewCheckBoxColumn
             // 
@@ -313,6 +286,39 @@
             this.returnDateDataGridViewTextBoxColumn.HeaderText = "ReturnDate";
             this.returnDateDataGridViewTextBoxColumn.Name = "returnDateDataGridViewTextBoxColumn";
             // 
+            // parcelMinimalReturnDataBindingSource
+            // 
+            this.parcelMinimalReturnDataBindingSource.DataSource = typeof(PDATestProject.Datas.ParcelMinimalReturnData);
+            // 
+            // refuseReasonTextBox
+            // 
+            this.refuseReasonTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.returnPreRegDataBindingSource, "refuseReason", true));
+            this.refuseReasonTextBox.Location = new System.Drawing.Point(247, 131);
+            this.refuseReasonTextBox.Name = "refuseReasonTextBox";
+            this.refuseReasonTextBox.Size = new System.Drawing.Size(60, 20);
+            this.refuseReasonTextBox.TabIndex = 56;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(162, 134);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(76, 13);
+            this.label2.TabIndex = 57;
+            this.label2.Text = "Refuse reason";
+            // 
+            // defaultParametersControl1
+            // 
+            this.defaultParametersControl1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.defaultParametersControl1.Location = new System.Drawing.Point(0, 0);
+            this.defaultParametersControl1.Name = "defaultParametersControl1";
+            this.defaultParametersControl1.Size = new System.Drawing.Size(580, 96);
+            this.defaultParametersControl1.TabIndex = 39;
+            // 
+            // returnPreRegReturnDataBindingSource
+            // 
+            this.returnPreRegReturnDataBindingSource.DataSource = typeof(PDATestProject.Datas.ReturnPreRegReturnData);
+            // 
             // ReturnPreRegControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -338,10 +344,10 @@
             this.Controls.Add(this.label1);
             this.Name = "ReturnPreRegControl";
             this.Size = new System.Drawing.Size(580, 510);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.returnPreRegDataBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.returnPreRegReturnDataBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.parcelMinimalReturnDataBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.returnPreRegReturnDataBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

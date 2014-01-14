@@ -128,6 +128,10 @@
             // 
             // offlineDataGrid
             // 
+            this.offlineDataGrid.AllowUserToAddRows = false;
+            this.offlineDataGrid.AllowUserToDeleteRows = false;
+            this.offlineDataGrid.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.offlineDataGrid.AutoGenerateColumns = false;
             this.offlineDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.offlineDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -137,7 +141,7 @@
             this.offlineDataGrid.DataSource = this.dictionaryReturnDataBindingSource;
             this.offlineDataGrid.Location = new System.Drawing.Point(25, 158);
             this.offlineDataGrid.Name = "offlineDataGrid";
-            this.offlineDataGrid.Size = new System.Drawing.Size(623, 120);
+            this.offlineDataGrid.Size = new System.Drawing.Size(623, 156);
             this.offlineDataGrid.TabIndex = 24;
             // 
             // descriptionDataGridViewTextBoxColumn
@@ -181,7 +185,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(24, 287);
+            this.label6.Location = new System.Drawing.Point(24, 320);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(57, 13);
             this.label6.TabIndex = 52;
@@ -189,11 +193,15 @@
             // 
             // resultMessageTextBox
             // 
-            this.resultMessageTextBox.Location = new System.Drawing.Point(87, 284);
+            this.resultMessageTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.resultMessageTextBox.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.resultMessageTextBox.Location = new System.Drawing.Point(87, 320);
             this.resultMessageTextBox.Multiline = true;
             this.resultMessageTextBox.Name = "resultMessageTextBox";
             this.resultMessageTextBox.ReadOnly = true;
-            this.resultMessageTextBox.Size = new System.Drawing.Size(561, 114);
+            this.resultMessageTextBox.Size = new System.Drawing.Size(561, 133);
             this.resultMessageTextBox.TabIndex = 51;
             // 
             // MasterDataControl

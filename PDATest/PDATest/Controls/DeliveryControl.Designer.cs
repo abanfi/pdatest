@@ -243,6 +243,10 @@
             // 
             // dataGridView
             // 
+            this.dataGridView.AllowUserToAddRows = false;
+            this.dataGridView.AllowUserToDeleteRows = false;
+            this.dataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView.AutoGenerateColumns = false;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -255,9 +259,9 @@
             this.priceAtDeliveryDataGridViewTextBoxColumn,
             this.returnDateDataGridViewTextBoxColumn});
             this.dataGridView.DataSource = this.deliveryParleccMinimumReturnDataBindingSource;
-            this.dataGridView.Location = new System.Drawing.Point(31, 217);
+            this.dataGridView.Location = new System.Drawing.Point(21, 217);
             this.dataGridView.Name = "dataGridView";
-            this.dataGridView.Size = new System.Drawing.Size(519, 157);
+            this.dataGridView.Size = new System.Drawing.Size(529, 157);
             this.dataGridView.TabIndex = 20;
             // 
             // selectedDataGridViewCheckBoxColumn
@@ -315,7 +319,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(34, 383);
+            this.label8.Location = new System.Drawing.Point(18, 383);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(57, 13);
             this.label8.TabIndex = 52;
@@ -323,11 +327,15 @@
             // 
             // resultMessageTextBox
             // 
-            this.resultMessageTextBox.Location = new System.Drawing.Point(97, 380);
+            this.resultMessageTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.resultMessageTextBox.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.resultMessageTextBox.Location = new System.Drawing.Point(81, 383);
             this.resultMessageTextBox.Multiline = true;
             this.resultMessageTextBox.Name = "resultMessageTextBox";
             this.resultMessageTextBox.ReadOnly = true;
-            this.resultMessageTextBox.Size = new System.Drawing.Size(453, 104);
+            this.resultMessageTextBox.Size = new System.Drawing.Size(469, 104);
             this.resultMessageTextBox.TabIndex = 51;
             // 
             // defaultParametersControl1

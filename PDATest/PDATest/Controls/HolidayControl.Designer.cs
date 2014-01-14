@@ -84,7 +84,7 @@
             this.defaultParametersControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.defaultParametersControl1.Location = new System.Drawing.Point(0, 0);
             this.defaultParametersControl1.Name = "defaultParametersControl1";
-            this.defaultParametersControl1.Size = new System.Drawing.Size(616, 96);
+            this.defaultParametersControl1.Size = new System.Drawing.Size(626, 96);
             this.defaultParametersControl1.TabIndex = 3;
             // 
             // holiday2ToDatePicker
@@ -185,7 +185,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(26, 211);
+            this.label6.Location = new System.Drawing.Point(26, 199);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(57, 13);
             this.label6.TabIndex = 27;
@@ -193,11 +193,15 @@
             // 
             // resultMessageTextBox
             // 
-            this.resultMessageTextBox.Location = new System.Drawing.Point(89, 208);
+            this.resultMessageTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.resultMessageTextBox.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.resultMessageTextBox.Location = new System.Drawing.Point(89, 196);
             this.resultMessageTextBox.Multiline = true;
             this.resultMessageTextBox.Name = "resultMessageTextBox";
             this.resultMessageTextBox.ReadOnly = true;
-            this.resultMessageTextBox.Size = new System.Drawing.Size(512, 134);
+            this.resultMessageTextBox.Size = new System.Drawing.Size(512, 167);
             this.resultMessageTextBox.TabIndex = 26;
             // 
             // HolidayControl
@@ -222,7 +226,7 @@
             this.Controls.Add(this.holiday1FromDatePicker);
             this.Controls.Add(this.holiday1label);
             this.Name = "HolidayControl";
-            this.Size = new System.Drawing.Size(616, 379);
+            this.Size = new System.Drawing.Size(626, 379);
             ((System.ComponentModel.ISupportInitialize)(this.holidayDataBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

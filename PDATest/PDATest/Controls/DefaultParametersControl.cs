@@ -21,5 +21,13 @@ namespace PDATestProject
         {
             defaultDataBindingSource.DataSource = data;
         }
+
+        private void refreshButton_Click(object sender, EventArgs e)
+        {
+            transactionTextBox.Text = "" + (DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond);
+            ((DefaultData)defaultDataBindingSource.Current).transactionId = "" + (DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond);
+
+        }
+
     }
 }

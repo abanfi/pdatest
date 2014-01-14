@@ -34,6 +34,9 @@
             this.findPartnerByIdButton = new System.Windows.Forms.Button();
             this.partnerDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.partnerDataGrid = new System.Windows.Forms.DataGridView();
+            this.partnerIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.partnerNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.partnerReturnDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.partnerNameTextBox = new System.Windows.Forms.TextBox();
             this.defaultParametersControl1 = new PDATestProject.DefaultParametersControl();
             this.partnerIdTextBox = new System.Windows.Forms.TextBox();
@@ -41,9 +44,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.resultMessageTextBox = new System.Windows.Forms.TextBox();
-            this.partnerReturnDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.partnerIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.partnerNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.partnerDataBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.partnerDataGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.partnerReturnDataBindingSource)).BeginInit();
@@ -85,6 +85,10 @@
             // 
             // partnerDataGrid
             // 
+            this.partnerDataGrid.AllowUserToAddRows = false;
+            this.partnerDataGrid.AllowUserToDeleteRows = false;
+            this.partnerDataGrid.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.partnerDataGrid.AutoGenerateColumns = false;
             this.partnerDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.partnerDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -93,8 +97,24 @@
             this.partnerDataGrid.DataSource = this.partnerReturnDataBindingSource;
             this.partnerDataGrid.Location = new System.Drawing.Point(25, 156);
             this.partnerDataGrid.Name = "partnerDataGrid";
-            this.partnerDataGrid.Size = new System.Drawing.Size(520, 120);
+            this.partnerDataGrid.Size = new System.Drawing.Size(520, 141);
             this.partnerDataGrid.TabIndex = 24;
+            // 
+            // partnerIDDataGridViewTextBoxColumn
+            // 
+            this.partnerIDDataGridViewTextBoxColumn.DataPropertyName = "PartnerID";
+            this.partnerIDDataGridViewTextBoxColumn.HeaderText = "PartnerID";
+            this.partnerIDDataGridViewTextBoxColumn.Name = "partnerIDDataGridViewTextBoxColumn";
+            // 
+            // partnerNameDataGridViewTextBoxColumn
+            // 
+            this.partnerNameDataGridViewTextBoxColumn.DataPropertyName = "PartnerName";
+            this.partnerNameDataGridViewTextBoxColumn.HeaderText = "PartnerName";
+            this.partnerNameDataGridViewTextBoxColumn.Name = "partnerNameDataGridViewTextBoxColumn";
+            // 
+            // partnerReturnDataBindingSource
+            // 
+            this.partnerReturnDataBindingSource.DataSource = typeof(PDATestProject.Datas.PartnerReturnData);
             // 
             // partnerNameTextBox
             // 
@@ -140,7 +160,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(24, 285);
+            this.label6.Location = new System.Drawing.Point(24, 303);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(57, 13);
             this.label6.TabIndex = 54;
@@ -148,28 +168,16 @@
             // 
             // resultMessageTextBox
             // 
-            this.resultMessageTextBox.Location = new System.Drawing.Point(87, 282);
+            this.resultMessageTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.resultMessageTextBox.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.resultMessageTextBox.Location = new System.Drawing.Point(87, 303);
             this.resultMessageTextBox.Multiline = true;
             this.resultMessageTextBox.Name = "resultMessageTextBox";
             this.resultMessageTextBox.ReadOnly = true;
-            this.resultMessageTextBox.Size = new System.Drawing.Size(458, 104);
+            this.resultMessageTextBox.Size = new System.Drawing.Size(458, 120);
             this.resultMessageTextBox.TabIndex = 53;
-            // 
-            // partnerReturnDataBindingSource
-            // 
-            this.partnerReturnDataBindingSource.DataSource = typeof(PDATestProject.Datas.PartnerReturnData);
-            // 
-            // partnerIDDataGridViewTextBoxColumn
-            // 
-            this.partnerIDDataGridViewTextBoxColumn.DataPropertyName = "PartnerID";
-            this.partnerIDDataGridViewTextBoxColumn.HeaderText = "PartnerID";
-            this.partnerIDDataGridViewTextBoxColumn.Name = "partnerIDDataGridViewTextBoxColumn";
-            // 
-            // partnerNameDataGridViewTextBoxColumn
-            // 
-            this.partnerNameDataGridViewTextBoxColumn.DataPropertyName = "PartnerName";
-            this.partnerNameDataGridViewTextBoxColumn.HeaderText = "PartnerName";
-            this.partnerNameDataGridViewTextBoxColumn.Name = "partnerNameDataGridViewTextBoxColumn";
             // 
             // PartnerControl
             // 
@@ -187,7 +195,7 @@
             this.Controls.Add(this.findPartnerByIdButton);
             this.Controls.Add(this.partnerDataGrid);
             this.Name = "PartnerControl";
-            this.Size = new System.Drawing.Size(568, 405);
+            this.Size = new System.Drawing.Size(568, 442);
             ((System.ComponentModel.ISupportInitialize)(this.partnerDataBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.partnerDataGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.partnerReturnDataBindingSource)).EndInit();

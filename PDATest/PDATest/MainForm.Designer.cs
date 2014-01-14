@@ -178,6 +178,7 @@
             this.Controls.Add(this.contentPanel);
             this.Controls.Add(this.mainToolStrip);
             this.Controls.Add(this.statusStrip);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.Text = "PDA Teszt";
             this.mainToolStrip.ResumeLayout(false);
