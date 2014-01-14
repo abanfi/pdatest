@@ -37,8 +37,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.resultMessageTextBox = new System.Windows.Forms.TextBox();
             this.defaultParametersControl1 = new PDATestProject.DefaultParametersControl();
-            this.receiveDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.parcelCompositeSelectableReturnDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.selectedDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.locationIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.locationNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -60,9 +58,11 @@
             this.returnDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.shipmentIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.partnerNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.parcelCompositeSelectableReturnDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.receiveDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.receiveDataBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.parcelCompositeSelectableReturnDataBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.receiveDataBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView
@@ -94,7 +94,7 @@
             this.shipmentIDDataGridViewTextBoxColumn,
             this.partnerNameDataGridViewTextBoxColumn});
             this.dataGridView.DataSource = this.parcelCompositeSelectableReturnDataBindingSource;
-            this.dataGridView.Location = new System.Drawing.Point(25, 309);
+            this.dataGridView.Location = new System.Drawing.Point(25, 160);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.Size = new System.Drawing.Size(524, 166);
             this.dataGridView.TabIndex = 47;
@@ -139,7 +139,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(22, 192);
+            this.label6.Location = new System.Drawing.Point(22, 335);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(57, 13);
             this.label6.TabIndex = 50;
@@ -147,7 +147,7 @@
             // 
             // resultMessageTextBox
             // 
-            this.resultMessageTextBox.Location = new System.Drawing.Point(85, 189);
+            this.resultMessageTextBox.Location = new System.Drawing.Point(85, 332);
             this.resultMessageTextBox.Multiline = true;
             this.resultMessageTextBox.Name = "resultMessageTextBox";
             this.resultMessageTextBox.ReadOnly = true;
@@ -161,14 +161,6 @@
             this.defaultParametersControl1.Name = "defaultParametersControl1";
             this.defaultParametersControl1.Size = new System.Drawing.Size(572, 96);
             this.defaultParametersControl1.TabIndex = 48;
-            // 
-            // receiveDataBindingSource
-            // 
-            this.receiveDataBindingSource.DataSource = typeof(PDATestProject.ReceiveData);
-            // 
-            // parcelCompositeSelectableReturnDataBindingSource
-            // 
-            this.parcelCompositeSelectableReturnDataBindingSource.DataSource = typeof(PDATestProject.Datas.ParcelCompositeSelectableReturnData);
             // 
             // selectedDataGridViewCheckBoxColumn
             // 
@@ -296,6 +288,14 @@
             this.partnerNameDataGridViewTextBoxColumn.HeaderText = "PartnerName";
             this.partnerNameDataGridViewTextBoxColumn.Name = "partnerNameDataGridViewTextBoxColumn";
             // 
+            // parcelCompositeSelectableReturnDataBindingSource
+            // 
+            this.parcelCompositeSelectableReturnDataBindingSource.DataSource = typeof(PDATestProject.Datas.ParcelCompositeSelectableReturnData);
+            // 
+            // receiveDataBindingSource
+            // 
+            this.receiveDataBindingSource.DataSource = typeof(PDATestProject.ReceiveData);
+            // 
             // ReceiveControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -311,8 +311,8 @@
             this.Name = "ReceiveControl";
             this.Size = new System.Drawing.Size(572, 494);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.receiveDataBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.parcelCompositeSelectableReturnDataBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.receiveDataBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

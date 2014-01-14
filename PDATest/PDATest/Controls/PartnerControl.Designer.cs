@@ -32,13 +32,21 @@
             this.countPartnerByFilterButton = new System.Windows.Forms.Button();
             this.findPartnerByFilterButton = new System.Windows.Forms.Button();
             this.findPartnerByIdButton = new System.Windows.Forms.Button();
-            this.partnerDatePicker = new System.Windows.Forms.DateTimePicker();
             this.partnerDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.partnerDataGrid = new System.Windows.Forms.DataGridView();
             this.partnerNameTextBox = new System.Windows.Forms.TextBox();
             this.defaultParametersControl1 = new PDATestProject.DefaultParametersControl();
+            this.partnerIdTextBox = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.resultMessageTextBox = new System.Windows.Forms.TextBox();
+            this.partnerReturnDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.partnerIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.partnerNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.partnerDataBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.partnerDataGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.partnerReturnDataBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // countPartnerByFilterButton
@@ -71,21 +79,18 @@
             this.findPartnerByIdButton.UseVisualStyleBackColor = true;
             this.findPartnerByIdButton.Click += new System.EventHandler(this.findPartnerByIdButton_Click);
             // 
-            // partnerDatePicker
-            // 
-            this.partnerDatePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.partnerDataBindingSource, "partnerDate", true));
-            this.partnerDatePicker.Location = new System.Drawing.Point(284, 101);
-            this.partnerDatePicker.Name = "partnerDatePicker";
-            this.partnerDatePicker.Size = new System.Drawing.Size(137, 20);
-            this.partnerDatePicker.TabIndex = 25;
-            // 
             // partnerDataBindingSource
             // 
             this.partnerDataBindingSource.DataSource = typeof(PDATestProject.PartnerData);
             // 
             // partnerDataGrid
             // 
+            this.partnerDataGrid.AutoGenerateColumns = false;
             this.partnerDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.partnerDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.partnerIDDataGridViewTextBoxColumn,
+            this.partnerNameDataGridViewTextBoxColumn});
+            this.partnerDataGrid.DataSource = this.partnerReturnDataBindingSource;
             this.partnerDataGrid.Location = new System.Drawing.Point(25, 156);
             this.partnerDataGrid.Name = "partnerDataGrid";
             this.partnerDataGrid.Size = new System.Drawing.Size(520, 120);
@@ -104,24 +109,88 @@
             this.defaultParametersControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.defaultParametersControl1.Location = new System.Drawing.Point(0, 0);
             this.defaultParametersControl1.Name = "defaultParametersControl1";
-            this.defaultParametersControl1.Size = new System.Drawing.Size(556, 96);
+            this.defaultParametersControl1.Size = new System.Drawing.Size(568, 96);
             this.defaultParametersControl1.TabIndex = 31;
+            // 
+            // partnerIdTextBox
+            // 
+            this.partnerIdTextBox.Location = new System.Drawing.Point(284, 100);
+            this.partnerIdTextBox.Name = "partnerIdTextBox";
+            this.partnerIdTextBox.Size = new System.Drawing.Size(136, 20);
+            this.partnerIdTextBox.TabIndex = 32;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(187, 103);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(91, 13);
+            this.label1.TabIndex = 33;
+            this.label1.Text = "Partner azonosító";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(52, 131);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(90, 13);
+            this.label2.TabIndex = 34;
+            this.label2.Text = "Partner név része";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(24, 285);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(57, 13);
+            this.label6.TabIndex = 54;
+            this.label6.Text = "Eredmény:";
+            // 
+            // resultMessageTextBox
+            // 
+            this.resultMessageTextBox.Location = new System.Drawing.Point(87, 282);
+            this.resultMessageTextBox.Multiline = true;
+            this.resultMessageTextBox.Name = "resultMessageTextBox";
+            this.resultMessageTextBox.ReadOnly = true;
+            this.resultMessageTextBox.Size = new System.Drawing.Size(458, 104);
+            this.resultMessageTextBox.TabIndex = 53;
+            // 
+            // partnerReturnDataBindingSource
+            // 
+            this.partnerReturnDataBindingSource.DataSource = typeof(PDATestProject.Datas.PartnerReturnData);
+            // 
+            // partnerIDDataGridViewTextBoxColumn
+            // 
+            this.partnerIDDataGridViewTextBoxColumn.DataPropertyName = "PartnerID";
+            this.partnerIDDataGridViewTextBoxColumn.HeaderText = "PartnerID";
+            this.partnerIDDataGridViewTextBoxColumn.Name = "partnerIDDataGridViewTextBoxColumn";
+            // 
+            // partnerNameDataGridViewTextBoxColumn
+            // 
+            this.partnerNameDataGridViewTextBoxColumn.DataPropertyName = "PartnerName";
+            this.partnerNameDataGridViewTextBoxColumn.HeaderText = "PartnerName";
+            this.partnerNameDataGridViewTextBoxColumn.Name = "partnerNameDataGridViewTextBoxColumn";
             // 
             // PartnerControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.resultMessageTextBox);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.partnerIdTextBox);
             this.Controls.Add(this.defaultParametersControl1);
             this.Controls.Add(this.partnerNameTextBox);
             this.Controls.Add(this.countPartnerByFilterButton);
             this.Controls.Add(this.findPartnerByFilterButton);
             this.Controls.Add(this.findPartnerByIdButton);
-            this.Controls.Add(this.partnerDatePicker);
             this.Controls.Add(this.partnerDataGrid);
             this.Name = "PartnerControl";
-            this.Size = new System.Drawing.Size(556, 293);
+            this.Size = new System.Drawing.Size(568, 405);
             ((System.ComponentModel.ISupportInitialize)(this.partnerDataBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.partnerDataGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.partnerReturnDataBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -132,10 +201,17 @@
         private System.Windows.Forms.Button countPartnerByFilterButton;
         private System.Windows.Forms.Button findPartnerByFilterButton;
         private System.Windows.Forms.Button findPartnerByIdButton;
-        private System.Windows.Forms.DateTimePicker partnerDatePicker;
         private System.Windows.Forms.DataGridView partnerDataGrid;
         private System.Windows.Forms.TextBox partnerNameTextBox;
         private DefaultParametersControl defaultParametersControl1;
         private System.Windows.Forms.BindingSource partnerDataBindingSource;
+        private System.Windows.Forms.TextBox partnerIdTextBox;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox resultMessageTextBox;
+        private System.Windows.Forms.DataGridViewTextBoxColumn partnerIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn partnerNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource partnerReturnDataBindingSource;
     }
 }

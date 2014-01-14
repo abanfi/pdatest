@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.barcodeTextBox = new System.Windows.Forms.TextBox();
+            this.deliveryDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.damagedCheckBox = new System.Windows.Forms.CheckBox();
             this.reasonTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -49,11 +50,6 @@
             this.postRefuseDeliveryButton = new System.Windows.Forms.Button();
             this.postDeliveryButton = new System.Windows.Forms.Button();
             this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.label8 = new System.Windows.Forms.Label();
-            this.resultMessageTextBox = new System.Windows.Forms.TextBox();
-            this.deliveryDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.defaultParametersControl1 = new PDATestProject.DefaultParametersControl();
-            this.deliveryParleccMinimumReturnDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.selectedDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.barcodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.damagedDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
@@ -62,8 +58,12 @@
             this.parcelStateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.priceAtDeliveryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.returnDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
+            this.deliveryParleccMinimumReturnDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label8 = new System.Windows.Forms.Label();
+            this.resultMessageTextBox = new System.Windows.Forms.TextBox();
+            this.defaultParametersControl1 = new PDATestProject.DefaultParametersControl();
             ((System.ComponentModel.ISupportInitialize)(this.deliveryDataBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deliveryParleccMinimumReturnDataBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -83,6 +83,10 @@
             this.barcodeTextBox.Name = "barcodeTextBox";
             this.barcodeTextBox.Size = new System.Drawing.Size(138, 20);
             this.barcodeTextBox.TabIndex = 2;
+            // 
+            // deliveryDataBindingSource
+            // 
+            this.deliveryDataBindingSource.DataSource = typeof(PDATestProject.DeliveryData);
             // 
             // damagedCheckBox
             // 
@@ -256,40 +260,6 @@
             this.dataGridView.Size = new System.Drawing.Size(519, 157);
             this.dataGridView.TabIndex = 20;
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(34, 383);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(57, 13);
-            this.label8.TabIndex = 52;
-            this.label8.Text = "Eredmény:";
-            // 
-            // resultMessageTextBox
-            // 
-            this.resultMessageTextBox.Location = new System.Drawing.Point(97, 380);
-            this.resultMessageTextBox.Multiline = true;
-            this.resultMessageTextBox.Name = "resultMessageTextBox";
-            this.resultMessageTextBox.ReadOnly = true;
-            this.resultMessageTextBox.Size = new System.Drawing.Size(453, 104);
-            this.resultMessageTextBox.TabIndex = 51;
-            // 
-            // deliveryDataBindingSource
-            // 
-            this.deliveryDataBindingSource.DataSource = typeof(PDATestProject.DeliveryData);
-            // 
-            // defaultParametersControl1
-            // 
-            this.defaultParametersControl1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.defaultParametersControl1.Location = new System.Drawing.Point(0, 0);
-            this.defaultParametersControl1.Name = "defaultParametersControl1";
-            this.defaultParametersControl1.Size = new System.Drawing.Size(572, 96);
-            this.defaultParametersControl1.TabIndex = 0;
-            // 
-            // deliveryParleccMinimumReturnDataBindingSource
-            // 
-            this.deliveryParleccMinimumReturnDataBindingSource.DataSource = typeof(PDATestProject.Datas.DeliveryParleccMinimumReturnData);
-            // 
             // selectedDataGridViewCheckBoxColumn
             // 
             this.selectedDataGridViewCheckBoxColumn.DataPropertyName = "Selected";
@@ -338,6 +308,36 @@
             this.returnDateDataGridViewTextBoxColumn.HeaderText = "ReturnDate";
             this.returnDateDataGridViewTextBoxColumn.Name = "returnDateDataGridViewTextBoxColumn";
             // 
+            // deliveryParleccMinimumReturnDataBindingSource
+            // 
+            this.deliveryParleccMinimumReturnDataBindingSource.DataSource = typeof(PDATestProject.Datas.DeliveryParleccMinimumReturnData);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(34, 383);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(57, 13);
+            this.label8.TabIndex = 52;
+            this.label8.Text = "Eredmény:";
+            // 
+            // resultMessageTextBox
+            // 
+            this.resultMessageTextBox.Location = new System.Drawing.Point(97, 380);
+            this.resultMessageTextBox.Multiline = true;
+            this.resultMessageTextBox.Name = "resultMessageTextBox";
+            this.resultMessageTextBox.ReadOnly = true;
+            this.resultMessageTextBox.Size = new System.Drawing.Size(453, 104);
+            this.resultMessageTextBox.TabIndex = 51;
+            // 
+            // defaultParametersControl1
+            // 
+            this.defaultParametersControl1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.defaultParametersControl1.Location = new System.Drawing.Point(0, 0);
+            this.defaultParametersControl1.Name = "defaultParametersControl1";
+            this.defaultParametersControl1.Size = new System.Drawing.Size(572, 96);
+            this.defaultParametersControl1.TabIndex = 0;
+            // 
             // DeliveryControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -367,8 +367,8 @@
             this.Controls.Add(this.defaultParametersControl1);
             this.Name = "DeliveryControl";
             this.Size = new System.Drawing.Size(572, 502);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deliveryDataBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deliveryParleccMinimumReturnDataBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

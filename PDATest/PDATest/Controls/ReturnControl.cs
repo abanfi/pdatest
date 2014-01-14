@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PDATestProject.Datas;
 
 namespace PDATestProject
 {
@@ -29,12 +30,23 @@ namespace PDATestProject
 
         private void findParcelForReturnButton_Click(object sender, EventArgs e)
         {
-            PudoServiceExecutor.findParcelForReturn(returnData);
+            actualize(PudoServiceExecutor.findParcelForReturn(returnData));
         }
 
         private void postReturnButton_Click(object sender, EventArgs e)
         {
-            PudoServiceExecutor.postReturn(returnData);
+            returnData.data = (List<ReturnParcelReturnData>)returnParcelReturnDataBindingSource.List;
+           actualize( PudoServiceExecutor.postReturn(returnData));
+        }
+
+        private void actualize(ReturnReturnData data)
+        {
+            resultMessageTextBox.Text = data.summaryMessage;
+            returnParcelReturnDataBindingSource.Clear();
+            foreach (ReturnParcelReturnData parcelComposite in data.data)
+            {
+                returnParcelReturnDataBindingSource.Add(parcelComposite);
+            }
         }
     }
 }

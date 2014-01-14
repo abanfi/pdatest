@@ -38,8 +38,20 @@
             this.label4 = new System.Windows.Forms.Label();
             this.barcodeTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.resultMessageTextBox = new System.Windows.Forms.TextBox();
+            this.returnParcelReturnDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.selectedDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.barcodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.damagedDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.linkedCountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nextLinkedBarcodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.parcelStateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.priceAtDeliveryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.returnDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.returnDataBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.returnParcelReturnDataBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // defaultParametersControl1
@@ -52,7 +64,20 @@
             // 
             // dataGridView
             // 
+            this.dataGridView.AllowUserToAddRows = false;
+            this.dataGridView.AllowUserToDeleteRows = false;
+            this.dataGridView.AutoGenerateColumns = false;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.selectedDataGridViewCheckBoxColumn,
+            this.barcodeDataGridViewTextBoxColumn,
+            this.damagedDataGridViewCheckBoxColumn,
+            this.linkedCountDataGridViewTextBoxColumn,
+            this.nextLinkedBarcodeDataGridViewTextBoxColumn,
+            this.parcelStateDataGridViewTextBoxColumn,
+            this.priceAtDeliveryDataGridViewTextBoxColumn,
+            this.returnDateDataGridViewTextBoxColumn});
+            this.dataGridView.DataSource = this.returnParcelReturnDataBindingSource;
             this.dataGridView.Location = new System.Drawing.Point(27, 160);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.Size = new System.Drawing.Size(519, 166);
@@ -116,10 +141,82 @@
             this.label1.TabIndex = 21;
             this.label1.Text = "Parcel barcode";
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(24, 335);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(57, 13);
+            this.label6.TabIndex = 52;
+            this.label6.Text = "Eredmény:";
+            // 
+            // resultMessageTextBox
+            // 
+            this.resultMessageTextBox.Location = new System.Drawing.Point(82, 332);
+            this.resultMessageTextBox.Multiline = true;
+            this.resultMessageTextBox.Name = "resultMessageTextBox";
+            this.resultMessageTextBox.ReadOnly = true;
+            this.resultMessageTextBox.Size = new System.Drawing.Size(464, 114);
+            this.resultMessageTextBox.TabIndex = 51;
+            // 
+            // returnParcelReturnDataBindingSource
+            // 
+            this.returnParcelReturnDataBindingSource.DataSource = typeof(PDATestProject.Datas.ReturnParcelReturnData);
+            // 
+            // selectedDataGridViewCheckBoxColumn
+            // 
+            this.selectedDataGridViewCheckBoxColumn.DataPropertyName = "Selected";
+            this.selectedDataGridViewCheckBoxColumn.HeaderText = "Selected";
+            this.selectedDataGridViewCheckBoxColumn.Name = "selectedDataGridViewCheckBoxColumn";
+            // 
+            // barcodeDataGridViewTextBoxColumn
+            // 
+            this.barcodeDataGridViewTextBoxColumn.DataPropertyName = "Barcode";
+            this.barcodeDataGridViewTextBoxColumn.HeaderText = "Barcode";
+            this.barcodeDataGridViewTextBoxColumn.Name = "barcodeDataGridViewTextBoxColumn";
+            // 
+            // damagedDataGridViewCheckBoxColumn
+            // 
+            this.damagedDataGridViewCheckBoxColumn.DataPropertyName = "Damaged";
+            this.damagedDataGridViewCheckBoxColumn.HeaderText = "Damaged";
+            this.damagedDataGridViewCheckBoxColumn.Name = "damagedDataGridViewCheckBoxColumn";
+            // 
+            // linkedCountDataGridViewTextBoxColumn
+            // 
+            this.linkedCountDataGridViewTextBoxColumn.DataPropertyName = "LinkedCount";
+            this.linkedCountDataGridViewTextBoxColumn.HeaderText = "LinkedCount";
+            this.linkedCountDataGridViewTextBoxColumn.Name = "linkedCountDataGridViewTextBoxColumn";
+            // 
+            // nextLinkedBarcodeDataGridViewTextBoxColumn
+            // 
+            this.nextLinkedBarcodeDataGridViewTextBoxColumn.DataPropertyName = "NextLinkedBarcode";
+            this.nextLinkedBarcodeDataGridViewTextBoxColumn.HeaderText = "NextLinkedBarcode";
+            this.nextLinkedBarcodeDataGridViewTextBoxColumn.Name = "nextLinkedBarcodeDataGridViewTextBoxColumn";
+            // 
+            // parcelStateDataGridViewTextBoxColumn
+            // 
+            this.parcelStateDataGridViewTextBoxColumn.DataPropertyName = "ParcelState";
+            this.parcelStateDataGridViewTextBoxColumn.HeaderText = "ParcelState";
+            this.parcelStateDataGridViewTextBoxColumn.Name = "parcelStateDataGridViewTextBoxColumn";
+            // 
+            // priceAtDeliveryDataGridViewTextBoxColumn
+            // 
+            this.priceAtDeliveryDataGridViewTextBoxColumn.DataPropertyName = "PriceAtDelivery";
+            this.priceAtDeliveryDataGridViewTextBoxColumn.HeaderText = "PriceAtDelivery";
+            this.priceAtDeliveryDataGridViewTextBoxColumn.Name = "priceAtDeliveryDataGridViewTextBoxColumn";
+            // 
+            // returnDateDataGridViewTextBoxColumn
+            // 
+            this.returnDateDataGridViewTextBoxColumn.DataPropertyName = "ReturnDate";
+            this.returnDateDataGridViewTextBoxColumn.HeaderText = "ReturnDate";
+            this.returnDateDataGridViewTextBoxColumn.Name = "returnDateDataGridViewTextBoxColumn";
+            // 
             // ReturnControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.resultMessageTextBox);
             this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.postReturnButton);
             this.Controls.Add(this.findParcelForReturnButton);
@@ -129,9 +226,10 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.defaultParametersControl1);
             this.Name = "ReturnControl";
-            this.Size = new System.Drawing.Size(558, 339);
+            this.Size = new System.Drawing.Size(558, 469);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.returnDataBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.returnParcelReturnDataBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -148,5 +246,16 @@
         private System.Windows.Forms.TextBox barcodeTextBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.BindingSource returnDataBindingSource;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox resultMessageTextBox;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn selectedDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn barcodeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn damagedDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn linkedCountDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nextLinkedBarcodeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn parcelStateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn priceAtDeliveryDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn returnDateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource returnParcelReturnDataBindingSource;
     }
 }

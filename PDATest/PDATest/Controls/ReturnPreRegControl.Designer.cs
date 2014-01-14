@@ -44,7 +44,11 @@
             this.defaultParametersControl1 = new PDATestProject.DefaultParametersControl();
             this.noLabelCheckBox = new System.Windows.Forms.CheckBox();
             this.unexpectedDamagedCheckBox = new System.Windows.Forms.CheckBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.resultMessageTextBox = new System.Windows.Forms.TextBox();
+            this.dataGridView = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.returnPreRegDataBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // postCustRetUnexpectedButton
@@ -158,7 +162,7 @@
             this.defaultParametersControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.defaultParametersControl1.Location = new System.Drawing.Point(0, 0);
             this.defaultParametersControl1.Name = "defaultParametersControl1";
-            this.defaultParametersControl1.Size = new System.Drawing.Size(570, 96);
+            this.defaultParametersControl1.Size = new System.Drawing.Size(580, 96);
             this.defaultParametersControl1.TabIndex = 39;
             // 
             // noLabelCheckBox
@@ -183,10 +187,39 @@
             this.unexpectedDamagedCheckBox.Text = "Damaged";
             this.unexpectedDamagedCheckBox.UseVisualStyleBackColor = true;
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(36, 391);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(57, 13);
+            this.label8.TabIndex = 55;
+            this.label8.Text = "Eredmény:";
+            // 
+            // resultMessageTextBox
+            // 
+            this.resultMessageTextBox.Location = new System.Drawing.Point(99, 388);
+            this.resultMessageTextBox.Multiline = true;
+            this.resultMessageTextBox.Name = "resultMessageTextBox";
+            this.resultMessageTextBox.ReadOnly = true;
+            this.resultMessageTextBox.Size = new System.Drawing.Size(453, 104);
+            this.resultMessageTextBox.TabIndex = 54;
+            // 
+            // dataGridView
+            // 
+            this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView.Location = new System.Drawing.Point(33, 225);
+            this.dataGridView.Name = "dataGridView";
+            this.dataGridView.Size = new System.Drawing.Size(519, 157);
+            this.dataGridView.TabIndex = 53;
+            // 
             // ReturnPreRegControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.resultMessageTextBox);
+            this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.unexpectedDamagedCheckBox);
             this.Controls.Add(this.noLabelCheckBox);
             this.Controls.Add(this.defaultParametersControl1);
@@ -202,8 +235,9 @@
             this.Controls.Add(this.barcodeTextBox);
             this.Controls.Add(this.label1);
             this.Name = "ReturnPreRegControl";
-            this.Size = new System.Drawing.Size(570, 222);
+            this.Size = new System.Drawing.Size(580, 510);
             ((System.ComponentModel.ISupportInitialize)(this.returnPreRegDataBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -226,5 +260,8 @@
         private System.Windows.Forms.CheckBox noLabelCheckBox;
         private System.Windows.Forms.CheckBox unexpectedDamagedCheckBox;
         private System.Windows.Forms.BindingSource returnPreRegDataBindingSource;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox resultMessageTextBox;
+        private System.Windows.Forms.DataGridView dataGridView;
     }
 }

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PDATestProject.Datas;
 
 namespace PDATestProject
 {
@@ -29,17 +30,28 @@ namespace PDATestProject
 
         private void findPartnerByIdButton_Click(object sender, EventArgs e)
         {
-            PudoServiceExecutor.findPartnerById(partnerData);
+            actualize(PudoServiceExecutor.findPartnerById(partnerData));
         }
 
         private void findPartnerByFilterButton_Click(object sender, EventArgs e)
         {
-            PudoServiceExecutor.findPartnerByFilter(partnerData);
+            actualize(PudoServiceExecutor.findPartnerByFilter(partnerData));
         }
 
         private void countPartnerByFilterButton_Click(object sender, EventArgs e)
         {
-            PudoServiceExecutor.countPartnerByFilter(partnerData);
+            actualize(PudoServiceExecutor.countPartnerByFilter(partnerData));
+        }
+
+        private void actualize(PartnersReturnData data)
+        {
+            resultMessageTextBox.Text = data.summaryMessage;
+            partnerReturnDataBindingSource.Clear();
+            foreach (PartnerReturnData partner in data.partners)
+            {
+                partnerReturnDataBindingSource.Add(partner);
+            }
+           
         }
     }
 }

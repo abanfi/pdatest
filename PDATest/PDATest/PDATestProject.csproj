@@ -64,6 +64,7 @@
   <ItemGroup>
     <Compile Include="Datas\DeliveryReturnData.cs" />
     <Compile Include="Datas\MasterDataReturnData.cs" />
+    <Compile Include="Datas\PartnersReturnData.cs" />
     <Compile Include="Datas\ReceiveReturnData.cs" />
     <Compile Include="Datas\PackageReturnData.cs" />
     <Compile Include="Datas\DefaultReturnData.cs" />
@@ -71,6 +72,7 @@
     <Compile Include="Datas\MasterDataData.cs" />
     <Compile Include="Datas\HolidayData.cs" />
     <Compile Include="Datas\DeliveryData.cs" />
+    <Compile Include="Datas\ReturnReturnData.cs" />
     <Compile Include="Datas\ReturnPreRegData.cs" />
     <Compile Include="Datas\ReturnData.cs" />
     <Compile Include="Datas\ReceiveData.cs" />
@@ -207,6 +209,7 @@
     <None Include="Properties\DataSources\PDATestProject.Datas.ParcelCompositeSelectableReturnData.datasource" />
     <None Include="Properties\DataSources\PDATestProject.Datas.ParcelReturnData.datasource" />
     <None Include="Properties\DataSources\PDATestProject.Datas.PartnerReturnData.datasource" />
+    <None Include="Properties\DataSources\PDATestProject.Datas.ReturnParcelReturnData.datasource" />
     <None Include="Properties\DataSources\ReceiveData.datasource" />
     <None Include="Properties\DataSources\ReturnData.datasource" />
     <None Include="Properties\DataSources\ReturnPreRegData.datasource" />

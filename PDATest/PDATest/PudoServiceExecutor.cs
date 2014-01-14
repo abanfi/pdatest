@@ -565,19 +565,79 @@ namespace PDATestProject
             return returnData;
         }
 
-        internal static void findPartnerById(PartnerData partnerData)
+        internal static PartnersReturnData findPartnerById(PartnerData partnerData)
         {
-            throw new NotImplementedException();
+            // init request with default parameters
+            FindPartnerByIDRequest request = (FindPartnerByIDRequest)initDefaultParameters(
+                new FindPartnerByIDRequest(), partnerData);
+
+            // add unique parameters
+            request.PartnerID = partnerData.partnerId;
+
+            //execute service call
+            FindPartnerByIDResponse response = pudoClient.FindPartnerByID(request);
+
+            //create return object with base properties
+            PartnersReturnData returnData = (PartnersReturnData)createSummaryMessage(new PartnersReturnData(), response);
+
+           
+            PartnerReturnData newItem = new PartnerReturnData();
+            newItem.PartnerID = response.Partner.PartnerID;
+            newItem.PartnerName = response.Partner.PartnerName;
+            
+            returnData.partners.Add(newItem);
+            
+            //initialize custom values
+            return returnData;
         }
 
-        internal static void findPartnerByFilter(PartnerData partnerData)
+        internal static PartnersReturnData findPartnerByFilter(PartnerData partnerData)
         {
-            throw new NotImplementedException();
+            // init request with default parameters
+            FindPartnerByFilterRequest request = (FindPartnerByFilterRequest)initDefaultParameters(
+                new FindPartnerByFilterRequest(), partnerData);
+
+            // add unique parameters
+            request.PartnerNameFilter = partnerData.partnerNamePart;
+
+            //execute service call
+            FindPartnerByFilterResponse response = pudoClient.FindPartnerByFilter(request);
+
+            //create return object with base properties
+            PartnersReturnData returnData = (PartnersReturnData)createSummaryMessage(new PartnersReturnData(), response);
+
+            //initialize custom values
+            foreach (Partner partner in response.Partners)
+            {
+                PartnerReturnData newItem = new PartnerReturnData();
+                newItem.PartnerID = partner.PartnerID;
+                newItem.PartnerName = partner.PartnerName;
+
+                returnData.partners.Add(newItem);
+            }
+                      
+            return returnData;
         }
 
-        internal static void countPartnerByFilter(PartnerData partnerData)
+        internal static PartnersReturnData countPartnerByFilter(PartnerData partnerData)
         {
-            throw new NotImplementedException();
+            // init request with default parameters
+            CountPartnerByFilterRequest request = (CountPartnerByFilterRequest)initDefaultParameters(
+                new CountPartnerByFilterRequest(), partnerData);
+
+            // add unique parameters
+            request.PartnerNameFilter = partnerData.partnerNamePart;
+
+            //execute service call
+            CountPartnerByFilterResponse response = pudoClient.CountPartnerByFilter(request);
+
+            //create return object with base properties
+            PartnersReturnData returnData = (PartnersReturnData)createSummaryMessage(new PartnersReturnData(), response);
+
+            //initialize custom values
+            returnData.summaryMessage += "\nResult count: " + response.PartnerCount;          
+
+            return returnData;
         }
 
         internal static ReceiveReturnData findParcelForReceive(ReceiveData receiveData)
@@ -683,14 +743,60 @@ namespace PDATestProject
 
         }
 
-        internal static void findParcelForReturn(ReturnData returnData)
+        internal static ReturnReturnData findParcelForReturn(ReturnData returnedData)
         {
-            throw new NotImplementedException();
+            FindParcelForReturnRequest request = (FindParcelForReturnRequest)initDefaultParameters(
+                new FindParcelForReturnRequest(), returnedData);
+
+            //execute service call
+            FindParcelForReturnResponse response = pudoClient.FindParcelForReturn(request);
+
+            //create return object with base properties
+            ReturnReturnData returnData = (ReturnReturnData)createSummaryMessage(new ReturnReturnData(), response);
+
+            foreach (ParcelMinimal parcel in response.ParcelMinimals)
+            {
+                ReturnParcelReturnData newItem = new ReturnParcelReturnData();
+                newItem.Barcode = parcel.Barcode;
+                newItem.Damaged = parcel.Damaged;
+                newItem.LinkedCount = parcel.LinkedCount;
+                newItem.NextLinkedBarcode = parcel.NextLinkedBarcode;
+                newItem.ParcelState = parcel.ParcelState;
+                newItem.PriceAtDelivery = parcel.PriceAtDelivery;
+                newItem.ReturnDate = parcel.ReturnDate;
+                newItem.Selected = false;
+
+                returnData.data.Add(newItem);
+            }
+            
+            return returnData;
         }
 
-        internal static void postReturn(ReturnData returnData)
+        internal static ReturnReturnData postReturn(ReturnData returnedData)
         {
-            throw new NotImplementedException();
+            PostReturnRequest request = (PostReturnRequest) initDefaultParameters(
+              new PostReturnRequest(), returnedData);
+
+            List<ReturnContainer> container = new List<ReturnContainer>();
+
+            foreach (ReturnParcelReturnData parcel in returnedData.data)
+            {
+                if (parcel.Selected) { 
+                    ReturnContainer returnContainer = new ReturnContainer();
+                    returnContainer.BagBarcode = returnedData.bagBarcode;
+                    returnContainer.Barcode = returnedData.barcode;
+                    container.Add(returnContainer);
+                }
+            }
+            request.ReturnParcels = container.ToArray();
+           
+            //execute service call
+            PostReturnResponse response = pudoClient.PostReturn(request);
+
+            //create return object with base properties
+            ReturnReturnData returnData = (ReturnReturnData)createSummaryMessage(new ReceiveReturnData(), response);
+
+            return returnData;
         }
 
         internal static void findParcelForDelivery(ReturnPreRegData returnPreRegData)
