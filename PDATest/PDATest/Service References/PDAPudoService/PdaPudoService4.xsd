@@ -18,7 +18,7 @@
       <xs:element xmlns:q1="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.DTO" minOccurs="0" name="LanguageCode" type="q1:LanguageCodeType" />
       <xs:element minOccurs="0" name="OfflineMode" type="xs:boolean" />
       <xs:element minOccurs="0" name="TerminalID" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="TransactionID" type="xs:long" />
+      <xs:element minOccurs="0" name="TransactionID" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="BaseRequest" nillable="true" type="tns:BaseRequest" />

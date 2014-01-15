@@ -38,9 +38,10 @@ namespace PDATestProject
         private void findInsertedDictionarySinceButton_Click(object sender, EventArgs e)
         {
             MasterDataReturnData result = PudoServiceExecutor.findInsertedDictionarySince(masterDataData);
+
+            clearAll();
             resultMessageTextBox.Text =  result.summaryMessage;
-            this.offlineDataGrid.DataSource = dictionaryReturnDataBindingSource;
-            dictionaryReturnDataBindingSource.Clear();
+            resultTabControl.SelectedTab = dictionaryTabPage;
             foreach (DictionaryReturnData value in result.dictionaries)
             {
                 dictionaryReturnDataBindingSource.Add(value);
@@ -51,9 +52,10 @@ namespace PDATestProject
         private void findInsertedPartnerSinceButton_Click(object sender, EventArgs e)
         {
             MasterDataReturnData result = PudoServiceExecutor.findInsertedPartnerSince(masterDataData);
+
+            clearAll();
             resultMessageTextBox.Text =  result.summaryMessage;
-            this.offlineDataGrid.DataSource = partnerReturnDataBindingSource;
-            partnerReturnDataBindingSource.Clear();
+            resultTabControl.SelectedTab = partnerTabPage;
             foreach (PartnerReturnData value in result.partners)
             {
                 partnerReturnDataBindingSource.Add(value);
@@ -64,22 +66,22 @@ namespace PDATestProject
         {
             MasterDataReturnData result = PudoServiceExecutor.findInsertedParcelSince(masterDataData);
 
+            clearAll();
             resultMessageTextBox.Text = result.summaryMessage;
-            this.offlineDataGrid.DataSource = parcelReturnDataBindingSource;
-            parcelReturnDataBindingSource.Clear();
+            resultTabControl.SelectedTab = parcelTabPage;
             foreach (ParcelReturnData value in result.parcels)
             {
                 parcelReturnDataBindingSource.Add(value);
-            } 
+            }
         }
 
         private void findDeletedDictionarySinceButton_Click(object sender, EventArgs e)
         {
             MasterDataReturnData result = PudoServiceExecutor.findDeletedDictionarySince(masterDataData);
-           
+
+            clearAll();
             resultMessageTextBox.Text =  result.summaryMessage;
-            this.offlineDataGrid.DataSource = dictionaryReturnDataBindingSource;
-            dictionaryReturnDataBindingSource.Clear();
+            resultTabControl.SelectedTab = dictionaryTabPage;
             foreach (DictionaryReturnData value in result.dictionaries)
             {
                 dictionaryReturnDataBindingSource.Add(value);
@@ -90,10 +92,10 @@ namespace PDATestProject
         private void findDeletedPartnerSinceButton_Click(object sender, EventArgs e)
         {
             MasterDataReturnData result = PudoServiceExecutor.findDeletedPartnerSince(masterDataData);
-           
+
+            clearAll();
             resultMessageTextBox.Text =  result.summaryMessage;
-            this.offlineDataGrid.DataSource = partnerReturnDataBindingSource;
-            partnerReturnDataBindingSource.Clear();
+            resultTabControl.SelectedTab = partnerTabPage;
             foreach (PartnerReturnData value in result.partners)
             {
                 partnerReturnDataBindingSource.Add(value);
@@ -103,15 +105,22 @@ namespace PDATestProject
         private void findDeletedParcelSinceButton_Click(object sender, EventArgs e)
         {
             MasterDataReturnData result = PudoServiceExecutor.findDeletedParcelSince(masterDataData);
-            
+
+            clearAll();
             resultMessageTextBox.Text = result.summaryMessage;
-            this.offlineDataGrid.DataSource = parcelReturnDataBindingSource;
-            parcelReturnDataBindingSource.Clear();
+            resultTabControl.SelectedTab = parcelTabPage;
             foreach (ParcelReturnData value in result.parcels)
             {
                 parcelReturnDataBindingSource.Add(value);
             } 
 
+        }
+
+        private void clearAll()
+        {
+            parcelReturnDataBindingSource.Clear();
+            partnerReturnDataBindingSource.Clear();
+            dictionaryReturnDataBindingSource.Clear();
         }
 
       

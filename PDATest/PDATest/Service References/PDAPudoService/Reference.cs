@@ -67,7 +67,7 @@ namespace PDATestProject.PDAPudoService {
         private string TerminalIDField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private long TransactionIDField;
+        private string TransactionIDField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -132,12 +132,12 @@ namespace PDATestProject.PDAPudoService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public long TransactionID {
+        public string TransactionID {
             get {
                 return this.TransactionIDField;
             }
             set {
-                if ((this.TransactionIDField.Equals(value) != true)) {
+                if ((object.ReferenceEquals(this.TransactionIDField, value) != true)) {
                     this.TransactionIDField = value;
                     this.RaisePropertyChanged("TransactionID");
                 }
@@ -1049,24 +1049,22 @@ namespace PDATestProject.PDAPudoService {
             }
         }
     }
-
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name = "LanguageCodeType", Namespace = "http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.DTO")]
-    public enum LanguageCodeType : int
-    {
-
+    [System.Runtime.Serialization.DataContractAttribute(Name="LanguageCodeType", Namespace="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.DTO")]
+    public enum LanguageCodeType : int {
+        
         [System.Runtime.Serialization.EnumMemberAttribute()]
         EN = 0,
-
+        
         [System.Runtime.Serialization.EnumMemberAttribute()]
         HU = 1,
-
+        
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FR = 2,
-
+        
         [System.Runtime.Serialization.EnumMemberAttribute()]
         NL = 3,
-        TYPE,
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]

@@ -37,7 +37,7 @@
             this.offlineDatePicker = new System.Windows.Forms.DateTimePicker();
             this.masterDataDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.findInsertedDictionarySinceButton = new System.Windows.Forms.Button();
-            this.offlineDataGrid = new System.Windows.Forms.DataGridView();
+            this.dictionaryDataGrid = new System.Windows.Forms.DataGridView();
             this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dictionaryClassDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.keyValueDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,11 +47,43 @@
             this.parcelReturnDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label6 = new System.Windows.Forms.Label();
             this.resultMessageTextBox = new System.Windows.Forms.TextBox();
+            this.resultTabControl = new System.Windows.Forms.TabControl();
+            this.partnerTabPage = new System.Windows.Forms.TabPage();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.partnerIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.partnerNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dictionaryTabPage = new System.Windows.Forms.TabPage();
+            this.parcelTabPage = new System.Windows.Forms.TabPage();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.locationIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bagBarcodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.barcodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.currencyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.customerAddressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.customerNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.customerPostalCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.damagedDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.destinationLocationIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.linkedCountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nextLinkedBarcodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.oldBarcodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.parcelStateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.parcelWorkflowDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.partnerIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.priceAtDeliveryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.returnDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.shipmentIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.masterDataDataBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.offlineDataGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dictionaryDataGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dictionaryReturnDataBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.partnerReturnDataBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.parcelReturnDataBindingSource)).BeginInit();
+            this.resultTabControl.SuspendLayout();
+            this.partnerTabPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.dictionaryTabPage.SuspendLayout();
+            this.parcelTabPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // findDeletedParcelSinceButton
@@ -126,23 +158,22 @@
             this.findInsertedDictionarySinceButton.UseVisualStyleBackColor = true;
             this.findInsertedDictionarySinceButton.Click += new System.EventHandler(this.findInsertedDictionarySinceButton_Click);
             // 
-            // offlineDataGrid
+            // dictionaryDataGrid
             // 
-            this.offlineDataGrid.AllowUserToAddRows = false;
-            this.offlineDataGrid.AllowUserToDeleteRows = false;
-            this.offlineDataGrid.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.offlineDataGrid.AutoGenerateColumns = false;
-            this.offlineDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.offlineDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dictionaryDataGrid.AllowUserToAddRows = false;
+            this.dictionaryDataGrid.AllowUserToDeleteRows = false;
+            this.dictionaryDataGrid.AutoGenerateColumns = false;
+            this.dictionaryDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dictionaryDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.descriptionDataGridViewTextBoxColumn,
             this.dictionaryClassDataGridViewTextBoxColumn,
             this.keyValueDataGridViewTextBoxColumn});
-            this.offlineDataGrid.DataSource = this.dictionaryReturnDataBindingSource;
-            this.offlineDataGrid.Location = new System.Drawing.Point(25, 158);
-            this.offlineDataGrid.Name = "offlineDataGrid";
-            this.offlineDataGrid.Size = new System.Drawing.Size(623, 156);
-            this.offlineDataGrid.TabIndex = 24;
+            this.dictionaryDataGrid.DataSource = this.dictionaryReturnDataBindingSource;
+            this.dictionaryDataGrid.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dictionaryDataGrid.Location = new System.Drawing.Point(3, 3);
+            this.dictionaryDataGrid.Name = "dictionaryDataGrid";
+            this.dictionaryDataGrid.Size = new System.Drawing.Size(646, 179);
+            this.dictionaryDataGrid.TabIndex = 24;
             // 
             // descriptionDataGridViewTextBoxColumn
             // 
@@ -171,7 +202,7 @@
             this.defaultParametersControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.defaultParametersControl1.Location = new System.Drawing.Point(0, 0);
             this.defaultParametersControl1.Name = "defaultParametersControl1";
-            this.defaultParametersControl1.Size = new System.Drawing.Size(674, 96);
+            this.defaultParametersControl1.Size = new System.Drawing.Size(711, 96);
             this.defaultParametersControl1.TabIndex = 32;
             // 
             // partnerReturnDataBindingSource
@@ -185,7 +216,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(24, 320);
+            this.label6.Location = new System.Drawing.Point(22, 394);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(57, 13);
             this.label6.TabIndex = 52;
@@ -197,17 +228,234 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.resultMessageTextBox.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.resultMessageTextBox.Location = new System.Drawing.Point(87, 320);
+            this.resultMessageTextBox.Location = new System.Drawing.Point(87, 394);
             this.resultMessageTextBox.Multiline = true;
             this.resultMessageTextBox.Name = "resultMessageTextBox";
             this.resultMessageTextBox.ReadOnly = true;
-            this.resultMessageTextBox.Size = new System.Drawing.Size(561, 133);
+            this.resultMessageTextBox.Size = new System.Drawing.Size(598, 141);
             this.resultMessageTextBox.TabIndex = 51;
+            this.resultMessageTextBox.Text = " ";
+            // 
+            // resultTabControl
+            // 
+            this.resultTabControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.resultTabControl.Controls.Add(this.partnerTabPage);
+            this.resultTabControl.Controls.Add(this.dictionaryTabPage);
+            this.resultTabControl.Controls.Add(this.parcelTabPage);
+            this.resultTabControl.Location = new System.Drawing.Point(25, 177);
+            this.resultTabControl.Name = "resultTabControl";
+            this.resultTabControl.SelectedIndex = 0;
+            this.resultTabControl.Size = new System.Drawing.Size(660, 211);
+            this.resultTabControl.TabIndex = 53;
+            // 
+            // partnerTabPage
+            // 
+            this.partnerTabPage.Controls.Add(this.dataGridView1);
+            this.partnerTabPage.Location = new System.Drawing.Point(4, 22);
+            this.partnerTabPage.Name = "partnerTabPage";
+            this.partnerTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.partnerTabPage.Size = new System.Drawing.Size(652, 185);
+            this.partnerTabPage.TabIndex = 0;
+            this.partnerTabPage.Text = "Partner";
+            this.partnerTabPage.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.partnerIDDataGridViewTextBoxColumn,
+            this.partnerNameDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.partnerReturnDataBindingSource;
+            this.dataGridView1.Location = new System.Drawing.Point(3, 3);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(646, 179);
+            this.dataGridView1.TabIndex = 0;
+            // 
+            // partnerIDDataGridViewTextBoxColumn
+            // 
+            this.partnerIDDataGridViewTextBoxColumn.DataPropertyName = "PartnerID";
+            this.partnerIDDataGridViewTextBoxColumn.HeaderText = "PartnerID";
+            this.partnerIDDataGridViewTextBoxColumn.Name = "partnerIDDataGridViewTextBoxColumn";
+            // 
+            // partnerNameDataGridViewTextBoxColumn
+            // 
+            this.partnerNameDataGridViewTextBoxColumn.DataPropertyName = "PartnerName";
+            this.partnerNameDataGridViewTextBoxColumn.HeaderText = "PartnerName";
+            this.partnerNameDataGridViewTextBoxColumn.Name = "partnerNameDataGridViewTextBoxColumn";
+            // 
+            // dictionaryTabPage
+            // 
+            this.dictionaryTabPage.Controls.Add(this.dictionaryDataGrid);
+            this.dictionaryTabPage.Location = new System.Drawing.Point(4, 22);
+            this.dictionaryTabPage.Name = "dictionaryTabPage";
+            this.dictionaryTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.dictionaryTabPage.Size = new System.Drawing.Size(652, 185);
+            this.dictionaryTabPage.TabIndex = 1;
+            this.dictionaryTabPage.Text = "Dictionary";
+            this.dictionaryTabPage.UseVisualStyleBackColor = true;
+            // 
+            // parcelTabPage
+            // 
+            this.parcelTabPage.Controls.Add(this.dataGridView2);
+            this.parcelTabPage.Location = new System.Drawing.Point(4, 22);
+            this.parcelTabPage.Name = "parcelTabPage";
+            this.parcelTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.parcelTabPage.Size = new System.Drawing.Size(652, 185);
+            this.parcelTabPage.TabIndex = 2;
+            this.parcelTabPage.Text = "Parcel";
+            this.parcelTabPage.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.AllowUserToAddRows = false;
+            this.dataGridView2.AllowUserToDeleteRows = false;
+            this.dataGridView2.AutoGenerateColumns = false;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.locationIDDataGridViewTextBoxColumn,
+            this.bagBarcodeDataGridViewTextBoxColumn,
+            this.barcodeDataGridViewTextBoxColumn,
+            this.currencyDataGridViewTextBoxColumn,
+            this.customerAddressDataGridViewTextBoxColumn,
+            this.customerNameDataGridViewTextBoxColumn,
+            this.customerPostalCodeDataGridViewTextBoxColumn,
+            this.damagedDataGridViewCheckBoxColumn,
+            this.destinationLocationIDDataGridViewTextBoxColumn,
+            this.linkedCountDataGridViewTextBoxColumn,
+            this.nextLinkedBarcodeDataGridViewTextBoxColumn,
+            this.oldBarcodeDataGridViewTextBoxColumn,
+            this.parcelStateDataGridViewTextBoxColumn,
+            this.parcelWorkflowDataGridViewTextBoxColumn,
+            this.partnerIDDataGridViewTextBoxColumn1,
+            this.priceAtDeliveryDataGridViewTextBoxColumn,
+            this.returnDateDataGridViewTextBoxColumn,
+            this.shipmentIDDataGridViewTextBoxColumn});
+            this.dataGridView2.DataSource = this.parcelReturnDataBindingSource;
+            this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView2.Location = new System.Drawing.Point(3, 3);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.Size = new System.Drawing.Size(646, 179);
+            this.dataGridView2.TabIndex = 0;
+            // 
+            // locationIDDataGridViewTextBoxColumn
+            // 
+            this.locationIDDataGridViewTextBoxColumn.DataPropertyName = "LocationID";
+            this.locationIDDataGridViewTextBoxColumn.HeaderText = "LocationID";
+            this.locationIDDataGridViewTextBoxColumn.Name = "locationIDDataGridViewTextBoxColumn";
+            // 
+            // bagBarcodeDataGridViewTextBoxColumn
+            // 
+            this.bagBarcodeDataGridViewTextBoxColumn.DataPropertyName = "BagBarcode";
+            this.bagBarcodeDataGridViewTextBoxColumn.HeaderText = "BagBarcode";
+            this.bagBarcodeDataGridViewTextBoxColumn.Name = "bagBarcodeDataGridViewTextBoxColumn";
+            // 
+            // barcodeDataGridViewTextBoxColumn
+            // 
+            this.barcodeDataGridViewTextBoxColumn.DataPropertyName = "Barcode";
+            this.barcodeDataGridViewTextBoxColumn.HeaderText = "Barcode";
+            this.barcodeDataGridViewTextBoxColumn.Name = "barcodeDataGridViewTextBoxColumn";
+            // 
+            // currencyDataGridViewTextBoxColumn
+            // 
+            this.currencyDataGridViewTextBoxColumn.DataPropertyName = "Currency";
+            this.currencyDataGridViewTextBoxColumn.HeaderText = "Currency";
+            this.currencyDataGridViewTextBoxColumn.Name = "currencyDataGridViewTextBoxColumn";
+            // 
+            // customerAddressDataGridViewTextBoxColumn
+            // 
+            this.customerAddressDataGridViewTextBoxColumn.DataPropertyName = "CustomerAddress";
+            this.customerAddressDataGridViewTextBoxColumn.HeaderText = "CustomerAddress";
+            this.customerAddressDataGridViewTextBoxColumn.Name = "customerAddressDataGridViewTextBoxColumn";
+            // 
+            // customerNameDataGridViewTextBoxColumn
+            // 
+            this.customerNameDataGridViewTextBoxColumn.DataPropertyName = "CustomerName";
+            this.customerNameDataGridViewTextBoxColumn.HeaderText = "CustomerName";
+            this.customerNameDataGridViewTextBoxColumn.Name = "customerNameDataGridViewTextBoxColumn";
+            // 
+            // customerPostalCodeDataGridViewTextBoxColumn
+            // 
+            this.customerPostalCodeDataGridViewTextBoxColumn.DataPropertyName = "CustomerPostalCode";
+            this.customerPostalCodeDataGridViewTextBoxColumn.HeaderText = "CustomerPostalCode";
+            this.customerPostalCodeDataGridViewTextBoxColumn.Name = "customerPostalCodeDataGridViewTextBoxColumn";
+            // 
+            // damagedDataGridViewCheckBoxColumn
+            // 
+            this.damagedDataGridViewCheckBoxColumn.DataPropertyName = "Damaged";
+            this.damagedDataGridViewCheckBoxColumn.HeaderText = "Damaged";
+            this.damagedDataGridViewCheckBoxColumn.Name = "damagedDataGridViewCheckBoxColumn";
+            // 
+            // destinationLocationIDDataGridViewTextBoxColumn
+            // 
+            this.destinationLocationIDDataGridViewTextBoxColumn.DataPropertyName = "DestinationLocationID";
+            this.destinationLocationIDDataGridViewTextBoxColumn.HeaderText = "DestinationLocationID";
+            this.destinationLocationIDDataGridViewTextBoxColumn.Name = "destinationLocationIDDataGridViewTextBoxColumn";
+            // 
+            // linkedCountDataGridViewTextBoxColumn
+            // 
+            this.linkedCountDataGridViewTextBoxColumn.DataPropertyName = "LinkedCount";
+            this.linkedCountDataGridViewTextBoxColumn.HeaderText = "LinkedCount";
+            this.linkedCountDataGridViewTextBoxColumn.Name = "linkedCountDataGridViewTextBoxColumn";
+            // 
+            // nextLinkedBarcodeDataGridViewTextBoxColumn
+            // 
+            this.nextLinkedBarcodeDataGridViewTextBoxColumn.DataPropertyName = "NextLinkedBarcode";
+            this.nextLinkedBarcodeDataGridViewTextBoxColumn.HeaderText = "NextLinkedBarcode";
+            this.nextLinkedBarcodeDataGridViewTextBoxColumn.Name = "nextLinkedBarcodeDataGridViewTextBoxColumn";
+            // 
+            // oldBarcodeDataGridViewTextBoxColumn
+            // 
+            this.oldBarcodeDataGridViewTextBoxColumn.DataPropertyName = "OldBarcode";
+            this.oldBarcodeDataGridViewTextBoxColumn.HeaderText = "OldBarcode";
+            this.oldBarcodeDataGridViewTextBoxColumn.Name = "oldBarcodeDataGridViewTextBoxColumn";
+            // 
+            // parcelStateDataGridViewTextBoxColumn
+            // 
+            this.parcelStateDataGridViewTextBoxColumn.DataPropertyName = "ParcelState";
+            this.parcelStateDataGridViewTextBoxColumn.HeaderText = "ParcelState";
+            this.parcelStateDataGridViewTextBoxColumn.Name = "parcelStateDataGridViewTextBoxColumn";
+            // 
+            // parcelWorkflowDataGridViewTextBoxColumn
+            // 
+            this.parcelWorkflowDataGridViewTextBoxColumn.DataPropertyName = "ParcelWorkflow";
+            this.parcelWorkflowDataGridViewTextBoxColumn.HeaderText = "ParcelWorkflow";
+            this.parcelWorkflowDataGridViewTextBoxColumn.Name = "parcelWorkflowDataGridViewTextBoxColumn";
+            // 
+            // partnerIDDataGridViewTextBoxColumn1
+            // 
+            this.partnerIDDataGridViewTextBoxColumn1.DataPropertyName = "PartnerID";
+            this.partnerIDDataGridViewTextBoxColumn1.HeaderText = "PartnerID";
+            this.partnerIDDataGridViewTextBoxColumn1.Name = "partnerIDDataGridViewTextBoxColumn1";
+            // 
+            // priceAtDeliveryDataGridViewTextBoxColumn
+            // 
+            this.priceAtDeliveryDataGridViewTextBoxColumn.DataPropertyName = "PriceAtDelivery";
+            this.priceAtDeliveryDataGridViewTextBoxColumn.HeaderText = "PriceAtDelivery";
+            this.priceAtDeliveryDataGridViewTextBoxColumn.Name = "priceAtDeliveryDataGridViewTextBoxColumn";
+            // 
+            // returnDateDataGridViewTextBoxColumn
+            // 
+            this.returnDateDataGridViewTextBoxColumn.DataPropertyName = "ReturnDate";
+            this.returnDateDataGridViewTextBoxColumn.HeaderText = "ReturnDate";
+            this.returnDateDataGridViewTextBoxColumn.Name = "returnDateDataGridViewTextBoxColumn";
+            // 
+            // shipmentIDDataGridViewTextBoxColumn
+            // 
+            this.shipmentIDDataGridViewTextBoxColumn.DataPropertyName = "ShipmentID";
+            this.shipmentIDDataGridViewTextBoxColumn.HeaderText = "ShipmentID";
+            this.shipmentIDDataGridViewTextBoxColumn.Name = "shipmentIDDataGridViewTextBoxColumn";
             // 
             // MasterDataControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.resultTabControl);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.resultMessageTextBox);
             this.Controls.Add(this.defaultParametersControl1);
@@ -218,14 +466,19 @@
             this.Controls.Add(this.findInsertedPartnerSinceButton);
             this.Controls.Add(this.offlineDatePicker);
             this.Controls.Add(this.findInsertedDictionarySinceButton);
-            this.Controls.Add(this.offlineDataGrid);
             this.Name = "MasterDataControl";
-            this.Size = new System.Drawing.Size(674, 475);
+            this.Size = new System.Drawing.Size(711, 557);
             ((System.ComponentModel.ISupportInitialize)(this.masterDataDataBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.offlineDataGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dictionaryDataGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dictionaryReturnDataBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.partnerReturnDataBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.parcelReturnDataBindingSource)).EndInit();
+            this.resultTabControl.ResumeLayout(false);
+            this.partnerTabPage.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.dictionaryTabPage.ResumeLayout(false);
+            this.parcelTabPage.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -240,7 +493,7 @@
         private System.Windows.Forms.Button findInsertedPartnerSinceButton;
         private System.Windows.Forms.DateTimePicker offlineDatePicker;
         private System.Windows.Forms.Button findInsertedDictionarySinceButton;
-        private System.Windows.Forms.DataGridView offlineDataGrid;
+        private System.Windows.Forms.DataGridView dictionaryDataGrid;
         private DefaultParametersControl defaultParametersControl1;
         private System.Windows.Forms.BindingSource masterDataDataBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
@@ -251,5 +504,31 @@
         private System.Windows.Forms.BindingSource parcelReturnDataBindingSource;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox resultMessageTextBox;
+        private System.Windows.Forms.TabControl resultTabControl;
+        private System.Windows.Forms.TabPage partnerTabPage;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.TabPage dictionaryTabPage;
+        private System.Windows.Forms.TabPage parcelTabPage;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn partnerIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn partnerNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn locationIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn bagBarcodeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn barcodeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn currencyDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn customerAddressDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn customerNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn customerPostalCodeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn damagedDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn destinationLocationIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn linkedCountDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nextLinkedBarcodeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn oldBarcodeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn parcelStateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn parcelWorkflowDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn partnerIDDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn priceAtDeliveryDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn returnDateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn shipmentIDDataGridViewTextBoxColumn;
     }
 }

@@ -25,7 +25,7 @@ namespace PDATestProject
             request.EventCreated = new DateTime(); 
             if (data.transactionId != null)
             {
-                request.TransactionID = Convert.ToInt64(data.transactionId);
+                request.TransactionID = data.transactionId;
             }
             return request;
         }
@@ -174,10 +174,10 @@ namespace PDATestProject
 
         private static string holidaysToString(Holidays holidays)
         {
-            string holidayString = "\n";
+            string holidayString = Environment.NewLine;
             for (int i = 0; i <= holidays.Entries.Length; i++)
             {
-                holidayString += "Holiday" + (i + 1) + ": ";
+                holidayString += Environment.NewLine + "Holiday" + (i + 1) + ": ";
                 if (holidays.Entries[0].From != null) { 
                     holidayString += holidays.Entries[0].From.ToString("yyyy.MM.dd");
                 }
@@ -224,8 +224,11 @@ namespace PDATestProject
                 holidayList.Add(newEntry);
             }
 
-            request.Holidays.Entries = holidayList.ToArray();
+            Holidays holidays = new Holidays();
 
+            holidays.Entries = holidayList.ToArray();
+
+            request.Holidays = holidays;
             //execute service call
             SetHolidaysResponse response = pudoClient.SetHolidays(request);
 
@@ -265,8 +268,9 @@ namespace PDATestProject
 
         internal static MasterDataReturnData findInsertedPartnerSince(MasterDataData masterDataData)
         {
+            return new   MasterDataReturnData();
             //TODO ez tényleg nincs implementálva
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
         internal static MasterDataReturnData findInsertedParcelSince(MasterDataData masterDataData)
@@ -415,7 +419,7 @@ namespace PDATestProject
         }
 
         private static string openingHoursToString(OpeningHours openingHours) {
-            string result = "\n";
+            string result = Environment.NewLine;
             // Monday to string
             result += openingHoursEntryToString("Monday",openingHours.Monday);
             // Tuesday to string
@@ -435,7 +439,7 @@ namespace PDATestProject
 
         private static string openingHoursEntryToString(String entryName, OpeningHoursEntry openingHoursEntry)
         {
-            string result = "\n" + entryName + ":";
+            string result = Environment.NewLine + entryName + ":";
             if (openingHoursEntry.OpeningTimeAM.HasValue)
             {
                 result += openingHoursEntry.OpeningTimeAM.Value.ToString();
@@ -462,6 +466,7 @@ namespace PDATestProject
                 new SetOpeningHoursRequest(), openingHoursData);
 
             // add unique parameters
+            request.OpeningHours = new OpeningHours();
             request.OpeningHours.Monday = parse(openingHoursData.mondayFirts, openingHoursData.mondaySecond);
             request.OpeningHours.Tuesday = parse(openingHoursData.tuesdayFirts, openingHoursData.tuesdaySecond);
             request.OpeningHours.Wednesday = parse(openingHoursData.wednesdayFirts, openingHoursData.wednesdaySecond);
@@ -483,11 +488,21 @@ namespace PDATestProject
         {
             OpeningHoursEntry entry = new OpeningHoursEntry();
             
+
+            string[] pmParts = new string[0];
+            string[] amParts = new string[0];
+
             // default input string example: 06:00 - 11:10
-            string[] amParts = amPart.Split('-');
+            if (amPart != null)
+            {
+                amParts = amPart.Split('-');
+            }
             // default input string example: 12:00 - 14:24
-            string[] pmParts = pmPart.Split('-');
-           
+            if (pmPart != null)
+            {
+                pmParts = pmPart.Split('-');
+            }
+
             try {
                 // have elements
                 if (amParts.Length > 0)
@@ -526,7 +541,7 @@ namespace PDATestProject
             FindParcelByBarcodeRequest request = (FindParcelByBarcodeRequest) initDefaultParameters(
                 new FindParcelByBarcodeRequest(), packageData);
             // add unique parameters
-            request.Barcode = packageData.packageCode;
+            request.Barcode = packageData.packageCode == null ? "" : packageData.packageCode;
 
             //execute service call
             FindParcelByBarcodeResponse response = pudoClient.FindParcelByBarcode(request);
@@ -601,7 +616,7 @@ namespace PDATestProject
                 new FindPartnerByIDRequest(), partnerData);
 
             // add unique parameters
-            request.PartnerID = partnerData.partnerId;
+            request.PartnerID = partnerData.partnerId == null ? "" : partnerData.partnerId;
 
             //execute service call
             FindPartnerByIDResponse response = pudoClient.FindPartnerByID(request);
@@ -630,7 +645,7 @@ namespace PDATestProject
                 new FindPartnerByFilterRequest(), partnerData);
 
             // add unique parameters
-            request.PartnerNameFilter = partnerData.partnerNamePart;
+            request.PartnerNameFilter = partnerData.partnerNamePart == null ? "" : partnerData.partnerNamePart;
 
             //execute service call
             FindPartnerByFilterResponse response = pudoClient.FindPartnerByFilter(request);
