@@ -268,9 +268,29 @@ namespace PDATestProject
 
         internal static MasterDataReturnData findInsertedPartnerSince(MasterDataData masterDataData)
         {
-            return new   MasterDataReturnData();
-            //TODO ez tényleg nincs implementálva
-            //throw new NotImplementedException();
+            FindUpsertedPartnerSinceRequest request = (FindUpsertedPartnerSinceRequest)initDefaultParameters(
+                 new FindUpsertedPartnerSinceRequest(), masterDataData);
+
+            request.Since = masterDataData.date;
+
+            //execute service call
+            FindUpsertedPartnerSinceResponse response = pudoClient.FindUpsertedPartnerSince(request);
+
+            //create return object with base properties
+            MasterDataReturnData returnData = (MasterDataReturnData)createSummaryMessage(new MasterDataReturnData(), response);
+            if (response.Result)
+            {
+                returnData.partners.Clear();
+                foreach (Partner partner in response.Partners)
+                {
+                    PartnerReturnData newItem = new PartnerReturnData();
+                    newItem.PartnerID = partner.PartnerID;
+                    newItem.PartnerName = partner.PartnerName;
+                    returnData.partners.Add(newItem);
+                }
+            }
+            
+            return returnData;
         }
 
         internal static MasterDataReturnData findInsertedParcelSince(MasterDataData masterDataData)
