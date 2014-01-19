@@ -38,10 +38,8 @@ namespace PDATestProject
         private void findInsertedDictionarySinceButton_Click(object sender, EventArgs e)
         {
             MasterDataReturnData result = PudoServiceExecutor.findInsertedDictionarySince(masterDataData);
-
-            clearAll();
-            resultMessageTextBox.Text =  result.summaryMessage;
-            resultTabControl.SelectedTab = dictionaryTabPage;
+            actialize(result, dictionaryTabPage);
+           
             foreach (DictionaryReturnData value in result.dictionaries)
             {
                 dictionaryReturnDataBindingSource.Add(value);
@@ -52,10 +50,8 @@ namespace PDATestProject
         private void findInsertedPartnerSinceButton_Click(object sender, EventArgs e)
         {
             MasterDataReturnData result = PudoServiceExecutor.findInsertedPartnerSince(masterDataData);
-
-            clearAll();
-            resultMessageTextBox.Text =  result.summaryMessage;
-            resultTabControl.SelectedTab = partnerTabPage;
+            actialize(result, partnerTabPage);
+          
             foreach (PartnerReturnData value in result.partners)
             {
                 partnerReturnDataBindingSource.Add(value);
@@ -65,10 +61,8 @@ namespace PDATestProject
         private void findInsertedParcelSinceButton_Click(object sender, EventArgs e)
         {
             MasterDataReturnData result = PudoServiceExecutor.findInsertedParcelSince(masterDataData);
-
-            clearAll();
-            resultMessageTextBox.Text = result.summaryMessage;
-            resultTabControl.SelectedTab = parcelTabPage;
+            actialize(result, parcelTabPage);
+           
             foreach (ParcelReturnData value in result.parcels)
             {
                 parcelReturnDataBindingSource.Add(value);
@@ -78,10 +72,8 @@ namespace PDATestProject
         private void findDeletedDictionarySinceButton_Click(object sender, EventArgs e)
         {
             MasterDataReturnData result = PudoServiceExecutor.findDeletedDictionarySince(masterDataData);
-
-            clearAll();
-            resultMessageTextBox.Text =  result.summaryMessage;
-            resultTabControl.SelectedTab = dictionaryTabPage;
+            actialize(result, dictionaryTabPage);
+           
             foreach (DictionaryReturnData value in result.dictionaries)
             {
                 dictionaryReturnDataBindingSource.Add(value);
@@ -92,10 +84,8 @@ namespace PDATestProject
         private void findDeletedPartnerSinceButton_Click(object sender, EventArgs e)
         {
             MasterDataReturnData result = PudoServiceExecutor.findDeletedPartnerSince(masterDataData);
-
-            clearAll();
-            resultMessageTextBox.Text =  result.summaryMessage;
-            resultTabControl.SelectedTab = partnerTabPage;
+            actialize(result, partnerTabPage);
+           
             foreach (PartnerReturnData value in result.partners)
             {
                 partnerReturnDataBindingSource.Add(value);
@@ -105,15 +95,23 @@ namespace PDATestProject
         private void findDeletedParcelSinceButton_Click(object sender, EventArgs e)
         {
             MasterDataReturnData result = PudoServiceExecutor.findDeletedParcelSince(masterDataData);
-
-            clearAll();
-            resultMessageTextBox.Text = result.summaryMessage;
-            resultTabControl.SelectedTab = parcelTabPage;
+            actialize(result, parcelTabPage);
+            
             foreach (ParcelReturnData value in result.parcels)
             {
                 parcelReturnDataBindingSource.Add(value);
-            } 
+            }
+        }
 
+        private void actialize(MasterDataReturnData result, TabPage page)
+        {
+            clearAll();
+            resultMessageTextBox.Text = result.summaryMessage + Environment.NewLine +
+                "----------------------------------------------------------" +
+                "--------------------------------------------------" +
+                Environment.NewLine + resultMessageTextBox.Text;
+            resultTabControl.SelectedTab = page;
+            defaultParametersControl1.generateNewTransactionId();
         }
 
         private void clearAll()

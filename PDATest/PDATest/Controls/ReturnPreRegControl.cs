@@ -31,6 +31,7 @@ namespace PDATestProject
             this.returnPreRegData = data;
             defaultParametersControl1.bind(data);
             returnPreRegDataBindingSource.DataSource = data;
+            parcelMinimalReturnDataBindingSource.DataSource = data.data;
         }
 
         private void findParcelForDeliveryButton_Click(object sender, EventArgs e)
@@ -40,31 +41,34 @@ namespace PDATestProject
 
         private void postRefuseCustRetPreregButton_Click(object sender, EventArgs e)
         {
-            returnPreRegData.data = (List<ParcelMinimalReturnData>)parcelMinimalReturnDataBindingSource.List;
+            returnPreRegData.data = (List<ParcelMinimalReturnData>)parcelMinimalReturnDataBindingSource.DataSource;
             actualize(PudoServiceExecutor.postRefuseCustRetPrereg(returnPreRegData));
         }
 
         private void postCustRetPreregButton_Click(object sender, EventArgs e)
         {
-            returnPreRegData.data = (List<ParcelMinimalReturnData>)parcelMinimalReturnDataBindingSource.List;
+            returnPreRegData.data = (List<ParcelMinimalReturnData>)parcelMinimalReturnDataBindingSource.DataSource;
             actualize(PudoServiceExecutor.postCustRetPrereg(returnPreRegData));
         }
 
         private void postCustRetUnexpectedButton_Click(object sender, EventArgs e)
         {
-            returnPreRegData.data = (List<ParcelMinimalReturnData>)parcelMinimalReturnDataBindingSource.List;
+            returnPreRegData.data = (List<ParcelMinimalReturnData>)parcelMinimalReturnDataBindingSource.DataSource;
             actualize(PudoServiceExecutor.postCustRetUnexpected(returnPreRegData));
         }
 
         private void actualize(ReturnPreRegReturnData data)
         {
-            resultMessageTextBox.Text = data.summaryMessage;
+            resultMessageTextBox.Text = data.summaryMessage + Environment.NewLine +
+                "----------------------------------------------------------" +
+                "--------------------------------------------------" +
+                Environment.NewLine + resultMessageTextBox.Text;
             parcelMinimalReturnDataBindingSource.Clear();
             foreach (ParcelMinimalReturnData parcelComposite in data.data)
             {
                 parcelMinimalReturnDataBindingSource.Add(parcelComposite);
             }
-            
+            defaultParametersControl1.generateNewTransactionId();            
         }
     }
 }

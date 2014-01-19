@@ -32,6 +32,7 @@ namespace PDATestProject
             this.deliveryData = data;
             defaultParametersControl1.bind(data);
             deliveryDataBindingSource.DataSource = data;
+            deliveryParleccMinimumReturnDataBindingSource.DataSource = data.datas;
         }
 
         private void findParcelForDeliveryButton_Click(object sender, EventArgs e)
@@ -42,7 +43,7 @@ namespace PDATestProject
         private void postCancelDeliveryButton_Click(object sender, EventArgs e)
         {
             deliveryData.datas = (List<DeliveryParleccMinimumReturnData>)
-                deliveryParleccMinimumReturnDataBindingSource.List;
+                deliveryParleccMinimumReturnDataBindingSource.DataSource;
             PudoServiceExecutor.postCancelDelivery(deliveryData);
         }
 
@@ -62,12 +63,16 @@ namespace PDATestProject
 
         private void actualize(DeliveryReturnData data)
         {
-            resultMessageTextBox.Text = data.summaryMessage;
+            resultMessageTextBox.Text = data.summaryMessage + Environment.NewLine +
+                "---------------------------------------------" +
+                "--------------------------------------------------" + 
+                Environment.NewLine + resultMessageTextBox.Text;
             deliveryParleccMinimumReturnDataBindingSource.Clear();
             foreach (DeliveryParleccMinimumReturnData parcelComposite in data.datas)
             {
                 deliveryParleccMinimumReturnDataBindingSource.Add(parcelComposite);
             }
+            defaultParametersControl1.generateNewTransactionId();
         }
     }
 }

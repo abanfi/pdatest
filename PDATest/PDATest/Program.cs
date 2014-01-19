@@ -16,6 +16,9 @@ namespace PDATestProject
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            //PudoServiceExecutor.initEndpoint(ConfigUtil.getEndpointAddress());
+
             Application.Run(new MainForm());
         }
     }

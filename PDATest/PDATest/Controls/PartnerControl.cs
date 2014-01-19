@@ -50,13 +50,16 @@ namespace PDATestProject
 
         private void actualize(PartnersReturnData data)
         {
-            resultMessageTextBox.Text = data.summaryMessage;
+            resultMessageTextBox.Text = data.summaryMessage + Environment.NewLine +
+                "----------------------------------------------------------" +
+                "--------------------------------------------------" +
+                Environment.NewLine + resultMessageTextBox.Text;
             partnerReturnDataBindingSource.Clear();
             foreach (PartnerReturnData partner in data.partners)
             {
                 partnerReturnDataBindingSource.Add(partner);
             }
-           
+            defaultParametersControl1.generateNewTransactionId();
         }
     }
 }

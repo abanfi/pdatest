@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.mainToolStrip = new System.Windows.Forms.ToolStrip();
             this.packageButton = new System.Windows.Forms.ToolStripButton();
             this.masterDataButton = new System.Windows.Forms.ToolStripButton();
@@ -41,16 +40,14 @@
             this.returnButton = new System.Windows.Forms.ToolStripButton();
             this.receiveButton = new System.Windows.Forms.ToolStripButton();
             this.contentPanel = new System.Windows.Forms.Panel();
+            this.statusBarToolStrip = new System.Windows.Forms.ToolStrip();
+            this.endpointToolStripLabel = new System.Windows.Forms.ToolStripLabel();
+            this.endpointURLtoolStripLabel = new System.Windows.Forms.ToolStripLabel();
+            this.changeStripButton = new System.Windows.Forms.ToolStripButton();
             this.mainToolStrip.SuspendLayout();
+            this.contentPanel.SuspendLayout();
+            this.statusBarToolStrip.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // statusStrip
-            // 
-            this.statusStrip.Location = new System.Drawing.Point(0, 525);
-            this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Size = new System.Drawing.Size(766, 22);
-            this.statusStrip.TabIndex = 0;
-            this.statusStrip.Text = "statusStrip1";
             // 
             // mainToolStrip
             // 
@@ -164,11 +161,47 @@
             // 
             this.contentPanel.AutoScroll = true;
             this.contentPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            
             this.contentPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.contentPanel.Location = new System.Drawing.Point(0, 38);
             this.contentPanel.Name = "contentPanel";
-            this.contentPanel.Size = new System.Drawing.Size(766, 487);
+            this.contentPanel.Size = new System.Drawing.Size(766, 509);
             this.contentPanel.TabIndex = 3;
+            // 
+            // statusBarToolStrip
+            // 
+            this.statusBarToolStrip.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.statusBarToolStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.statusBarToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.endpointToolStripLabel,
+            this.endpointURLtoolStripLabel,
+            this.changeStripButton});
+            this.statusBarToolStrip.Location = new System.Drawing.Point(0, 484);
+            this.statusBarToolStrip.Name = "statusBarToolStrip";
+            this.statusBarToolStrip.Size = new System.Drawing.Size(766, 25);
+            this.statusBarToolStrip.TabIndex = 0;
+            this.statusBarToolStrip.Text = "toolStrip1";
+            // 
+            // endpointToolStripLabel
+            // 
+            this.endpointToolStripLabel.Name = "endpointToolStripLabel";
+            this.endpointToolStripLabel.Size = new System.Drawing.Size(96, 22);
+            this.endpointToolStripLabel.Text = "Szolgáltatás URL:";
+            // 
+            // endpointURLtoolStripLabel
+            // 
+            this.endpointURLtoolStripLabel.Name = "endpointURLtoolStripLabel";
+            this.endpointURLtoolStripLabel.Size = new System.Drawing.Size(16, 22);
+            this.endpointURLtoolStripLabel.Text = "...";
+            // 
+            // changeStripButton
+            // 
+            this.changeStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.changeStripButton.Image = ((System.Drawing.Image)(resources.GetObject("changeStripButton.Image")));
+            this.changeStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.changeStripButton.Name = "changeStripButton";
+            this.changeStripButton.Size = new System.Drawing.Size(23, 22);
+            this.changeStripButton.Visible = false;
             // 
             // MainForm
             // 
@@ -177,12 +210,16 @@
             this.ClientSize = new System.Drawing.Size(766, 547);
             this.Controls.Add(this.contentPanel);
             this.Controls.Add(this.mainToolStrip);
-            this.Controls.Add(this.statusStrip);
+            this.Controls.Add(this.statusBarToolStrip);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.Text = "PDA Teszt";
             this.mainToolStrip.ResumeLayout(false);
             this.mainToolStrip.PerformLayout();
+            this.contentPanel.ResumeLayout(false);
+            this.contentPanel.PerformLayout();
+            this.statusBarToolStrip.ResumeLayout(false);
+            this.statusBarToolStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -190,7 +227,6 @@
 
         #endregion
 
-        private System.Windows.Forms.StatusStrip statusStrip;
         private System.Windows.Forms.ToolStrip mainToolStrip;
         private System.Windows.Forms.ToolStripButton packageButton;
         private System.Windows.Forms.ToolStripButton masterDataButton;
@@ -202,6 +238,10 @@
         private System.Windows.Forms.ToolStripButton receiveButton;
         private System.Windows.Forms.ToolStripButton preRegButton;
         private System.Windows.Forms.Panel contentPanel;
+        private System.Windows.Forms.ToolStrip statusBarToolStrip;
+        private System.Windows.Forms.ToolStripLabel endpointToolStripLabel;
+        private System.Windows.Forms.ToolStripLabel endpointURLtoolStripLabel;
+        private System.Windows.Forms.ToolStripButton changeStripButton;
     }
 }
 

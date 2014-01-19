@@ -31,6 +31,7 @@ namespace PDATestProject
             this.receiveData = data;
             defaultParametersControl1.bind(data);
             receiveDataBindingSource.DataSource = data;
+            parcelCompositeSelectableReturnDataBindingSource.DataSource = data.gridData;
         }
 
         private void findParcelForReceiveButton_Click(object sender, EventArgs e)
@@ -40,23 +41,23 @@ namespace PDATestProject
 
         private void postReceiveButton_Click(object sender, EventArgs e)
         {
-            receiveData.gridData = (List<ParcelCompositeSelectableReturnData>) parcelCompositeSelectableReturnDataBindingSource.List;
+            receiveData.gridData = (List<ParcelCompositeSelectableReturnData>) 
+                parcelCompositeSelectableReturnDataBindingSource.DataSource;
             actualize(PudoServiceExecutor.postReceive(receiveData));
         }
 
         private void actualize(ReceiveReturnData data)
         {
-            resultMessageTextBox.Text = data.summaryMessage;
+            resultMessageTextBox.Text = data.summaryMessage + Environment.NewLine +
+                "----------------------------------------------------------" +
+                "--------------------------------------------------" +
+                Environment.NewLine + resultMessageTextBox.Text;
             parcelCompositeSelectableReturnDataBindingSource.Clear();
             foreach (ParcelCompositeReturnData parcelComposite in data.datas)
             {
                 parcelCompositeSelectableReturnDataBindingSource.Add(parcelComposite);
             }
-            /*parcelCompositeReturnDataBindingSource.Clear();
-            foreach (ParcelCompositeReturnData parcelComposite in data.datas)
-            {
-                parcelCompositeReturnDataBindingSource.Add(parcelComposite);
-            }*/
+            defaultParametersControl1.generateNewTransactionId();
         }
     }
 }

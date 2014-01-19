@@ -9,6 +9,11 @@ namespace PDATestProject
 {
     public class ReturnPreRegData : DefaultData 
     {
+        public ReturnPreRegData()
+        {
+            data = new List<ParcelMinimalReturnData>();
+        }
+
         public string packageCode { get; set; }
         public bool damaged { get; set; }
         public string partnerId { get; set; }
@@ -17,7 +22,7 @@ namespace PDATestProject
         public bool returnDamaged { get; set; }
         public bool noLabel { get; set; }
 
-        public List<ParcelMinimalReturnData> data = new List<ParcelMinimalReturnData>();
+        public List<ParcelMinimalReturnData> data { get; set; }
       
     }
 }

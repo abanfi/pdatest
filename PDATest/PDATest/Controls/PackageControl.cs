@@ -48,11 +48,15 @@ namespace PDATestProject
 
         private void actualize(PackageReturnData data)
         {
-            resultMessageTextBox.Text = data.summaryMessage;
+            resultMessageTextBox.Text = data.summaryMessage + Environment.NewLine +
+                "----------------------------------------------------------" +
+                "--------------------------------------------------" +
+                Environment.NewLine + resultMessageTextBox.Text;
             parcelCompositeReturnDataBindingSource.Clear();
             foreach (ParcelCompositeReturnData parcelComposite in data.datas){
                 parcelCompositeReturnDataBindingSource.Add(parcelComposite);
             }
+            defaultParametersControl1.generateNewTransactionId();
         }
             
     }

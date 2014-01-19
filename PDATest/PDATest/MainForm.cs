@@ -27,6 +27,7 @@ namespace PDATestProject
         public MainForm()
         {
             InitializeComponent();
+            endpointURLtoolStripLabel.Text = ConfigUtil.getEndpointAddress();
         }
 
         private void activate(ToolStripButton button, DefaultControl control)
@@ -102,6 +103,15 @@ namespace PDATestProject
         {
             activate(receiveButton, receiveControl == null ? receiveControl = new ReceiveControl() : receiveControl);
         }
+
+        //private void changeStripButton_Click(object sender, EventArgs e)
+        //{
+        //    string input = Microsoft.VisualBasic.Interaction.InputBox("Adja meg az új elérési útvonalat", 
+        //        "Szolgáltatás beállítása", ConfigUtil.getEndpointAddress(), -1, -1);
+            //PudoServiceExecutor.initEndpoint(input);
+        //    ConfigUtil.setEndpointAddress(input);
+        //    endpointURLtoolStripLabel.Text = input;
+        //}
 
     }
 }

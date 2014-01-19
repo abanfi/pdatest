@@ -31,6 +31,7 @@ namespace PDATestProject
             this.returnData = data;
             defaultParametersControl1.bind(data);
             returnDataBindingSource.DataSource = data;
+            returnParcelReturnDataBindingSource.DataSource = data.data;
         }
 
         private void findParcelForReturnButton_Click(object sender, EventArgs e)
@@ -40,18 +41,22 @@ namespace PDATestProject
 
         private void postReturnButton_Click(object sender, EventArgs e)
         {
-            returnData.data = (List<ReturnParcelReturnData>)returnParcelReturnDataBindingSource.List;
+            returnData.data = (List<ReturnParcelReturnData>)returnParcelReturnDataBindingSource.DataSource;
            actualize( PudoServiceExecutor.postReturn(returnData));
         }
 
         private void actualize(ReturnReturnData data)
         {
-            resultMessageTextBox.Text = data.summaryMessage;
+            resultMessageTextBox.Text = data.summaryMessage + Environment.NewLine +
+                "----------------------------------------------------------" +
+                "--------------------------------------------------" +
+                Environment.NewLine + resultMessageTextBox.Text;
             returnParcelReturnDataBindingSource.Clear();
             foreach (ReturnParcelReturnData parcelComposite in data.data)
             {
                 returnParcelReturnDataBindingSource.Add(parcelComposite);
             }
+            defaultParametersControl1.generateNewTransactionId();
         }
     }
 }

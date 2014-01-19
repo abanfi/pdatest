@@ -24,9 +24,13 @@ namespace PDATestProject
 
         private void refreshButton_Click(object sender, EventArgs e)
         {
+            this.generateNewTransactionId();
+        }
+
+        public void generateNewTransactionId()
+        {
             transactionTextBox.Text = "" + (DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond);
             ((DefaultData)defaultDataBindingSource.Current).transactionId = "" + (DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond);
-
         }
 
     }
