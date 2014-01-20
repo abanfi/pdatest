@@ -103,7 +103,7 @@
             this.findParcelForCustRetPreRegButton.TabIndex = 35;
             this.findParcelForCustRetPreRegButton.Text = "FindParcelForCustRetPreReg";
             this.findParcelForCustRetPreRegButton.UseVisualStyleBackColor = true;
-            this.findParcelForCustRetPreRegButton.Click += new System.EventHandler(this.findParcelForDeliveryButton_Click);
+            this.findParcelForCustRetPreRegButton.Click += new System.EventHandler(this.findParcelForCustRetPreRegButton_Click);
             // 
             // customerTextBox
             // 
@@ -157,15 +157,15 @@
             // barcodeTextBox
             // 
             this.barcodeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.returnPreRegDataBindingSource, "packageCode", true));
-            this.barcodeTextBox.Location = new System.Drawing.Point(247, 102);
+            this.barcodeTextBox.Location = new System.Drawing.Point(313, 102);
             this.barcodeTextBox.Name = "barcodeTextBox";
-            this.barcodeTextBox.Size = new System.Drawing.Size(138, 20);
+            this.barcodeTextBox.Size = new System.Drawing.Size(72, 20);
             this.barcodeTextBox.TabIndex = 21;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(162, 105);
+            this.label1.Location = new System.Drawing.Point(228, 105);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(79, 13);
             this.label1.TabIndex = 20;

@@ -8,7 +8,7 @@ namespace PDATestProject.Datas
 {
     public class ReturnPreRegReturnData : DefaultReturnData 
     {
-        public List<ParcelMinimalReturnData> data = new List<ParcelMinimalReturnData>();
+        public List<ParcelCompositeReturnData> data = new List<ParcelCompositeReturnData>();
     }
 
     public class ParcelMinimalReturnData

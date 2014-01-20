@@ -15,12 +15,14 @@ namespace PDATestProject
             offline = "Nem";
             languageCode = "EN";
             transactionId = "" + (DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond);
+            createDate = DateTime.Now;
         }
 
         public string terminalId { get; set; }
         public string transactionId { get; set; }
         public string offline { get; set; }
         public string languageCode { get; set; }
+        public DateTime createDate { get; set; }
 
         public override string ToString()
         {
@@ -29,6 +31,7 @@ namespace PDATestProject
             stringValue += "transactionId:" + transactionId + Environment.NewLine;
             stringValue += "offline:" + offline + Environment.NewLine;
             stringValue += "languageCode:" + languageCode + Environment.NewLine;
+            stringValue += "createDate:" + createDate + Environment.NewLine;
             return stringValue;
         }
     }

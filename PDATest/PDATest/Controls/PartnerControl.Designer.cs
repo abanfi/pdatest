@@ -92,6 +92,7 @@
             // 
             // partnerIdTextBox
             // 
+            this.partnerIdTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.partnerDataBindingSource, "partnerId", true));
             this.partnerIdTextBox.Location = new System.Drawing.Point(284, 100);
             this.partnerIdTextBox.Name = "partnerIdTextBox";
             this.partnerIdTextBox.Size = new System.Drawing.Size(136, 20);

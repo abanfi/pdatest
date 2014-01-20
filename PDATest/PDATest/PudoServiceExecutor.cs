@@ -31,7 +31,8 @@ namespace PDATestProject
                 request.OfflineMode = data.offline.Equals("Igen");
             }
             request.TerminalID = data.terminalId;
-            request.EventCreated = new DateTime();
+            request.EventCreated = data.createDate;
+
             if (data.transactionId != null)
             {
                 request.TransactionID = data.transactionId;
@@ -41,7 +42,7 @@ namespace PDATestProject
 
         private static DefaultReturnData createSummaryMessage(DefaultReturnData data, BaseResponse response)
         {
-            data.summaryMessage += Environment.NewLine + "EXECUTION:" + (DateTime.Now.ToString("yyyy.MM.dd HH:mm:ss")) + 
+            data.summaryMessage += Environment.NewLine + "EXECUTION:" + (DateTime.Now.ToString("yyyy.MM.dd HH:mm:ss")) +
                 Environment.NewLine + "RESULT: " +
                 (response.Result ? "SUCCESS " : "FAILED ") + Environment.NewLine + "ERROR CODE: " +
                 response.ErrorCode + Environment.NewLine + "ERROR MESSAGE: " + response.ErrorMessage;
@@ -1089,6 +1090,7 @@ namespace PDATestProject
             }
         }
 
+        // TODO még ne töröld
         internal static ReturnPreRegReturnData findParcelForDelivery(ReturnPreRegData returnPreRegData)
         {
             try
@@ -1118,7 +1120,7 @@ namespace PDATestProject
                         newItem.PriceAtDelivery = minimal.PriceAtDelivery;
                         newItem.ReturnDate = minimal.ReturnDate;
 
-                        returnData.data.Add(newItem);
+                        // returnData.data.Add(newItem);
                     }
                 }
 
@@ -1137,18 +1139,15 @@ namespace PDATestProject
                 PostRefuseCustomerReturnPreRegisteredRequest request = (PostRefuseCustomerReturnPreRegisteredRequest)initDefaultParameters(
              new PostRefuseCustomerReturnPreRegisteredRequest(), returnPreRegData);
                 // add unique parameters
-
+                 
                 // set first selected to refused
-                foreach (ParcelMinimalReturnData parcelMinimal in returnPreRegData.data)
+                foreach (ParcelCompositeReturnData parcelMinimal in returnPreRegData.data)
                 {
-                    if (parcelMinimal.Selected)
-                    {
                         RefuseCustomerReturnPreRegisteredContainer container = new RefuseCustomerReturnPreRegisteredContainer();
                         container.Barcode = parcelMinimal.Barcode;
                         container.Damaged = returnPreRegData.damaged;
                         request.RefuseCustomerReturnParcel = container;
                         break;
-                    }
                 }
                 request.RefuseReason = returnPreRegData.refuseReason;
 
@@ -1182,16 +1181,13 @@ namespace PDATestProject
                 // add unique parameters
 
                 // set first selected to refused
-                foreach (ParcelMinimalReturnData parcelMinimal in returnPreRegData.data)
+                foreach (ParcelCompositeReturnData parcelMinimal in returnPreRegData.data)
                 {
-                    if (parcelMinimal.Selected)
-                    {
                         RefuseCustomerReturnPreRegisteredContainer container = new RefuseCustomerReturnPreRegisteredContainer();
                         container.Barcode = parcelMinimal.Barcode;
                         container.Damaged = returnPreRegData.damaged;
                         request.CustomerReturnParcel = container;
                         break;
-                    }
                 }
 
                 //execute service call
@@ -1199,7 +1195,7 @@ namespace PDATestProject
 
                 //create return object with base properties
                 ReturnPreRegReturnData returnData = (ReturnPreRegReturnData)createSummaryMessage(
-                    initDefaultReturn(new ReturnPreRegReturnData(), returnPreRegData, "postCustRetPrereg"), response);
+                    initDefaultReturn(new ReturnPreRegReturnData(), returnPreRegData, "PostCustomerReturnPreRegistered"), response);
 
                 //initialize custom values
                 if (response.Result)
@@ -1224,21 +1220,18 @@ namespace PDATestProject
                 // add unique parameters
 
                 // set first selected to refused
-                foreach (ParcelMinimalReturnData parcelMinimal in returnPreRegData.data)
+                foreach (ParcelCompositeReturnData parcelMinimal in returnPreRegData.data)
                 {
-                    if (parcelMinimal.Selected)
-                    {
-                        CustomerReturnUnexpectedContainer container = new CustomerReturnUnexpectedContainer();
-                        container.Barcode = parcelMinimal.Barcode;
-                        container.Damaged = returnPreRegData.damaged;
-                        container.CustomerName = returnPreRegData.customerName;
-                        container.NoLabel = returnPreRegData.noLabel;
-                        container.OldBarcode = parcelMinimal.Barcode;
-                        container.PartnerID = returnPreRegData.partnerId;
+                    CustomerReturnUnexpectedContainer container = new CustomerReturnUnexpectedContainer();
+                    container.Barcode = parcelMinimal.Barcode;
+                    container.Damaged = returnPreRegData.damaged;
+                    container.CustomerName = returnPreRegData.customerName;
+                    container.NoLabel = returnPreRegData.noLabel;
+                    container.OldBarcode = parcelMinimal.Barcode;
+                    container.PartnerID = returnPreRegData.partnerId;
 
-                        request.CustomerReturnParcel = container;
-                        break;
-                    }
+                    request.CustomerReturnParcel = container;
+                    break;
                 }
 
 
@@ -1264,5 +1257,59 @@ namespace PDATestProject
         }
 
 
+
+        internal static ReturnPreRegReturnData findParcelForCustRetPreReg(ReturnPreRegData returnPreRegData)
+        {
+            try
+            {
+                FindParcelForCustomerReturnPreRegisteredRequest request = (FindParcelForCustomerReturnPreRegisteredRequest)initDefaultParameters(
+                    new FindParcelForCustomerReturnPreRegisteredRequest(), returnPreRegData);
+                // add unique parameters
+                request.Barcode = returnPreRegData.packageCode;
+
+                //execute service call
+                FindParcelForCustomerReturnPreRegisteredResponse response = pudoClient.FindParcelForCustomerReturnPreRegistered(request);
+
+                //create return object with base properties
+                ReturnPreRegReturnData returnData = (ReturnPreRegReturnData)createSummaryMessage(
+                    initDefaultReturn(new ReturnPreRegReturnData(), returnPreRegData,
+                    "FindParcelForCustomerReturnPreRegistered"), response);
+                if (response.Result)
+                {
+                    ParcelComposite composite = response.ParcelComposite;
+                    ParcelCompositeReturnData data = new ParcelCompositeReturnData();
+
+                    data.BagBarcode = composite.Parcel.BagBarcode;
+                    data.Barcode = composite.Parcel.Barcode;
+                    data.Currency = composite.Parcel.Currency;
+                    data.CustomerAddress = composite.Parcel.CustomerAddress;
+                    data.CustomerName = composite.Parcel.CustomerName;
+                    data.CustomerPostalCode = composite.Parcel.CustomerPostalCode;
+                    data.Damaged = composite.Parcel.Damaged;
+                    data.DestinationLocationID = composite.Parcel.DestinationLocationID;
+                    data.LinkedCount = composite.Parcel.LinkedCount;
+                    data.LocationID = composite.Parcel.LocationID;
+                    data.LocationName = composite.Location.LocationName;
+                    data.NextLinkedBarcode = composite.Parcel.NextLinkedBarcode;
+                    data.OldBarcode = composite.Parcel.OldBarcode;
+                    data.ParcelState = composite.Parcel.ParcelState;
+                    data.ParcelWorkflow = composite.Parcel.ParcelWorkflow;
+                    data.PartnerID = composite.Parcel.PartnerID;
+                    data.PartnerName = composite.Partner.PartnerName;
+                    data.PriceAtDelivery = composite.Parcel.PriceAtDelivery;
+                    data.ReturnDate = composite.Parcel.ReturnDate;
+                    data.ShipmentID = composite.Parcel.ShipmentID;
+
+                    returnData.data.Add(data);
+
+                }
+
+                return returnData;
+            }
+            catch (Exception e)
+            {
+                return (ReturnPreRegReturnData)returnErrorMessage(new ReturnPreRegReturnData(), e);
+            }
+        }
     }
 }

@@ -11,7 +11,7 @@ namespace PDATestProject
     {
         public ReturnPreRegData()
         {
-            data = new List<ParcelMinimalReturnData>();
+            data = new List<ParcelCompositeReturnData>();
         }
 
         public string packageCode { get; set; }
@@ -22,12 +22,14 @@ namespace PDATestProject
         public bool returnDamaged { get; set; }
         public bool noLabel { get; set; }
 
-        public List<ParcelMinimalReturnData> data { get; set; }
+        public DateTime eventCreated { get; set; }
 
-
+        public List<ParcelCompositeReturnData> data { get; set; }
+        
         public override string ToString()
         {
             string stringValue = base.ToString();
+            stringValue += "eventCreated:" + eventCreated + Environment.NewLine;
             stringValue += "packageCode:" + packageCode + Environment.NewLine;
             stringValue += "damaged:" + damaged + Environment.NewLine;
             stringValue += "partnerId:" + partnerId + Environment.NewLine;
@@ -35,11 +37,11 @@ namespace PDATestProject
             stringValue += "refuseReason:" + refuseReason + Environment.NewLine;
             stringValue += "bagBarcode:" + returnDamaged + Environment.NewLine;
             stringValue += "bagBarcode:" + noLabel + Environment.NewLine;
-            foreach (ParcelMinimalReturnData parcelComposite in data)
+            foreach (ParcelCompositeReturnData parcelComposite in data)
             {
-                stringValue += "parcelcomposite:" + parcelComposite.Barcode + "->selected:" + parcelComposite.Selected;
+                stringValue += "parcelcomposite:" + parcelComposite.Barcode;
             }
             return stringValue;
-        }
+        }        
     }
 }

@@ -34,26 +34,26 @@ namespace PDATestProject
             parcelMinimalReturnDataBindingSource.DataSource = data.data;
         }
 
-        private void findParcelForDeliveryButton_Click(object sender, EventArgs e)
+        private void findParcelForCustRetPreRegButton_Click(object sender, EventArgs e)
         {
-            actualize(PudoServiceExecutor.findParcelForDelivery(returnPreRegData));
+            actualize(PudoServiceExecutor.findParcelForCustRetPreReg(returnPreRegData));
         }
 
         private void postRefuseCustRetPreregButton_Click(object sender, EventArgs e)
         {
-            returnPreRegData.data = (List<ParcelMinimalReturnData>)parcelMinimalReturnDataBindingSource.DataSource;
+            returnPreRegData.data = (List<ParcelCompositeReturnData>)parcelMinimalReturnDataBindingSource.DataSource;
             actualize(PudoServiceExecutor.postRefuseCustRetPrereg(returnPreRegData));
         }
 
         private void postCustRetPreregButton_Click(object sender, EventArgs e)
         {
-            returnPreRegData.data = (List<ParcelMinimalReturnData>)parcelMinimalReturnDataBindingSource.DataSource;
+            returnPreRegData.data = (List<ParcelCompositeReturnData>)parcelMinimalReturnDataBindingSource.DataSource;
             actualize(PudoServiceExecutor.postCustRetPrereg(returnPreRegData));
         }
 
         private void postCustRetUnexpectedButton_Click(object sender, EventArgs e)
         {
-            returnPreRegData.data = (List<ParcelMinimalReturnData>)parcelMinimalReturnDataBindingSource.DataSource;
+            returnPreRegData.data = (List<ParcelCompositeReturnData>)parcelMinimalReturnDataBindingSource.DataSource;
             actualize(PudoServiceExecutor.postCustRetUnexpected(returnPreRegData));
         }
 
@@ -64,7 +64,7 @@ namespace PDATestProject
                 "--------------------------------------------------" +
                 Environment.NewLine + resultMessageTextBox.Text;
             parcelMinimalReturnDataBindingSource.Clear();
-            foreach (ParcelMinimalReturnData parcelComposite in data.data)
+            foreach (ParcelCompositeReturnData parcelComposite in data.data)
             {
                 parcelMinimalReturnDataBindingSource.Add(parcelComposite);
             }

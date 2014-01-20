@@ -56,6 +56,7 @@
             this.getOpeningHoursButton = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.resultMessageTextBox = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.openingHoursDataBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -289,10 +290,20 @@
             this.resultMessageTextBox.Size = new System.Drawing.Size(571, 122);
             this.resultMessageTextBox.TabIndex = 24;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(29, 173);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(177, 13);
+            this.label1.TabIndex = 26;
+            this.label1.Text = "Helyes formátum példa: 10:15-11:45";
+            // 
             // OpeningHoursControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.resultMessageTextBox);
             this.Controls.Add(this.getOpeningHoursButton);
@@ -356,5 +367,6 @@
         private System.Windows.Forms.BindingSource openingHoursDataBindingSource;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox resultMessageTextBox;
+        private System.Windows.Forms.Label label1;
     }
 }
