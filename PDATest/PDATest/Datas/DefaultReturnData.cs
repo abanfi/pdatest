@@ -8,6 +8,10 @@ namespace PDATestProject.Datas
 {
     public class DefaultReturnData
     {
+        public DefaultReturnData(){
+            summaryMessage = "";
+        }
+
         public string summaryMessage { get; set; }
 
     }

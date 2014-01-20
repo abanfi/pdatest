@@ -9,6 +9,12 @@ namespace PDATestProject
     public class MasterDataData : DefaultData 
     {
         public DateTime date { get; set; }
-        
+
+        public override string ToString()
+        {
+            string stringValue = base.ToString();
+            stringValue += "date:" + date + Environment.NewLine;
+            return stringValue;
+        }
     }
 }

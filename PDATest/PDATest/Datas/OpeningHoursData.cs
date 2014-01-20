@@ -22,6 +22,25 @@ namespace PDATestProject
         public String saturdaySecond { get; set; }
         public String sundayFirts { get; set; }
         public String sundaySecond { get; set; }
-      
+
+        public override string ToString()
+        {
+            string stringValue = base.ToString();
+            stringValue += "mondayFirts:" + mondayFirts + Environment.NewLine;
+            stringValue += "mondaySecond:" + mondaySecond + Environment.NewLine;
+            stringValue += "tuesdayFirts:" + tuesdayFirts + Environment.NewLine;
+            stringValue += "tuesdaySecond:" + tuesdaySecond + Environment.NewLine;
+            stringValue += "wednesdayFirts:" + wednesdayFirts + Environment.NewLine;
+            stringValue += "wednesdaySecond:" + wednesdaySecond + Environment.NewLine;
+            stringValue += "thursdayFirts:" + thursdayFirts + Environment.NewLine;
+            stringValue += "thursdaySecond:" + thursdaySecond + Environment.NewLine;
+            stringValue += "fridayFirts:" + fridayFirts + Environment.NewLine;
+            stringValue += "fridaySecond:" + fridaySecond + Environment.NewLine;
+            stringValue += "saturdayFirts:" + saturdayFirts + Environment.NewLine;
+            stringValue += "saturdaySecond:" + saturdaySecond + Environment.NewLine;
+            stringValue += "sundayFirts:" + sundayFirts + Environment.NewLine;
+            stringValue += "sundaySecond:" + sundaySecond + Environment.NewLine;
+            return stringValue;
+        }
     }
 }

@@ -19,5 +19,23 @@ namespace PDATestProject
         public string postDocNo { get; set; }
 
         public List<DeliveryParleccMinimumReturnData> datas = new List<DeliveryParleccMinimumReturnData>();
+
+        public override string ToString()
+        {
+            string stringValue = base.ToString();
+            stringValue += "packageCode:" + packageCode + Environment.NewLine;
+            stringValue += "damaged:" + damaged + Environment.NewLine;
+            stringValue += "reason:" + reason + Environment.NewLine;
+            stringValue += "payment:" + payment + Environment.NewLine;
+            stringValue += "refuseIdType:" + refuseIdType + Environment.NewLine;
+            stringValue += "refuseDocNo:" + refuseDocNo + Environment.NewLine;
+            stringValue += "postIdType:" + postIdType + Environment.NewLine;
+            stringValue += "postDocNo:" + postDocNo + Environment.NewLine;
+            foreach (DeliveryParleccMinimumReturnData parcelComposite in datas)
+            {
+                stringValue += "parcelcomposite:" + parcelComposite.Barcode + "->selected:" + parcelComposite.Selected;
+            }
+            return stringValue;
+        }
     }
 }

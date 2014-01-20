@@ -10,6 +10,13 @@ namespace PDATestProject
     {
         public string partnerId { get; set; }
         public string partnerNamePart { get; set; }
-      
+
+        public override string ToString()
+        {
+            string stringValue = base.ToString();
+            stringValue += "partnerNamePart:" + partnerNamePart + Environment.NewLine;
+            stringValue += "partnerId:" + partnerId + Environment.NewLine;
+            return stringValue;
+        }
     }
 }

@@ -29,25 +29,93 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            this.label6 = new System.Windows.Forms.Label();
+            this.resultMessageTextBox = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.partnerIdTextBox = new System.Windows.Forms.TextBox();
+            this.defaultParametersControl1 = new PDATestProject.DefaultParametersControl();
+            this.partnerNameTextBox = new System.Windows.Forms.TextBox();
+            this.partnerDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.countPartnerByFilterButton = new System.Windows.Forms.Button();
             this.findPartnerByFilterButton = new System.Windows.Forms.Button();
             this.findPartnerByIdButton = new System.Windows.Forms.Button();
-            this.partnerDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.partnerDataGrid = new System.Windows.Forms.DataGridView();
             this.partnerIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.partnerNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.partnerReturnDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.partnerNameTextBox = new System.Windows.Forms.TextBox();
-            this.defaultParametersControl1 = new PDATestProject.DefaultParametersControl();
-            this.partnerIdTextBox = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.resultMessageTextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.partnerDataBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.partnerDataGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.partnerReturnDataBindingSource)).BeginInit();
             this.SuspendLayout();
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(24, 303);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(57, 13);
+            this.label6.TabIndex = 54;
+            this.label6.Text = "Eredmény:";
+            // 
+            // resultMessageTextBox
+            // 
+            this.resultMessageTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.resultMessageTextBox.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.resultMessageTextBox.Location = new System.Drawing.Point(87, 303);
+            this.resultMessageTextBox.Multiline = true;
+            this.resultMessageTextBox.Name = "resultMessageTextBox";
+            this.resultMessageTextBox.ReadOnly = true;
+            this.resultMessageTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.resultMessageTextBox.Size = new System.Drawing.Size(458, 120);
+            this.resultMessageTextBox.TabIndex = 53;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(52, 131);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(90, 13);
+            this.label2.TabIndex = 34;
+            this.label2.Text = "Partner név része";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(187, 103);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(91, 13);
+            this.label1.TabIndex = 33;
+            this.label1.Text = "Partner azonosító";
+            // 
+            // partnerIdTextBox
+            // 
+            this.partnerIdTextBox.Location = new System.Drawing.Point(284, 100);
+            this.partnerIdTextBox.Name = "partnerIdTextBox";
+            this.partnerIdTextBox.Size = new System.Drawing.Size(136, 20);
+            this.partnerIdTextBox.TabIndex = 32;
+            // 
+            // defaultParametersControl1
+            // 
+            this.defaultParametersControl1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.defaultParametersControl1.Location = new System.Drawing.Point(0, 0);
+            this.defaultParametersControl1.Name = "defaultParametersControl1";
+            this.defaultParametersControl1.Size = new System.Drawing.Size(568, 96);
+            this.defaultParametersControl1.TabIndex = 31;
+            // 
+            // partnerNameTextBox
+            // 
+            this.partnerNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.partnerDataBindingSource, "partnerNamePart", true));
+            this.partnerNameTextBox.Location = new System.Drawing.Point(148, 127);
+            this.partnerNameTextBox.Name = "partnerNameTextBox";
+            this.partnerNameTextBox.Size = new System.Drawing.Size(130, 20);
+            this.partnerNameTextBox.TabIndex = 30;
+            // 
+            // partnerDataBindingSource
+            // 
+            this.partnerDataBindingSource.DataSource = typeof(PDATestProject.PartnerData);
             // 
             // countPartnerByFilterButton
             // 
@@ -78,10 +146,6 @@
             this.findPartnerByIdButton.Text = "FindPartnerById";
             this.findPartnerByIdButton.UseVisualStyleBackColor = true;
             this.findPartnerByIdButton.Click += new System.EventHandler(this.findPartnerByIdButton_Click);
-            // 
-            // partnerDataBindingSource
-            // 
-            this.partnerDataBindingSource.DataSource = typeof(PDATestProject.PartnerData);
             // 
             // partnerDataGrid
             // 
@@ -115,69 +179,6 @@
             // partnerReturnDataBindingSource
             // 
             this.partnerReturnDataBindingSource.DataSource = typeof(PDATestProject.Datas.PartnerReturnData);
-            // 
-            // partnerNameTextBox
-            // 
-            this.partnerNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.partnerDataBindingSource, "partnerNamePart", true));
-            this.partnerNameTextBox.Location = new System.Drawing.Point(148, 127);
-            this.partnerNameTextBox.Name = "partnerNameTextBox";
-            this.partnerNameTextBox.Size = new System.Drawing.Size(130, 20);
-            this.partnerNameTextBox.TabIndex = 30;
-            // 
-            // defaultParametersControl1
-            // 
-            this.defaultParametersControl1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.defaultParametersControl1.Location = new System.Drawing.Point(0, 0);
-            this.defaultParametersControl1.Name = "defaultParametersControl1";
-            this.defaultParametersControl1.Size = new System.Drawing.Size(568, 96);
-            this.defaultParametersControl1.TabIndex = 31;
-            // 
-            // partnerIdTextBox
-            // 
-            this.partnerIdTextBox.Location = new System.Drawing.Point(284, 100);
-            this.partnerIdTextBox.Name = "partnerIdTextBox";
-            this.partnerIdTextBox.Size = new System.Drawing.Size(136, 20);
-            this.partnerIdTextBox.TabIndex = 32;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(187, 103);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(91, 13);
-            this.label1.TabIndex = 33;
-            this.label1.Text = "Partner azonosító";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(52, 131);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(90, 13);
-            this.label2.TabIndex = 34;
-            this.label2.Text = "Partner név része";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(24, 303);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(57, 13);
-            this.label6.TabIndex = 54;
-            this.label6.Text = "Eredmény:";
-            // 
-            // resultMessageTextBox
-            // 
-            this.resultMessageTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.resultMessageTextBox.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.resultMessageTextBox.Location = new System.Drawing.Point(87, 303);
-            this.resultMessageTextBox.Multiline = true;
-            this.resultMessageTextBox.Name = "resultMessageTextBox";
-            this.resultMessageTextBox.ReadOnly = true;
-            this.resultMessageTextBox.Size = new System.Drawing.Size(458, 120);
-            this.resultMessageTextBox.TabIndex = 53;
             // 
             // PartnerControl
             // 

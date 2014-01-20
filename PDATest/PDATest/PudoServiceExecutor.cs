@@ -13,6 +13,13 @@ namespace PDATestProject
 
         private static PdaPudoServiceClient pudoClient = new PdaPudoServiceClient();
 
+        private static DefaultReturnData initDefaultReturn(DefaultReturnData returnData, DefaultData data, string requestName)
+        {
+            returnData.summaryMessage = "Request:" + Environment.NewLine + requestName + Environment.NewLine;
+            returnData.summaryMessage += data.ToString();
+            return returnData;
+        }
+
         private static BaseRequest initDefaultParameters(BaseRequest request, DefaultData data)
         {
             if (data.languageCode != null)
@@ -34,9 +41,10 @@ namespace PDATestProject
 
         private static DefaultReturnData createSummaryMessage(DefaultReturnData data, BaseResponse response)
         {
-            data.summaryMessage = Environment.NewLine + (DateTime.Now.ToString("yyyy.MM.dd HH:mm:ss")) + " - RESULT: " +
-                (response.Result ? "SUCCESS " : "FAILED ") + " - ERROR CODE: " +
-                response.ErrorCode + " - ERROR MESSAGE: " + response.ErrorMessage;
+            data.summaryMessage += Environment.NewLine + "EXECUTION:" + (DateTime.Now.ToString("yyyy.MM.dd HH:mm:ss")) + 
+                Environment.NewLine + "RESULT: " +
+                (response.Result ? "SUCCESS " : "FAILED ") + Environment.NewLine + "ERROR CODE: " +
+                response.ErrorCode + Environment.NewLine + "ERROR MESSAGE: " + response.ErrorMessage;
 
             return data;
         }
@@ -51,7 +59,8 @@ namespace PDATestProject
 
                 FindParcelForDeliveryResponse response = pudoClient.FindParcelForDelivery(request);
 
-                DeliveryReturnData returnData = (DeliveryReturnData)createSummaryMessage(new DeliveryReturnData(), response);
+                DeliveryReturnData returnData = (DeliveryReturnData)createSummaryMessage(
+                    initDefaultReturn(new DeliveryReturnData(), deliveryData, "findParcelForDelivery"), response);
                 if (response.Result)
                 {
                     foreach (ParcelMinimal parcelMinimal in response.ParcelMinimals)
@@ -97,7 +106,8 @@ namespace PDATestProject
                 PostCancelDeliveryResponse response = pudoClient.PostCancelDelivery(request);
 
                 //create return object with base properties
-                DeliveryReturnData returnData = (DeliveryReturnData)createSummaryMessage(new DeliveryReturnData(), response);
+                DeliveryReturnData returnData = (DeliveryReturnData)createSummaryMessage(
+                    initDefaultReturn(new DeliveryReturnData(), deliveryData, "postCancelDelivery"), response);
                 if (response.Result)
                 {
                     returnData.summaryMessage += parcelResultsToString(response.ParcelResults);
@@ -134,7 +144,8 @@ namespace PDATestProject
                 PostRefuseDeliveryResponse response = pudoClient.PostRefuseDelivery(request);
 
                 //create return object with base properties
-                DeliveryReturnData returnData = (DeliveryReturnData)createSummaryMessage(new DeliveryReturnData(), response);
+                DeliveryReturnData returnData = (DeliveryReturnData)createSummaryMessage(
+                    initDefaultReturn(new DeliveryReturnData(), deliveryData, "postRefuseDelivery"), response);
                 if (response.Result)
                 {
                     returnData.summaryMessage += parcelResultsToString(response.ParcelResults);
@@ -171,7 +182,8 @@ namespace PDATestProject
                 PostDeliveryResponse response = pudoClient.PostDelivery(request);
 
                 //create return object with base properties
-                DeliveryReturnData returnData = (DeliveryReturnData)createSummaryMessage(new DeliveryReturnData(), response);
+                DeliveryReturnData returnData = (DeliveryReturnData)createSummaryMessage(
+                    initDefaultReturn(new DeliveryReturnData(), deliveryData, "postDelivery"), response);
                 if (response.Result)
                 {
                     returnData.summaryMessage += parcelResultsToString(response.ParcelResults);
@@ -196,7 +208,8 @@ namespace PDATestProject
                 GetHolidaysResponse response = pudoClient.GetHolidays(request);
 
                 //create return object with base properties
-                DefaultReturnData returnData = createSummaryMessage(new DefaultReturnData(), response);
+                DefaultReturnData returnData = createSummaryMessage(
+                    initDefaultReturn(new DefaultReturnData(), holidayData, "getHoliday"), response);
 
                 //initialize custom values 
                 if (response.Result)
@@ -277,7 +290,8 @@ namespace PDATestProject
                 SetHolidaysResponse response = pudoClient.SetHolidays(request);
 
                 //create return object with base properties
-                DefaultReturnData returnData = createSummaryMessage(new DefaultReturnData(), response);
+                DefaultReturnData returnData = createSummaryMessage(
+                    initDefaultReturn(new DefaultReturnData(), holidayData, "setHoliday"), response);
 
                 return returnData;
             }
@@ -300,7 +314,8 @@ namespace PDATestProject
                 FindInsertedDictionarySinceResponse response = pudoClient.FindInsertedDictionarySince(request);
 
                 //create return object with base properties
-                MasterDataReturnData returnData = (MasterDataReturnData)createSummaryMessage(new MasterDataReturnData(), response);
+                MasterDataReturnData returnData = (MasterDataReturnData)createSummaryMessage(
+                    initDefaultReturn(new MasterDataReturnData(), masterDataData, "findInsertedDictionarySince"), response);
                 if (response.Result)
                 {
                     returnData.dictionaries.Clear();
@@ -335,7 +350,8 @@ namespace PDATestProject
                 FindUpsertedPartnerSinceResponse response = pudoClient.FindUpsertedPartnerSince(request);
 
                 //create return object with base properties
-                MasterDataReturnData returnData = (MasterDataReturnData)createSummaryMessage(new MasterDataReturnData(), response);
+                MasterDataReturnData returnData = (MasterDataReturnData)createSummaryMessage(
+                    initDefaultReturn(new MasterDataReturnData(), masterDataData, "findInsertedPartnerSince"), response);
                 if (response.Result)
                 {
                     returnData.partners.Clear();
@@ -369,7 +385,8 @@ namespace PDATestProject
                 FindInsertedParcelSinceResponse response = pudoClient.FindInsertedParcelSince(request);
 
                 //create return object with base properties
-                MasterDataReturnData returnData = (MasterDataReturnData)createSummaryMessage(new MasterDataReturnData(), response);
+                MasterDataReturnData returnData = (MasterDataReturnData)createSummaryMessage(
+                    initDefaultReturn(new MasterDataReturnData(), masterDataData, "findInsertedParcelSince"), response);
                 if (response.Result)
                 {
                     returnData.parcels.Clear();
@@ -422,7 +439,8 @@ namespace PDATestProject
                 FindDeletedDictionarySinceResponse response = pudoClient.FindDeletedDictionarySince(request);
 
                 //create return object with base properties
-                MasterDataReturnData returnData = (MasterDataReturnData)createSummaryMessage(new MasterDataReturnData(), response);
+                MasterDataReturnData returnData = (MasterDataReturnData)createSummaryMessage(
+                    initDefaultReturn(new MasterDataReturnData(), masterDataData, "findDeletedDictionarySince"), response);
                 if (response.Result)
                 {
                     returnData.dictionaries.Clear();
@@ -458,7 +476,8 @@ namespace PDATestProject
                 FindDeletedPartnerSinceResponse response = pudoClient.FindDeletedPartnerSince(request);
 
                 //create return object with base properties
-                MasterDataReturnData returnData = (MasterDataReturnData)createSummaryMessage(new MasterDataReturnData(), response);
+                MasterDataReturnData returnData = (MasterDataReturnData)createSummaryMessage(
+                    initDefaultReturn(new MasterDataReturnData(), masterDataData, "findDeletedPartnerSince"), response);
                 if (response.Result)
                 {
                     returnData.partners.Clear();
@@ -491,7 +510,8 @@ namespace PDATestProject
                 FindDeletedParcelSinceResponse response = pudoClient.FindDeletedParcelSince(request);
 
                 //create return object with base properties
-                MasterDataReturnData returnData = (MasterDataReturnData)createSummaryMessage(new MasterDataReturnData(), response);
+                MasterDataReturnData returnData = (MasterDataReturnData)createSummaryMessage(
+                    initDefaultReturn(new MasterDataReturnData(), masterDataData, "findDeletedParcelSince"), response);
                 if (response.Result)
                 {
                     returnData.summaryMessage += Environment.NewLine + "Result list:" + Environment.NewLine;
@@ -521,7 +541,8 @@ namespace PDATestProject
                 GetOpeningHoursResponse response = pudoClient.GetOpeningHours(request);
 
                 //create return object with base properties
-                DefaultReturnData returnData = (DefaultReturnData)createSummaryMessage(new DefaultReturnData(), response);
+                DefaultReturnData returnData = (DefaultReturnData)createSummaryMessage(
+                    initDefaultReturn(new DefaultReturnData(), openingHoursData, "getOpeningHours"), response);
 
                 //initialize custom values
                 if (response.Result)
@@ -600,7 +621,8 @@ namespace PDATestProject
                 SetOpeningHoursResponse response = pudoClient.SetOpeningHours(request);
 
                 //create return object with base properties
-                DefaultReturnData returnData = (DefaultReturnData)createSummaryMessage(new DefaultReturnData(), response);
+                DefaultReturnData returnData = (DefaultReturnData)createSummaryMessage(
+                    initDefaultReturn(new DefaultReturnData(), openingHoursData, "setOpeningHours"), response);
 
                 return returnData;
             }
@@ -678,7 +700,8 @@ namespace PDATestProject
                 FindParcelByBarcodeResponse response = pudoClient.FindParcelByBarcode(request);
 
                 //create return object with base properties
-                PackageReturnData returnData = (PackageReturnData)createSummaryMessage(new PackageReturnData(), response);
+                PackageReturnData returnData = (PackageReturnData)createSummaryMessage(
+                    initDefaultReturn(new PackageReturnData(), packageData, "findParcelByBarCode"), response);
 
                 //initialize custom values
                 return initPackageReturnParcelComposites(returnData, response.ParcelComposites);
@@ -708,7 +731,8 @@ namespace PDATestProject
                 FindParcelByFilterResponse response = pudoClient.FindParcelByFilter(request);
 
                 //create return object with base properties
-                PackageReturnData returnData = (PackageReturnData)createSummaryMessage(new PackageReturnData(), response);
+                PackageReturnData returnData = (PackageReturnData)createSummaryMessage(
+                    initDefaultReturn(new PackageReturnData(), packageData, "findParcelByFilter"), response);
 
                 //initialize custom values
                 return initPackageReturnParcelComposites(returnData, response.ParcelComposites);
@@ -775,7 +799,8 @@ namespace PDATestProject
                 FindPartnerByIDResponse response = pudoClient.FindPartnerByID(request);
 
                 //create return object with base properties
-                PartnersReturnData returnData = (PartnersReturnData)createSummaryMessage(new PartnersReturnData(), response);
+                PartnersReturnData returnData = (PartnersReturnData)createSummaryMessage(
+                    initDefaultReturn(new PartnersReturnData(), partnerData, "findPartnerById"), response);
                 if (response.Result)
                 {
                     if (response.Partner != null)
@@ -811,7 +836,8 @@ namespace PDATestProject
                 FindPartnerByFilterResponse response = pudoClient.FindPartnerByFilter(request);
 
                 //create return object with base properties
-                PartnersReturnData returnData = (PartnersReturnData)createSummaryMessage(new PartnersReturnData(), response);
+                PartnersReturnData returnData = (PartnersReturnData)createSummaryMessage(
+                    initDefaultReturn(new PartnersReturnData(), partnerData, "findPartnerByFilter"), response);
 
                 //initialize custom values
                 if (response.Result)
@@ -848,7 +874,8 @@ namespace PDATestProject
                 CountPartnerByFilterResponse response = pudoClient.CountPartnerByFilter(request);
 
                 //create return object with base properties
-                PartnersReturnData returnData = (PartnersReturnData)createSummaryMessage(new PartnersReturnData(), response);
+                PartnersReturnData returnData = (PartnersReturnData)createSummaryMessage(initDefaultReturn(
+                    new PartnersReturnData(), partnerData, "countPartnerByFilter"), response);
 
                 //initialize custom values
                 if (response.Result)
@@ -876,7 +903,8 @@ namespace PDATestProject
                 FindParcelForReceiveResponse response = pudoClient.FindParcelForReceive(request);
 
                 //create return object with base properties
-                ReceiveReturnData returnData = (ReceiveReturnData)createSummaryMessage(new ReceiveReturnData(), response);
+                ReceiveReturnData returnData = (ReceiveReturnData)createSummaryMessage(
+                    initDefaultReturn(new ReceiveReturnData(), receiveData, "findParcelForReceive"), response);
 
                 //initialize custom values
                 return initReceiveReturnParcelComposites(returnData, response.ParcelComposites);
@@ -959,7 +987,8 @@ namespace PDATestProject
                 PostReceiveResponse response = pudoClient.PostReceive(request);
 
                 //create return object with base properties
-                ReceiveReturnData returnData = (ReceiveReturnData)createSummaryMessage(new ReceiveReturnData(), response);
+                ReceiveReturnData returnData = (ReceiveReturnData)createSummaryMessage(
+                    initDefaultReturn(new ReceiveReturnData(), receiveData, "postReceive"), response);
 
                 if (response.Result)
                 {
@@ -996,7 +1025,8 @@ namespace PDATestProject
                 FindParcelForReturnResponse response = pudoClient.FindParcelForReturn(request);
 
                 //create return object with base properties
-                ReturnReturnData returnData = (ReturnReturnData)createSummaryMessage(new ReturnReturnData(), response);
+                ReturnReturnData returnData = (ReturnReturnData)createSummaryMessage(
+                    initDefaultReturn(new ReturnReturnData(), returnedData, "findParcelForReturn"), response);
                 if (response.Result)
                 {
                     foreach (ParcelMinimal parcel in response.ParcelMinimals)
@@ -1048,7 +1078,8 @@ namespace PDATestProject
                 PostReturnResponse response = pudoClient.PostReturn(request);
 
                 //create return object with base properties
-                ReturnReturnData returnData = (ReturnReturnData)createSummaryMessage(new ReceiveReturnData(), response);
+                ReturnReturnData returnData = (ReturnReturnData)createSummaryMessage(
+                    initDefaultReturn(new ReturnReturnData(), returnedData, "postReturn"), response);
 
                 return returnData;
             }
@@ -1071,7 +1102,8 @@ namespace PDATestProject
                 FindParcelForDeliveryResponse response = pudoClient.FindParcelForDelivery(request);
 
                 //create return object with base properties
-                ReturnPreRegReturnData returnData = (ReturnPreRegReturnData)createSummaryMessage(new ReturnPreRegReturnData(), response);
+                ReturnPreRegReturnData returnData = (ReturnPreRegReturnData)createSummaryMessage(
+                    initDefaultReturn(new ReturnPreRegReturnData(), returnPreRegData, "findParcelForDelivery"), response);
                 if (response.Result)
                 {
                     //initialize custom values
@@ -1124,7 +1156,8 @@ namespace PDATestProject
                 PostRefuseCustomerReturnPreRegisteredResponse response = pudoClient.PostRefuseCustomerReturnPreRegistered(request);
 
                 //create return object with base properties
-                ReturnPreRegReturnData returnData = (ReturnPreRegReturnData)createSummaryMessage(new ReturnPreRegReturnData(), response);
+                ReturnPreRegReturnData returnData = (ReturnPreRegReturnData)createSummaryMessage(
+                    initDefaultReturn(new ReturnPreRegReturnData(), returnPreRegData, "postRefuseCustRetPrereg"), response);
 
                 //initialize custom values
                 if (response.Result)
@@ -1165,7 +1198,8 @@ namespace PDATestProject
                 PostCustomerReturnPreRegisteredResponse response = pudoClient.PostCustomerReturnPreRegistered(request);
 
                 //create return object with base properties
-                ReturnPreRegReturnData returnData = (ReturnPreRegReturnData)createSummaryMessage(new ReturnPreRegReturnData(), response);
+                ReturnPreRegReturnData returnData = (ReturnPreRegReturnData)createSummaryMessage(
+                    initDefaultReturn(new ReturnPreRegReturnData(), returnPreRegData, "postCustRetPrereg"), response);
 
                 //initialize custom values
                 if (response.Result)
@@ -1212,7 +1246,8 @@ namespace PDATestProject
                 PostCustomerReturnUnexpectedResponse response = pudoClient.PostCustomerReturnUnexpected(request);
 
                 //create return object with base properties
-                ReturnPreRegReturnData returnData = (ReturnPreRegReturnData)createSummaryMessage(new ReturnPreRegReturnData(), response);
+                ReturnPreRegReturnData returnData = (ReturnPreRegReturnData)createSummaryMessage(
+                    initDefaultReturn(new ReturnPreRegReturnData(), returnPreRegData, "postCustRetUnexpected"), response);
 
                 //initialize custom values
                 if (response.Result)

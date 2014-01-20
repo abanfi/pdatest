@@ -335,6 +335,7 @@
             this.resultMessageTextBox.Multiline = true;
             this.resultMessageTextBox.Name = "resultMessageTextBox";
             this.resultMessageTextBox.ReadOnly = true;
+            this.resultMessageTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.resultMessageTextBox.Size = new System.Drawing.Size(469, 104);
             this.resultMessageTextBox.TabIndex = 51;
             // 

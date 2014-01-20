@@ -22,5 +22,14 @@ namespace PDATestProject
         public string offline { get; set; }
         public string languageCode { get; set; }
 
+        public override string ToString()
+        {
+            string stringValue = "Parameters:" + Environment.NewLine;
+            stringValue += "terminalId:" + terminalId + Environment.NewLine;
+            stringValue += "transactionId:" + transactionId + Environment.NewLine;
+            stringValue += "offline:" + offline + Environment.NewLine;
+            stringValue += "languageCode:" + languageCode + Environment.NewLine;
+            return stringValue;
+        }
     }
 }

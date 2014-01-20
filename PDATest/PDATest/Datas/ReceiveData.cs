@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PDATestProject
 {
-    public class ReceiveData : DefaultData 
+    public class ReceiveData : DefaultData
     {
         public ReceiveData()
         {
@@ -17,5 +17,16 @@ namespace PDATestProject
         public string barcode { get; set; }
 
         public List<ParcelCompositeSelectableReturnData> gridData { get; set; }
+
+        public override string ToString()
+        {
+            string stringValue = base.ToString();
+            stringValue += "barcode:" + barcode + Environment.NewLine;
+            foreach (ParcelCompositeSelectableReturnData data in gridData)
+            {
+                stringValue += "parcelcomposite:" + data.Barcode + "," + data.ShipmentID + "->selected:" + data.Selected;
+            }
+            return stringValue;
+        }
     }
 }

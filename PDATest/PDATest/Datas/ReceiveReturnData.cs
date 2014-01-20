@@ -15,8 +15,6 @@ namespace PDATestProject.Datas
     {
 
         public bool Selected { get; set; }
-
-        public bool Damaged { get; set; }
         
     }
 }
