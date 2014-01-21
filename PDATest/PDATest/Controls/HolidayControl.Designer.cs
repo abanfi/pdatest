@@ -53,7 +53,7 @@
             // holiday1label
             // 
             this.holiday1label.AutoSize = true;
-            this.holiday1label.Location = new System.Drawing.Point(24, 99);
+            this.holiday1label.Location = new System.Drawing.Point(9, 107);
             this.holiday1label.Name = "holiday1label";
             this.holiday1label.Size = new System.Drawing.Size(51, 13);
             this.holiday1label.TabIndex = 0;
@@ -62,7 +62,7 @@
             // holiday1FromDatePicker
             // 
             this.holiday1FromDatePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.holidayDataBindingSource, "holiday1From", true));
-            this.holiday1FromDatePicker.Location = new System.Drawing.Point(27, 115);
+            this.holiday1FromDatePicker.Location = new System.Drawing.Point(12, 123);
             this.holiday1FromDatePicker.Name = "holiday1FromDatePicker";
             this.holiday1FromDatePicker.ShowCheckBox = true;
             this.holiday1FromDatePicker.Size = new System.Drawing.Size(139, 20);
@@ -75,7 +75,7 @@
             // holiday1ToDatePicker
             // 
             this.holiday1ToDatePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.holidayDataBindingSource, "holiday1To", true));
-            this.holiday1ToDatePicker.Location = new System.Drawing.Point(27, 141);
+            this.holiday1ToDatePicker.Location = new System.Drawing.Point(12, 149);
             this.holiday1ToDatePicker.Name = "holiday1ToDatePicker";
             this.holiday1ToDatePicker.ShowCheckBox = true;
             this.holiday1ToDatePicker.Size = new System.Drawing.Size(139, 20);
@@ -86,13 +86,13 @@
             this.defaultParametersControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.defaultParametersControl1.Location = new System.Drawing.Point(0, 0);
             this.defaultParametersControl1.Name = "defaultParametersControl1";
-            this.defaultParametersControl1.Size = new System.Drawing.Size(626, 96);
+            this.defaultParametersControl1.Size = new System.Drawing.Size(783, 71);
             this.defaultParametersControl1.TabIndex = 3;
             // 
             // holiday2ToDatePicker
             // 
             this.holiday2ToDatePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.holidayDataBindingSource, "holiday2To", true));
-            this.holiday2ToDatePicker.Location = new System.Drawing.Point(172, 141);
+            this.holiday2ToDatePicker.Location = new System.Drawing.Point(154, 149);
             this.holiday2ToDatePicker.Name = "holiday2ToDatePicker";
             this.holiday2ToDatePicker.ShowCheckBox = true;
             this.holiday2ToDatePicker.Size = new System.Drawing.Size(139, 20);
@@ -101,7 +101,7 @@
             // holiday2FromDatePicker
             // 
             this.holiday2FromDatePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.holidayDataBindingSource, "holiday2From", true));
-            this.holiday2FromDatePicker.Location = new System.Drawing.Point(172, 115);
+            this.holiday2FromDatePicker.Location = new System.Drawing.Point(154, 123);
             this.holiday2FromDatePicker.Name = "holiday2FromDatePicker";
             this.holiday2FromDatePicker.ShowCheckBox = true;
             this.holiday2FromDatePicker.Size = new System.Drawing.Size(139, 20);
@@ -110,7 +110,7 @@
             // holiday2label
             // 
             this.holiday2label.AutoSize = true;
-            this.holiday2label.Location = new System.Drawing.Point(169, 99);
+            this.holiday2label.Location = new System.Drawing.Point(151, 107);
             this.holiday2label.Name = "holiday2label";
             this.holiday2label.Size = new System.Drawing.Size(51, 13);
             this.holiday2label.TabIndex = 4;
@@ -119,7 +119,7 @@
             // holiday3ToDatePicker
             // 
             this.holiday3ToDatePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.holidayDataBindingSource, "holiday3To", true));
-            this.holiday3ToDatePicker.Location = new System.Drawing.Point(317, 141);
+            this.holiday3ToDatePicker.Location = new System.Drawing.Point(299, 149);
             this.holiday3ToDatePicker.Name = "holiday3ToDatePicker";
             this.holiday3ToDatePicker.ShowCheckBox = true;
             this.holiday3ToDatePicker.Size = new System.Drawing.Size(139, 20);
@@ -128,7 +128,7 @@
             // holiday3FromDatePicker
             // 
             this.holiday3FromDatePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.holidayDataBindingSource, "holiday3From", true));
-            this.holiday3FromDatePicker.Location = new System.Drawing.Point(317, 115);
+            this.holiday3FromDatePicker.Location = new System.Drawing.Point(299, 123);
             this.holiday3FromDatePicker.Name = "holiday3FromDatePicker";
             this.holiday3FromDatePicker.ShowCheckBox = true;
             this.holiday3FromDatePicker.Size = new System.Drawing.Size(139, 20);
@@ -137,7 +137,7 @@
             // holiday3label
             // 
             this.holiday3label.AutoSize = true;
-            this.holiday3label.Location = new System.Drawing.Point(314, 99);
+            this.holiday3label.Location = new System.Drawing.Point(296, 107);
             this.holiday3label.Name = "holiday3label";
             this.holiday3label.Size = new System.Drawing.Size(51, 13);
             this.holiday3label.TabIndex = 7;
@@ -146,7 +146,7 @@
             // holiday4ToDatePicker
             // 
             this.holiday4ToDatePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.holidayDataBindingSource, "holiday4To", true));
-            this.holiday4ToDatePicker.Location = new System.Drawing.Point(462, 141);
+            this.holiday4ToDatePicker.Location = new System.Drawing.Point(441, 149);
             this.holiday4ToDatePicker.Name = "holiday4ToDatePicker";
             this.holiday4ToDatePicker.ShowCheckBox = true;
             this.holiday4ToDatePicker.Size = new System.Drawing.Size(139, 20);
@@ -155,7 +155,7 @@
             // holiday4FromDatePicker
             // 
             this.holiday4FromDatePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.holidayDataBindingSource, "holiday4From", true));
-            this.holiday4FromDatePicker.Location = new System.Drawing.Point(462, 115);
+            this.holiday4FromDatePicker.Location = new System.Drawing.Point(441, 123);
             this.holiday4FromDatePicker.Name = "holiday4FromDatePicker";
             this.holiday4FromDatePicker.ShowCheckBox = true;
             this.holiday4FromDatePicker.Size = new System.Drawing.Size(139, 20);
@@ -164,7 +164,7 @@
             // holiday4label
             // 
             this.holiday4label.AutoSize = true;
-            this.holiday4label.Location = new System.Drawing.Point(459, 99);
+            this.holiday4label.Location = new System.Drawing.Point(438, 107);
             this.holiday4label.Name = "holiday4label";
             this.holiday4label.Size = new System.Drawing.Size(51, 13);
             this.holiday4label.TabIndex = 10;
@@ -172,7 +172,7 @@
             // 
             // getHolidayButton
             // 
-            this.getHolidayButton.Location = new System.Drawing.Point(382, 167);
+            this.getHolidayButton.Location = new System.Drawing.Point(441, 73);
             this.getHolidayButton.Name = "getHolidayButton";
             this.getHolidayButton.Size = new System.Drawing.Size(107, 23);
             this.getHolidayButton.TabIndex = 13;
@@ -182,7 +182,7 @@
             // 
             // setHolidaysButton
             // 
-            this.setHolidaysButton.Location = new System.Drawing.Point(495, 167);
+            this.setHolidaysButton.Location = new System.Drawing.Point(441, 185);
             this.setHolidaysButton.Name = "setHolidaysButton";
             this.setHolidaysButton.Size = new System.Drawing.Size(106, 23);
             this.setHolidaysButton.TabIndex = 14;
@@ -193,7 +193,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(26, 199);
+            this.label6.Location = new System.Drawing.Point(583, 21);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(57, 13);
             this.label6.TabIndex = 27;
@@ -205,12 +205,12 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.resultMessageTextBox.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.resultMessageTextBox.Location = new System.Drawing.Point(89, 196);
+            this.resultMessageTextBox.Location = new System.Drawing.Point(586, 37);
             this.resultMessageTextBox.Multiline = true;
             this.resultMessageTextBox.Name = "resultMessageTextBox";
             this.resultMessageTextBox.ReadOnly = true;
             this.resultMessageTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.resultMessageTextBox.Size = new System.Drawing.Size(512, 167);
+            this.resultMessageTextBox.Size = new System.Drawing.Size(192, 326);
             this.resultMessageTextBox.TabIndex = 26;
             // 
             // HolidayControl
@@ -235,7 +235,7 @@
             this.Controls.Add(this.holiday1FromDatePicker);
             this.Controls.Add(this.holiday1label);
             this.Name = "HolidayControl";
-            this.Size = new System.Drawing.Size(626, 379);
+            this.Size = new System.Drawing.Size(783, 379);
             ((System.ComponentModel.ISupportInitialize)(this.holidayDataBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -88,7 +88,7 @@
             // 
             // findDeletedParcelSinceButton
             // 
-            this.findDeletedParcelSinceButton.Location = new System.Drawing.Point(492, 129);
+            this.findDeletedParcelSinceButton.Location = new System.Drawing.Point(393, 129);
             this.findDeletedParcelSinceButton.Name = "findDeletedParcelSinceButton";
             this.findDeletedParcelSinceButton.Size = new System.Drawing.Size(156, 23);
             this.findDeletedParcelSinceButton.TabIndex = 31;
@@ -98,7 +98,7 @@
             // 
             // findDeletedPartnerSinceButton
             // 
-            this.findDeletedPartnerSinceButton.Location = new System.Drawing.Point(330, 129);
+            this.findDeletedPartnerSinceButton.Location = new System.Drawing.Point(231, 129);
             this.findDeletedPartnerSinceButton.Name = "findDeletedPartnerSinceButton";
             this.findDeletedPartnerSinceButton.Size = new System.Drawing.Size(156, 23);
             this.findDeletedPartnerSinceButton.TabIndex = 30;
@@ -108,7 +108,7 @@
             // 
             // findDeletedDictionarySinceButton
             // 
-            this.findDeletedDictionarySinceButton.Location = new System.Drawing.Point(168, 129);
+            this.findDeletedDictionarySinceButton.Location = new System.Drawing.Point(69, 129);
             this.findDeletedDictionarySinceButton.Name = "findDeletedDictionarySinceButton";
             this.findDeletedDictionarySinceButton.Size = new System.Drawing.Size(156, 23);
             this.findDeletedDictionarySinceButton.TabIndex = 29;
@@ -118,7 +118,7 @@
             // 
             // findInsertedParcelSinceButton
             // 
-            this.findInsertedParcelSinceButton.Location = new System.Drawing.Point(492, 102);
+            this.findInsertedParcelSinceButton.Location = new System.Drawing.Point(393, 102);
             this.findInsertedParcelSinceButton.Name = "findInsertedParcelSinceButton";
             this.findInsertedParcelSinceButton.Size = new System.Drawing.Size(156, 23);
             this.findInsertedParcelSinceButton.TabIndex = 28;
@@ -128,7 +128,7 @@
             // 
             // findInsertedPartnerSinceButton
             // 
-            this.findInsertedPartnerSinceButton.Location = new System.Drawing.Point(330, 102);
+            this.findInsertedPartnerSinceButton.Location = new System.Drawing.Point(231, 102);
             this.findInsertedPartnerSinceButton.Name = "findInsertedPartnerSinceButton";
             this.findInsertedPartnerSinceButton.Size = new System.Drawing.Size(156, 23);
             this.findInsertedPartnerSinceButton.TabIndex = 27;
@@ -139,7 +139,7 @@
             // offlineDatePicker
             // 
             this.offlineDatePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.masterDataDataBindingSource, "date", true));
-            this.offlineDatePicker.Location = new System.Drawing.Point(25, 103);
+            this.offlineDatePicker.Location = new System.Drawing.Point(412, 75);
             this.offlineDatePicker.Name = "offlineDatePicker";
             this.offlineDatePicker.Size = new System.Drawing.Size(137, 20);
             this.offlineDatePicker.TabIndex = 26;
@@ -150,7 +150,7 @@
             // 
             // findInsertedDictionarySinceButton
             // 
-            this.findInsertedDictionarySinceButton.Location = new System.Drawing.Point(168, 102);
+            this.findInsertedDictionarySinceButton.Location = new System.Drawing.Point(69, 102);
             this.findInsertedDictionarySinceButton.Name = "findInsertedDictionarySinceButton";
             this.findInsertedDictionarySinceButton.Size = new System.Drawing.Size(156, 23);
             this.findInsertedDictionarySinceButton.TabIndex = 25;
@@ -172,7 +172,7 @@
             this.dictionaryDataGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dictionaryDataGrid.Location = new System.Drawing.Point(3, 3);
             this.dictionaryDataGrid.Name = "dictionaryDataGrid";
-            this.dictionaryDataGrid.Size = new System.Drawing.Size(646, 179);
+            this.dictionaryDataGrid.Size = new System.Drawing.Size(510, 345);
             this.dictionaryDataGrid.TabIndex = 24;
             // 
             // descriptionDataGridViewTextBoxColumn
@@ -202,7 +202,7 @@
             this.defaultParametersControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.defaultParametersControl1.Location = new System.Drawing.Point(0, 0);
             this.defaultParametersControl1.Name = "defaultParametersControl1";
-            this.defaultParametersControl1.Size = new System.Drawing.Size(711, 96);
+            this.defaultParametersControl1.Size = new System.Drawing.Size(983, 69);
             this.defaultParametersControl1.TabIndex = 32;
             // 
             // partnerReturnDataBindingSource
@@ -216,7 +216,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(22, 394);
+            this.label6.Location = new System.Drawing.Point(566, 20);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(57, 13);
             this.label6.TabIndex = 52;
@@ -228,26 +228,26 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.resultMessageTextBox.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.resultMessageTextBox.Location = new System.Drawing.Point(87, 394);
+            this.resultMessageTextBox.Location = new System.Drawing.Point(569, 36);
             this.resultMessageTextBox.Multiline = true;
             this.resultMessageTextBox.Name = "resultMessageTextBox";
             this.resultMessageTextBox.ReadOnly = true;
             this.resultMessageTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.resultMessageTextBox.Size = new System.Drawing.Size(598, 141);
+            this.resultMessageTextBox.Size = new System.Drawing.Size(388, 494);
             this.resultMessageTextBox.TabIndex = 51;
             this.resultMessageTextBox.Text = " ";
             // 
             // resultTabControl
             // 
-            this.resultTabControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.resultTabControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.resultTabControl.Controls.Add(this.partnerTabPage);
             this.resultTabControl.Controls.Add(this.dictionaryTabPage);
             this.resultTabControl.Controls.Add(this.parcelTabPage);
-            this.resultTabControl.Location = new System.Drawing.Point(25, 177);
+            this.resultTabControl.Location = new System.Drawing.Point(25, 158);
             this.resultTabControl.Name = "resultTabControl";
             this.resultTabControl.SelectedIndex = 0;
-            this.resultTabControl.Size = new System.Drawing.Size(660, 211);
+            this.resultTabControl.Size = new System.Drawing.Size(524, 372);
             this.resultTabControl.TabIndex = 53;
             // 
             // partnerTabPage
@@ -256,7 +256,7 @@
             this.partnerTabPage.Location = new System.Drawing.Point(4, 22);
             this.partnerTabPage.Name = "partnerTabPage";
             this.partnerTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.partnerTabPage.Size = new System.Drawing.Size(652, 185);
+            this.partnerTabPage.Size = new System.Drawing.Size(516, 346);
             this.partnerTabPage.TabIndex = 0;
             this.partnerTabPage.Text = "Partner";
             this.partnerTabPage.UseVisualStyleBackColor = true;
@@ -265,17 +265,16 @@
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.partnerIDDataGridViewTextBoxColumn,
             this.partnerNameDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.partnerReturnDataBindingSource;
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(3, 3);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(646, 179);
+            this.dataGridView1.Size = new System.Drawing.Size(510, 340);
             this.dataGridView1.TabIndex = 0;
             // 
             // partnerIDDataGridViewTextBoxColumn
@@ -296,7 +295,7 @@
             this.dictionaryTabPage.Location = new System.Drawing.Point(4, 22);
             this.dictionaryTabPage.Name = "dictionaryTabPage";
             this.dictionaryTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.dictionaryTabPage.Size = new System.Drawing.Size(652, 185);
+            this.dictionaryTabPage.Size = new System.Drawing.Size(516, 351);
             this.dictionaryTabPage.TabIndex = 1;
             this.dictionaryTabPage.Text = "Dictionary";
             this.dictionaryTabPage.UseVisualStyleBackColor = true;
@@ -307,7 +306,7 @@
             this.parcelTabPage.Location = new System.Drawing.Point(4, 22);
             this.parcelTabPage.Name = "parcelTabPage";
             this.parcelTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.parcelTabPage.Size = new System.Drawing.Size(652, 185);
+            this.parcelTabPage.Size = new System.Drawing.Size(516, 351);
             this.parcelTabPage.TabIndex = 2;
             this.parcelTabPage.Text = "Parcel";
             this.parcelTabPage.UseVisualStyleBackColor = true;
@@ -341,7 +340,7 @@
             this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView2.Location = new System.Drawing.Point(3, 3);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(646, 179);
+            this.dataGridView2.Size = new System.Drawing.Size(510, 345);
             this.dataGridView2.TabIndex = 0;
             // 
             // locationIDDataGridViewTextBoxColumn
@@ -468,7 +467,7 @@
             this.Controls.Add(this.offlineDatePicker);
             this.Controls.Add(this.findInsertedDictionarySinceButton);
             this.Name = "MasterDataControl";
-            this.Size = new System.Drawing.Size(711, 557);
+            this.Size = new System.Drawing.Size(983, 552);
             ((System.ComponentModel.ISupportInitialize)(this.masterDataDataBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dictionaryDataGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dictionaryReturnDataBindingSource)).EndInit();

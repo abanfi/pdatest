@@ -228,7 +228,7 @@ namespace PDATestProject
         private static string holidaysToString(Holidays holidays)
         {
             string holidayString = Environment.NewLine;
-            for (int i = 0; i <= holidays.Entries.Length; i++)
+            for (int i = 0; i < holidays.Entries.Length; i++)
             {
                 holidayString += Environment.NewLine + "Holiday" + (i + 1) + ": ";
                 if (holidays.Entries[0].From != null)
@@ -1183,7 +1183,7 @@ namespace PDATestProject
                 // set first selected to refused
                 foreach (ParcelCompositeReturnData parcelMinimal in returnPreRegData.data)
                 {
-                        RefuseCustomerReturnPreRegisteredContainer container = new RefuseCustomerReturnPreRegisteredContainer();
+                        CustomerReturnPreRegisteredContainer container = new CustomerReturnPreRegisteredContainer();
                         container.Barcode = parcelMinimal.Barcode;
                         container.Damaged = returnPreRegData.damaged;
                         request.CustomerReturnParcel = container;
@@ -1255,8 +1255,6 @@ namespace PDATestProject
                 return (ReturnPreRegReturnData)returnErrorMessage(new ReturnPreRegReturnData(), e);
             }
         }
-
-
 
         internal static ReturnPreRegReturnData findParcelForCustRetPreReg(ReturnPreRegData returnPreRegData)
         {

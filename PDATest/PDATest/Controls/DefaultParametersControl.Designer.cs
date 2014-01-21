@@ -35,13 +35,13 @@
             this.offlineLabel = new System.Windows.Forms.Label();
             this.languageLabel = new System.Windows.Forms.Label();
             this.terminalTextBox = new System.Windows.Forms.TextBox();
+            this.defaultDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.transactionTextBox = new System.Windows.Forms.TextBox();
             this.offlineComboBox = new System.Windows.Forms.ComboBox();
             this.languageComboBox = new System.Windows.Forms.ComboBox();
             this.refreshButton = new System.Windows.Forms.Button();
             this.createdDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
-            this.defaultDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.defaultDataBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -68,9 +68,9 @@
             this.offlineLabel.AutoSize = true;
             this.offlineLabel.Location = new System.Drawing.Point(263, 23);
             this.offlineLabel.Name = "offlineLabel";
-            this.offlineLabel.Size = new System.Drawing.Size(60, 13);
+            this.offlineLabel.Size = new System.Drawing.Size(37, 13);
             this.offlineLabel.TabIndex = 2;
-            this.offlineLabel.Text = "Offline mód";
+            this.offlineLabel.Text = "Offline";
             // 
             // languageLabel
             // 
@@ -88,6 +88,10 @@
             this.terminalTextBox.Name = "terminalTextBox";
             this.terminalTextBox.Size = new System.Drawing.Size(97, 20);
             this.terminalTextBox.TabIndex = 4;
+            // 
+            // defaultDataBindingSource
+            // 
+            this.defaultDataBindingSource.DataSource = typeof(PDATestProject.DefaultData);
             // 
             // transactionTextBox
             // 
@@ -150,10 +154,6 @@
             this.label1.TabIndex = 10;
             this.label1.Text = "Létrehozás ideje";
             // 
-            // defaultDataBindingSource
-            // 
-            this.defaultDataBindingSource.DataSource = typeof(PDATestProject.DefaultData);
-            // 
             // DefaultParametersControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -170,7 +170,7 @@
             this.Controls.Add(this.transactionLabel);
             this.Controls.Add(this.terminalLabel);
             this.Name = "DefaultParametersControl";
-            this.Size = new System.Drawing.Size(640, 96);
+            this.Size = new System.Drawing.Size(640, 82);
             ((System.ComponentModel.ISupportInitialize)(this.defaultDataBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

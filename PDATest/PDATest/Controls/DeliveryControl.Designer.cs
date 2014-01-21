@@ -62,6 +62,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.resultMessageTextBox = new System.Windows.Forms.TextBox();
             this.defaultParametersControl1 = new PDATestProject.DefaultParametersControl();
+            this.basicToolTip = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.deliveryDataBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deliveryParleccMinimumReturnDataBindingSource)).BeginInit();
@@ -70,7 +71,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(192, 105);
+            this.label1.Location = new System.Drawing.Point(274, 65);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(79, 13);
             this.label1.TabIndex = 1;
@@ -79,7 +80,7 @@
             // barcodeTextBox
             // 
             this.barcodeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.deliveryDataBindingSource, "packageCode", true));
-            this.barcodeTextBox.Location = new System.Drawing.Point(277, 102);
+            this.barcodeTextBox.Location = new System.Drawing.Point(277, 81);
             this.barcodeTextBox.Name = "barcodeTextBox";
             this.barcodeTextBox.Size = new System.Drawing.Size(138, 20);
             this.barcodeTextBox.TabIndex = 2;
@@ -92,7 +93,7 @@
             // 
             this.damagedCheckBox.AutoSize = true;
             this.damagedCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.deliveryDataBindingSource, "damaged", true));
-            this.damagedCheckBox.Location = new System.Drawing.Point(343, 133);
+            this.damagedCheckBox.Location = new System.Drawing.Point(343, 126);
             this.damagedCheckBox.Name = "damagedCheckBox";
             this.damagedCheckBox.Size = new System.Drawing.Size(72, 17);
             this.damagedCheckBox.TabIndex = 3;
@@ -102,15 +103,16 @@
             // reasonTextBox
             // 
             this.reasonTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.deliveryDataBindingSource, "reason", true));
-            this.reasonTextBox.Location = new System.Drawing.Point(113, 160);
+            this.reasonTextBox.Location = new System.Drawing.Point(212, 171);
             this.reasonTextBox.Name = "reasonTextBox";
             this.reasonTextBox.Size = new System.Drawing.Size(47, 20);
             this.reasonTextBox.TabIndex = 5;
+            this.basicToolTip.SetToolTip(this.reasonTextBox, "1: Damaged, 2: Without reason");
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(63, 163);
+            this.label2.Location = new System.Drawing.Point(209, 155);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(44, 13);
             this.label2.TabIndex = 4;
@@ -119,15 +121,16 @@
             // refuseIdTextBox
             // 
             this.refuseIdTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.deliveryDataBindingSource, "refuseIdType", true));
-            this.refuseIdTextBox.Location = new System.Drawing.Point(208, 160);
+            this.refuseIdTextBox.Location = new System.Drawing.Point(265, 171);
             this.refuseIdTextBox.Name = "refuseIdTextBox";
             this.refuseIdTextBox.Size = new System.Drawing.Size(44, 20);
             this.refuseIdTextBox.TabIndex = 7;
+            this.basicToolTip.SetToolTip(this.refuseIdTextBox, "1: Identity card, 2: Driving licence, 3: Passport");
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(167, 163);
+            this.label3.Location = new System.Drawing.Point(266, 155);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(41, 13);
             this.label3.TabIndex = 6;
@@ -136,7 +139,7 @@
             // refuseDocIdTextBox
             // 
             this.refuseDocIdTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.deliveryDataBindingSource, "refuseDocNo", true));
-            this.refuseDocIdTextBox.Location = new System.Drawing.Point(315, 160);
+            this.refuseDocIdTextBox.Location = new System.Drawing.Point(315, 171);
             this.refuseDocIdTextBox.Name = "refuseDocIdTextBox";
             this.refuseDocIdTextBox.Size = new System.Drawing.Size(100, 20);
             this.refuseDocIdTextBox.TabIndex = 9;
@@ -144,7 +147,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(258, 163);
+            this.label4.Location = new System.Drawing.Point(312, 155);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(57, 13);
             this.label4.TabIndex = 8;
@@ -153,7 +156,7 @@
             // deliveryDocIdTextBox
             // 
             this.deliveryDocIdTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.deliveryDataBindingSource, "postDocNo", true));
-            this.deliveryDocIdTextBox.Location = new System.Drawing.Point(315, 189);
+            this.deliveryDocIdTextBox.Location = new System.Drawing.Point(315, 217);
             this.deliveryDocIdTextBox.Name = "deliveryDocIdTextBox";
             this.deliveryDocIdTextBox.Size = new System.Drawing.Size(100, 20);
             this.deliveryDocIdTextBox.TabIndex = 15;
@@ -161,7 +164,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(258, 193);
+            this.label5.Location = new System.Drawing.Point(312, 201);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(57, 13);
             this.label5.TabIndex = 14;
@@ -170,15 +173,16 @@
             // deliveryIdTextBox
             // 
             this.deliveryIdTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.deliveryDataBindingSource, "postIdType", true));
-            this.deliveryIdTextBox.Location = new System.Drawing.Point(208, 189);
+            this.deliveryIdTextBox.Location = new System.Drawing.Point(265, 217);
             this.deliveryIdTextBox.Name = "deliveryIdTextBox";
             this.deliveryIdTextBox.Size = new System.Drawing.Size(44, 20);
             this.deliveryIdTextBox.TabIndex = 13;
+            this.basicToolTip.SetToolTip(this.deliveryIdTextBox, "1: Identity card, 2: Driving licence, 3: Passport");
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(166, 193);
+            this.label6.Location = new System.Drawing.Point(262, 201);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(41, 13);
             this.label6.TabIndex = 12;
@@ -187,15 +191,16 @@
             // paymentTextBox
             // 
             this.paymentTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.deliveryDataBindingSource, "payment", true));
-            this.paymentTextBox.Location = new System.Drawing.Point(113, 189);
+            this.paymentTextBox.Location = new System.Drawing.Point(212, 217);
             this.paymentTextBox.Name = "paymentTextBox";
             this.paymentTextBox.Size = new System.Drawing.Size(47, 20);
             this.paymentTextBox.TabIndex = 11;
+            this.basicToolTip.SetToolTip(this.paymentTextBox, "1: Credit card, 2: Cash, 3: Checque");
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(63, 193);
+            this.label7.Location = new System.Drawing.Point(209, 201);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(48, 13);
             this.label7.TabIndex = 10;
@@ -203,7 +208,7 @@
             // 
             // findParcelForDeliveryButton
             // 
-            this.findParcelForDeliveryButton.Location = new System.Drawing.Point(421, 100);
+            this.findParcelForDeliveryButton.Location = new System.Drawing.Point(421, 79);
             this.findParcelForDeliveryButton.Name = "findParcelForDeliveryButton";
             this.findParcelForDeliveryButton.Size = new System.Drawing.Size(129, 23);
             this.findParcelForDeliveryButton.TabIndex = 16;
@@ -213,7 +218,7 @@
             // 
             // postCancelDeliveryButton
             // 
-            this.postCancelDeliveryButton.Location = new System.Drawing.Point(421, 129);
+            this.postCancelDeliveryButton.Location = new System.Drawing.Point(421, 122);
             this.postCancelDeliveryButton.Name = "postCancelDeliveryButton";
             this.postCancelDeliveryButton.Size = new System.Drawing.Size(129, 23);
             this.postCancelDeliveryButton.TabIndex = 17;
@@ -223,7 +228,7 @@
             // 
             // postRefuseDeliveryButton
             // 
-            this.postRefuseDeliveryButton.Location = new System.Drawing.Point(421, 158);
+            this.postRefuseDeliveryButton.Location = new System.Drawing.Point(421, 169);
             this.postRefuseDeliveryButton.Name = "postRefuseDeliveryButton";
             this.postRefuseDeliveryButton.Size = new System.Drawing.Size(129, 23);
             this.postRefuseDeliveryButton.TabIndex = 18;
@@ -233,7 +238,7 @@
             // 
             // postDeliveryButton
             // 
-            this.postDeliveryButton.Location = new System.Drawing.Point(421, 187);
+            this.postDeliveryButton.Location = new System.Drawing.Point(421, 215);
             this.postDeliveryButton.Name = "postDeliveryButton";
             this.postDeliveryButton.Size = new System.Drawing.Size(129, 23);
             this.postDeliveryButton.TabIndex = 19;
@@ -245,8 +250,8 @@
             // 
             this.dataGridView.AllowUserToAddRows = false;
             this.dataGridView.AllowUserToDeleteRows = false;
-            this.dataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.dataGridView.AutoGenerateColumns = false;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -259,9 +264,9 @@
             this.priceAtDeliveryDataGridViewTextBoxColumn,
             this.returnDateDataGridViewTextBoxColumn});
             this.dataGridView.DataSource = this.deliveryParleccMinimumReturnDataBindingSource;
-            this.dataGridView.Location = new System.Drawing.Point(21, 217);
+            this.dataGridView.Location = new System.Drawing.Point(21, 253);
             this.dataGridView.Name = "dataGridView";
-            this.dataGridView.Size = new System.Drawing.Size(529, 157);
+            this.dataGridView.Size = new System.Drawing.Size(529, 233);
             this.dataGridView.TabIndex = 20;
             // 
             // selectedDataGridViewCheckBoxColumn
@@ -319,7 +324,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(18, 383);
+            this.label8.Location = new System.Drawing.Point(563, 20);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(57, 13);
             this.label8.TabIndex = 52;
@@ -331,12 +336,12 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.resultMessageTextBox.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.resultMessageTextBox.Location = new System.Drawing.Point(81, 383);
+            this.resultMessageTextBox.Location = new System.Drawing.Point(566, 36);
             this.resultMessageTextBox.Multiline = true;
             this.resultMessageTextBox.Name = "resultMessageTextBox";
             this.resultMessageTextBox.ReadOnly = true;
             this.resultMessageTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.resultMessageTextBox.Size = new System.Drawing.Size(469, 104);
+            this.resultMessageTextBox.Size = new System.Drawing.Size(302, 450);
             this.resultMessageTextBox.TabIndex = 51;
             // 
             // defaultParametersControl1
@@ -344,8 +349,13 @@
             this.defaultParametersControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.defaultParametersControl1.Location = new System.Drawing.Point(0, 0);
             this.defaultParametersControl1.Name = "defaultParametersControl1";
-            this.defaultParametersControl1.Size = new System.Drawing.Size(572, 96);
+            this.defaultParametersControl1.Size = new System.Drawing.Size(890, 73);
             this.defaultParametersControl1.TabIndex = 0;
+            // 
+            // basicToolTip
+            // 
+            this.basicToolTip.AutomaticDelay = 100;
+            this.basicToolTip.ShowAlways = true;
             // 
             // DeliveryControl
             // 
@@ -375,7 +385,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.defaultParametersControl1);
             this.Name = "DeliveryControl";
-            this.Size = new System.Drawing.Size(572, 502);
+            this.Size = new System.Drawing.Size(890, 502);
             ((System.ComponentModel.ISupportInitialize)(this.deliveryDataBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deliveryParleccMinimumReturnDataBindingSource)).EndInit();
@@ -419,5 +429,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn priceAtDeliveryDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn returnDateDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource deliveryParleccMinimumReturnDataBindingSource;
+        private System.Windows.Forms.ToolTip basicToolTip;
     }
 }

@@ -8,6 +8,11 @@ namespace PDATestProject
 {
     public class MasterDataData : DefaultData 
     {
+        public MasterDataData()
+        {
+            date = DateTime.Now;
+        }
+
         public DateTime date { get; set; }
 
         public override string ToString()

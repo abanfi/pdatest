@@ -14,7 +14,7 @@ namespace PDATestProject
             terminalId = "BEQ75";
             offline = "Nem";
             languageCode = "EN";
-            transactionId = "" + (DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond);
+            transactionId = "PDAUI" + (DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond);
             createDate = DateTime.Now;
         }
 

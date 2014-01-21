@@ -9,6 +9,15 @@ namespace PDATestProject
 {
     public class DeliveryData : DefaultData 
     {
+
+        public DeliveryData()
+        {
+            reason = 1;
+            payment = 1;
+            postIdType = 1;
+            refuseIdType = 1;
+        }
+
         public string packageCode { get; set; }
         public bool damaged { get; set; }
         public int reason { get; set; }

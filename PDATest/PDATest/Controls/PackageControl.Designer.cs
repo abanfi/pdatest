@@ -80,8 +80,8 @@
             // 
             this.offlineDataGrid.AllowUserToAddRows = false;
             this.offlineDataGrid.AllowUserToDeleteRows = false;
-            this.offlineDataGrid.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.offlineDataGrid.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.offlineDataGrid.AutoGenerateColumns = false;
             this.offlineDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.offlineDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -106,9 +106,9 @@
             this.shipmentIDDataGridViewTextBoxColumn,
             this.partnerNameDataGridViewTextBoxColumn});
             this.offlineDataGrid.DataSource = this.parcelCompositeReturnDataBindingSource;
-            this.offlineDataGrid.Location = new System.Drawing.Point(22, 193);
+            this.offlineDataGrid.Location = new System.Drawing.Point(22, 182);
             this.offlineDataGrid.Name = "offlineDataGrid";
-            this.offlineDataGrid.Size = new System.Drawing.Size(527, 120);
+            this.offlineDataGrid.Size = new System.Drawing.Size(526, 263);
             this.offlineDataGrid.TabIndex = 4;
             // 
             // locationIDDataGridViewTextBoxColumn
@@ -238,7 +238,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(265, 98);
+            this.label5.Location = new System.Drawing.Point(264, 79);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(95, 13);
             this.label5.TabIndex = 3;
@@ -247,7 +247,7 @@
             // packageTextBox
             // 
             this.packageTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.packageDataBindingSource, "packageCode", true));
-            this.packageTextBox.Location = new System.Drawing.Point(268, 114);
+            this.packageTextBox.Location = new System.Drawing.Point(267, 95);
             this.packageTextBox.Name = "packageTextBox";
             this.packageTextBox.Size = new System.Drawing.Size(139, 20);
             this.packageTextBox.TabIndex = 2;
@@ -258,7 +258,7 @@
             // 
             // findParcelByBarCodeButton
             // 
-            this.findParcelByBarCodeButton.Location = new System.Drawing.Point(413, 112);
+            this.findParcelByBarCodeButton.Location = new System.Drawing.Point(412, 93);
             this.findParcelByBarCodeButton.Name = "findParcelByBarCodeButton";
             this.findParcelByBarCodeButton.Size = new System.Drawing.Size(136, 23);
             this.findParcelByBarCodeButton.TabIndex = 8;
@@ -269,7 +269,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(354, 141);
+            this.label4.Location = new System.Drawing.Point(353, 129);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(25, 13);
             this.label4.TabIndex = 16;
@@ -278,7 +278,7 @@
             // zipTextBox
             // 
             this.zipTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.packageDataBindingSource, "customerZip", true));
-            this.zipTextBox.Location = new System.Drawing.Point(357, 157);
+            this.zipTextBox.Location = new System.Drawing.Point(356, 145);
             this.zipTextBox.Name = "zipTextBox";
             this.zipTextBox.Size = new System.Drawing.Size(50, 20);
             this.zipTextBox.TabIndex = 15;
@@ -286,7 +286,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(236, 141);
+            this.label3.Location = new System.Drawing.Point(235, 129);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(67, 13);
             this.label3.TabIndex = 14;
@@ -295,7 +295,7 @@
             // customerAddresstextBox
             // 
             this.customerAddresstextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.packageDataBindingSource, "customerAddress", true));
-            this.customerAddresstextBox.Location = new System.Drawing.Point(239, 158);
+            this.customerAddresstextBox.Location = new System.Drawing.Point(238, 146);
             this.customerAddresstextBox.Name = "customerAddresstextBox";
             this.customerAddresstextBox.Size = new System.Drawing.Size(112, 20);
             this.customerAddresstextBox.TabIndex = 13;
@@ -303,7 +303,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(125, 141);
+            this.label2.Location = new System.Drawing.Point(124, 129);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(67, 13);
             this.label2.TabIndex = 12;
@@ -312,7 +312,7 @@
             // customerNameTextBox
             // 
             this.customerNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.packageDataBindingSource, "customerName", true));
-            this.customerNameTextBox.Location = new System.Drawing.Point(128, 158);
+            this.customerNameTextBox.Location = new System.Drawing.Point(127, 146);
             this.customerNameTextBox.Name = "customerNameTextBox";
             this.customerNameTextBox.Size = new System.Drawing.Size(105, 20);
             this.customerNameTextBox.TabIndex = 11;
@@ -320,7 +320,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(19, 142);
+            this.label1.Location = new System.Drawing.Point(18, 130);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(95, 13);
             this.label1.TabIndex = 10;
@@ -329,14 +329,14 @@
             // packageCodeTextBox
             // 
             this.packageCodeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.packageDataBindingSource, "filterPackageCode", true));
-            this.packageCodeTextBox.Location = new System.Drawing.Point(22, 158);
+            this.packageCodeTextBox.Location = new System.Drawing.Point(21, 146);
             this.packageCodeTextBox.Name = "packageCodeTextBox";
             this.packageCodeTextBox.Size = new System.Drawing.Size(100, 20);
             this.packageCodeTextBox.TabIndex = 9;
             // 
             // findParcelByFilterButton
             // 
-            this.findParcelByFilterButton.Location = new System.Drawing.Point(413, 155);
+            this.findParcelByFilterButton.Location = new System.Drawing.Point(412, 143);
             this.findParcelByFilterButton.Name = "findParcelByFilterButton";
             this.findParcelByFilterButton.Size = new System.Drawing.Size(136, 23);
             this.findParcelByFilterButton.TabIndex = 17;
@@ -350,18 +350,18 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.resultMessageTextBox.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.resultMessageTextBox.Location = new System.Drawing.Point(82, 319);
+            this.resultMessageTextBox.Location = new System.Drawing.Point(571, 42);
             this.resultMessageTextBox.Multiline = true;
             this.resultMessageTextBox.Name = "resultMessageTextBox";
             this.resultMessageTextBox.ReadOnly = true;
             this.resultMessageTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.resultMessageTextBox.Size = new System.Drawing.Size(467, 125);
+            this.resultMessageTextBox.Size = new System.Drawing.Size(266, 403);
             this.resultMessageTextBox.TabIndex = 19;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(19, 322);
+            this.label6.Location = new System.Drawing.Point(568, 26);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(57, 13);
             this.label6.TabIndex = 20;
@@ -372,7 +372,7 @@
             this.defaultParametersControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.defaultParametersControl1.Location = new System.Drawing.Point(0, 0);
             this.defaultParametersControl1.Name = "defaultParametersControl1";
-            this.defaultParametersControl1.Size = new System.Drawing.Size(578, 96);
+            this.defaultParametersControl1.Size = new System.Drawing.Size(866, 73);
             this.defaultParametersControl1.TabIndex = 18;
             // 
             // packageReturnDataBindingSource
@@ -404,7 +404,7 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.packageTextBox);
             this.Name = "PackageControl";
-            this.Size = new System.Drawing.Size(578, 457);
+            this.Size = new System.Drawing.Size(866, 458);
             ((System.ComponentModel.ISupportInitialize)(this.offlineDataGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.parcelCompositeReturnDataBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.packageDataBindingSource)).EndInit();

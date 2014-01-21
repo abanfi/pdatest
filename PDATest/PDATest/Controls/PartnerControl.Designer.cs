@@ -34,9 +34,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.partnerIdTextBox = new System.Windows.Forms.TextBox();
+            this.partnerDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.defaultParametersControl1 = new PDATestProject.DefaultParametersControl();
             this.partnerNameTextBox = new System.Windows.Forms.TextBox();
-            this.partnerDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.countPartnerByFilterButton = new System.Windows.Forms.Button();
             this.findPartnerByFilterButton = new System.Windows.Forms.Button();
             this.findPartnerByIdButton = new System.Windows.Forms.Button();
@@ -52,7 +52,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(24, 303);
+            this.label6.Location = new System.Drawing.Point(565, 22);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(57, 13);
             this.label6.TabIndex = 54;
@@ -64,18 +64,18 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.resultMessageTextBox.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.resultMessageTextBox.Location = new System.Drawing.Point(87, 303);
+            this.resultMessageTextBox.Location = new System.Drawing.Point(568, 38);
             this.resultMessageTextBox.Multiline = true;
             this.resultMessageTextBox.Name = "resultMessageTextBox";
             this.resultMessageTextBox.ReadOnly = true;
             this.resultMessageTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.resultMessageTextBox.Size = new System.Drawing.Size(458, 120);
+            this.resultMessageTextBox.Size = new System.Drawing.Size(202, 388);
             this.resultMessageTextBox.TabIndex = 53;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(52, 131);
+            this.label2.Location = new System.Drawing.Point(145, 114);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(90, 13);
             this.label2.TabIndex = 34;
@@ -84,7 +84,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(187, 103);
+            this.label1.Location = new System.Drawing.Point(282, 73);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(91, 13);
             this.label1.TabIndex = 33;
@@ -93,34 +93,34 @@
             // partnerIdTextBox
             // 
             this.partnerIdTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.partnerDataBindingSource, "partnerId", true));
-            this.partnerIdTextBox.Location = new System.Drawing.Point(284, 100);
+            this.partnerIdTextBox.Location = new System.Drawing.Point(285, 89);
             this.partnerIdTextBox.Name = "partnerIdTextBox";
             this.partnerIdTextBox.Size = new System.Drawing.Size(136, 20);
             this.partnerIdTextBox.TabIndex = 32;
+            // 
+            // partnerDataBindingSource
+            // 
+            this.partnerDataBindingSource.DataSource = typeof(PDATestProject.PartnerData);
             // 
             // defaultParametersControl1
             // 
             this.defaultParametersControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.defaultParametersControl1.Location = new System.Drawing.Point(0, 0);
             this.defaultParametersControl1.Name = "defaultParametersControl1";
-            this.defaultParametersControl1.Size = new System.Drawing.Size(568, 96);
+            this.defaultParametersControl1.Size = new System.Drawing.Size(793, 68);
             this.defaultParametersControl1.TabIndex = 31;
             // 
             // partnerNameTextBox
             // 
             this.partnerNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.partnerDataBindingSource, "partnerNamePart", true));
-            this.partnerNameTextBox.Location = new System.Drawing.Point(148, 127);
+            this.partnerNameTextBox.Location = new System.Drawing.Point(148, 130);
             this.partnerNameTextBox.Name = "partnerNameTextBox";
             this.partnerNameTextBox.Size = new System.Drawing.Size(130, 20);
             this.partnerNameTextBox.TabIndex = 30;
             // 
-            // partnerDataBindingSource
-            // 
-            this.partnerDataBindingSource.DataSource = typeof(PDATestProject.PartnerData);
-            // 
             // countPartnerByFilterButton
             // 
-            this.countPartnerByFilterButton.Location = new System.Drawing.Point(427, 127);
+            this.countPartnerByFilterButton.Location = new System.Drawing.Point(427, 130);
             this.countPartnerByFilterButton.Name = "countPartnerByFilterButton";
             this.countPartnerByFilterButton.Size = new System.Drawing.Size(119, 23);
             this.countPartnerByFilterButton.TabIndex = 29;
@@ -130,7 +130,7 @@
             // 
             // findPartnerByFilterButton
             // 
-            this.findPartnerByFilterButton.Location = new System.Drawing.Point(284, 126);
+            this.findPartnerByFilterButton.Location = new System.Drawing.Point(284, 129);
             this.findPartnerByFilterButton.Name = "findPartnerByFilterButton";
             this.findPartnerByFilterButton.Size = new System.Drawing.Size(137, 23);
             this.findPartnerByFilterButton.TabIndex = 28;
@@ -140,7 +140,7 @@
             // 
             // findPartnerByIdButton
             // 
-            this.findPartnerByIdButton.Location = new System.Drawing.Point(427, 100);
+            this.findPartnerByIdButton.Location = new System.Drawing.Point(427, 87);
             this.findPartnerByIdButton.Name = "findPartnerByIdButton";
             this.findPartnerByIdButton.Size = new System.Drawing.Size(119, 23);
             this.findPartnerByIdButton.TabIndex = 26;
@@ -152,17 +152,17 @@
             // 
             this.partnerDataGrid.AllowUserToAddRows = false;
             this.partnerDataGrid.AllowUserToDeleteRows = false;
-            this.partnerDataGrid.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.partnerDataGrid.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.partnerDataGrid.AutoGenerateColumns = false;
             this.partnerDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.partnerDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.partnerIDDataGridViewTextBoxColumn,
             this.partnerNameDataGridViewTextBoxColumn});
             this.partnerDataGrid.DataSource = this.partnerReturnDataBindingSource;
-            this.partnerDataGrid.Location = new System.Drawing.Point(25, 156);
+            this.partnerDataGrid.Location = new System.Drawing.Point(25, 168);
             this.partnerDataGrid.Name = "partnerDataGrid";
-            this.partnerDataGrid.Size = new System.Drawing.Size(520, 141);
+            this.partnerDataGrid.Size = new System.Drawing.Size(521, 258);
             this.partnerDataGrid.TabIndex = 24;
             // 
             // partnerIDDataGridViewTextBoxColumn
@@ -197,7 +197,7 @@
             this.Controls.Add(this.findPartnerByIdButton);
             this.Controls.Add(this.partnerDataGrid);
             this.Name = "PartnerControl";
-            this.Size = new System.Drawing.Size(568, 442);
+            this.Size = new System.Drawing.Size(793, 445);
             ((System.ComponentModel.ISupportInitialize)(this.partnerDataBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.partnerDataGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.partnerReturnDataBindingSource)).EndInit();

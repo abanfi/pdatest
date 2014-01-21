@@ -59,15 +59,15 @@
             this.defaultParametersControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.defaultParametersControl1.Location = new System.Drawing.Point(0, 0);
             this.defaultParametersControl1.Name = "defaultParametersControl1";
-            this.defaultParametersControl1.Size = new System.Drawing.Size(558, 96);
+            this.defaultParametersControl1.Size = new System.Drawing.Size(844, 67);
             this.defaultParametersControl1.TabIndex = 0;
             // 
             // dataGridView
             // 
             this.dataGridView.AllowUserToAddRows = false;
             this.dataGridView.AllowUserToDeleteRows = false;
-            this.dataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.dataGridView.AutoGenerateColumns = false;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -82,7 +82,7 @@
             this.dataGridView.DataSource = this.returnParcelReturnDataBindingSource;
             this.dataGridView.Location = new System.Drawing.Point(27, 160);
             this.dataGridView.Name = "dataGridView";
-            this.dataGridView.Size = new System.Drawing.Size(519, 166);
+            this.dataGridView.Size = new System.Drawing.Size(519, 289);
             this.dataGridView.TabIndex = 40;
             // 
             // selectedDataGridViewCheckBoxColumn
@@ -139,7 +139,7 @@
             // 
             // postReturnButton
             // 
-            this.postReturnButton.Location = new System.Drawing.Point(417, 131);
+            this.postReturnButton.Location = new System.Drawing.Point(417, 129);
             this.postReturnButton.Name = "postReturnButton";
             this.postReturnButton.Size = new System.Drawing.Size(129, 23);
             this.postReturnButton.TabIndex = 38;
@@ -149,7 +149,7 @@
             // 
             // findParcelForReturnButton
             // 
-            this.findParcelForReturnButton.Location = new System.Drawing.Point(417, 102);
+            this.findParcelForReturnButton.Location = new System.Drawing.Point(417, 83);
             this.findParcelForReturnButton.Name = "findParcelForReturnButton";
             this.findParcelForReturnButton.Size = new System.Drawing.Size(129, 23);
             this.findParcelForReturnButton.TabIndex = 36;
@@ -172,7 +172,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(199, 136);
+            this.label4.Location = new System.Drawing.Point(270, 115);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(68, 13);
             this.label4.TabIndex = 28;
@@ -181,7 +181,7 @@
             // barcodeTextBox
             // 
             this.barcodeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.returnDataBindingSource, "barcode", true));
-            this.barcodeTextBox.Location = new System.Drawing.Point(273, 104);
+            this.barcodeTextBox.Location = new System.Drawing.Point(273, 85);
             this.barcodeTextBox.Name = "barcodeTextBox";
             this.barcodeTextBox.Size = new System.Drawing.Size(138, 20);
             this.barcodeTextBox.TabIndex = 22;
@@ -189,7 +189,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(188, 107);
+            this.label1.Location = new System.Drawing.Point(270, 69);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(79, 13);
             this.label1.TabIndex = 21;
@@ -198,7 +198,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(24, 335);
+            this.label6.Location = new System.Drawing.Point(562, 23);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(57, 13);
             this.label6.TabIndex = 52;
@@ -210,12 +210,12 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.resultMessageTextBox.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.resultMessageTextBox.Location = new System.Drawing.Point(82, 335);
+            this.resultMessageTextBox.Location = new System.Drawing.Point(565, 39);
             this.resultMessageTextBox.Multiline = true;
             this.resultMessageTextBox.Name = "resultMessageTextBox";
             this.resultMessageTextBox.ReadOnly = true;
             this.resultMessageTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.resultMessageTextBox.Size = new System.Drawing.Size(464, 114);
+            this.resultMessageTextBox.Size = new System.Drawing.Size(267, 410);
             this.resultMessageTextBox.TabIndex = 51;
             // 
             // ReturnControl
@@ -233,7 +233,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.defaultParametersControl1);
             this.Name = "ReturnControl";
-            this.Size = new System.Drawing.Size(558, 469);
+            this.Size = new System.Drawing.Size(844, 469);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.returnParcelReturnDataBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.returnDataBindingSource)).EndInit();

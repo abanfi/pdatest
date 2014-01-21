@@ -69,8 +69,8 @@
             // 
             this.dataGridView.AllowUserToAddRows = false;
             this.dataGridView.AllowUserToDeleteRows = false;
-            this.dataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.dataGridView.AutoGenerateColumns = false;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -96,9 +96,9 @@
             this.shipmentIDDataGridViewTextBoxColumn,
             this.partnerNameDataGridViewTextBoxColumn});
             this.dataGridView.DataSource = this.parcelCompositeSelectableReturnDataBindingSource;
-            this.dataGridView.Location = new System.Drawing.Point(25, 160);
+            this.dataGridView.Location = new System.Drawing.Point(25, 157);
             this.dataGridView.Name = "dataGridView";
-            this.dataGridView.Size = new System.Drawing.Size(524, 182);
+            this.dataGridView.Size = new System.Drawing.Size(524, 312);
             this.dataGridView.TabIndex = 47;
             // 
             // selectedDataGridViewCheckBoxColumn
@@ -233,7 +233,7 @@
             // 
             // postReceiveButton
             // 
-            this.postReceiveButton.Location = new System.Drawing.Point(420, 131);
+            this.postReceiveButton.Location = new System.Drawing.Point(420, 117);
             this.postReceiveButton.Name = "postReceiveButton";
             this.postReceiveButton.Size = new System.Drawing.Size(129, 23);
             this.postReceiveButton.TabIndex = 46;
@@ -243,7 +243,7 @@
             // 
             // findParcelForReceiveButton
             // 
-            this.findParcelForReceiveButton.Location = new System.Drawing.Point(420, 102);
+            this.findParcelForReceiveButton.Location = new System.Drawing.Point(420, 88);
             this.findParcelForReceiveButton.Name = "findParcelForReceiveButton";
             this.findParcelForReceiveButton.Size = new System.Drawing.Size(129, 23);
             this.findParcelForReceiveButton.TabIndex = 45;
@@ -254,7 +254,7 @@
             // barcodeTextBox
             // 
             this.barcodeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.receiveDataBindingSource, "barcode", true));
-            this.barcodeTextBox.Location = new System.Drawing.Point(276, 104);
+            this.barcodeTextBox.Location = new System.Drawing.Point(276, 90);
             this.barcodeTextBox.Name = "barcodeTextBox";
             this.barcodeTextBox.Size = new System.Drawing.Size(138, 20);
             this.barcodeTextBox.TabIndex = 42;
@@ -266,7 +266,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(191, 107);
+            this.label1.Location = new System.Drawing.Point(273, 74);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(79, 13);
             this.label1.TabIndex = 41;
@@ -275,7 +275,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(22, 348);
+            this.label6.Location = new System.Drawing.Point(574, 21);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(57, 13);
             this.label6.TabIndex = 50;
@@ -287,12 +287,12 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.resultMessageTextBox.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.resultMessageTextBox.Location = new System.Drawing.Point(85, 348);
+            this.resultMessageTextBox.Location = new System.Drawing.Point(577, 37);
             this.resultMessageTextBox.Multiline = true;
             this.resultMessageTextBox.Name = "resultMessageTextBox";
             this.resultMessageTextBox.ReadOnly = true;
             this.resultMessageTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.resultMessageTextBox.Size = new System.Drawing.Size(464, 125);
+            this.resultMessageTextBox.Size = new System.Drawing.Size(308, 432);
             this.resultMessageTextBox.TabIndex = 49;
             // 
             // defaultParametersControl1
@@ -300,7 +300,7 @@
             this.defaultParametersControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.defaultParametersControl1.Location = new System.Drawing.Point(0, 0);
             this.defaultParametersControl1.Name = "defaultParametersControl1";
-            this.defaultParametersControl1.Size = new System.Drawing.Size(572, 96);
+            this.defaultParametersControl1.Size = new System.Drawing.Size(908, 67);
             this.defaultParametersControl1.TabIndex = 48;
             // 
             // ReceiveControl
@@ -316,7 +316,7 @@
             this.Controls.Add(this.barcodeTextBox);
             this.Controls.Add(this.label1);
             this.Name = "ReceiveControl";
-            this.Size = new System.Drawing.Size(572, 494);
+            this.Size = new System.Drawing.Size(908, 491);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.parcelCompositeSelectableReturnDataBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.receiveDataBindingSource)).EndInit();

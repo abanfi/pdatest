@@ -29,8 +29,9 @@ namespace PDATestProject
 
         public void generateNewTransactionId()
         {
-            transactionTextBox.Text = "" + (DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond);
-            ((DefaultData)defaultDataBindingSource.Current).transactionId = "" + (DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond);
+            string newTransactionId = "PDAUI" + (DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond);
+            transactionTextBox.Text = newTransactionId;
+            ((DefaultData)defaultDataBindingSource.Current).transactionId = newTransactionId;
         }
 
     }

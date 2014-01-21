@@ -44,21 +44,21 @@ namespace PDATestProject
         {
             deliveryData.datas = (List<DeliveryParleccMinimumReturnData>)
                 deliveryParleccMinimumReturnDataBindingSource.DataSource;
-            PudoServiceExecutor.postCancelDelivery(deliveryData);
+            actualize(PudoServiceExecutor.postCancelDelivery(deliveryData));
         }
 
         private void postRefuseDeliveryButton_Click(object sender, EventArgs e)
         {
             deliveryData.datas = (List<DeliveryParleccMinimumReturnData>)
                 deliveryParleccMinimumReturnDataBindingSource.List;
-            PudoServiceExecutor.postRefuseDelivery(deliveryData);
+            actualize(PudoServiceExecutor.postRefuseDelivery(deliveryData));
         }
 
         private void postDeliveryButton_Click(object sender, EventArgs e)
         {
             deliveryData.datas = (List<DeliveryParleccMinimumReturnData>)
                 deliveryParleccMinimumReturnDataBindingSource.List;
-            PudoServiceExecutor.postDelivery(deliveryData);
+            actualize(PudoServiceExecutor.postDelivery(deliveryData));
         }
 
         private void actualize(DeliveryReturnData data)
