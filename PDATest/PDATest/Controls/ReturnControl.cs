@@ -24,8 +24,7 @@ namespace PDATestProject
         {
             return returnModel;
         }
-
-
+        
         private void initBinding(ReturnModel data)
         {
             this.returnModel = data;
