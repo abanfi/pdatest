@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PDATestProject
+namespace PDATestProject.Models
 {
-    public class DefaultData
+    public class DefaultModel
     {
 
-        public DefaultData()
+        public DefaultModel()
         {
             terminalId = "BEQ75";
             offline = "Nem";

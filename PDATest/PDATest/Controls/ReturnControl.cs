@@ -7,28 +7,28 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using PDATestProject.Datas;
+using PDATestProject.Models;
 
 namespace PDATestProject
 {
     public partial class ReturnControl : PDATestProject.Controls.DefaultControl
     {
-        private ReturnData returnData;
+        private ReturnModel returnModel;
         
         public ReturnControl()
         {
             InitializeComponent();
-            initBinding(new ReturnData());
+            initBinding(new ReturnModel());
         }
-        public override DefaultData getDefaultParams()
+        public override DefaultModel getDefaultParams()
         {
-            return returnData;
+            return returnModel;
         }
 
 
-        private void initBinding(ReturnData data)
+        private void initBinding(ReturnModel data)
         {
-            this.returnData = data;
+            this.returnModel = data;
             defaultParametersControl1.bind(data);
             returnDataBindingSource.DataSource = data;
             returnParcelReturnDataBindingSource.DataSource = data.data;
@@ -36,23 +36,23 @@ namespace PDATestProject
 
         private void findParcelForReturnButton_Click(object sender, EventArgs e)
         {
-            actualize(PudoServiceExecutor.findParcelForReturn(returnData));
+            actualize(PudoServiceExecutor.findParcelForReturn(returnModel));
         }
 
         private void postReturnButton_Click(object sender, EventArgs e)
         {
-            returnData.data = (List<ReturnParcelReturnData>)returnParcelReturnDataBindingSource.DataSource;
-           actualize( PudoServiceExecutor.postReturn(returnData));
+            returnModel.data = (List<ReturnParcelReturnModel>)returnParcelReturnDataBindingSource.DataSource;
+           actualize( PudoServiceExecutor.postReturn(returnModel));
         }
 
-        private void actualize(ReturnReturnData data)
+        private void actualize(ReturnReturnModel data)
         {
             resultMessageTextBox.Text = data.summaryMessage + Environment.NewLine +
                 "----------------------------------------------------------" +
                 "--------------------------------------------------" +
                 Environment.NewLine + resultMessageTextBox.Text;
             returnParcelReturnDataBindingSource.Clear();
-            foreach (ReturnParcelReturnData parcelComposite in data.data)
+            foreach (ReturnParcelReturnModel parcelComposite in data.data)
             {
                 returnParcelReturnDataBindingSource.Add(parcelComposite);
             }

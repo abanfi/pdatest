@@ -1,28 +1,28 @@
-﻿using PDATestProject.Datas;
+﻿using PDATestProject.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PDATestProject
+namespace PDATestProject.Models
 {
-    public class ReceiveData : DefaultData
+    public class ReceiveModel : DefaultModel
     {
-        public ReceiveData()
+        public ReceiveModel()
         {
-            gridData = new List<ParcelCompositeSelectableReturnData>();
+            gridModel = new List<ParcelCompositeSelectableReturnModel>();
         }
 
         public string barcode { get; set; }
 
-        public List<ParcelCompositeSelectableReturnData> gridData { get; set; }
+        public List<ParcelCompositeSelectableReturnModel> gridModel { get; set; }
 
         public override string ToString()
         {
             string stringValue = base.ToString();
             stringValue += "barcode:" + barcode + Environment.NewLine;
-            foreach (ParcelCompositeSelectableReturnData data in gridData)
+            foreach (ParcelCompositeSelectableReturnModel data in gridModel)
             {
                 stringValue += "parcelcomposite:" + data.Barcode + "," + data.ShipmentID + "->selected:" + data.Selected;
             }

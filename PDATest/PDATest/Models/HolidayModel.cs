@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PDATestProject
+namespace PDATestProject.Models
 {
-    public class HolidayData : DefaultData
+    public class HolidayModel : DefaultModel
     {
         public DateTime holiday1From { get; set; }
         public DateTime holiday1To { get; set; }

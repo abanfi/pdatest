@@ -100,7 +100,7 @@
             // 
             // partnerDataBindingSource
             // 
-            this.partnerDataBindingSource.DataSource = typeof(PDATestProject.PartnerData);
+            this.partnerDataBindingSource.DataSource = typeof(PDATestProject.Models.PartnerModel);
             // 
             // defaultParametersControl1
             // 
@@ -179,7 +179,7 @@
             // 
             // partnerReturnDataBindingSource
             // 
-            this.partnerReturnDataBindingSource.DataSource = typeof(PDATestProject.Datas.PartnerReturnData);
+            this.partnerReturnDataBindingSource.DataSource = typeof(PDATestProject.Models.PartnerReturnModel);
             // 
             // PartnerControl
             // 

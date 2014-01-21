@@ -7,45 +7,45 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using PDATestProject.Datas;
+using PDATestProject.Models;
 
 namespace PDATestProject
 {
     public partial class HolidayControl : PDATestProject.Controls.DefaultControl
     {
 
-        private HolidayData holidayData;
+        private HolidayModel holidayModel;
               
         public HolidayControl()
         {
             InitializeComponent();
-            initBinding(new HolidayData());
+            initBinding(new HolidayModel());
         }
 
-        public override DefaultData getDefaultParams()
+        public override DefaultModel getDefaultParams()
         {
-            return holidayData;
+            return holidayModel;
         }
 
-        private void initBinding(HolidayData data)
+        private void initBinding(HolidayModel data)
         {
-            this.holidayData = data;
+            this.holidayModel = data;
             defaultParametersControl1.bind(data);
             holidayDataBindingSource.DataSource = data;
         }
 
         private void getHolidayButton_Click(object sender, EventArgs e)
         {
-            actualize(PudoServiceExecutor.getHoliday(holidayData));
+            actualize(PudoServiceExecutor.getHoliday(holidayModel));
 
         }
 
         private void setHolidaysButton_Click(object sender, EventArgs e)
         {
-            actualize(PudoServiceExecutor.setHoliday(holidayData));
+            actualize(PudoServiceExecutor.setHoliday(holidayModel));
         }
 
-        private void actualize(DefaultReturnData data)
+        private void actualize(DefaultReturnModel data)
         {
             resultMessageTextBox.Text = data.summaryMessage + Environment.NewLine +
                 "----------------------------------------------------------" +

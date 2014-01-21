@@ -1,4 +1,4 @@
-﻿using PDATestProject.Datas;
+﻿using PDATestProject.Models;
 using PDATestProject.PDAPudoService;
 using System;
 using System.Collections.Generic;
@@ -13,14 +13,14 @@ namespace PDATestProject
 
         private static PdaPudoServiceClient pudoClient = new PdaPudoServiceClient();
 
-        private static DefaultReturnData initDefaultReturn(DefaultReturnData returnData, DefaultData data, string requestName)
+        private static DefaultReturnModel initDefaultReturn(DefaultReturnModel returnModel, DefaultModel data, string requestName)
         {
-            returnData.summaryMessage = "Request:" + Environment.NewLine + requestName + Environment.NewLine;
-            returnData.summaryMessage += data.ToString();
-            return returnData;
+            returnModel.summaryMessage = "Request:" + Environment.NewLine + requestName + Environment.NewLine;
+            returnModel.summaryMessage += data.ToString();
+            return returnModel;
         }
 
-        private static BaseRequest initDefaultParameters(BaseRequest request, DefaultData data)
+        private static BaseRequest initDefaultParameters(BaseRequest request, DefaultModel data)
         {
             if (data.languageCode != null)
             {
@@ -40,7 +40,7 @@ namespace PDATestProject
             return request;
         }
 
-        private static DefaultReturnData createSummaryMessage(DefaultReturnData data, BaseResponse response)
+        private static DefaultReturnModel createSummaryMessage(DefaultReturnModel data, BaseResponse response)
         {
             data.summaryMessage += Environment.NewLine + "EXECUTION:" + (DateTime.Now.ToString("yyyy.MM.dd HH:mm:ss")) +
                 Environment.NewLine + "RESULT: " +
@@ -50,23 +50,23 @@ namespace PDATestProject
             return data;
         }
 
-        internal static DeliveryReturnData findParcelForDelivery(DeliveryData deliveryData)
+        internal static DeliveryReturnModel findParcelForDelivery(DeliveryModel deliveryModel)
         {
             try
             {
                 FindParcelForDeliveryRequest request = (FindParcelForDeliveryRequest)initDefaultParameters(
-                    new FindParcelForDeliveryRequest(), deliveryData);
-                request.Barcode = deliveryData.packageCode;
+                    new FindParcelForDeliveryRequest(), deliveryModel);
+                request.Barcode = deliveryModel.packageCode;
 
                 FindParcelForDeliveryResponse response = pudoClient.FindParcelForDelivery(request);
 
-                DeliveryReturnData returnData = (DeliveryReturnData)createSummaryMessage(
-                    initDefaultReturn(new DeliveryReturnData(), deliveryData, "findParcelForDelivery"), response);
+                DeliveryReturnModel returnModel = (DeliveryReturnModel)createSummaryMessage(
+                    initDefaultReturn(new DeliveryReturnModel(), deliveryModel, "findParcelForDelivery"), response);
                 if (response.Result)
                 {
                     foreach (ParcelMinimal parcelMinimal in response.ParcelMinimals)
                     {
-                        DeliveryParleccMinimumReturnData newItem = new DeliveryParleccMinimumReturnData();
+                        DeliveryParcelMinimumReturnModel newItem = new DeliveryParcelMinimumReturnModel();
                         newItem.Barcode = parcelMinimal.Barcode;
                         newItem.Damaged = parcelMinimal.Damaged;
                         newItem.LinkedCount = parcelMinimal.LinkedCount;
@@ -75,31 +75,31 @@ namespace PDATestProject
                         newItem.PriceAtDelivery = parcelMinimal.PriceAtDelivery;
                         newItem.ReturnDate = parcelMinimal.ReturnDate;
 
-                        returnData.datas.Add(newItem);
+                        returnModel.datas.Add(newItem);
                     }
                 }
-                return returnData;
+                return returnModel;
 
             }
             catch (Exception e)
             {
-                return (DeliveryReturnData)returnErrorMessage(new DeliveryReturnData(), e);
+                return (DeliveryReturnModel)returnErrorMessage(new DeliveryReturnModel(), e);
             }
         }
 
-        internal static DeliveryReturnData postCancelDelivery(DeliveryData deliveryData)
+        internal static DeliveryReturnModel postCancelDelivery(DeliveryModel deliveryModel)
         {
             try
             {
                 PostCancelDeliveryRequest request = (PostCancelDeliveryRequest)initDefaultParameters(
-                    new PostCancelDeliveryRequest(), deliveryData);
+                    new PostCancelDeliveryRequest(), deliveryModel);
 
                 List<DeliveryContainer> containers = new List<DeliveryContainer>();
-                foreach (DeliveryParleccMinimumReturnData data in deliveryData.datas)
+                foreach (DeliveryParcelMinimumReturnModel data in deliveryModel.datas)
                 {
                     DeliveryContainer newItem = new DeliveryContainer();
                     newItem.Barcode = data.Barcode;
-                    newItem.Damaged = deliveryData.damaged;
+                    newItem.Damaged = deliveryModel.damaged;
                     containers.Add(newItem);
                 }
                 request.DeliveryParcels = containers.ToArray();
@@ -107,121 +107,121 @@ namespace PDATestProject
                 PostCancelDeliveryResponse response = pudoClient.PostCancelDelivery(request);
 
                 //create return object with base properties
-                DeliveryReturnData returnData = (DeliveryReturnData)createSummaryMessage(
-                    initDefaultReturn(new DeliveryReturnData(), deliveryData, "postCancelDelivery"), response);
+                DeliveryReturnModel returnModel = (DeliveryReturnModel)createSummaryMessage(
+                    initDefaultReturn(new DeliveryReturnModel(), deliveryModel, "postCancelDelivery"), response);
                 if (response.Result)
                 {
-                    returnData.summaryMessage += parcelResultsToString(response.ParcelResults);
+                    returnModel.summaryMessage += parcelResultsToString(response.ParcelResults);
                 }
-                return returnData;
+                return returnModel;
             }
             catch (Exception e)
             {
-                return (DeliveryReturnData)returnErrorMessage(new DeliveryReturnData(), e);
+                return (DeliveryReturnModel)returnErrorMessage(new DeliveryReturnModel(), e);
             }
         }
 
-        internal static DeliveryReturnData postRefuseDelivery(DeliveryData deliveryData)
+        internal static DeliveryReturnModel postRefuseDelivery(DeliveryModel deliveryModel)
         {
             try
             {
                 PostRefuseDeliveryRequest request = (PostRefuseDeliveryRequest)initDefaultParameters(
-              new PostRefuseDeliveryRequest(), deliveryData);
+              new PostRefuseDeliveryRequest(), deliveryModel);
 
                 List<DeliveryContainer> containers = new List<DeliveryContainer>();
-                foreach (DeliveryParleccMinimumReturnData data in deliveryData.datas)
+                foreach (DeliveryParcelMinimumReturnModel data in deliveryModel.datas)
                 {
                     DeliveryContainer newItem = new DeliveryContainer();
                     newItem.Barcode = data.Barcode;
-                    newItem.Damaged = deliveryData.damaged;
+                    newItem.Damaged = deliveryModel.damaged;
                     containers.Add(newItem);
                 }
                 request.RefuseParcels = containers.ToArray();
-                request.IdentificationType = deliveryData.refuseIdType;
-                request.IdentifyDocumentNo = deliveryData.refuseDocNo;
-                request.RefuseReason = deliveryData.reason;
+                request.IdentificationType = deliveryModel.refuseIdType;
+                request.IdentifyDocumentNo = deliveryModel.refuseDocNo;
+                request.RefuseReason = deliveryModel.reason;
                 //TODO signaturedata
 
                 PostRefuseDeliveryResponse response = pudoClient.PostRefuseDelivery(request);
 
                 //create return object with base properties
-                DeliveryReturnData returnData = (DeliveryReturnData)createSummaryMessage(
-                    initDefaultReturn(new DeliveryReturnData(), deliveryData, "postRefuseDelivery"), response);
+                DeliveryReturnModel returnModel = (DeliveryReturnModel)createSummaryMessage(
+                    initDefaultReturn(new DeliveryReturnModel(), deliveryModel, "postRefuseDelivery"), response);
                 if (response.Result)
                 {
-                    returnData.summaryMessage += parcelResultsToString(response.ParcelResults);
+                    returnModel.summaryMessage += parcelResultsToString(response.ParcelResults);
                 }
-                return returnData;
+                return returnModel;
             }
             catch (Exception e)
             {
-                return (DeliveryReturnData)returnErrorMessage(new DeliveryReturnData(), e);
+                return (DeliveryReturnModel)returnErrorMessage(new DeliveryReturnModel(), e);
             }
         }
 
-        internal static DeliveryReturnData postDelivery(DeliveryData deliveryData)
+        internal static DeliveryReturnModel postDelivery(DeliveryModel deliveryModel)
         {
             try
             {
                 PostDeliveryRequest request = (PostDeliveryRequest)initDefaultParameters(
-             new PostDeliveryRequest(), deliveryData);
+             new PostDeliveryRequest(), deliveryModel);
 
                 List<DeliveryContainer> containers = new List<DeliveryContainer>();
-                foreach (DeliveryParleccMinimumReturnData data in deliveryData.datas)
+                foreach (DeliveryParcelMinimumReturnModel data in deliveryModel.datas)
                 {
                     DeliveryContainer newItem = new DeliveryContainer();
                     newItem.Barcode = data.Barcode;
-                    newItem.Damaged = deliveryData.damaged;
+                    newItem.Damaged = deliveryModel.damaged;
                     containers.Add(newItem);
                 }
                 request.DeliveryParcels = containers.ToArray();
-                request.IdentificationType = deliveryData.refuseIdType;
-                request.IdentifyDocumentNo = deliveryData.refuseDocNo;
-                request.PaymentMethod = deliveryData.reason;
+                request.IdentificationType = deliveryModel.refuseIdType;
+                request.IdentifyDocumentNo = deliveryModel.refuseDocNo;
+                request.PaymentMethod = deliveryModel.reason;
                 //TODO signaturedata
 
                 PostDeliveryResponse response = pudoClient.PostDelivery(request);
 
                 //create return object with base properties
-                DeliveryReturnData returnData = (DeliveryReturnData)createSummaryMessage(
-                    initDefaultReturn(new DeliveryReturnData(), deliveryData, "postDelivery"), response);
+                DeliveryReturnModel returnModel = (DeliveryReturnModel)createSummaryMessage(
+                    initDefaultReturn(new DeliveryReturnModel(), deliveryModel, "postDelivery"), response);
                 if (response.Result)
                 {
-                    returnData.summaryMessage += parcelResultsToString(response.ParcelResults);
+                    returnModel.summaryMessage += parcelResultsToString(response.ParcelResults);
                 }
-                return returnData;
+                return returnModel;
             }
             catch (Exception e)
             {
-                return (DeliveryReturnData)returnErrorMessage(new DeliveryReturnData(), e);
+                return (DeliveryReturnModel)returnErrorMessage(new DeliveryReturnModel(), e);
             }
         }
 
-        internal static DefaultReturnData getHoliday(HolidayData holidayData)
+        internal static DefaultReturnModel getHoliday(HolidayModel holidayModel)
         {
             try
             {
                 // init request with default parameters
                 GetHolidaysRequest request = (GetHolidaysRequest)initDefaultParameters(
-                    new GetHolidaysRequest(), holidayData);
+                    new GetHolidaysRequest(), holidayModel);
 
                 //execute service call
                 GetHolidaysResponse response = pudoClient.GetHolidays(request);
 
                 //create return object with base properties
-                DefaultReturnData returnData = createSummaryMessage(
-                    initDefaultReturn(new DefaultReturnData(), holidayData, "getHoliday"), response);
+                DefaultReturnModel returnModel = createSummaryMessage(
+                    initDefaultReturn(new DefaultReturnModel(), holidayModel, "getHoliday"), response);
 
                 //initialize custom values 
                 if (response.Result)
                 {
-                    returnData.summaryMessage += holidaysToString(response.Holidays);
+                    returnModel.summaryMessage += holidaysToString(response.Holidays);
                 }
-                return returnData;
+                return returnModel;
             }
             catch (Exception e)
             {
-                return returnErrorMessage(new DefaultReturnData(), e);
+                return returnErrorMessage(new DefaultReturnModel(), e);
             }
         }
 
@@ -243,42 +243,42 @@ namespace PDATestProject
             return holidayString;
         }
 
-        internal static DefaultReturnData setHoliday(HolidayData holidayData)
+        internal static DefaultReturnModel setHoliday(HolidayModel holidayModel)
         {
             try
             {
                 // init request with default parameters
                 SetHolidaysRequest request = (SetHolidaysRequest)initDefaultParameters(
-                    new SetHolidaysRequest(), holidayData);
+                    new SetHolidaysRequest(), holidayModel);
 
                 // add unique parameters
                 List<HolidaysEntry> holidayList = new List<HolidaysEntry>();
-                if (holidayData.holiday1From.CompareTo(holidayData.holiday1To) < 0)
+                if (holidayModel.holiday1From.CompareTo(holidayModel.holiday1To) < 0)
                 {
                     HolidaysEntry newEntry = new HolidaysEntry();
-                    newEntry.From = holidayData.holiday1From;
-                    newEntry.To = holidayData.holiday1To;
+                    newEntry.From = holidayModel.holiday1From;
+                    newEntry.To = holidayModel.holiday1To;
                     holidayList.Add(newEntry);
                 }
-                if (holidayData.holiday2From.CompareTo(holidayData.holiday2To) < 0)
+                if (holidayModel.holiday2From.CompareTo(holidayModel.holiday2To) < 0)
                 {
                     HolidaysEntry newEntry = new HolidaysEntry();
-                    newEntry.From = holidayData.holiday2From;
-                    newEntry.To = holidayData.holiday2To;
+                    newEntry.From = holidayModel.holiday2From;
+                    newEntry.To = holidayModel.holiday2To;
                     holidayList.Add(newEntry);
                 }
-                if (holidayData.holiday3From.CompareTo(holidayData.holiday3To) < 0)
+                if (holidayModel.holiday3From.CompareTo(holidayModel.holiday3To) < 0)
                 {
                     HolidaysEntry newEntry = new HolidaysEntry();
-                    newEntry.From = holidayData.holiday3From;
-                    newEntry.To = holidayData.holiday3To;
+                    newEntry.From = holidayModel.holiday3From;
+                    newEntry.To = holidayModel.holiday3To;
                     holidayList.Add(newEntry);
                 }
-                if (holidayData.holiday4From.CompareTo(holidayData.holiday4To) < 0)
+                if (holidayModel.holiday4From.CompareTo(holidayModel.holiday4To) < 0)
                 {
                     HolidaysEntry newEntry = new HolidaysEntry();
-                    newEntry.From = holidayData.holiday4From;
-                    newEntry.To = holidayData.holiday4To;
+                    newEntry.From = holidayModel.holiday4From;
+                    newEntry.To = holidayModel.holiday4To;
                     holidayList.Add(newEntry);
                 }
 
@@ -291,110 +291,110 @@ namespace PDATestProject
                 SetHolidaysResponse response = pudoClient.SetHolidays(request);
 
                 //create return object with base properties
-                DefaultReturnData returnData = createSummaryMessage(
-                    initDefaultReturn(new DefaultReturnData(), holidayData, "setHoliday"), response);
+                DefaultReturnModel returnModel = createSummaryMessage(
+                    initDefaultReturn(new DefaultReturnModel(), holidayModel, "setHoliday"), response);
 
-                return returnData;
+                return returnModel;
             }
             catch (Exception e)
             {
-                return (PackageReturnData)returnErrorMessage(new PackageReturnData(), e);
+                return (PackageReturnModel)returnErrorMessage(new PackageReturnModel(), e);
             }
         }
 
-        internal static MasterDataReturnData findInsertedDictionarySince(MasterDataData masterDataData)
+        internal static MasterDataReturnModel findInsertedDictionarySince(MasterDataModel masterModelModel)
         {
             try
             {
                 FindInsertedDictionarySinceRequest request = (FindInsertedDictionarySinceRequest)initDefaultParameters(
-                     new FindInsertedDictionarySinceRequest(), masterDataData);
+                     new FindInsertedDictionarySinceRequest(), masterModelModel);
 
-                request.Since = masterDataData.date;
+                request.Since = masterModelModel.date;
 
                 //execute service call
                 FindInsertedDictionarySinceResponse response = pudoClient.FindInsertedDictionarySince(request);
 
                 //create return object with base properties
-                MasterDataReturnData returnData = (MasterDataReturnData)createSummaryMessage(
-                    initDefaultReturn(new MasterDataReturnData(), masterDataData, "findInsertedDictionarySince"), response);
+                MasterDataReturnModel returnModel = (MasterDataReturnModel)createSummaryMessage(
+                    initDefaultReturn(new MasterDataReturnModel(), masterModelModel, "findInsertedDictionarySince"), response);
                 if (response.Result)
-                {
-                    returnData.dictionaries.Clear();
+                { 
+                    returnModel.dictionaries.Clear();
                     foreach (Dictionary dictionary in response.Dictionaries)
                     {
-                        DictionaryReturnData newItem = new DictionaryReturnData();
+                        DictionaryReturnModel newItem = new DictionaryReturnModel();
                         newItem.Description = dictionary.Description;
                         newItem.DictionaryClass = dictionary.DictionaryClass.ToString();
                         newItem.KeyValue = dictionary.KeyValue;
-                        returnData.dictionaries.Add(newItem);
+                        returnModel.dictionaries.Add(newItem);
 
                     }
                 }
-                return returnData;
+                return returnModel;
             }
             catch (Exception e)
             {
-                return (MasterDataReturnData)returnErrorMessage(new MasterDataReturnData(), e);
+                return (MasterDataReturnModel)returnErrorMessage(new MasterDataReturnModel(), e);
             }
         }
 
-        internal static MasterDataReturnData findInsertedPartnerSince(MasterDataData masterDataData)
+        internal static MasterDataReturnModel findInsertedPartnerSince(MasterDataModel masterModelModel)
         {
             try
             {
                 FindUpsertedPartnerSinceRequest request = (FindUpsertedPartnerSinceRequest)initDefaultParameters(
-                 new FindUpsertedPartnerSinceRequest(), masterDataData);
+                 new FindUpsertedPartnerSinceRequest(), masterModelModel);
 
-                request.Since = masterDataData.date;
+                request.Since = masterModelModel.date;
 
                 //execute service call
                 FindUpsertedPartnerSinceResponse response = pudoClient.FindUpsertedPartnerSince(request);
 
                 //create return object with base properties
-                MasterDataReturnData returnData = (MasterDataReturnData)createSummaryMessage(
-                    initDefaultReturn(new MasterDataReturnData(), masterDataData, "findInsertedPartnerSince"), response);
+                MasterDataReturnModel returnModel = (MasterDataReturnModel)createSummaryMessage(
+                    initDefaultReturn(new MasterDataReturnModel(), masterModelModel, "findInsertedPartnerSince"), response);
                 if (response.Result)
                 {
-                    returnData.partners.Clear();
+                    returnModel.partners.Clear();
                     foreach (Partner partner in response.Partners)
                     {
-                        PartnerReturnData newItem = new PartnerReturnData();
+                        PartnerReturnModel newItem = new PartnerReturnModel();
                         newItem.PartnerID = partner.PartnerID;
                         newItem.PartnerName = partner.PartnerName;
-                        returnData.partners.Add(newItem);
+                        returnModel.partners.Add(newItem);
                     }
                 }
 
-                return returnData;
+                return returnModel;
             }
             catch (Exception e)
             {
-                return (MasterDataReturnData)returnErrorMessage(new MasterDataReturnData(), e);
+                return (MasterDataReturnModel)returnErrorMessage(new MasterDataReturnModel(), e);
             }
         }
 
-        internal static MasterDataReturnData findInsertedParcelSince(MasterDataData masterDataData)
+        internal static MasterDataReturnModel findInsertedParcelSince(MasterDataModel masterModelModel)
         {
             try
             {
                 FindInsertedParcelSinceRequest request = (FindInsertedParcelSinceRequest)initDefaultParameters(
-                 new FindInsertedParcelSinceRequest(), masterDataData);
+                 new FindInsertedParcelSinceRequest(), masterModelModel);
 
-                request.Since = masterDataData.date;
+                request.Since = masterModelModel.date;
 
                 //execute service call
                 FindInsertedParcelSinceResponse response = pudoClient.FindInsertedParcelSince(request);
 
                 //create return object with base properties
-                MasterDataReturnData returnData = (MasterDataReturnData)createSummaryMessage(
-                    initDefaultReturn(new MasterDataReturnData(), masterDataData, "findInsertedParcelSince"), response);
+                MasterDataReturnModel returnModel = (MasterDataReturnModel)createSummaryMessage(
+                    initDefaultReturn(new MasterDataReturnModel(), masterModelModel, "findInsertedParcelSince"), response);
                 if (response.Result)
                 {
-                    returnData.parcels.Clear();
+                    returnModel.parcels.Clear();
                     foreach (Parcel parcel in response.Parcels)
                     {
 
-                        ParcelReturnData data = new ParcelReturnData();
+                        ParcelReturnModel data = new ParcelReturnModel();
                         data.BagBarcode = parcel.BagBarcode;
                         data.Barcode = parcel.Barcode;
                         data.Currency = parcel.Currency;
@@ -416,145 +416,145 @@ namespace PDATestProject
                         data.ReturnDate = parcel.ReturnDate;
                         data.ShipmentID = parcel.ShipmentID;
 
-                        returnData.parcels.Add(data);
+                        returnModel.parcels.Add(data);
                     }
                 }
-                return returnData;
+                return returnModel;
             }
             catch (Exception e)
             {
-                return (MasterDataReturnData)returnErrorMessage(new MasterDataReturnData(), e);
+                return (MasterDataReturnModel)returnErrorMessage(new MasterDataReturnModel(), e);
             }
         }
 
-        internal static MasterDataReturnData findDeletedDictionarySince(MasterDataData masterDataData)
+        internal static MasterDataReturnModel findDeletedDictionarySince(MasterDataModel masterModelModel)
         {
             try
             {
                 FindDeletedDictionarySinceRequest request = (FindDeletedDictionarySinceRequest)initDefaultParameters(
-                new FindDeletedDictionarySinceRequest(), masterDataData);
+                new FindDeletedDictionarySinceRequest(), masterModelModel);
 
-                request.Since = masterDataData.date;
+                request.Since = masterModelModel.date;
 
                 //execute service call
                 FindDeletedDictionarySinceResponse response = pudoClient.FindDeletedDictionarySince(request);
 
                 //create return object with base properties
-                MasterDataReturnData returnData = (MasterDataReturnData)createSummaryMessage(
-                    initDefaultReturn(new MasterDataReturnData(), masterDataData, "findDeletedDictionarySince"), response);
+                MasterDataReturnModel returnModel = (MasterDataReturnModel)createSummaryMessage(
+                    initDefaultReturn(new MasterDataReturnModel(), masterModelModel, "findDeletedDictionarySince"), response);
                 if (response.Result)
                 {
-                    returnData.dictionaries.Clear();
+                    returnModel.dictionaries.Clear();
                     foreach (Dictionary dictionary in response.Dictionaries)
                     {
-                        DictionaryReturnData newItem = new DictionaryReturnData();
+                        DictionaryReturnModel newItem = new DictionaryReturnModel();
                         newItem.Description = dictionary.Description;
                         newItem.DictionaryClass = dictionary.DictionaryClass.ToString();
                         newItem.KeyValue = dictionary.KeyValue;
-                        returnData.dictionaries.Add(newItem);
+                        returnModel.dictionaries.Add(newItem);
 
                     }
                 }
 
-                return returnData;
+                return returnModel;
             }
             catch (Exception e)
             {
-                return (MasterDataReturnData)returnErrorMessage(new MasterDataReturnData(), e);
+                return (MasterDataReturnModel)returnErrorMessage(new MasterDataReturnModel(), e);
             }
         }
 
-        internal static MasterDataReturnData findDeletedPartnerSince(MasterDataData masterDataData)
+        internal static MasterDataReturnModel findDeletedPartnerSince(MasterDataModel masterModelModel)
         {
             try
             {
                 FindDeletedPartnerSinceRequest request = (FindDeletedPartnerSinceRequest)initDefaultParameters(
-                new FindDeletedPartnerSinceRequest(), masterDataData);
+                new FindDeletedPartnerSinceRequest(), masterModelModel);
 
-                request.Since = masterDataData.date;
+                request.Since = masterModelModel.date;
 
                 //execute service call
                 FindDeletedPartnerSinceResponse response = pudoClient.FindDeletedPartnerSince(request);
 
                 //create return object with base properties
-                MasterDataReturnData returnData = (MasterDataReturnData)createSummaryMessage(
-                    initDefaultReturn(new MasterDataReturnData(), masterDataData, "findDeletedPartnerSince"), response);
+                MasterDataReturnModel returnModel = (MasterDataReturnModel)createSummaryMessage(
+                    initDefaultReturn(new MasterDataReturnModel(), masterModelModel, "findDeletedPartnerSince"), response);
                 if (response.Result)
                 {
-                    returnData.partners.Clear();
+                    returnModel.partners.Clear();
                     foreach (Partner partner in response.Partners)
                     {
-                        PartnerReturnData newItem = new PartnerReturnData();
+                        PartnerReturnModel newItem = new PartnerReturnModel();
                         newItem.PartnerID = partner.PartnerID;
                         newItem.PartnerName = partner.PartnerName;
-                        returnData.partners.Add(newItem);
+                        returnModel.partners.Add(newItem);
                     }
                 }
-                return returnData;
+                return returnModel;
             }
             catch (Exception e)
             {
-                return (MasterDataReturnData)returnErrorMessage(new MasterDataReturnData(), e);
+                return (MasterDataReturnModel)returnErrorMessage(new MasterDataReturnModel(), e);
             }
         }
 
-        internal static MasterDataReturnData findDeletedParcelSince(MasterDataData masterDataData)
+        internal static MasterDataReturnModel findDeletedParcelSince(MasterDataModel masterModelModel)
         {
             try
             {
                 FindDeletedParcelSinceRequest request = (FindDeletedParcelSinceRequest)initDefaultParameters(
-                  new FindDeletedParcelSinceRequest(), masterDataData);
+                  new FindDeletedParcelSinceRequest(), masterModelModel);
 
-                request.Since = masterDataData.date;
+                request.Since = masterModelModel.date;
 
                 //execute service call
                 FindDeletedParcelSinceResponse response = pudoClient.FindDeletedParcelSince(request);
 
                 //create return object with base properties
-                MasterDataReturnData returnData = (MasterDataReturnData)createSummaryMessage(
-                    initDefaultReturn(new MasterDataReturnData(), masterDataData, "findDeletedParcelSince"), response);
+                MasterDataReturnModel returnModel = (MasterDataReturnModel)createSummaryMessage(
+                    initDefaultReturn(new MasterDataReturnModel(), masterModelModel, "findDeletedParcelSince"), response);
                 if (response.Result)
                 {
-                    returnData.summaryMessage += Environment.NewLine + "Result list:" + Environment.NewLine;
+                    returnModel.summaryMessage += Environment.NewLine + "Result list:" + Environment.NewLine;
                     foreach (string barcode in response.BarcodeList)
                     {
-                        returnData.summaryMessage += barcode + Environment.NewLine;
+                        returnModel.summaryMessage += barcode + Environment.NewLine;
                     }
                 }
 
-                return returnData;
+                return returnModel;
             }
             catch (Exception e)
             {
-                return (MasterDataReturnData)returnErrorMessage(new MasterDataReturnData(), e);
+                return (MasterDataReturnModel)returnErrorMessage(new MasterDataReturnModel(), e);
             }
         }
 
-        internal static DefaultReturnData getOpeningHours(OpeningHoursData openingHoursData)
+        internal static DefaultReturnModel getOpeningHours(OpeningHoursModel openingHoursModel)
         {
             // init request with default parameters
             try
             {
                 GetOpeningHoursRequest request = (GetOpeningHoursRequest)initDefaultParameters(
-                new GetOpeningHoursRequest(), openingHoursData);
+                new GetOpeningHoursRequest(), openingHoursModel);
 
                 //execute service call
                 GetOpeningHoursResponse response = pudoClient.GetOpeningHours(request);
 
                 //create return object with base properties
-                DefaultReturnData returnData = (DefaultReturnData)createSummaryMessage(
-                    initDefaultReturn(new DefaultReturnData(), openingHoursData, "getOpeningHours"), response);
+                DefaultReturnModel returnModel = (DefaultReturnModel)createSummaryMessage(
+                    initDefaultReturn(new DefaultReturnModel(), openingHoursModel, "getOpeningHours"), response);
 
                 //initialize custom values
                 if (response.Result)
                 {
-                    returnData.summaryMessage += openingHoursToString(response.OpeningHours);
+                    returnModel.summaryMessage += openingHoursToString(response.OpeningHours);
                 }
-                return returnData;
+                return returnModel;
             }
             catch (Exception e)
             {
-                return returnErrorMessage(new DefaultReturnData(), e);
+                return returnErrorMessage(new DefaultReturnModel(), e);
             }
         }
 
@@ -600,36 +600,36 @@ namespace PDATestProject
             return result;
         }
 
-        internal static DefaultReturnData setOpeningHours(OpeningHoursData openingHoursData)
+        internal static DefaultReturnModel setOpeningHours(OpeningHoursModel openingHoursModel)
         {
             try
             {
                 // init request with default parameters
                 SetOpeningHoursRequest request = (SetOpeningHoursRequest)initDefaultParameters(
-                    new SetOpeningHoursRequest(), openingHoursData);
+                    new SetOpeningHoursRequest(), openingHoursModel);
 
                 // add unique parameters
                 request.OpeningHours = new OpeningHours();
-                request.OpeningHours.Monday = parse(openingHoursData.mondayFirts, openingHoursData.mondaySecond);
-                request.OpeningHours.Tuesday = parse(openingHoursData.tuesdayFirts, openingHoursData.tuesdaySecond);
-                request.OpeningHours.Wednesday = parse(openingHoursData.wednesdayFirts, openingHoursData.wednesdaySecond);
-                request.OpeningHours.Thursday = parse(openingHoursData.thursdayFirts, openingHoursData.thursdaySecond);
-                request.OpeningHours.Friday = parse(openingHoursData.fridayFirts, openingHoursData.fridaySecond);
-                request.OpeningHours.Saturday = parse(openingHoursData.saturdayFirts, openingHoursData.saturdaySecond);
-                request.OpeningHours.Sunday = parse(openingHoursData.sundayFirts, openingHoursData.sundaySecond);
+                request.OpeningHours.Monday = parse(openingHoursModel.mondayFirts, openingHoursModel.mondaySecond);
+                request.OpeningHours.Tuesday = parse(openingHoursModel.tuesdayFirts, openingHoursModel.tuesdaySecond);
+                request.OpeningHours.Wednesday = parse(openingHoursModel.wednesdayFirts, openingHoursModel.wednesdaySecond);
+                request.OpeningHours.Thursday = parse(openingHoursModel.thursdayFirts, openingHoursModel.thursdaySecond);
+                request.OpeningHours.Friday = parse(openingHoursModel.fridayFirts, openingHoursModel.fridaySecond);
+                request.OpeningHours.Saturday = parse(openingHoursModel.saturdayFirts, openingHoursModel.saturdaySecond);
+                request.OpeningHours.Sunday = parse(openingHoursModel.sundayFirts, openingHoursModel.sundaySecond);
 
                 //execute service call
                 SetOpeningHoursResponse response = pudoClient.SetOpeningHours(request);
 
                 //create return object with base properties
-                DefaultReturnData returnData = (DefaultReturnData)createSummaryMessage(
-                    initDefaultReturn(new DefaultReturnData(), openingHoursData, "setOpeningHours"), response);
+                DefaultReturnModel returnModel = (DefaultReturnModel)createSummaryMessage(
+                    initDefaultReturn(new DefaultReturnModel(), openingHoursModel, "setOpeningHours"), response);
 
-                return returnData;
+                return returnModel;
             }
             catch (Exception e)
             {
-                return returnErrorMessage(new DefaultReturnData(), e);
+                return returnErrorMessage(new DefaultReturnModel(), e);
             }
         }
 
@@ -687,76 +687,76 @@ namespace PDATestProject
             return entry;
         }
 
-        internal static PackageReturnData findParcelByBarCode(PackageData packageData)
+        internal static PackageReturnModel findParcelByBarCode(PackageModel packageModel)
         {
             try
             {
                 // init request with default parameters
                 FindParcelByBarcodeRequest request = (FindParcelByBarcodeRequest)initDefaultParameters(
-                    new FindParcelByBarcodeRequest(), packageData);
+                    new FindParcelByBarcodeRequest(), packageModel);
                 // add unique parameters
-                request.Barcode = packageData.packageCode == null ? "" : packageData.packageCode;
+                request.Barcode = packageModel.packageCode == null ? "" : packageModel.packageCode;
 
                 //execute service call
                 FindParcelByBarcodeResponse response = pudoClient.FindParcelByBarcode(request);
 
                 //create return object with base properties
-                PackageReturnData returnData = (PackageReturnData)createSummaryMessage(
-                    initDefaultReturn(new PackageReturnData(), packageData, "findParcelByBarCode"), response);
+                PackageReturnModel returnModel = (PackageReturnModel)createSummaryMessage(
+                    initDefaultReturn(new PackageReturnModel(), packageModel, "findParcelByBarCode"), response);
 
                 //initialize custom values
-                return initPackageReturnParcelComposites(returnData, response.ParcelComposites);
+                return initPackageReturnParcelComposites(returnModel, response.ParcelComposites);
             }
             catch (Exception e)
             {
-                return (PackageReturnData)returnErrorMessage(new PackageReturnData(), e);
+                return (PackageReturnModel)returnErrorMessage(new PackageReturnModel(), e);
             }
         }
 
-        internal static PackageReturnData findParcelByFilter(PackageData packageData)
+        internal static PackageReturnModel findParcelByFilter(PackageModel packageModel)
         {
 
             try
             {
                 // init request with default parameters
                 FindParcelByFilterRequest request = (FindParcelByFilterRequest)initDefaultParameters(
-                    new FindParcelByFilterRequest(), packageData);
+                    new FindParcelByFilterRequest(), packageModel);
 
                 // add unique parameters
-                request.BarcodeFilter = packageData.filterPackageCode;
-                request.CustomerAddressFilter = packageData.customerAddress;
-                request.CustomerNameFilter = packageData.customerName;
-                request.CustomerZipFilter = packageData.customerZip;
+                request.BarcodeFilter = packageModel.filterPackageCode;
+                request.CustomerAddressFilter = packageModel.customerAddress;
+                request.CustomerNameFilter = packageModel.customerName;
+                request.CustomerZipFilter = packageModel.customerZip;
 
                 //execute service call
                 FindParcelByFilterResponse response = pudoClient.FindParcelByFilter(request);
 
                 //create return object with base properties
-                PackageReturnData returnData = (PackageReturnData)createSummaryMessage(
-                    initDefaultReturn(new PackageReturnData(), packageData, "findParcelByFilter"), response);
+                PackageReturnModel returnModel = (PackageReturnModel)createSummaryMessage(
+                    initDefaultReturn(new PackageReturnModel(), packageModel, "findParcelByFilter"), response);
 
                 //initialize custom values
-                return initPackageReturnParcelComposites(returnData, response.ParcelComposites);
+                return initPackageReturnParcelComposites(returnModel, response.ParcelComposites);
             }
             catch (Exception e)
             {
-                return (PackageReturnData)returnErrorMessage(new PackageReturnData(), e);
+                return (PackageReturnModel)returnErrorMessage(new PackageReturnModel(), e);
             }
         }
 
-        private static DefaultReturnData returnErrorMessage(DefaultReturnData returnData, Exception e)
+        private static DefaultReturnModel returnErrorMessage(DefaultReturnModel returnModel, Exception e)
         {
-            returnData.summaryMessage = "ERROR: " + e.Message;
-            return returnData;
+            returnModel.summaryMessage = "ERROR: " + e.Message;
+            return returnModel;
         }
 
-        private static PackageReturnData initPackageReturnParcelComposites(PackageReturnData returnData, ParcelComposite[] composites)
+        private static PackageReturnModel initPackageReturnParcelComposites(PackageReturnModel returnModel, ParcelComposite[] composites)
         {
             if (composites != null)
             {
                 foreach (ParcelComposite composite in composites)
                 {
-                    ParcelCompositeReturnData data = new ParcelCompositeReturnData();
+                    ParcelCompositeReturnModel data = new ParcelCompositeReturnModel();
                     data.BagBarcode = composite.Parcel.BagBarcode;
                     data.Barcode = composite.Parcel.Barcode;
                     data.Currency = composite.Parcel.Currency;
@@ -778,151 +778,151 @@ namespace PDATestProject
                     data.ReturnDate = composite.Parcel.ReturnDate;
                     data.ShipmentID = composite.Parcel.ShipmentID;
 
-                    returnData.datas.Add(data);
+                    returnModel.datas.Add(data);
 
                 }
             }
-            return returnData;
+            return returnModel;
         }
 
-        internal static PartnersReturnData findPartnerById(PartnerData partnerData)
+        internal static PartnersReturnModel findPartnerById(PartnerModel partnerModel)
         {
             try
             {
                 // init request with default parameters
                 FindPartnerByIDRequest request = (FindPartnerByIDRequest)initDefaultParameters(
-                    new FindPartnerByIDRequest(), partnerData);
+                    new FindPartnerByIDRequest(), partnerModel);
 
                 // add unique parameters
-                request.PartnerID = partnerData.partnerId == null ? "" : partnerData.partnerId;
+                request.PartnerID = partnerModel.partnerId == null ? "" : partnerModel.partnerId;
 
                 //execute service call
                 FindPartnerByIDResponse response = pudoClient.FindPartnerByID(request);
 
                 //create return object with base properties
-                PartnersReturnData returnData = (PartnersReturnData)createSummaryMessage(
-                    initDefaultReturn(new PartnersReturnData(), partnerData, "findPartnerById"), response);
+                PartnersReturnModel returnModel = (PartnersReturnModel)createSummaryMessage(
+                    initDefaultReturn(new PartnersReturnModel(), partnerModel, "findPartnerById"), response);
                 if (response.Result)
                 {
                     if (response.Partner != null)
                     {
-                        PartnerReturnData newItem = new PartnerReturnData();
+                        PartnerReturnModel newItem = new PartnerReturnModel();
                         newItem.PartnerID = response.Partner.PartnerID;
                         newItem.PartnerName = response.Partner.PartnerName;
 
-                        returnData.partners.Add(newItem);
+                        returnModel.partners.Add(newItem);
                     }
                 }
                 //initialize custom values
-                return returnData;
+                return returnModel;
             }
             catch (Exception e)
             {
-                return (PartnersReturnData)returnErrorMessage(new PartnersReturnData(), e);
+                return (PartnersReturnModel)returnErrorMessage(new PartnersReturnModel(), e);
             }
         }
 
-        internal static PartnersReturnData findPartnerByFilter(PartnerData partnerData)
+        internal static PartnersReturnModel findPartnerByFilter(PartnerModel partnerModel)
         {
             try
             {
                 // init request with default parameters
                 FindPartnerByFilterRequest request = (FindPartnerByFilterRequest)initDefaultParameters(
-                    new FindPartnerByFilterRequest(), partnerData);
+                    new FindPartnerByFilterRequest(), partnerModel);
 
                 // add unique parameters
-                request.PartnerNameFilter = partnerData.partnerNamePart == null ? "" : partnerData.partnerNamePart;
+                request.PartnerNameFilter = partnerModel.partnerNamePart == null ? "" : partnerModel.partnerNamePart;
 
                 //execute service call
                 FindPartnerByFilterResponse response = pudoClient.FindPartnerByFilter(request);
 
                 //create return object with base properties
-                PartnersReturnData returnData = (PartnersReturnData)createSummaryMessage(
-                    initDefaultReturn(new PartnersReturnData(), partnerData, "findPartnerByFilter"), response);
+                PartnersReturnModel returnModel = (PartnersReturnModel)createSummaryMessage(
+                    initDefaultReturn(new PartnersReturnModel(), partnerModel, "findPartnerByFilter"), response);
 
                 //initialize custom values
                 if (response.Result)
                 {
                     foreach (Partner partner in response.Partners)
                     {
-                        PartnerReturnData newItem = new PartnerReturnData();
+                        PartnerReturnModel newItem = new PartnerReturnModel();
                         newItem.PartnerID = partner.PartnerID;
                         newItem.PartnerName = partner.PartnerName;
 
-                        returnData.partners.Add(newItem);
+                        returnModel.partners.Add(newItem);
                     }
                 }
-                return returnData;
+                return returnModel;
             }
             catch (Exception e)
             {
-                return (PartnersReturnData)returnErrorMessage(new PartnersReturnData(), e);
+                return (PartnersReturnModel)returnErrorMessage(new PartnersReturnModel(), e);
             }
         }
 
-        internal static PartnersReturnData countPartnerByFilter(PartnerData partnerData)
+        internal static PartnersReturnModel countPartnerByFilter(PartnerModel partnerModel)
         {
             try
             {
                 // init request with default parameters
                 CountPartnerByFilterRequest request = (CountPartnerByFilterRequest)initDefaultParameters(
-                    new CountPartnerByFilterRequest(), partnerData);
+                    new CountPartnerByFilterRequest(), partnerModel);
 
                 // add unique parameters
-                request.PartnerNameFilter = partnerData.partnerNamePart;
+                request.PartnerNameFilter = partnerModel.partnerNamePart;
 
                 //execute service call
                 CountPartnerByFilterResponse response = pudoClient.CountPartnerByFilter(request);
 
                 //create return object with base properties
-                PartnersReturnData returnData = (PartnersReturnData)createSummaryMessage(initDefaultReturn(
-                    new PartnersReturnData(), partnerData, "countPartnerByFilter"), response);
+                PartnersReturnModel returnModel = (PartnersReturnModel)createSummaryMessage(initDefaultReturn(
+                    new PartnersReturnModel(), partnerModel, "countPartnerByFilter"), response);
 
                 //initialize custom values
                 if (response.Result)
                 {
-                    returnData.summaryMessage += Environment.NewLine + "Result count: " + response.PartnerCount;
+                    returnModel.summaryMessage += Environment.NewLine + "Result count: " + response.PartnerCount;
                 }
-                return returnData;
+                return returnModel;
             }
             catch (Exception e)
             {
-                return (PartnersReturnData)returnErrorMessage(new PartnersReturnData(), e);
+                return (PartnersReturnModel)returnErrorMessage(new PartnersReturnModel(), e);
             }
         }
 
-        internal static ReceiveReturnData findParcelForReceive(ReceiveData receiveData)
+        internal static ReceiveReturnModel findParcelForReceive(ReceiveModel receiveModel)
         {
             try
             {
                 FindParcelForReceiveRequest request = (FindParcelForReceiveRequest)initDefaultParameters(
-                    new FindParcelForReceiveRequest(), receiveData);
+                    new FindParcelForReceiveRequest(), receiveModel);
                 // add unique parameters
-                request.Barcode = receiveData.barcode;
+                request.Barcode = receiveModel.barcode;
 
                 //execute service call
                 FindParcelForReceiveResponse response = pudoClient.FindParcelForReceive(request);
 
                 //create return object with base properties
-                ReceiveReturnData returnData = (ReceiveReturnData)createSummaryMessage(
-                    initDefaultReturn(new ReceiveReturnData(), receiveData, "findParcelForReceive"), response);
+                ReceiveReturnModel returnModel = (ReceiveReturnModel)createSummaryMessage(
+                    initDefaultReturn(new ReceiveReturnModel(), receiveModel, "findParcelForReceive"), response);
 
                 //initialize custom values
-                return initReceiveReturnParcelComposites(returnData, response.ParcelComposites);
+                return initReceiveReturnParcelComposites(returnModel, response.ParcelComposites);
             }
             catch (Exception e)
             {
-                return (ReceiveReturnData)returnErrorMessage(new ReceiveReturnData(), e);
+                return (ReceiveReturnModel)returnErrorMessage(new ReceiveReturnModel(), e);
             }
         }
 
-        private static ReceiveReturnData initReceiveReturnParcelComposites(ReceiveReturnData returnData, ParcelComposite[] composites)
+        private static ReceiveReturnModel initReceiveReturnParcelComposites(ReceiveReturnModel returnModel, ParcelComposite[] composites)
         {
             if (composites != null)
             {
                 foreach (ParcelComposite composite in composites)
                 {
-                    ParcelCompositeSelectableReturnData data = new ParcelCompositeSelectableReturnData();
+                    ParcelCompositeSelectableReturnModel data = new ParcelCompositeSelectableReturnModel();
                     data.BagBarcode = composite.Parcel.BagBarcode;
                     data.Barcode = composite.Parcel.Barcode;
                     data.Currency = composite.Parcel.Currency;
@@ -945,24 +945,24 @@ namespace PDATestProject
                     data.ShipmentID = composite.Parcel.ShipmentID;
                     data.Selected = false;
 
-                    returnData.datas.Add(data);
+                    returnModel.datas.Add(data);
 
                 }
             }
-            return returnData;
+            return returnModel;
         }
 
-        internal static ReceiveReturnData postReceive(ReceiveData receiveData)
+        internal static ReceiveReturnModel postReceive(ReceiveModel receiveModel)
         {
             try
             {
                 PostReceiveRequest request = (PostReceiveRequest)initDefaultParameters(
-               new PostReceiveRequest(), receiveData);
+               new PostReceiveRequest(), receiveModel);
 
                 // add unique parameters
                 List<ReceptionContainer> receptionContainers = new List<ReceptionContainer>();
                 List<DiscrepancyContainer> discrepancyContainer = new List<DiscrepancyContainer>();
-                foreach (ParcelCompositeSelectableReturnData data in receiveData.gridData)
+                foreach (ParcelCompositeSelectableReturnModel data in receiveModel.gridModel)
                 {
                     if (data.Selected)
                     {
@@ -988,18 +988,18 @@ namespace PDATestProject
                 PostReceiveResponse response = pudoClient.PostReceive(request);
 
                 //create return object with base properties
-                ReceiveReturnData returnData = (ReceiveReturnData)createSummaryMessage(
-                    initDefaultReturn(new ReceiveReturnData(), receiveData, "postReceive"), response);
+                ReceiveReturnModel returnModel = (ReceiveReturnModel)createSummaryMessage(
+                    initDefaultReturn(new ReceiveReturnModel(), receiveModel, "postReceive"), response);
 
                 if (response.Result)
                 {
-                    returnData.summaryMessage += parcelResultsToString(response.ParcelResults);
+                    returnModel.summaryMessage += parcelResultsToString(response.ParcelResults);
                 }
-                return returnData;
+                return returnModel;
             }
             catch (Exception e)
             {
-                return (ReceiveReturnData)returnErrorMessage(new ReceiveReturnData(), e);
+                return (ReceiveReturnModel)returnErrorMessage(new ReceiveReturnModel(), e);
             }
         }
 
@@ -1015,24 +1015,24 @@ namespace PDATestProject
 
         }
 
-        internal static ReturnReturnData findParcelForReturn(ReturnData returnedData)
+        internal static ReturnReturnModel findParcelForReturn(ReturnModel returnedModel)
         {
             try
             {
                 FindParcelForReturnRequest request = (FindParcelForReturnRequest)initDefaultParameters(
-                new FindParcelForReturnRequest(), returnedData);
+                new FindParcelForReturnRequest(), returnedModel);
 
                 //execute service call
                 FindParcelForReturnResponse response = pudoClient.FindParcelForReturn(request);
 
                 //create return object with base properties
-                ReturnReturnData returnData = (ReturnReturnData)createSummaryMessage(
-                    initDefaultReturn(new ReturnReturnData(), returnedData, "findParcelForReturn"), response);
+                ReturnReturnModel returnModel = (ReturnReturnModel)createSummaryMessage(
+                    initDefaultReturn(new ReturnReturnModel(), returnedModel, "findParcelForReturn"), response);
                 if (response.Result)
                 {
                     foreach (ParcelMinimal parcel in response.ParcelMinimals)
                     {
-                        ReturnParcelReturnData newItem = new ReturnParcelReturnData();
+                        ReturnParcelReturnModel newItem = new ReturnParcelReturnModel();
                         newItem.Barcode = parcel.Barcode;
                         newItem.Damaged = parcel.Damaged;
                         newItem.LinkedCount = parcel.LinkedCount;
@@ -1042,34 +1042,34 @@ namespace PDATestProject
                         newItem.ReturnDate = parcel.ReturnDate;
                         newItem.Selected = false;
 
-                        returnData.data.Add(newItem);
+                        returnModel.data.Add(newItem);
                     }
                 }
 
-                return returnData;
+                return returnModel;
             }
             catch (Exception e)
             {
-                return (ReturnReturnData)returnErrorMessage(new ReturnReturnData(), e);
+                return (ReturnReturnModel)returnErrorMessage(new ReturnReturnModel(), e);
             }
         }
 
-        internal static ReturnReturnData postReturn(ReturnData returnedData)
+        internal static ReturnReturnModel postReturn(ReturnModel returnedModel)
         {
             try
             {
                 PostReturnRequest request = (PostReturnRequest)initDefaultParameters(
-              new PostReturnRequest(), returnedData);
+              new PostReturnRequest(), returnedModel);
 
                 List<ReturnContainer> container = new List<ReturnContainer>();
 
-                foreach (ReturnParcelReturnData parcel in returnedData.data)
+                foreach (ReturnParcelReturnModel parcel in returnedModel.data)
                 {
                     if (parcel.Selected)
                     {
                         ReturnContainer returnContainer = new ReturnContainer();
-                        returnContainer.BagBarcode = returnedData.bagBarcode;
-                        returnContainer.Barcode = returnedData.barcode;
+                        returnContainer.BagBarcode = returnedModel.bagBarcode;
+                        returnContainer.Barcode = returnedModel.barcode;
                         container.Add(returnContainer);
                     }
                 }
@@ -1079,39 +1079,39 @@ namespace PDATestProject
                 PostReturnResponse response = pudoClient.PostReturn(request);
 
                 //create return object with base properties
-                ReturnReturnData returnData = (ReturnReturnData)createSummaryMessage(
-                    initDefaultReturn(new ReturnReturnData(), returnedData, "postReturn"), response);
+                ReturnReturnModel returnModel = (ReturnReturnModel)createSummaryMessage(
+                    initDefaultReturn(new ReturnReturnModel(), returnedModel, "postReturn"), response);
 
-                return returnData;
+                return returnModel;
             }
             catch (Exception e)
             {
-                return (ReturnReturnData)returnErrorMessage(new ReturnReturnData(), e);
+                return (ReturnReturnModel)returnErrorMessage(new ReturnReturnModel(), e);
             }
         }
 
         // TODO még ne töröld
-        internal static ReturnPreRegReturnData findParcelForDelivery(ReturnPreRegData returnPreRegData)
+        internal static ReturnPreRegReturnModel findParcelForDelivery(ReturnPreRegModel returnPreRegModel)
         {
             try
             {
                 FindParcelForDeliveryRequest request = (FindParcelForDeliveryRequest)initDefaultParameters(
-              new FindParcelForDeliveryRequest(), returnPreRegData);
+              new FindParcelForDeliveryRequest(), returnPreRegModel);
                 // add unique parameters
-                request.Barcode = returnPreRegData.packageCode;
+                request.Barcode = returnPreRegModel.packageCode;
 
                 //execute service call
                 FindParcelForDeliveryResponse response = pudoClient.FindParcelForDelivery(request);
 
                 //create return object with base properties
-                ReturnPreRegReturnData returnData = (ReturnPreRegReturnData)createSummaryMessage(
-                    initDefaultReturn(new ReturnPreRegReturnData(), returnPreRegData, "findParcelForDelivery"), response);
+                ReturnPreRegReturnModel returnModel = (ReturnPreRegReturnModel)createSummaryMessage(
+                    initDefaultReturn(new ReturnPreRegReturnModel(), returnPreRegModel, "findParcelForDelivery"), response);
                 if (response.Result)
                 {
                     //initialize custom values
                     foreach (ParcelMinimal minimal in response.ParcelMinimals)
                     {
-                        ParcelMinimalReturnData newItem = new ParcelMinimalReturnData();
+                        ParcelMinimalReturnModel newItem = new ParcelMinimalReturnModel();
                         newItem.Barcode = minimal.Barcode;
                         newItem.Damaged = minimal.Damaged;
                         newItem.LinkedCount = minimal.LinkedCount;
@@ -1120,72 +1120,72 @@ namespace PDATestProject
                         newItem.PriceAtDelivery = minimal.PriceAtDelivery;
                         newItem.ReturnDate = minimal.ReturnDate;
 
-                        // returnData.data.Add(newItem);
+                        // returnModel.data.Add(newItem);
                     }
                 }
 
-                return returnData;
+                return returnModel;
             }
             catch (Exception e)
             {
-                return (ReturnPreRegReturnData)returnErrorMessage(new ReturnPreRegReturnData(), e);
+                return (ReturnPreRegReturnModel)returnErrorMessage(new ReturnPreRegReturnModel(), e);
             }
         }
 
-        internal static ReturnPreRegReturnData postRefuseCustRetPrereg(ReturnPreRegData returnPreRegData)
+        internal static ReturnPreRegReturnModel postRefuseCustRetPrereg(ReturnPreRegModel returnPreRegModel)
         {
             try
             {
                 PostRefuseCustomerReturnPreRegisteredRequest request = (PostRefuseCustomerReturnPreRegisteredRequest)initDefaultParameters(
-             new PostRefuseCustomerReturnPreRegisteredRequest(), returnPreRegData);
+             new PostRefuseCustomerReturnPreRegisteredRequest(), returnPreRegModel);
                 // add unique parameters
                  
                 // set first selected to refused
-                foreach (ParcelCompositeReturnData parcelMinimal in returnPreRegData.data)
+                foreach (ParcelCompositeReturnModel parcelMinimal in returnPreRegModel.data)
                 {
                         RefuseCustomerReturnPreRegisteredContainer container = new RefuseCustomerReturnPreRegisteredContainer();
                         container.Barcode = parcelMinimal.Barcode;
-                        container.Damaged = returnPreRegData.damaged;
+                        container.Damaged = returnPreRegModel.damaged;
                         request.RefuseCustomerReturnParcel = container;
                         break;
                 }
-                request.RefuseReason = returnPreRegData.refuseReason;
+                request.RefuseReason = returnPreRegModel.refuseReason;
 
                 //execute service call
                 PostRefuseCustomerReturnPreRegisteredResponse response = pudoClient.PostRefuseCustomerReturnPreRegistered(request);
 
                 //create return object with base properties
-                ReturnPreRegReturnData returnData = (ReturnPreRegReturnData)createSummaryMessage(
-                    initDefaultReturn(new ReturnPreRegReturnData(), returnPreRegData, "postRefuseCustRetPrereg"), response);
+                ReturnPreRegReturnModel returnModel = (ReturnPreRegReturnModel)createSummaryMessage(
+                    initDefaultReturn(new ReturnPreRegReturnModel(), returnPreRegModel, "postRefuseCustRetPrereg"), response);
 
                 //initialize custom values
                 if (response.Result)
                 {
-                    returnData.summaryMessage += Environment.NewLine + "Parcel result: " +
+                    returnModel.summaryMessage += Environment.NewLine + "Parcel result: " +
                         response.ParcelResult.Barcode + " : " + response.ParcelResult.ActualStatus;
                 }
-                return returnData;
+                return returnModel;
             }
             catch (Exception e)
             {
-                return (ReturnPreRegReturnData)returnErrorMessage(new ReturnPreRegReturnData(), e);
+                return (ReturnPreRegReturnModel)returnErrorMessage(new ReturnPreRegReturnModel(), e);
             }
         }
 
-        internal static ReturnPreRegReturnData postCustRetPrereg(ReturnPreRegData returnPreRegData)
+        internal static ReturnPreRegReturnModel postCustRetPrereg(ReturnPreRegModel returnPreRegModel)
         {
             try
             {
                 PostCustomerReturnPreRegisteredRequest request = (PostCustomerReturnPreRegisteredRequest)initDefaultParameters(
-                new PostCustomerReturnPreRegisteredRequest(), returnPreRegData);
+                new PostCustomerReturnPreRegisteredRequest(), returnPreRegModel);
                 // add unique parameters
 
                 // set first selected to refused
-                foreach (ParcelCompositeReturnData parcelMinimal in returnPreRegData.data)
+                foreach (ParcelCompositeReturnModel parcelMinimal in returnPreRegModel.data)
                 {
                         CustomerReturnPreRegisteredContainer container = new CustomerReturnPreRegisteredContainer();
                         container.Barcode = parcelMinimal.Barcode;
-                        container.Damaged = returnPreRegData.damaged;
+                        container.Damaged = returnPreRegModel.damaged;
                         request.CustomerReturnParcel = container;
                         break;
                 }
@@ -1194,41 +1194,41 @@ namespace PDATestProject
                 PostCustomerReturnPreRegisteredResponse response = pudoClient.PostCustomerReturnPreRegistered(request);
 
                 //create return object with base properties
-                ReturnPreRegReturnData returnData = (ReturnPreRegReturnData)createSummaryMessage(
-                    initDefaultReturn(new ReturnPreRegReturnData(), returnPreRegData, "PostCustomerReturnPreRegistered"), response);
+                ReturnPreRegReturnModel returnModel = (ReturnPreRegReturnModel)createSummaryMessage(
+                    initDefaultReturn(new ReturnPreRegReturnModel(), returnPreRegModel, "PostCustomerReturnPreRegistered"), response);
 
                 //initialize custom values
                 if (response.Result)
                 {
-                    returnData.summaryMessage += Environment.NewLine + "Parcel result: "
+                    returnModel.summaryMessage += Environment.NewLine + "Parcel result: "
                         + response.ParcelResult.Barcode + " : " + response.ParcelResult.ActualStatus;
                 }
-                return returnData;
+                return returnModel;
             }
             catch (Exception e)
             {
-                return (ReturnPreRegReturnData)returnErrorMessage(new ReturnPreRegReturnData(), e);
+                return (ReturnPreRegReturnModel)returnErrorMessage(new ReturnPreRegReturnModel(), e);
             }
         }
 
-        internal static ReturnPreRegReturnData postCustRetUnexpected(ReturnPreRegData returnPreRegData)
+        internal static ReturnPreRegReturnModel postCustRetUnexpected(ReturnPreRegModel returnPreRegModel)
         {
             try
             {
                 PostCustomerReturnUnexpectedRequest request = (PostCustomerReturnUnexpectedRequest)initDefaultParameters(
-                new PostCustomerReturnUnexpectedRequest(), returnPreRegData);
+                new PostCustomerReturnUnexpectedRequest(), returnPreRegModel);
                 // add unique parameters
 
                 // set first selected to refused
-                foreach (ParcelCompositeReturnData parcelMinimal in returnPreRegData.data)
+                foreach (ParcelCompositeReturnModel parcelMinimal in returnPreRegModel.data)
                 {
                     CustomerReturnUnexpectedContainer container = new CustomerReturnUnexpectedContainer();
                     container.Barcode = parcelMinimal.Barcode;
-                    container.Damaged = returnPreRegData.damaged;
-                    container.CustomerName = returnPreRegData.customerName;
-                    container.NoLabel = returnPreRegData.noLabel;
+                    container.Damaged = returnPreRegModel.damaged;
+                    container.CustomerName = returnPreRegModel.customerName;
+                    container.NoLabel = returnPreRegModel.noLabel;
                     container.OldBarcode = parcelMinimal.Barcode;
-                    container.PartnerID = returnPreRegData.partnerId;
+                    container.PartnerID = returnPreRegModel.partnerId;
 
                     request.CustomerReturnParcel = container;
                     break;
@@ -1239,43 +1239,43 @@ namespace PDATestProject
                 PostCustomerReturnUnexpectedResponse response = pudoClient.PostCustomerReturnUnexpected(request);
 
                 //create return object with base properties
-                ReturnPreRegReturnData returnData = (ReturnPreRegReturnData)createSummaryMessage(
-                    initDefaultReturn(new ReturnPreRegReturnData(), returnPreRegData, "postCustRetUnexpected"), response);
+                ReturnPreRegReturnModel returnModel = (ReturnPreRegReturnModel)createSummaryMessage(
+                    initDefaultReturn(new ReturnPreRegReturnModel(), returnPreRegModel, "postCustRetUnexpected"), response);
 
                 //initialize custom values
                 if (response.Result)
                 {
-                    returnData.summaryMessage += Environment.NewLine + "Parcel result: " +
+                    returnModel.summaryMessage += Environment.NewLine + "Parcel result: " +
                         response.ParcelResult.Barcode + " : " + response.ParcelResult.ActualStatus;
                 }
-                return returnData;
+                return returnModel;
             }
             catch (Exception e)
             {
-                return (ReturnPreRegReturnData)returnErrorMessage(new ReturnPreRegReturnData(), e);
+                return (ReturnPreRegReturnModel)returnErrorMessage(new ReturnPreRegReturnModel(), e);
             }
         }
 
-        internal static ReturnPreRegReturnData findParcelForCustRetPreReg(ReturnPreRegData returnPreRegData)
+        internal static ReturnPreRegReturnModel findParcelForCustRetPreReg(ReturnPreRegModel returnPreRegModel)
         {
             try
             {
                 FindParcelForCustomerReturnPreRegisteredRequest request = (FindParcelForCustomerReturnPreRegisteredRequest)initDefaultParameters(
-                    new FindParcelForCustomerReturnPreRegisteredRequest(), returnPreRegData);
+                    new FindParcelForCustomerReturnPreRegisteredRequest(), returnPreRegModel);
                 // add unique parameters
-                request.Barcode = returnPreRegData.packageCode;
+                request.Barcode = returnPreRegModel.packageCode;
 
                 //execute service call
                 FindParcelForCustomerReturnPreRegisteredResponse response = pudoClient.FindParcelForCustomerReturnPreRegistered(request);
 
                 //create return object with base properties
-                ReturnPreRegReturnData returnData = (ReturnPreRegReturnData)createSummaryMessage(
-                    initDefaultReturn(new ReturnPreRegReturnData(), returnPreRegData,
+                ReturnPreRegReturnModel returnModel = (ReturnPreRegReturnModel)createSummaryMessage(
+                    initDefaultReturn(new ReturnPreRegReturnModel(), returnPreRegModel,
                     "FindParcelForCustomerReturnPreRegistered"), response);
                 if (response.Result)
                 {
                     ParcelComposite composite = response.ParcelComposite;
-                    ParcelCompositeReturnData data = new ParcelCompositeReturnData();
+                    ParcelCompositeReturnModel data = new ParcelCompositeReturnModel();
 
                     data.BagBarcode = composite.Parcel.BagBarcode;
                     data.Barcode = composite.Parcel.Barcode;
@@ -1298,15 +1298,15 @@ namespace PDATestProject
                     data.ReturnDate = composite.Parcel.ReturnDate;
                     data.ShipmentID = composite.Parcel.ShipmentID;
 
-                    returnData.data.Add(data);
+                    returnModel.data.Add(data);
 
                 }
 
-                return returnData;
+                return returnModel;
             }
             catch (Exception e)
             {
-                return (ReturnPreRegReturnData)returnErrorMessage(new ReturnPreRegReturnData(), e);
+                return (ReturnPreRegReturnModel)returnErrorMessage(new ReturnPreRegReturnModel(), e);
             }
         }
     }

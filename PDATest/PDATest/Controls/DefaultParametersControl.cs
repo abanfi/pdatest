@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PDATestProject.Models;
 
 namespace PDATestProject
 {
@@ -17,7 +18,7 @@ namespace PDATestProject
             InitializeComponent();
         }
 
-        public void bind(DefaultData data)
+        public void bind(DefaultModel data)
         {
             defaultDataBindingSource.DataSource = data;
         }
@@ -31,7 +32,7 @@ namespace PDATestProject
         {
             string newTransactionId = "PDAUI" + (DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond);
             transactionTextBox.Text = newTransactionId;
-            ((DefaultData)defaultDataBindingSource.Current).transactionId = newTransactionId;
+            ((DefaultModel)defaultDataBindingSource.Current).transactionId = newTransactionId;
         }
 
     }

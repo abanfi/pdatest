@@ -1,16 +1,16 @@
-﻿using PDATestProject.Datas;
+﻿using PDATestProject.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PDATestProject
+namespace PDATestProject.Models
 {
-    public class DeliveryData : DefaultData 
+    public class DeliveryModel : DefaultModel 
     {
 
-        public DeliveryData()
+        public DeliveryModel()
         {
             reason = 1;
             payment = 1;
@@ -27,7 +27,7 @@ namespace PDATestProject
         public int postIdType { get; set; }
         public string postDocNo { get; set; }
 
-        public List<DeliveryParleccMinimumReturnData> datas = new List<DeliveryParleccMinimumReturnData>();
+        public List<DeliveryParcelMinimumReturnModel> datas = new List<DeliveryParcelMinimumReturnModel>();
 
         public override string ToString()
         {
@@ -40,7 +40,7 @@ namespace PDATestProject
             stringValue += "refuseDocNo:" + refuseDocNo + Environment.NewLine;
             stringValue += "postIdType:" + postIdType + Environment.NewLine;
             stringValue += "postDocNo:" + postDocNo + Environment.NewLine;
-            foreach (DeliveryParleccMinimumReturnData parcelComposite in datas)
+            foreach (DeliveryParcelMinimumReturnModel parcelComposite in datas)
             {
                 stringValue += "parcelcomposite:" + parcelComposite.Barcode + "->selected:" + parcelComposite.Selected;
             }

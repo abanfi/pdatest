@@ -87,7 +87,7 @@
             // 
             // deliveryDataBindingSource
             // 
-            this.deliveryDataBindingSource.DataSource = typeof(PDATestProject.DeliveryData);
+            this.deliveryDataBindingSource.DataSource = typeof(PDATestProject.Models.DeliveryModel);
             // 
             // damagedCheckBox
             // 
@@ -319,7 +319,7 @@
             // 
             // deliveryParleccMinimumReturnDataBindingSource
             // 
-            this.deliveryParleccMinimumReturnDataBindingSource.DataSource = typeof(PDATestProject.Datas.DeliveryParleccMinimumReturnData);
+            this.deliveryParleccMinimumReturnDataBindingSource.DataSource = typeof(PDATestProject.Models.DeliveryParcelMinimumReturnModel);
             // 
             // label8
             // 

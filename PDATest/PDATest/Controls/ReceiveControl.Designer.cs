@@ -229,7 +229,7 @@
             // 
             // parcelCompositeSelectableReturnDataBindingSource
             // 
-            this.parcelCompositeSelectableReturnDataBindingSource.DataSource = typeof(PDATestProject.Datas.ParcelCompositeSelectableReturnData);
+            this.parcelCompositeSelectableReturnDataBindingSource.DataSource = typeof(PDATestProject.Models.ParcelCompositeSelectableReturnModel);
             // 
             // postReceiveButton
             // 
@@ -261,7 +261,7 @@
             // 
             // receiveDataBindingSource
             // 
-            this.receiveDataBindingSource.DataSource = typeof(PDATestProject.ReceiveData);
+            this.receiveDataBindingSource.DataSource = typeof(PDATestProject.Models.ReceiveModel);
             // 
             // label1
             // 

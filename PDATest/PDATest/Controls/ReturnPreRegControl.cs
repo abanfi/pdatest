@@ -7,28 +7,28 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using PDATestProject.Datas;
+using PDATestProject.Models;
 
 namespace PDATestProject
 {
     public partial class ReturnPreRegControl : PDATestProject.Controls.DefaultControl
     {
-        private ReturnPreRegData returnPreRegData;
+        private ReturnPreRegModel returnPreRegModel;
         
         public ReturnPreRegControl()
         {
             InitializeComponent();
-            initBinding(new ReturnPreRegData());
+            initBinding(new ReturnPreRegModel());
         }
 
-        public override DefaultData getDefaultParams()
+        public override DefaultModel getDefaultParams()
         {
-            return returnPreRegData;
+            return returnPreRegModel;
         }
 
-        private void initBinding(ReturnPreRegData data)
+        private void initBinding(ReturnPreRegModel data)
         {
-            this.returnPreRegData = data;
+            this.returnPreRegModel = data;
             defaultParametersControl1.bind(data);
             returnPreRegDataBindingSource.DataSource = data;
             parcelMinimalReturnDataBindingSource.DataSource = data.data;
@@ -36,35 +36,35 @@ namespace PDATestProject
 
         private void findParcelForCustRetPreRegButton_Click(object sender, EventArgs e)
         {
-            actualize(PudoServiceExecutor.findParcelForCustRetPreReg(returnPreRegData));
+            actualize(PudoServiceExecutor.findParcelForCustRetPreReg(returnPreRegModel));
         }
 
         private void postRefuseCustRetPreregButton_Click(object sender, EventArgs e)
         {
-            returnPreRegData.data = (List<ParcelCompositeReturnData>)parcelMinimalReturnDataBindingSource.DataSource;
-            actualize(PudoServiceExecutor.postRefuseCustRetPrereg(returnPreRegData));
+            returnPreRegModel.data = (List<ParcelCompositeReturnModel>)parcelMinimalReturnDataBindingSource.DataSource;
+            actualize(PudoServiceExecutor.postRefuseCustRetPrereg(returnPreRegModel));
         }
 
         private void postCustRetPreregButton_Click(object sender, EventArgs e)
         {
-            returnPreRegData.data = (List<ParcelCompositeReturnData>)parcelMinimalReturnDataBindingSource.DataSource;
-            actualize(PudoServiceExecutor.postCustRetPrereg(returnPreRegData));
+            returnPreRegModel.data = (List<ParcelCompositeReturnModel>)parcelMinimalReturnDataBindingSource.DataSource;
+            actualize(PudoServiceExecutor.postCustRetPrereg(returnPreRegModel));
         }
 
         private void postCustRetUnexpectedButton_Click(object sender, EventArgs e)
         {
-            returnPreRegData.data = (List<ParcelCompositeReturnData>)parcelMinimalReturnDataBindingSource.DataSource;
-            actualize(PudoServiceExecutor.postCustRetUnexpected(returnPreRegData));
+            returnPreRegModel.data = (List<ParcelCompositeReturnModel>)parcelMinimalReturnDataBindingSource.DataSource;
+            actualize(PudoServiceExecutor.postCustRetUnexpected(returnPreRegModel));
         }
 
-        private void actualize(ReturnPreRegReturnData data)
+        private void actualize(ReturnPreRegReturnModel data)
         {
             resultMessageTextBox.Text = data.summaryMessage + Environment.NewLine +
                 "----------------------------------------------------------" +
                 "--------------------------------------------------" +
                 Environment.NewLine + resultMessageTextBox.Text;
             parcelMinimalReturnDataBindingSource.Clear();
-            foreach (ParcelCompositeReturnData parcelComposite in data.data)
+            foreach (ParcelCompositeReturnModel parcelComposite in data.data)
             {
                 parcelMinimalReturnDataBindingSource.Add(parcelComposite);
             }

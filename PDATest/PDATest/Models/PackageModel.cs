@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PDATestProject
+namespace PDATestProject.Models
 {
-    public class PackageData : DefaultData
+    public class PackageModel : DefaultModel
     {
         public string packageCode { get; set; }
         public string filterPackageCode { get; set; }

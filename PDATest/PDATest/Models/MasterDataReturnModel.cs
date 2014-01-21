@@ -4,19 +4,30 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PDATestProject.Datas
+namespace PDATestProject.Models
 {
-    public class PackageReturnData : DefaultReturnData
+    public class MasterDataReturnModel : DefaultReturnModel
     {
-        public List<ParcelCompositeReturnData> datas = new List<ParcelCompositeReturnData>();
+        public List<DictionaryReturnModel> dictionaries = new List<DictionaryReturnModel>();
+
+        public List<ParcelReturnModel> parcels = new List<ParcelReturnModel>();
+
+        public List<PartnerReturnModel> partners = new List<PartnerReturnModel>();
     }
 
-    public class ParcelCompositeReturnData
+    public class DictionaryReturnModel
+    {
+        public string Description { get; set; }
+
+        public string DictionaryClass { get; set; }
+
+        public int KeyValue { get; set; }
+    }
+
+    public class ParcelReturnModel
     {
         public string LocationID { get; set; }
-        
-        public string LocationName { get; set; }
-        
+
         public string BagBarcode { get; set; }
 
         public string Barcode { get; set; }
@@ -41,7 +52,7 @@ namespace PDATestProject.Datas
 
         public int ParcelState { get; set; }
 
-        public int ParcelWorkflow { get; set; } 
+        public int ParcelWorkflow { get; set; }
 
         public string PartnerID { get; set; }
 
@@ -51,7 +62,12 @@ namespace PDATestProject.Datas
 
         public string ShipmentID { get; set; }
 
+    }
+
+    public class PartnerReturnModel
+    {
+        public string PartnerID { get; set; }
+
         public string PartnerName { get; set; }
-        
     }
 }

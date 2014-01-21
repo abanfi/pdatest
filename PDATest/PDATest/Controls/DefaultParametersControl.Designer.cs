@@ -91,7 +91,7 @@
             // 
             // defaultDataBindingSource
             // 
-            this.defaultDataBindingSource.DataSource = typeof(PDATestProject.DefaultData);
+            this.defaultDataBindingSource.DataSource = typeof(PDATestProject.Models.DefaultModel);
             // 
             // transactionTextBox
             // 

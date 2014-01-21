@@ -233,7 +233,7 @@
             // 
             // parcelCompositeReturnDataBindingSource
             // 
-            this.parcelCompositeReturnDataBindingSource.DataSource = typeof(PDATestProject.Datas.ParcelCompositeReturnData);
+            this.parcelCompositeReturnDataBindingSource.DataSource = typeof(PDATestProject.Models.ParcelCompositeReturnModel);
             // 
             // label5
             // 
@@ -254,7 +254,7 @@
             // 
             // packageDataBindingSource
             // 
-            this.packageDataBindingSource.DataSource = typeof(PDATestProject.PackageData);
+            this.packageDataBindingSource.DataSource = typeof(PDATestProject.Models.PackageModel);
             // 
             // findParcelByBarCodeButton
             // 
@@ -377,11 +377,11 @@
             // 
             // packageReturnDataBindingSource
             // 
-            this.packageReturnDataBindingSource.DataSource = typeof(PDATestProject.Datas.PackageReturnData);
+            this.packageReturnDataBindingSource.DataSource = typeof(PDATestProject.Models.PackageReturnModel);
             // 
             // parcelCompositeReturnDataBindingSource1
             // 
-            this.parcelCompositeReturnDataBindingSource1.DataSource = typeof(PDATestProject.Datas.ParcelCompositeReturnData);
+            this.parcelCompositeReturnDataBindingSource1.DataSource = typeof(PDATestProject.Models.ParcelCompositeReturnModel);
             // 
             // PackageControl
             // 

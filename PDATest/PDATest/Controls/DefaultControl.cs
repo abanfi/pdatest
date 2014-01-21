@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PDATestProject.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,17 +16,17 @@ namespace PDATestProject.Controls
             return inited;
         }
 
-        public void setDefaultParams(DefaultData parameters)
+        public void setDefaultParams(DefaultModel parameters)
         {
             cloneValues(parameters, getDefaultParams());
         }
 
-        public virtual DefaultData getDefaultParams()
+        public virtual DefaultModel getDefaultParams()
         {
             return null;
         }
 
-        protected void cloneValues(DefaultData from, DefaultData to)
+        protected void cloneValues(DefaultModel from, DefaultModel to)
         {
             to.languageCode = from.languageCode;
             to.offline = from.offline;

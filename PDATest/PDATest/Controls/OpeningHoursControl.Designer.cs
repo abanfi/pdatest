@@ -87,7 +87,7 @@
             // 
             // openingHoursDataBindingSource
             // 
-            this.openingHoursDataBindingSource.DataSource = typeof(PDATestProject.OpeningHoursData);
+            this.openingHoursDataBindingSource.DataSource = typeof(PDATestProject.Models.OpeningHoursModel);
             // 
             // mondaySecondTextBox
             // 

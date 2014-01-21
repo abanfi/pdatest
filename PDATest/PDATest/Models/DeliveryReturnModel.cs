@@ -5,14 +5,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PDATestProject.Datas
+namespace PDATestProject.Models
 {
-    public class DeliveryReturnData : DefaultReturnData
+    public class DeliveryReturnModel : DefaultReturnModel
     {
-        public List<DeliveryParleccMinimumReturnData> datas = new List<DeliveryParleccMinimumReturnData>();
+        public List<DeliveryParcelMinimumReturnModel> datas = new List<DeliveryParcelMinimumReturnModel>();
     }
 
-    public class DeliveryParleccMinimumReturnData 
+    public class DeliveryParcelMinimumReturnModel 
     {
 
         public bool Selected { get; set; }

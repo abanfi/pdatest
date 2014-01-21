@@ -7,53 +7,53 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using PDATestProject.Datas;
+using PDATestProject.Models;
 
 namespace PDATestProject
 {
     public partial class ReceiveControl : PDATestProject.Controls.DefaultControl
     {
-        private ReceiveData receiveData;
+        private ReceiveModel receiveModel;
         
         public ReceiveControl()
         {
             InitializeComponent();
-            initBinding(new ReceiveData());
+            initBinding(new ReceiveModel());
         }
 
-        public override DefaultData getDefaultParams()
+        public override DefaultModel getDefaultParams()
         {
-            return receiveData;
+            return receiveModel;
         }
 
-        private void initBinding(ReceiveData data)
+        private void initBinding(ReceiveModel data)
         {
-            this.receiveData = data;
+            this.receiveModel = data;
             defaultParametersControl1.bind(data);
             receiveDataBindingSource.DataSource = data;
-            parcelCompositeSelectableReturnDataBindingSource.DataSource = data.gridData;
+            parcelCompositeSelectableReturnDataBindingSource.DataSource = data.gridModel;
         }
 
         private void findParcelForReceiveButton_Click(object sender, EventArgs e)
         {
-            actualize(PudoServiceExecutor.findParcelForReceive(receiveData));
+            actualize(PudoServiceExecutor.findParcelForReceive(receiveModel));
         }
 
         private void postReceiveButton_Click(object sender, EventArgs e)
         {
-            receiveData.gridData = (List<ParcelCompositeSelectableReturnData>) 
+            receiveModel.gridModel = (List<ParcelCompositeSelectableReturnModel>) 
                 parcelCompositeSelectableReturnDataBindingSource.DataSource;
-            actualize(PudoServiceExecutor.postReceive(receiveData));
+            actualize(PudoServiceExecutor.postReceive(receiveModel));
         }
 
-        private void actualize(ReceiveReturnData data)
+        private void actualize(ReceiveReturnModel data)
         {
             resultMessageTextBox.Text = data.summaryMessage + Environment.NewLine +
                 "----------------------------------------------------------" +
                 "--------------------------------------------------" +
                 Environment.NewLine + resultMessageTextBox.Text;
             parcelCompositeSelectableReturnDataBindingSource.Clear();
-            foreach (ParcelCompositeReturnData parcelComposite in data.datas)
+            foreach (ParcelCompositeReturnModel parcelComposite in data.datas)
             {
                 parcelCompositeSelectableReturnDataBindingSource.Add(parcelComposite);
             }

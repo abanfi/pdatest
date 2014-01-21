@@ -70,7 +70,7 @@
             // 
             // holidayDataBindingSource
             // 
-            this.holidayDataBindingSource.DataSource = typeof(PDATestProject.HolidayData);
+            this.holidayDataBindingSource.DataSource = typeof(PDATestProject.Models.HolidayModel);
             // 
             // holiday1ToDatePicker
             // 

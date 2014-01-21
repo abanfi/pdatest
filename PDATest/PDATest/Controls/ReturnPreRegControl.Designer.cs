@@ -115,7 +115,7 @@
             // 
             // returnPreRegDataBindingSource
             // 
-            this.returnPreRegDataBindingSource.DataSource = typeof(PDATestProject.ReturnPreRegData);
+            this.returnPreRegDataBindingSource.DataSource = typeof(PDATestProject.Models.ReturnPreRegModel);
             // 
             // label5
             // 
@@ -289,7 +289,7 @@
             // 
             // parcelMinimalReturnDataBindingSource
             // 
-            this.parcelMinimalReturnDataBindingSource.DataSource = typeof(PDATestProject.Datas.ParcelMinimalReturnData);
+            this.parcelMinimalReturnDataBindingSource.DataSource = typeof(PDATestProject.Models.ParcelMinimalReturnModel);
             // 
             // refuseReasonTextBox
             // 
@@ -318,7 +318,7 @@
             // 
             // returnPreRegReturnDataBindingSource
             // 
-            this.returnPreRegReturnDataBindingSource.DataSource = typeof(PDATestProject.Datas.ReturnPreRegReturnData);
+            this.returnPreRegReturnDataBindingSource.DataSource = typeof(PDATestProject.Models.ReturnPreRegReturnModel);
             // 
             // ReturnPreRegControl
             // 

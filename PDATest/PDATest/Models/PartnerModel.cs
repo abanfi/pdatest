@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PDATestProject
+namespace PDATestProject.Models
 {
-    public class PartnerData : DefaultData 
+    public class PartnerModel : DefaultModel 
     {
         public string partnerId { get; set; }
         public string partnerNamePart { get; set; }

@@ -4,24 +4,30 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PDATestProject.Datas
+namespace PDATestProject.Models
 {
-    public class ReturnPreRegReturnData : DefaultReturnData 
+    public class ReturnReturnModel : DefaultReturnModel 
     {
-        public List<ParcelCompositeReturnData> data = new List<ParcelCompositeReturnData>();
+        public List<ReturnParcelReturnModel> data = new List<ReturnParcelReturnModel>();
     }
 
-    public class ParcelMinimalReturnData
+    public class ReturnParcelReturnModel
     {
-
         public bool Selected { get; set; }
+
         public string Barcode { get; set; }
+
         public bool Damaged { get; set; }
+
         public int LinkedCount { get; set; }
+
         public string NextLinkedBarcode { get; set; }
+
         public int ParcelState { get; set; }
+
         public decimal PriceAtDelivery { get; set; }
-        public System.DateTime ReturnDate { get; set; } 
+
+        public System.DateTime ReturnDate { get; set; }
     }
 
 }

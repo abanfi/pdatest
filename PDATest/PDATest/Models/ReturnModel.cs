@@ -1,18 +1,18 @@
-﻿using PDATestProject.Datas;
+﻿using PDATestProject.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PDATestProject
+namespace PDATestProject.Models
 {
-    public class ReturnData : DefaultData 
+    public class ReturnModel: DefaultModel
     {
         public string barcode { get; set; }
         public string bagBarcode { get; set; }
 
-        public List<ReturnParcelReturnData> data = new List<ReturnParcelReturnData>();
+        public List<ReturnParcelReturnModel> data = new List<ReturnParcelReturnModel>();
 
 
         public override string ToString()
@@ -20,7 +20,7 @@ namespace PDATestProject
             string stringValue = base.ToString();
             stringValue += "barcode:" + barcode + Environment.NewLine;
             stringValue += "bagBarcode:" + bagBarcode + Environment.NewLine;
-            foreach (ReturnParcelReturnData parcelComposite in data)
+            foreach (ReturnParcelReturnModel parcelComposite in data)
             {
                 stringValue += "parcelcomposite:" + parcelComposite.Barcode + "->selected:" + parcelComposite.Selected;
             }

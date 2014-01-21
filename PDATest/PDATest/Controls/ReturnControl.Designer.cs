@@ -135,7 +135,7 @@
             // 
             // returnParcelReturnDataBindingSource
             // 
-            this.returnParcelReturnDataBindingSource.DataSource = typeof(PDATestProject.Datas.ReturnParcelReturnData);
+            this.returnParcelReturnDataBindingSource.DataSource = typeof(PDATestProject.Models.ReturnParcelReturnModel);
             // 
             // postReturnButton
             // 
@@ -167,7 +167,7 @@
             // 
             // returnDataBindingSource
             // 
-            this.returnDataBindingSource.DataSource = typeof(PDATestProject.ReturnData);
+            this.returnDataBindingSource.DataSource = typeof(PDATestProject.Models.ReturnModel);
             // 
             // label4
             // 

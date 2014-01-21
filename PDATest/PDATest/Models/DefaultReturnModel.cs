@@ -4,11 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PDATestProject.Datas
+namespace PDATestProject.Models
 {
-    public class DefaultReturnData
+    public class DefaultReturnModel
     {
-        public DefaultReturnData(){
+        public DefaultReturnModel()
+        {
             summaryMessage = "";
         }
 

@@ -7,7 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using PDATestProject.Datas;
+using PDATestProject.Models;
+using PDATestProject.Controls;
 
 namespace PDATestProject
 {
@@ -15,32 +16,32 @@ namespace PDATestProject
     public partial class MasterDataControl : PDATestProject.Controls.DefaultControl
     {
 
-        private MasterDataData masterDataData;
+        private MasterDataModel masterDataModel;
        
         public MasterDataControl()
         {
             InitializeComponent();
-            initBinding(new MasterDataData());
+            initBinding(new MasterDataModel());
         }
 
-        public override DefaultData getDefaultParams()
+        public override DefaultModel getDefaultParams()
         {
-            return masterDataData;
+            return masterDataModel;
         }
 
-        private void initBinding(MasterDataData data)
+        private void initBinding(MasterDataModel data)
         {
-            this.masterDataData = data;
+            this.masterDataModel = data;
             defaultParametersControl1.bind(data);
             masterDataDataBindingSource.DataSource = data;
         }
 
         private void findInsertedDictionarySinceButton_Click(object sender, EventArgs e)
         {
-            MasterDataReturnData result = PudoServiceExecutor.findInsertedDictionarySince(masterDataData);
+            MasterDataReturnModel result = PudoServiceExecutor.findInsertedDictionarySince(masterDataModel);
             actialize(result, dictionaryTabPage);
            
-            foreach (DictionaryReturnData value in result.dictionaries)
+            foreach (DictionaryReturnModel value in result.dictionaries)
             {
                 dictionaryReturnDataBindingSource.Add(value);
             } 
@@ -49,10 +50,10 @@ namespace PDATestProject
 
         private void findInsertedPartnerSinceButton_Click(object sender, EventArgs e)
         {
-            MasterDataReturnData result = PudoServiceExecutor.findInsertedPartnerSince(masterDataData);
+            MasterDataReturnModel result = PudoServiceExecutor.findInsertedPartnerSince(masterDataModel);
             actialize(result, partnerTabPage);
           
-            foreach (PartnerReturnData value in result.partners)
+            foreach (PartnerReturnModel value in result.partners)
             {
                 partnerReturnDataBindingSource.Add(value);
             }
@@ -60,10 +61,10 @@ namespace PDATestProject
 
         private void findInsertedParcelSinceButton_Click(object sender, EventArgs e)
         {
-            MasterDataReturnData result = PudoServiceExecutor.findInsertedParcelSince(masterDataData);
+            MasterDataReturnModel result = PudoServiceExecutor.findInsertedParcelSince(masterDataModel);
             actialize(result, parcelTabPage);
-           
-            foreach (ParcelReturnData value in result.parcels)
+
+            foreach (ParcelReturnModel value in result.parcels)
             {
                 parcelReturnDataBindingSource.Add(value);
             }
@@ -71,10 +72,10 @@ namespace PDATestProject
 
         private void findDeletedDictionarySinceButton_Click(object sender, EventArgs e)
         {
-            MasterDataReturnData result = PudoServiceExecutor.findDeletedDictionarySince(masterDataData);
+            MasterDataReturnModel result = PudoServiceExecutor.findDeletedDictionarySince(masterDataModel);
             actialize(result, dictionaryTabPage);
-           
-            foreach (DictionaryReturnData value in result.dictionaries)
+
+            foreach (DictionaryReturnModel value in result.dictionaries)
             {
                 dictionaryReturnDataBindingSource.Add(value);
             } 
@@ -83,10 +84,10 @@ namespace PDATestProject
 
         private void findDeletedPartnerSinceButton_Click(object sender, EventArgs e)
         {
-            MasterDataReturnData result = PudoServiceExecutor.findDeletedPartnerSince(masterDataData);
+            MasterDataReturnModel result = PudoServiceExecutor.findDeletedPartnerSince(masterDataModel);
             actialize(result, partnerTabPage);
-           
-            foreach (PartnerReturnData value in result.partners)
+
+            foreach (PartnerReturnModel value in result.partners)
             {
                 partnerReturnDataBindingSource.Add(value);
             }
@@ -94,16 +95,16 @@ namespace PDATestProject
 
         private void findDeletedParcelSinceButton_Click(object sender, EventArgs e)
         {
-            MasterDataReturnData result = PudoServiceExecutor.findDeletedParcelSince(masterDataData);
+            MasterDataReturnModel result = PudoServiceExecutor.findDeletedParcelSince(masterDataModel);
             actialize(result, parcelTabPage);
-            
-            foreach (ParcelReturnData value in result.parcels)
+
+            foreach (ParcelReturnModel value in result.parcels)
             {
                 parcelReturnDataBindingSource.Add(value);
             }
         }
 
-        private void actialize(MasterDataReturnData result, TabPage page)
+        private void actialize(MasterDataReturnModel result, TabPage page)
         {
             clearAll();
             resultMessageTextBox.Text = result.summaryMessage + Environment.NewLine +

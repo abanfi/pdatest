@@ -8,52 +8,53 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PDATestProject.PDAPudoService;
-using PDATestProject.Datas;
+using PDATestProject.Models;
 
 namespace PDATestProject
 {
     public partial class PackageControl : PDATestProject.Controls.DefaultControl
     {
 
-        private PackageData packageData;
+        private PackageModel packageModel;
 
         public PackageControl()
         {
             InitializeComponent();
-            initBinding(new PackageData());
+            initBinding(new PackageModel());
         }
 
-        public override DefaultData getDefaultParams()
+        public override DefaultModel getDefaultParams()
         {
-            return packageData;
+            return packageModel;
         }
 
-        private void initBinding(PackageData data)
+        private void initBinding(PackageModel data)
         {
-            this.packageData = data;
+            this.packageModel = data;
             defaultParametersControl1.bind(data);
             packageDataBindingSource.DataSource = data;
         }
 
         private void findParcelByBarCodeButton_Click(object sender, EventArgs e)
         {
-            actualize(PudoServiceExecutor.findParcelByBarCode(packageData));
+            actualize(PudoServiceExecutor.findParcelByBarCode(packageModel));
             
         }
 
         private void findParcelByFilterButton_Click(object sender, EventArgs e)
         {
-            actualize(PudoServiceExecutor.findParcelByFilter(packageData));
+            actualize(PudoServiceExecutor.findParcelByFilter(packageModel));
         }
 
-        private void actualize(PackageReturnData data)
+        private void actualize(PackageReturnModel data)
         {
             resultMessageTextBox.Text = data.summaryMessage + Environment.NewLine +
                 "----------------------------------------------------------" +
                 "--------------------------------------------------" +
                 Environment.NewLine + resultMessageTextBox.Text;
             parcelCompositeReturnDataBindingSource.Clear();
-            foreach (ParcelCompositeReturnData parcelComposite in data.datas){
+            foreach (ParcelCompositeReturnModel parcelComposite in data.datas)
+            {
                 parcelCompositeReturnDataBindingSource.Add(parcelComposite);
             }
             defaultParametersControl1.generateNewTransactionId();

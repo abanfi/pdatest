@@ -7,43 +7,43 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using PDATestProject.Datas;
+using PDATestProject.Models;
 
 namespace PDATestProject
 {
     public partial class OpeningHoursControl : PDATestProject.Controls.DefaultControl
     {
-        private OpeningHoursData openingHoursData;
+        private OpeningHoursModel openingHoursModel;
         
         public OpeningHoursControl()
         {
             InitializeComponent();
-            initBinding(new OpeningHoursData());
+            initBinding(new OpeningHoursModel());
         }
 
-        public override DefaultData getDefaultParams()
+        public override DefaultModel getDefaultParams()
         {
-            return openingHoursData;
+            return openingHoursModel;
         }
 
-        private void initBinding(OpeningHoursData data)
+        private void initBinding(OpeningHoursModel data)
         {
-            this.openingHoursData = data;
+            this.openingHoursModel = data;
             defaultParametersControl1.bind(data);
             openingHoursDataBindingSource.DataSource = data;
         }
 
         private void getOpeningHoursButton_Click(object sender, EventArgs e)
         {
-            actualize(PudoServiceExecutor.getOpeningHours(openingHoursData));
+            actualize(PudoServiceExecutor.getOpeningHours(openingHoursModel));
         }
 
         private void setOpeningHoursButton_Click(object sender, EventArgs e)
         {
-            actualize(PudoServiceExecutor.setOpeningHours(openingHoursData));
+            actualize(PudoServiceExecutor.setOpeningHours(openingHoursModel));
         }
 
-        private void actualize(DefaultReturnData data)
+        private void actualize(DefaultReturnModel data)
         {
             resultMessageTextBox.Text = data.summaryMessage + Environment.NewLine +
                 "----------------------------------------------------------" +

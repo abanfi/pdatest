@@ -146,7 +146,7 @@
             // 
             // masterDataDataBindingSource
             // 
-            this.masterDataDataBindingSource.DataSource = typeof(PDATestProject.MasterDataData);
+            this.masterDataDataBindingSource.DataSource = typeof(PDATestProject.Models.MasterDataModel);
             // 
             // findInsertedDictionarySinceButton
             // 
@@ -195,7 +195,7 @@
             // 
             // dictionaryReturnDataBindingSource
             // 
-            this.dictionaryReturnDataBindingSource.DataSource = typeof(PDATestProject.Datas.DictionaryReturnData);
+            this.dictionaryReturnDataBindingSource.DataSource = typeof(PDATestProject.Models.DictionaryReturnModel);
             // 
             // defaultParametersControl1
             // 
@@ -207,11 +207,11 @@
             // 
             // partnerReturnDataBindingSource
             // 
-            this.partnerReturnDataBindingSource.DataSource = typeof(PDATestProject.Datas.PartnerReturnData);
+            this.partnerReturnDataBindingSource.DataSource = typeof(PDATestProject.Models.PartnerReturnModel);
             // 
             // parcelReturnDataBindingSource
             // 
-            this.parcelReturnDataBindingSource.DataSource = typeof(PDATestProject.Datas.ParcelReturnData);
+            this.parcelReturnDataBindingSource.DataSource = typeof(PDATestProject.Models.ParcelReturnModel);
             // 
             // label6
             // 

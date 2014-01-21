@@ -75,25 +75,26 @@
     <Compile Include="Controls\DefaultControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Datas\DeliveryReturnData.cs" />
-    <Compile Include="Datas\MasterDataReturnData.cs" />
-    <Compile Include="Datas\PartnersReturnData.cs" />
-    <Compile Include="Datas\ReceiveReturnData.cs" />
-    <Compile Include="Datas\PackageReturnData.cs" />
-    <Compile Include="Datas\DefaultReturnData.cs" />
-    <Compile Include="Datas\OpeningHoursData.cs" />
-    <Compile Include="Datas\MasterDataData.cs" />
-    <Compile Include="Datas\HolidayData.cs" />
-    <Compile Include="Datas\DeliveryData.cs" />
-    <Compile Include="Datas\ReturnPreRegReturnData.cs" />
-    <Compile Include="Datas\ReturnReturnData.cs" />
-    <Compile Include="Datas\ReturnPreRegData.cs" />
-    <Compile Include="Datas\ReturnData.cs" />
-    <Compile Include="Datas\ReceiveData.cs" />
-    <Compile Include="Datas\PartnerData.cs" />
+    <Compile Include="Models\ParcelMinimalReturnModel.cs" />
+    <Compile Include="Models\DeliveryReturnModel.cs" />
+    <Compile Include="Models\MasterDataReturnModel.cs" />
+    <Compile Include="Models\PartnersReturnModel.cs" />
+    <Compile Include="Models\ReceiveReturnModel.cs" />
+    <Compile Include="Models\PackageReturnModel.cs" />
+    <Compile Include="Models\DefaultReturnModel.cs" />
+    <Compile Include="Models\OpeningHoursModel.cs" />
+    <Compile Include="Models\MasterDataModel.cs" />
+    <Compile Include="Models\HolidayModel.cs" />
+    <Compile Include="Models\DeliveryModel.cs" />
+    <Compile Include="Models\ReturnPreRegReturnModel.cs" />
+    <Compile Include="Models\ReturnReturnModel.cs" />
+    <Compile Include="Models\ReturnPreRegModel.cs" />
+    <Compile Include="Models\ReturnModel.cs" />
+    <Compile Include="Models\ReceiveModel.cs" />
+    <Compile Include="Models\PartnerModel.cs" />
     <Compile Include="PudoServiceExecutor.cs" />
-    <Compile Include="Datas\PackageData.cs" />
-    <Compile Include="Datas\DefaultData.cs" />
+    <Compile Include="Models\PackageModel.cs" />
+    <Compile Include="Models\DefaultModel.cs" />
     <Compile Include="Controls\DeliveryControl.cs">
       <SubType>UserControl</SubType>
     </Compile>

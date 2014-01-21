@@ -1,17 +1,17 @@
-﻿using PDATestProject.Datas;
+﻿using PDATestProject.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PDATestProject
+namespace PDATestProject.Models
 {
-    public class ReturnPreRegData : DefaultData 
+    public class ReturnPreRegModel : DefaultModel 
     {
-        public ReturnPreRegData()
+        public ReturnPreRegModel()
         {
-            data = new List<ParcelCompositeReturnData>();
+            data = new List<ParcelCompositeReturnModel>();
         }
 
         public string packageCode { get; set; }
@@ -24,7 +24,7 @@ namespace PDATestProject
 
         public DateTime eventCreated { get; set; }
 
-        public List<ParcelCompositeReturnData> data { get; set; }
+        public List<ParcelCompositeReturnModel> data { get; set; }
         
         public override string ToString()
         {
@@ -37,7 +37,7 @@ namespace PDATestProject
             stringValue += "refuseReason:" + refuseReason + Environment.NewLine;
             stringValue += "bagBarcode:" + returnDamaged + Environment.NewLine;
             stringValue += "bagBarcode:" + noLabel + Environment.NewLine;
-            foreach (ParcelCompositeReturnData parcelComposite in data)
+            foreach (ParcelCompositeReturnModel parcelComposite in data)
             {
                 stringValue += "parcelcomposite:" + parcelComposite.Barcode;
             }

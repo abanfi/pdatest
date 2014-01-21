@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PDATestProject
+namespace PDATestProject.Models
 {
-    public class OpeningHoursData : DefaultData 
+    public class OpeningHoursModel : DefaultModel 
     {
         public String mondayFirts { get; set; }
         public String mondaySecond { get; set; }

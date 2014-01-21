@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PDATestProject
+namespace PDATestProject.Models
 {
-    public class MasterDataData : DefaultData 
+    public class MasterDataModel : DefaultModel 
     {
-        public MasterDataData()
+        public MasterDataModel()
         {
             date = DateTime.Now;
         }

@@ -7,55 +7,55 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using PDATestProject.Datas;
+using PDATestProject.Models;
 
 namespace PDATestProject
 {
     public partial class PartnerControl : PDATestProject.Controls.DefaultControl
     {
-        private PartnerData partnerData;
+        private PartnerModel partnerModel;
         
         public PartnerControl()
         {
             InitializeComponent();
-            initBinding(new PartnerData());
+            initBinding(new PartnerModel());
         }
 
-        public override DefaultData getDefaultParams()
+        public override DefaultModel getDefaultParams()
         {
-            return partnerData;
+            return partnerModel;
         }
 
-        private void initBinding(PartnerData data)
+        private void initBinding(PartnerModel data)
         {
-            this.partnerData = data;
+            this.partnerModel = data;
             defaultParametersControl1.bind(data);
             partnerDataBindingSource.DataSource = data;
         }
 
         private void findPartnerByIdButton_Click(object sender, EventArgs e)
         {
-            actualize(PudoServiceExecutor.findPartnerById(partnerData));
+            actualize(PudoServiceExecutor.findPartnerById(partnerModel));
         }
 
         private void findPartnerByFilterButton_Click(object sender, EventArgs e)
         {
-            actualize(PudoServiceExecutor.findPartnerByFilter(partnerData));
+            actualize(PudoServiceExecutor.findPartnerByFilter(partnerModel));
         }
 
         private void countPartnerByFilterButton_Click(object sender, EventArgs e)
         {
-            actualize(PudoServiceExecutor.countPartnerByFilter(partnerData));
+            actualize(PudoServiceExecutor.countPartnerByFilter(partnerModel));
         }
 
-        private void actualize(PartnersReturnData data)
+        private void actualize(PartnersReturnModel data)
         {
             resultMessageTextBox.Text = data.summaryMessage + Environment.NewLine +
                 "----------------------------------------------------------" +
                 "--------------------------------------------------" +
                 Environment.NewLine + resultMessageTextBox.Text;
             partnerReturnDataBindingSource.Clear();
-            foreach (PartnerReturnData partner in data.partners)
+            foreach (PartnerReturnModel partner in data.partners)
             {
                 partnerReturnDataBindingSource.Add(partner);
             }
