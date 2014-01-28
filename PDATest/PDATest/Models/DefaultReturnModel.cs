@@ -11,9 +11,12 @@ namespace PDATestProject.Models
         public DefaultReturnModel()
         {
             summaryMessage = "";
+            watch = System.Diagnostics.Stopwatch.StartNew();
         }
 
         public string summaryMessage { get; set; }
+
+        public System.Diagnostics.Stopwatch watch { get; set; }
 
     }
 }
