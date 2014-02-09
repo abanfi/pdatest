@@ -45,10 +45,7 @@ namespace PDATestProject
 
         private void actualize(DefaultReturnModel data)
         {
-            resultMessageTextBox.Text = data.SummaryMessage + Environment.NewLine +
-                "----------------------------------------------------------" +
-                "--------------------------------------------------" +
-                Environment.NewLine + resultMessageTextBox.Text;
+            resultMessageTextBox.Text = data.SummaryMessage + resultMessageTextBox.Text;
             defaultParametersControl1.generateNewTransactionId();
         }
     }

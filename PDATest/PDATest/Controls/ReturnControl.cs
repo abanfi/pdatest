@@ -46,10 +46,7 @@ namespace PDATestProject
 
         private void actualize(ReturnReturnModel data)
         {
-            resultMessageTextBox.Text = data.SummaryMessage + Environment.NewLine +
-                "----------------------------------------------------------" +
-                "--------------------------------------------------" +
-                Environment.NewLine + resultMessageTextBox.Text;
+            resultMessageTextBox.Text = data.SummaryMessage + Environment.NewLine + resultMessageTextBox.Text;
             returnParcelReturnDataBindingSource.Clear();
             foreach (ReturnParcelReturnModel parcelComposite in data.data)
             {

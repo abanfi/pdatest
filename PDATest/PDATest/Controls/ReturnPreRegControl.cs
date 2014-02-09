@@ -59,10 +59,7 @@ namespace PDATestProject
 
         private void actualize(ReturnPreRegReturnModel data)
         {
-            resultMessageTextBox.Text = data.SummaryMessage + Environment.NewLine +
-                "----------------------------------------------------------" +
-                "--------------------------------------------------" +
-                Environment.NewLine + resultMessageTextBox.Text;
+            resultMessageTextBox.Text = data.SummaryMessage + Environment.NewLine + resultMessageTextBox.Text;
             parcelMinimalReturnDataBindingSource.Clear();
             foreach (ParcelCompositeReturnModel parcelComposite in data.data)
             {

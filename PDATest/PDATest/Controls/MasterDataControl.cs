@@ -107,10 +107,7 @@ namespace PDATestProject
         private void actialize(MasterDataReturnModel result, TabPage page)
         {
             clearAll();
-            resultMessageTextBox.Text = result.SummaryMessage + Environment.NewLine +
-                "----------------------------------------------------------" +
-                "--------------------------------------------------" +
-                Environment.NewLine + resultMessageTextBox.Text;
+            resultMessageTextBox.Text = result.SummaryMessage + resultMessageTextBox.Text;
             resultTabControl.SelectedTab = page;
             defaultParametersControl1.generateNewTransactionId();
         }

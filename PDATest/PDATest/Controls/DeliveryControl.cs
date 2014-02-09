@@ -63,10 +63,7 @@ namespace PDATestProject
 
         private void actualize(DeliveryReturnModel data)
         {
-            resultMessageTextBox.Text = data.SummaryMessage + Environment.NewLine +
-                "---------------------------------------------" +
-                "--------------------------------------------------" + 
-                Environment.NewLine + resultMessageTextBox.Text;
+            resultMessageTextBox.Text = data.SummaryMessage + resultMessageTextBox.Text;
             deliveryParleccMinimumReturnDataBindingSource.Clear();
             foreach (DeliveryParcelMinimumReturnModel parcelComposite in data.datas)
             {

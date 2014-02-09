@@ -50,10 +50,7 @@ namespace PDATestProject
 
         private void actualize(PartnersReturnModel data)
         {
-            resultMessageTextBox.Text = data.SummaryMessage + Environment.NewLine +
-                "----------------------------------------------------------" +
-                "--------------------------------------------------" +
-                Environment.NewLine + resultMessageTextBox.Text;
+            resultMessageTextBox.Text = data.SummaryMessage + resultMessageTextBox.Text;
             partnerReturnDataBindingSource.Clear();
             foreach (PartnerReturnModel partner in data.partners)
             {

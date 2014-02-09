@@ -49,13 +49,14 @@ namespace PDATestProject
             data.watch.Stop();
 
             data.SummaryMessage += data.watch.ElapsedMilliseconds + " ms" + Environment.NewLine;
-            data.SummaryMessage += "*********************************************************************************************";
+            data.SummaryMessage += "**********************************************************" + Environment.NewLine;
             data.SummaryMessage += "Result: " + (response.Result ? "SUCCESS " : "FAILED ") + " Error code: " +
                 response.ErrorCode + " Error msg:" + response.ErrorMessage + Environment.NewLine;
-            data.SummaryMessage += "Results:" + Environment.NewLine + data.ResultPart + Environment.NewLine;
-            data.SummaryMessage += "Request parameters:" + Environment.NewLine + data.ParametersPart + Environment.NewLine;
-            data.SummaryMessage += "*********************************************************************************************";
-            data.SummaryMessage += Environment.NewLine + Environment.NewLine;
+            data.SummaryMessage += "Results:" + Environment.NewLine + 
+                (data.ResultPart.Trim().Equals("") ? "no result or table output" : data.ResultPart) + Environment.NewLine;
+            data.SummaryMessage += Environment.NewLine + data.ParametersPart + Environment.NewLine;
+            data.SummaryMessage += "**********************************************************" + Environment.NewLine;
+            data.SummaryMessage += Environment.NewLine ;
 
             /*data.SummaryMessage += Environment.NewLine + "EXECUTION:" + (DateTime.Now.ToString("yyyy.MM.dd HH:mm:ss")) +
                 Environment.NewLine + "EXECUTION TIME (ms): " + data.watch.ElapsedMilliseconds + Environment.NewLine + 
@@ -75,7 +76,7 @@ namespace PDATestProject
                 FindParcelForDeliveryRequest request = (FindParcelForDeliveryRequest)initDefaultParameters(
                     new FindParcelForDeliveryRequest(), deliveryModel);
                 request.Barcode = deliveryModel.packageCode;
-
+                
                 FindParcelForDeliveryResponse response = pudoClient.FindParcelForDelivery(request);
 
                 returnModel = (DeliveryReturnModel)createSummaryMessage(returnModel, response);
@@ -161,8 +162,8 @@ namespace PDATestProject
                 request.IdentificationType = deliveryModel.refuseIdType;
                 request.IdentifyDocumentNo = deliveryModel.refuseDocNo;
                 request.RefuseReason = deliveryModel.reason;
-                //TODO signaturedata
-
+                request.SignatureData = getTestSigniture();
+                           
                 PostRefuseDeliveryResponse response = pudoClient.PostRefuseDelivery(request);
 
                 //create return object with base properties
@@ -176,6 +177,17 @@ namespace PDATestProject
             {
                 return (DeliveryReturnModel)returnErrorMessage(new DeliveryReturnModel(), e);
             }
+        }
+
+        private static SignatureData getTestSigniture()
+        {
+            SignatureData data = new SignatureData();
+            data.Filename = "test.txt";
+            String str = "test";
+            byte[] bytes = new byte[str.Length * sizeof(char)];
+            System.Buffer.BlockCopy(str.ToCharArray(), 0, bytes, 0, bytes.Length);
+            data.Data = bytes;
+            return data;
         }
 
         internal static DeliveryReturnModel postDelivery(DeliveryModel deliveryModel)
@@ -200,7 +212,7 @@ namespace PDATestProject
                 request.IdentificationType = deliveryModel.refuseIdType;
                 request.IdentifyDocumentNo = deliveryModel.refuseDocNo;
                 request.PaymentMethod = deliveryModel.reason;
-                //TODO signaturedata
+                request.SignatureData = getTestSigniture();
 
                 PostDeliveryResponse response = pudoClient.PostDelivery(request);
 
@@ -246,7 +258,7 @@ namespace PDATestProject
 
         private static string holidaysToString(Holidays holidays)
         {
-            string holidayString = Environment.NewLine;
+            string holidayString = "";
             for (int i = 0; i < holidays.Entries.Length; i++)
             {
                 holidayString += Environment.NewLine + "Holiday" + (i + 1) + ": ";
@@ -591,7 +603,7 @@ namespace PDATestProject
 
         private static string openingHoursToString(OpeningHours openingHours)
         {
-            string result = Environment.NewLine;
+            string result = "";
             // Monday to string
             result += openingHoursEntryToString("Monday", openingHours.Monday);
             // Tuesday to string
@@ -928,7 +940,7 @@ namespace PDATestProject
                 //initialize custom values
                 if (response.Result)
                 {
-                    returnModel.ResultPart += Environment.NewLine + "Result count: " + response.PartnerCount;
+                    returnModel.ResultPart += "Result count: " + response.PartnerCount;
                 }
                 return (PartnersReturnModel)createSummaryMessage(returnModel, response);
             }
@@ -1053,7 +1065,8 @@ namespace PDATestProject
 
         private static string parcelResultsToString(ParcelResult[] results)
         {
-            string resultString = Environment.NewLine + "Parcel Results:" + Environment.NewLine;
+            string resultString = "";
+            //string resultString = Environment.NewLine + "Parcel Results:" + Environment.NewLine;
             foreach (ParcelResult result in results)
             {
                 resultString += result.Barcode + " - " + result.ActualStatus + Environment.NewLine;
@@ -1261,7 +1274,7 @@ namespace PDATestProject
                 //initialize custom values
                 if (response.Result)
                 {
-                    returnModel.ResultPart += Environment.NewLine + "Parcel result: "
+                    returnModel.ResultPart +=  "Parcel result: "
                         + response.ParcelResult.Barcode + " : " + response.ParcelResult.ActualStatus;
                 }
                 return  (ReturnPreRegReturnModel)createSummaryMessage(returnModel, response);
@@ -1304,7 +1317,7 @@ namespace PDATestProject
                 //initialize custom values
                 if (response.Result)
                 {
-                    returnModel.ResultPart += Environment.NewLine + "Parcel result: " +
+                    returnModel.ResultPart += "Parcel result: " +
                         response.ParcelResult.Barcode + " : " + response.ParcelResult.ActualStatus;
                 }
                 return (ReturnPreRegReturnModel)createSummaryMessage(returnModel, response);
