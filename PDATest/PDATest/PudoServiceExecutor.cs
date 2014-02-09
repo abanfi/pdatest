@@ -15,8 +15,10 @@ namespace PDATestProject
 
         private static DefaultReturnModel initDefaultReturn(DefaultReturnModel returnModel, DefaultModel data, string requestName)
         {
-            returnModel.summaryMessage = "Request:" + Environment.NewLine + requestName + Environment.NewLine;
-            returnModel.summaryMessage += data.ToString();
+            returnModel.SummaryMessage = "REQUEST: " + requestName + " at " +
+                (DateTime.Now.ToString("yyyy.MM.dd HH:mm:ss")) + " completed in ";
+            //returnModel.SummaryMessage = "Request:" + Environment.NewLine + requestName + Environment.NewLine;
+            returnModel.ParametersPart += data.ToString();
             returnModel.watch = System.Diagnostics.Stopwatch.StartNew();
 
             return returnModel;
@@ -46,10 +48,19 @@ namespace PDATestProject
         {
             data.watch.Stop();
 
-            data.summaryMessage += Environment.NewLine + "EXECUTION:" + (DateTime.Now.ToString("yyyy.MM.dd HH:mm:ss")) +
+            data.SummaryMessage += data.watch.ElapsedMilliseconds + " ms" + Environment.NewLine;
+            data.SummaryMessage += "*********************************************************************************************";
+            data.SummaryMessage += "Result: " + (response.Result ? "SUCCESS " : "FAILED ") + " Error code: " +
+                response.ErrorCode + " Error msg:" + response.ErrorMessage + Environment.NewLine;
+            data.SummaryMessage += "Results:" + Environment.NewLine + data.ResultPart + Environment.NewLine;
+            data.SummaryMessage += "Request parameters:" + Environment.NewLine + data.ParametersPart + Environment.NewLine;
+            data.SummaryMessage += "*********************************************************************************************";
+            data.SummaryMessage += Environment.NewLine + Environment.NewLine;
+
+            /*data.SummaryMessage += Environment.NewLine + "EXECUTION:" + (DateTime.Now.ToString("yyyy.MM.dd HH:mm:ss")) +
                 Environment.NewLine + "EXECUTION TIME (ms): " + data.watch.ElapsedMilliseconds + Environment.NewLine + 
                 "RESULT: " + (response.Result ? "SUCCESS " : "FAILED ") + Environment.NewLine + "ERROR CODE: " +
-                response.ErrorCode + Environment.NewLine + "ERROR MESSAGE: " + response.ErrorMessage;
+                response.ErrorCode + Environment.NewLine + "ERROR MESSAGE: " + response.ErrorMessage;*/
 
             return data;
         }
@@ -116,12 +127,11 @@ namespace PDATestProject
                 PostCancelDeliveryResponse response = pudoClient.PostCancelDelivery(request);
 
                 //create return object with base properties
-                returnModel = (DeliveryReturnModel)createSummaryMessage(returnModel, response);
                 if (response.Result)
                 {
-                    returnModel.summaryMessage += parcelResultsToString(response.ParcelResults);
+                    returnModel.ResultPart += parcelResultsToString(response.ParcelResults);
                 }
-                return returnModel;
+                return (DeliveryReturnModel)createSummaryMessage(returnModel, response);
             }
             catch (Exception e)
             {
@@ -156,12 +166,11 @@ namespace PDATestProject
                 PostRefuseDeliveryResponse response = pudoClient.PostRefuseDelivery(request);
 
                 //create return object with base properties
-                returnModel = (DeliveryReturnModel)createSummaryMessage(returnModel, response);
                 if (response.Result)
                 {
-                    returnModel.summaryMessage += parcelResultsToString(response.ParcelResults);
+                    returnModel.ResultPart += parcelResultsToString(response.ParcelResults);
                 }
-                return returnModel;
+                return (DeliveryReturnModel)createSummaryMessage(returnModel, response);
             }
             catch (Exception e)
             {
@@ -196,12 +205,11 @@ namespace PDATestProject
                 PostDeliveryResponse response = pudoClient.PostDelivery(request);
 
                 //create return object with base properties
-                returnModel = (DeliveryReturnModel)createSummaryMessage(returnModel, response);
                 if (response.Result)
                 {
-                    returnModel.summaryMessage += parcelResultsToString(response.ParcelResults);
+                    returnModel.ResultPart += parcelResultsToString(response.ParcelResults);
                 }
-                return returnModel;
+                return (DeliveryReturnModel)createSummaryMessage(returnModel, response);
             }
             catch (Exception e)
             {
@@ -223,15 +231,12 @@ namespace PDATestProject
                 //execute service call
                 GetHolidaysResponse response = pudoClient.GetHolidays(request);
 
-                //create return object with base properties
-                returnModel = createSummaryMessage(returnModel, response);
-
                 //initialize custom values 
                 if (response.Result)
                 {
-                    returnModel.summaryMessage += holidaysToString(response.Holidays);
+                    returnModel.ResultPart += holidaysToString(response.Holidays);
                 }
-                return returnModel;
+                return createSummaryMessage(returnModel, response);
             }
             catch (Exception e)
             {
@@ -540,17 +545,16 @@ namespace PDATestProject
                 FindDeletedParcelSinceResponse response = pudoClient.FindDeletedParcelSince(request);
 
                 //create return object with base properties
-                returnModel = (MasterDataReturnModel)createSummaryMessage(returnModel, response);
                 if (response.Result)
                 {
-                    returnModel.summaryMessage += Environment.NewLine + "Result list:" + Environment.NewLine;
+                    returnModel.SummaryMessage += Environment.NewLine + "Result list:" + Environment.NewLine;
                     foreach (string barcode in response.BarcodeList)
                     {
-                        returnModel.summaryMessage += barcode + Environment.NewLine;
+                        returnModel.ResultPart += barcode + Environment.NewLine;
                     }
                 }
 
-                return returnModel;
+                return (MasterDataReturnModel)createSummaryMessage(returnModel, response);
             }
             catch (Exception e)
             {
@@ -572,15 +576,12 @@ namespace PDATestProject
                 //execute service call
                 GetOpeningHoursResponse response = pudoClient.GetOpeningHours(request);
 
-                //create return object with base properties
-                returnModel = (DefaultReturnModel)createSummaryMessage(returnModel, response);
-
                 //initialize custom values
                 if (response.Result)
                 {
-                    returnModel.summaryMessage += openingHoursToString(response.OpeningHours);
+                    returnModel.ResultPart += openingHoursToString(response.OpeningHours);
                 }
-                return returnModel;
+                return (DefaultReturnModel)createSummaryMessage(returnModel, response);
             }
             catch (Exception e)
             {
@@ -784,7 +785,8 @@ namespace PDATestProject
         private static DefaultReturnModel returnErrorMessage(DefaultReturnModel returnModel, Exception e)
         {
             returnModel.watch.Stop();
-            returnModel.summaryMessage = "ERROR: " + e.Message + Environment.NewLine + 
+            
+            returnModel.SummaryMessage = "ERROR: " + e.Message + Environment.NewLine +
                 "EXECUTION TIME (ms):" + returnModel.watch.ElapsedMilliseconds;
 
             return returnModel;
@@ -923,15 +925,12 @@ namespace PDATestProject
                 //execute service call
                 CountPartnerByFilterResponse response = pudoClient.CountPartnerByFilter(request);
 
-                //create return object with base properties
-                returnModel = (PartnersReturnModel)createSummaryMessage(returnModel, response);
-
                 //initialize custom values
                 if (response.Result)
                 {
-                    returnModel.summaryMessage += Environment.NewLine + "Result count: " + response.PartnerCount;
+                    returnModel.ResultPart += Environment.NewLine + "Result count: " + response.PartnerCount;
                 }
-                return returnModel;
+                return (PartnersReturnModel)createSummaryMessage(returnModel, response);
             }
             catch (Exception e)
             {
@@ -1040,14 +1039,11 @@ namespace PDATestProject
                 //execute service call
                 PostReceiveResponse response = pudoClient.PostReceive(request);
 
-                //create return object with base properties
-                returnModel = (ReceiveReturnModel)createSummaryMessage(returnModel, response);
-
                 if (response.Result)
                 {
-                    returnModel.summaryMessage += parcelResultsToString(response.ParcelResults);
+                    returnModel.ResultPart += parcelResultsToString(response.ParcelResults);
                 }
-                return returnModel;
+                return (ReceiveReturnModel)createSummaryMessage(returnModel, response);
             }
             catch (Exception e)
             {
@@ -1227,7 +1223,7 @@ namespace PDATestProject
                 //initialize custom values
                 if (response.Result)
                 {
-                    returnModel.summaryMessage += Environment.NewLine + "Parcel result: " +
+                    returnModel.SummaryMessage += Environment.NewLine + "Parcel result: " +
                         response.ParcelResult.Barcode + " : " + response.ParcelResult.ActualStatus;
                 }
                 return returnModel;
@@ -1261,17 +1257,14 @@ namespace PDATestProject
 
                 //execute service call
                 PostCustomerReturnPreRegisteredResponse response = pudoClient.PostCustomerReturnPreRegistered(request);
-
-                //create return object with base properties
-                returnModel = (ReturnPreRegReturnModel)createSummaryMessage(returnModel, response);
-
+              
                 //initialize custom values
                 if (response.Result)
                 {
-                    returnModel.summaryMessage += Environment.NewLine + "Parcel result: "
+                    returnModel.ResultPart += Environment.NewLine + "Parcel result: "
                         + response.ParcelResult.Barcode + " : " + response.ParcelResult.ActualStatus;
                 }
-                return returnModel;
+                return  (ReturnPreRegReturnModel)createSummaryMessage(returnModel, response);
             }
             catch (Exception e)
             {
@@ -1305,20 +1298,16 @@ namespace PDATestProject
                     break;
                 }
 
-
                 //execute service call
                 PostCustomerReturnUnexpectedResponse response = pudoClient.PostCustomerReturnUnexpected(request);
-
-                //create return object with base properties
-                returnModel = (ReturnPreRegReturnModel)createSummaryMessage(returnModel, response);
 
                 //initialize custom values
                 if (response.Result)
                 {
-                    returnModel.summaryMessage += Environment.NewLine + "Parcel result: " +
+                    returnModel.ResultPart += Environment.NewLine + "Parcel result: " +
                         response.ParcelResult.Barcode + " : " + response.ParcelResult.ActualStatus;
                 }
-                return returnModel;
+                return (ReturnPreRegReturnModel)createSummaryMessage(returnModel, response);
             }
             catch (Exception e)
             {

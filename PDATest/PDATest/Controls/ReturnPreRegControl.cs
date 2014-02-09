@@ -59,7 +59,7 @@ namespace PDATestProject
 
         private void actualize(ReturnPreRegReturnModel data)
         {
-            resultMessageTextBox.Text = data.summaryMessage + Environment.NewLine +
+            resultMessageTextBox.Text = data.SummaryMessage + Environment.NewLine +
                 "----------------------------------------------------------" +
                 "--------------------------------------------------" +
                 Environment.NewLine + resultMessageTextBox.Text;

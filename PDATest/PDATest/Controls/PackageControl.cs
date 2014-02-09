@@ -48,7 +48,7 @@ namespace PDATestProject
 
         private void actualize(PackageReturnModel data)
         {
-            resultMessageTextBox.Text = data.summaryMessage + Environment.NewLine +
+            resultMessageTextBox.Text = data.SummaryMessage + Environment.NewLine +
                 "----------------------------------------------------------" +
                 "--------------------------------------------------" +
                 Environment.NewLine + resultMessageTextBox.Text;

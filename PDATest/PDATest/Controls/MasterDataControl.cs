@@ -107,7 +107,7 @@ namespace PDATestProject
         private void actialize(MasterDataReturnModel result, TabPage page)
         {
             clearAll();
-            resultMessageTextBox.Text = result.summaryMessage + Environment.NewLine +
+            resultMessageTextBox.Text = result.SummaryMessage + Environment.NewLine +
                 "----------------------------------------------------------" +
                 "--------------------------------------------------" +
                 Environment.NewLine + resultMessageTextBox.Text;
