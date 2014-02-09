@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService.Messages" elementFormDefault="qualified" targetNamespace="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService.Messages" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://tsx.lapker.hu/pudohupda/PdaPudoService?xsd=xsd3" namespace="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.DTO" />
-  <xs:import schemaLocation="http://tsx.lapker.hu/pudohupda/PdaPudoService?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="https://tsx.lapker.hu/pudohupda/PdaPudoService?xsd=xsd3" namespace="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.DTO" />
+  <xs:import schemaLocation="https://tsx.lapker.hu/pudohupda/PdaPudoService?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
   <xs:complexType name="FindInsertedDictionarySinceRequest">
     <xs:complexContent mixed="false">
       <xs:extension base="tns:BaseRequest">

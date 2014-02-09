@@ -240,21 +240,21 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Service References\PDAPudoService\PdaPudoService.wsdl" />
-    <None Include="Service References\PDAPudoService\PdaPudoService.xsd">
+    <None Include="Service References\PDAPudoService\PdaPudoService2.wsdl" />
+    <None Include="Service References\PDAPudoService\PdaPudoService21.wsdl" />
+    <None Include="Service References\PDAPudoService\PdaPudoService5.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\PDAPudoService\PdaPudoService1.wsdl" />
-    <None Include="Service References\PDAPudoService\PdaPudoService1.xsd">
+    <None Include="Service References\PDAPudoService\PdaPudoService51.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\PDAPudoService\PdaPudoService2.xsd">
+    <None Include="Service References\PDAPudoService\PdaPudoService52.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\PDAPudoService\PdaPudoService3.xsd">
+    <None Include="Service References\PDAPudoService\PdaPudoService53.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\PDAPudoService\PdaPudoService4.xsd">
+    <None Include="Service References\PDAPudoService\PdaPudoService54.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\PDAPudoService\PDATestProject.PDAPudoService.CountPartnerByFilterResponse.datasource">

@@ -605,6 +605,7 @@ namespace PDATestProject
             result += openingHoursEntryToString("Saturday", openingHours.Saturday);
             // Sunday to string
             result += openingHoursEntryToString("Sunday", openingHours.Sunday);
+
             return result;
         }
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService" elementFormDefault="qualified" targetNamespace="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://tsx.lapker.hu/pudohupda/PdaPudoService?xsd=xsd2" namespace="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService.Messages" />
+  <xs:import schemaLocation="https://tsx.lapker.hu/pudohupda/PdaPudoService?xsd=xsd2" namespace="http://Lapker.Pudo.PudoService.Interface.BE.PdaPudo.PdaPudoService.Messages" />
   <xs:element name="FindInsertedDictionarySince">
     <xs:complexType>
       <xs:sequence>

@@ -19,16 +19,16 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://tsx.lapker.hu/pudohupda/PdaPudoService?wsdl" Protocol="http" SourceId="1" />
+    <MetadataSource Address="https://tsx.lapker.hu/pudohupda/PdaPudoService?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="PdaPudoService.xsd" MetadataType="Schema" ID="0ac77d32-20f1-4ff9-bc7b-55403810a468" SourceId="1" SourceUrl="http://tsx.lapker.hu/pudohupda/PdaPudoService?xsd=xsd3" />
-    <MetadataFile FileName="PdaPudoService.wsdl" MetadataType="Wsdl" ID="ce8fd460-5838-4c1e-a5bf-e4f45e9bbe03" SourceId="1" SourceUrl="http://tsx.lapker.hu/pudohupda/PdaPudoService?wsdl" />
-    <MetadataFile FileName="PdaPudoService1.xsd" MetadataType="Schema" ID="9e23e4ce-9238-418f-be1c-96aae506e705" SourceId="1" SourceUrl="http://tsx.lapker.hu/pudohupda/PdaPudoService?xsd=xsd1" />
-    <MetadataFile FileName="PdaPudoService1.wsdl" MetadataType="Wsdl" ID="2fb011b3-edd0-428b-bc09-12e79a36ac27" SourceId="1" SourceUrl="http://tsx.lapker.hu/pudohupda/PdaPudoService?wsdl=wsdl0" />
-    <MetadataFile FileName="PdaPudoService2.xsd" MetadataType="Schema" ID="795a3499-b501-4eab-8715-e6d07255f6d2" SourceId="1" SourceUrl="http://tsx.lapker.hu/pudohupda/PdaPudoService?xsd=xsd0" />
-    <MetadataFile FileName="PdaPudoService3.xsd" MetadataType="Schema" ID="799cb6a0-e04b-4da0-b0a1-a98a58f12430" SourceId="1" SourceUrl="http://tsx.lapker.hu/pudohupda/PdaPudoService?xsd=xsd4" />
-    <MetadataFile FileName="PdaPudoService4.xsd" MetadataType="Schema" ID="2ac15a8b-d716-4879-bfc4-20c63b6d70f6" SourceId="1" SourceUrl="http://tsx.lapker.hu/pudohupda/PdaPudoService?xsd=xsd2" />
+    <MetadataFile FileName="PdaPudoService2.wsdl" MetadataType="Wsdl" ID="245bc5c5-314f-483f-b0a6-853173e43664" SourceId="1" SourceUrl="https://tsx.lapker.hu/pudohupda/PdaPudoService?wsdl" />
+    <MetadataFile FileName="PdaPudoService5.xsd" MetadataType="Schema" ID="373373e0-2e6c-4d76-98ea-a5cdd0692e76" SourceId="1" SourceUrl="https://tsx.lapker.hu/pudohupda/PdaPudoService?xsd=xsd3" />
+    <MetadataFile FileName="PdaPudoService51.xsd" MetadataType="Schema" ID="d2bcaf87-944a-49b3-a361-d0efcfe02034" SourceId="1" SourceUrl="https://tsx.lapker.hu/pudohupda/PdaPudoService?xsd=xsd4" />
+    <MetadataFile FileName="PdaPudoService52.xsd" MetadataType="Schema" ID="17b164d5-bbb9-4d4d-8b20-4e7cccabba4d" SourceId="1" SourceUrl="https://tsx.lapker.hu/pudohupda/PdaPudoService?xsd=xsd2" />
+    <MetadataFile FileName="PdaPudoService53.xsd" MetadataType="Schema" ID="3f67828e-09d4-4566-b2d5-61c7225eb301" SourceId="1" SourceUrl="https://tsx.lapker.hu/pudohupda/PdaPudoService?xsd=xsd1" />
+    <MetadataFile FileName="PdaPudoService21.wsdl" MetadataType="Wsdl" ID="431d4c25-943e-4489-aa7f-30f2bcf4b1ea" SourceId="1" SourceUrl="https://tsx.lapker.hu/pudohupda/PdaPudoService?wsdl=wsdl0" />
+    <MetadataFile FileName="PdaPudoService54.xsd" MetadataType="Schema" ID="b1fc2f1b-3b86-49d0-87f5-3373a5a1f8aa" SourceId="1" SourceUrl="https://tsx.lapker.hu/pudohupda/PdaPudoService?xsd=xsd0" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
